@@ -41,7 +41,7 @@ class ListController extends BaseController{
         $type=I('get.type', 'user');
         $pid=I('get.pid', null);
         $id=I('get.id', null);
-        if(!in_array($type,array('user'))) $this->error('',U('Index/index'));
+        if(!in_array($type,array('user', 'banner'))) $this->error('',U('Index/index'));
         $tname=$type;
 
         if (null !== $id) {
@@ -56,7 +56,13 @@ class ListController extends BaseController{
         $current=cookie('current');
         cookie('current',null);
         $this->assign('current',$current);
-        $this->display();
+
+        if ('user' == $type) {
+            $this->display();
+        }
+        else {
+            $this->display($type);
+        }
     }
 
     public function category(){
@@ -144,7 +150,7 @@ class ListController extends BaseController{
 
     public function save(){
         $type=I('post.type');
-        if(!in_array($type,array('user')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('user', 'banner')))$this->error('',U('Index/index'));
         $tname=$type;
         $jump=cookie("__CURRENTURL__");
         $db=D($tname);
@@ -454,7 +460,7 @@ class ListController extends BaseController{
     }
     public function del(){
         $type=I('get.type');
-        if(!in_array($type,array('user')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('user', 'banner')))$this->error('',U('Index/index'));
         $tname=$type;
         $id=I('get.id','');
         $jump=cookie('__CURRENTURL__');

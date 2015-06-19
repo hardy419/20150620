@@ -2,7 +2,8 @@ body {
 padding-top: 10px;
 padding-bottom: 40px;
 font-size:14px;
-
+position: relative;
+left: 10px;
 }
 .sidebar-nav {
 padding: 9px 0;
@@ -39,8 +40,10 @@ a{color:#000}
     top: 0;
 }
 a:hover,a:focus{color:#000;}
+/*
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input,.pagination ul > li > a, .pagination ul > li > span,.btn{border-radius:0px !important;}
-.nav li a:hover,.nav-list > .active > a, .nav-list > .active > a:hover, .nav-list > .active > a:focus{background-color:#ffff00;color:#000;}
+*/
+.nav li a:hover,.nav-list > .active > a, .nav-list > .active > a:hover, .nav-list > .active > a:focus{background-color:#ff4000;color:#fff;}
 .nav-list > li > a,a{box-shadow:none;text-shadow:none;}
 
 span.error {
@@ -57,3 +60,48 @@ span.error {
 .colorPicker-container a:hover{border-bottom:1px solid #000;border-top:1px solid #000;}
 .colorPicker-preview{color:#FFF;display:inline-block;height:30px;line-height:30px;width:60px;}
 .colorPicker-title{height:30px;overflow:hidden;}
+
+h3 {
+  font-family: '微軟正黑體','新細明體';
+}
+
+.admin-name-div {
+  float: left;
+  font-weight: bold;
+}
+.logout-div {
+  float: right;
+}
+.logout-div+div {
+  clear: both;
+}
+.change-password-div {
+  margin-bottom: 30px;
+}
+.change-password-div a {
+  color: #0000ff;
+  text-decoration: underline;
+}
+
+.logo-img {
+  position: relative;
+  left: 20px;
+}
+
+.frame-box-div {
+  border: 1px solid #eee;
+  margin: 0;
+  padding: 20px;
+  
+}
+.form-horizontal .control-label {
+  text-align: left;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+button[type="submit"],button[type="button"] {
+  width: 80px;
+}

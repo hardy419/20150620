@@ -36,6 +36,29 @@ class ListController extends BaseController{
             $this->display('view'.$type);
         }
     }
+
+    public function admin() {
+        $type=I('get.type', 'user');
+        $pid=I('get.pid', null);
+        $id=I('get.id', null);
+        if(!in_array($type,array('user'))) $this->error('',U('Index/index'));
+        $tname=$type;
+
+        if (null !== $id) {
+            $this->_edit ($tname, $id);
+        }
+        else {
+            $this->_select($tname);
+            cookie("__CURRENTURL__",__SELF__);
+        }
+        $this->assign('type',$type);
+
+        $current=cookie('current');
+        cookie('current',null);
+        $this->assign('current',$current);
+        $this->display();
+    }
+
     public function category(){
         $type=I('get.type');
         if(!in_array($type,array('newscategory','industry','forget'))) $this->error('',U('Index/index'));
@@ -121,7 +144,7 @@ class ListController extends BaseController{
 
     public function save(){
         $type=I('post.type');
-        if(!in_array($type,array('banner','catagory','page','project','projectphoto')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('user')))$this->error('',U('Index/index'));
         $tname=$type;
         $jump=cookie("__CURRENTURL__");
         $db=D($tname);
@@ -130,6 +153,7 @@ class ListController extends BaseController{
             $this->error($db->getError(),$jump);
         }else{
             $id=I('post.id','');
+            // File uploading
             foreach($_FILES as $key=>$file) {
                 if(empty($file['name'])) unset($_FILES[$key]);
             }
@@ -150,18 +174,36 @@ class ListController extends BaseController{
             
                 }
             }
+            // Retrieve database fields
             $fields=$db->getDbFields();
+            // Special cases
             $date=I('post.date');
             if(in_array('date',$fields)){
                 if(empty($date))$db->date=date('Y-m-d');
                 else $db->date=$date;
             }
+            $pwd = I('post.password', null);
+            if (null !== $pwd && in_array('password',$fields)) {
+                $db->password = md5 ($pwd);
+            }
+            if (in_array('status',$fields)) {
+                $status = I('post.status', null);
+                if (null !== $status) {
+                    $db->status = 1;
+                }
+                else {
+                    $db->status = 0;
+                }
+            }
+
+            // Add or Edit
             if(!empty($id)){
                 $query=$db->save();
             }else{
                 $query=$db->add();
                 $id = $query;
             }
+
             cookie('current',$id);
             if ($query)$this->success('Action Success',$jump);
             else $this->error('Action Failure',$jump);
@@ -412,7 +454,7 @@ class ListController extends BaseController{
     }
     public function del(){
         $type=I('get.type');
-        if(!in_array($type,array('catagory','project','projectphoto')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('user')))$this->error('',U('Index/index'));
         $tname=$type;
         $id=I('get.id','');
         $jump=cookie('__CURRENTURL__');

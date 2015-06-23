@@ -41,11 +41,14 @@ class ListController extends BaseController{
         $type=I('get.type', 'user');
         $pid=I('get.pid', null);
         $id=I('get.id', null);
-        if(!in_array($type,array('user', 'banner'))) $this->error('',U('Index/index'));
+        if(!in_array($type,array('user', 'banner','page'))) $this->error('',U('Index/index'));
         $tname=$type;
 
         if (null !== $id) {
             $this->_edit ($tname, $id);
+            if ('page' == $type) {
+                cookie("__CURRENTURL__",__SELF__);
+            }
         }
         else {
             $this->_select($tname);
@@ -149,8 +152,9 @@ class ListController extends BaseController{
     }
 
     public function save(){
+        if(''==I('post.id','') || 0==I('post.id','')) unset($_POST['id']);
         $type=I('post.type');
-        if(!in_array($type,array('user', 'banner')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('user', 'banner','page')))$this->error('非法操作類型',U('Index/index'));
         $tname=$type;
         $jump=cookie("__CURRENTURL__");
         $db=D($tname);
@@ -212,7 +216,7 @@ class ListController extends BaseController{
 
             cookie('current',$id);
             if ($query)$this->success('Action Success',$jump);
-            else $this->error('Action Failure',$jump);
+            else $this->error('Action Failure'.'('.$db->getLastSql().')',$jump);
         }
     }
     public function savePhotos(){
@@ -433,17 +437,14 @@ class ListController extends BaseController{
         else $this->error('Delete Failure',$jump);
     }
     public function delBanner(){
-        $type=I('get.type');
-        if(!in_array($type,array('banner')))$this->error('',U('Index/index'));
-        $tname=$type;
-        $id=I('get.id','');
-        $sid=M($tname)->where(array('id'=>$id))->getField('sid');
+        $tname='page';
+        $id=I('get.id',null);
         $jump=cookie('__CURRENTURL__');
-        if(empty($id) || ($sid < 80001 || $sid >= 90000))$this->error('Delete Failure',$jump);
+        if(null===$id) $this->error('移除失敗',$jump);
         
-        $query=M($tname)->where(array('id'=>$id))->delete();
-        if ($query)$this->success('Delete Success',$jump);
-        else $this->error('Delete Failure',$jump);
+        $query=M($tname)->where(array('id'=>$id))->setField('banner','');
+        if ($query)$this->success('移除成功',$jump);
+        else $this->error('移除失敗',$jump);
     }
 
     public function checkChild($type,$id,$jump){
@@ -460,7 +461,7 @@ class ListController extends BaseController{
     }
     public function del(){
         $type=I('get.type');
-        if(!in_array($type,array('user', 'banner')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('user', 'banner','page')))$this->error('',U('Index/index'));
         $tname=$type;
         $id=I('get.id','');
         $jump=cookie('__CURRENTURL__');

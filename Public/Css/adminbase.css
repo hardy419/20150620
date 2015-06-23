@@ -15,11 +15,11 @@ overflow:visiable;
 }
 .container{margin:0px 10px;}
 a{color:#000}
-.nav-header{font-size:14px;}
+.nav-header{font-size:16px;}
 .span9{width:1160px;}
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container{width:1480px;}
 .table th, .table td{padding:8px 4px;}
-.form-horizontal .control-label{width:100px;}
+.form-horizontal .control-label{width:100px;font-weight:bold}
 .form-horizontal .controls{margin-left:110px}
 
 #console{height:400px;background:#000;color:#fff;width:97%;font-size:12px;overflow:scroll;padding:20px;}
@@ -63,6 +63,7 @@ span.error {
 
 h3 {
   font-family: '微軟正黑體','新細明體';
+  font-size: 22px;
 }
 
 .admin-name-div {
@@ -78,9 +79,14 @@ h3 {
 .change-password-div {
   margin-bottom: 30px;
 }
-.change-password-div a {
+.change-password-div a,.fileinput-image~a {
   color: #0000ff;
   text-decoration: underline;
+}
+.fileinput-image~a {
+  position: relative;
+  left: 10px;
+  top: 20px;
 }
 
 .logo-img {

@@ -76,7 +76,7 @@
 	               <volist name="list" id="vo">
 	                <tr <if condition="$current eq $vo['id']">class="warning"</if>>
 	                    <td>{$vo.account}</td>
-	                    <td>{$vo.status}</td>
+	                    <td><if condition="$vo['status'] eq '1'"><img style="position:relative;left:4px" src="{:SITE_PATH}Public/Img/Buy/active.png" /></if></td>
 	                    <td>{$vo.login_count}</td>
 	                    <td>
 	                    <a href="{:U('admin',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid))}">編輯</a>&nbsp;｜&nbsp;

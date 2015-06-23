@@ -79,6 +79,9 @@ h3 {
 .change-password-div {
   margin-bottom: 30px;
 }
+li+.nav-header {
+  margin-top: 30px !important;
+}
 .change-password-div a,.fileinput-image~a {
   color: #0000ff;
   text-decoration: underline;

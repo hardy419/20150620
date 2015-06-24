@@ -53,25 +53,17 @@ INSERT INTO `buy_banner` (`id`, `title`, `sid`, `url`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buy_catagory`
+-- Table structure for table `buy_category`
 --
 
-CREATE TABLE IF NOT EXISTS `buy_catagory` (
+CREATE TABLE IF NOT EXISTS `buy_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
-  `type` enum('項目','備用1','備用2') NOT NULL,
+  `type` enum('地區','行業','場所類別') NOT NULL DEFAULT '地區',
+  `district` varchar(64) NOT NULL,
+  `position` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
-
---
--- Dumping data for table `buy_catagory`
---
-
-INSERT INTO `buy_catagory` (`id`, `name`, `type`) VALUES
-(7, 'Media Awareness', ''),
-(8, 'Branding', ''),
-(9, 'Event', ''),
-(10, 'Digital', '');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

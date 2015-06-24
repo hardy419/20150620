@@ -12,21 +12,35 @@ class CommonController extends Controller {
       }
       public function password(){
           if(!$this->checkStatus()){
-              $this->error('Please login');
+              $this->error('請登錄');
           }else{
+              $this->assign ('user', I('get.user',''));
               $this->display('changepassword');
           }
       }
       public function changePassword(){
           if(!$this->checkStatus()){
-              $this->error('Please login');
+              $this->error('請登錄');
           }else{
-              $this->success('Password changed!');
+              $map=array();
+              $map['status']=1;
+              if ('' === I('post.user', '')) {
+                $map['account']=$_SESSION['loginUserName'];
+              }
+              else {
+                $map['account']=I('post.user');
+              }
+
+              $userdb = M('user');
+              $cpwd = $userdb->where($map)->getField('password');
+              if (md5($_POST['cpwd']) == $cpwd) {
+                  $userdb->where($map)->setField('password', md5($_POST['pwd']));
+                  $this->success('密碼已修改');
+              }
+              else {
+                  $this->error('當前密碼錯誤');
+              }
           }
-          $map=array();
-          $map['status']=1;
-          $map['account']=$_SESSION['loginUserName'];
-          M('user')->where($map)->setField('password', md5($_POST['pwd']));
       }
       public  function checkStatus(){
       	 $loginMarked=md5(C('AUTH_TOKEN'));
@@ -60,13 +74,13 @@ class CommonController extends Controller {
       public function checkLogin(){
           $verify=$_POST['seccode'];
           if(empty($_POST['account'])){
-              $this->error('Please Input Account!');
+              $this->error('請輸入用戶名！');
           }else if(empty($_POST['password'])){
-              $this->error('Please Input Password!');
+              $this->error('請輸入密碼！');
           }else if(empty($verify)){
-              $this->error('Please Input Verify!');
+              $this->error('請輸入驗證碼！');
           }else if(!$this->check_verify($verify)){
-              $this->error('The Verify is not correct!');
+              $this->error('驗證碼輸入有誤！');
           }
           
           $map=array();
@@ -75,11 +89,11 @@ class CommonController extends Controller {
           $authInfo=M('user')->where($map)->find();
           
           if($authInfo==false){
-              $this->error('Account or Password not correct！');
+              $this->error('用戶名或者密碼不正確！');
           }else{
           
              if($authInfo['password']!=md5($_POST['password'])){
-                $this->error('Account or Password not correct！');
+                $this->error('用戶名或者密碼不正確！');
              }
             $loginMarked=md5(C('AUTH_TOKEN'));
             $_SESSION[$loginMarked]=$authInfo['id'];

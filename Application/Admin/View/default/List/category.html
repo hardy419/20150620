@@ -11,18 +11,16 @@
         <div class="span9">
                      <ul class="breadcrumb">
 				    <li><a href="#">主頁</a> <span class="divider">/</span></li>
-				    <li><a href="#">系統管理</a> <span class="divider">/</span></li>
-				    <li class="active">管理人員設定</li>
+				    <li><a href="#">現正出讓業務 頁面管理</a> <span class="divider">/</span></li>
+				    <li class="active">類型管理</li>
 				    </ul>
-				<h3>新增管理人員</h3>	
+				<h3>新增類型</h3>	
                   <div class="frame-box-div">
-                    <form class="form-horizontal" id="myForm" method="post" action="{:U('save')}" onsubmit="return check_match();myForm.submit();" enctype="multipart/form-data">
+                    <form class="form-horizontal" id="myForm" method="post" action="{:U('save')}" onsubmit="myForm.submit();" enctype="multipart/form-data">
 				    <div class="control-group">
-				    <label class="control-label">名稱：</label>
+				    <label class="control-label">類型：</label>
 				    <div class="controls">
-				    <select id="acct_name" name="acct_name">
-                      <option value='Superadmin'>Superadmin</option>
-                    </select>
+				    <input type="radio" name=""></input>
 				    </div>
 				    </div>
 				    <div class="control-group">
@@ -31,7 +29,7 @@
 				    <input type="text" id="account" name="account" check="Require" warning="請輸入管理員名稱" value="{$list.account}" >
 				    </div>
 				    </div>
-				    <if condition="$list['id'] eq ''"><div class="control-group">
+				    <div class="control-group">
 				    <label class="control-label">密碼：</label>
 				    <div class="controls">
 				    <input type="password" id="password" name="password" check="Require" warning="請輸入密碼" value="" >
@@ -42,7 +40,7 @@
 				    <div class="controls">
 				    <input type="password" id="pwd2" name="pwd2" check="Require" warning="請再次輸入密碼" value="" >
 				    </div>
-				    </div></if>
+				    </div>
 				    <div class="control-group">
 				    <label class="control-label">狀態：</label>
 				    <div class="controls">
@@ -61,7 +59,7 @@
 				    </form>
                   </div><!--/frame-box-div-->
 <if condition="$list['id'] eq ''">
-				<h3>管理人員</h3>	
+				<h3>所有類型</h3>	
                 <div class="frame-box-div">
                 <table class="table table-striped">
 	              <thead>
@@ -80,7 +78,6 @@
 	                    <td>{$vo.login_count}</td>
 	                    <td>
 	                    <a href="{:U('admin',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid))}">編輯</a>&nbsp;｜&nbsp;
-                        <a href="{:U('Common/password',array('user'=>$vo['account']))}">更改密碼</a>&nbsp;｜&nbsp;
                         <a href="javascript:void(0);" onclick="del('{:U('del',array('id'=>$vo['id'],'type'=>$type))}');">刪除</a></td>
 	                </tr>
 	                </volist>
@@ -106,14 +103,6 @@
 <script src="__JS__/bootstrap-datepicker.js"></script>
 <script src="__JS__/common.js"></script>
 <script>
-function check_match(){
-  if($('#password').length>0 && $('#password').val()!==$('#pwd2').val()){
-    alert('兩次密碼不一致，請重新輸入！');
-    return false;
-  }
-  return true;
-}
-
   function del(url){
 	  if(url=='') return false;
       if(window.confirm('Are you sure to delete this record?')){	  

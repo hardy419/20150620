@@ -98,13 +98,32 @@ li+.nav-header {
 }
 
 .frame-box-div {
-  border: 1px solid #eee;
+  border: 1px solid #ddd;
   margin: 0;
   padding: 20px;
-  
+}
+.frame-box-div2 {
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  margin: 0;
+  padding: 20px;
+  min-height: 200px;
 }
 .form-horizontal .control-label {
   text-align: left;
+}
+
+#search-form img {
+  height: 32px;
+}
+#search-form>div:first-child, #search-form>div:first-child+input {
+  margin-right: 10px;
+}
+#search-form .btn {
+  background-color: transparent;
+  background-image: none;
+  border-color: #ccc;
 }
 
 input[type="checkbox"] {
@@ -113,4 +132,58 @@ input[type="checkbox"] {
 }
 button[type="submit"],button[type="button"] {
   width: 80px;
+}
+.input-mini {
+  width: 66px;
+}
+
+.radio~.radio {
+  padding-left: 50px;
+}
+
+.nav-tabs {
+  margin: auto;
+}
+.nav-tabs>li {
+  text-align: center;
+}
+.nav-tabs>li a {
+  letter-spacing: 2px;
+}
+.nav-tabs>li:first-child {
+  margin-left: 10px;
+}
+.nav-tabs>li:first-child~li {
+  margin-left: 10px;
+}
+.nav-tabs>li:first-child, .nav-tabs>li:first-child+li {
+  width: 120px;
+}
+.nav-tabs>li:first-child+li+li, .nav-tabs>li:first-child+li+li+li {
+  width: 200px;
+}
+.nav-tabs>li:first-child+li+li+li~li {
+  width: 145px;
+}
+.nav-tabs>li>a {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+}
+
+.caretv{display:inline-block;width:0;height:0;vertical-align:top;border-bottom:6px solid #000;border-right:4px solid transparent;border-left:4px solid transparent;content:""}
+.caret {border-top:6px solid #000}
+.table-striped .inline-block {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+.table-striped .caret {
+  position: relative;
+  left: 8px;
+  top: 8px;
 }

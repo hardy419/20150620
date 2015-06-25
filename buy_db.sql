@@ -59,7 +59,7 @@ INSERT INTO `buy_banner` (`id`, `title`, `sid`, `url`) VALUES
 CREATE TABLE IF NOT EXISTS `buy_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
-  `type` enum('地區','行業','場所類別') NOT NULL DEFAULT '地區',
+  `t` enum('地區','行業','牌照','東主參與程度','經營場所類別','轉讓形式','地鐵沿線','項目現況') NOT NULL DEFAULT '地區',
   `district` varchar(64) NOT NULL,
   `position` int(11) NOT NULL,
   PRIMARY KEY (`id`)

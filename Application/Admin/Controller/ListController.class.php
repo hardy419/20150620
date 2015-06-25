@@ -51,7 +51,49 @@ class ListController extends BaseController{
             }
         }
         else {
-            $this->_select($tname);
+            // Special variables & filters
+            if ('category' == $type) {
+                $ti = I('get.ti', 1);
+                switch ($ti) {
+                    case 1:
+                        $cur_t = '地區';
+                        break;
+                    case 2:
+                        $cur_t = '行業';
+                        break;
+                    case 3:
+                        $cur_t = '牌照';
+                        break;
+                    case 4:
+                        $cur_t = '東主參與程度';
+                        break;
+                    case 5:
+                        $cur_t = '經營場所類別';
+                        break;
+                    case 6:
+                        $cur_t = '轉讓形式';
+                        break;
+                    case 7:
+                        $cur_t = '地鐵沿線';
+                        break;
+                    case 8:
+                        $cur_t = '項目現況';
+                        break;
+                }
+                $this->assign ('cur_t', $cur_t);
+                
+                if (1==$ti || 2==$ti) {
+                    $map = array ('t'=>'地區', 't'=>'行業', '_logic'=>'or');
+                }
+                else {
+                    $map = array ('t'=>$cur_t);
+                }
+            }
+            else {
+                $map = array ();
+            }
+
+            $this->_select($tname, $map);
             cookie("__CURRENTURL__",__SELF__);
         }
         $this->assign('type',$type);

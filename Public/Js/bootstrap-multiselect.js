@@ -312,9 +312,9 @@
             filterBehavior: 'text',
             includeFilterClearBtn: true,
             preventInputChangeEvent: false,
-            nonSelectedText: 'None selected',
-            nSelectedText: 'selected',
-            allSelectedText: 'All selected',
+            nonSelectedText: '未選擇',
+            nSelectedText: '已選擇',
+            allSelectedText: '全部選擇',
             numberDisplayed: 3,
             disableIfEmpty: false,
             templates: {

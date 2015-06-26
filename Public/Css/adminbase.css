@@ -140,6 +140,12 @@ input[type="checkbox"] {
   position: relative;
   top: -3px;
 }
+.multiselect-container input[type="checkbox"] {
+  width: 15px;
+  margin-right: 5px;
+  position: relative;
+  top: -3px;
+}
 
 button[type="submit"],button[type="button"] {
   width: 80px;
@@ -201,6 +207,26 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 .btn-wide {
   width: 140px !important;
+}
+
+.multiselect {
+  width: 100% !important;
+  min-width: 220px;
+}
+.btn-group b.caret {
+  float: right;
+}
+.btn-group button {
+  background-color: #fff;
+  background-image: none;
+  border-color: #ccc;
+}
+.multiselect-container {
+  width: 600px;
+}
+.multiselect-container li {
+  float: left;
+  width: 200px;
 }
 
 .required {

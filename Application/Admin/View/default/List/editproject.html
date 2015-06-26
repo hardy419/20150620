@@ -88,9 +88,11 @@
 				    <div class="control-group">
 				    <label class="control-label">牌照 ：</label>
 				    <div class="controls">
-				    <select id="c_certificate" name="c_certificate">
-                      <option value='1' <if condition="$list['c_certificate'] eq $vo['id']">selected</if>>牌照1</option>
-                      <option value='2'>certificate2</option>
+				    <select id="c_certificate" name="c_certificate[]" multiple>
+				      <option value='1' <if condition="$list['c_certificate'] eq $vo['id']">selected</if>>小食食肆牌照</option>
+				      <option value='2'>普通食肆牌照（大牌）</option>
+				      <option value='3'>學校注冊證明書</option>
+                      <option value='4'>certificate2</option>
                     </select>
 				    </div>
 				    </div>
@@ -260,6 +262,14 @@ function check_form(){
 		  return true;
 	  }
   }
+</script>
+
+<link href="__CSS__/bootstrap-multiselect.css" type="text/css" rel="stylesheet" />
+<script src="__JS__/bootstrap-multiselect.js"></script>
+<script>
+$(function(){
+  $('#c_certificate').multiselect();
+});
 </script>
 </body>
 </html>

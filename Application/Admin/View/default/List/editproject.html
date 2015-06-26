@@ -1,0 +1,265 @@
+<include file="Common:header" />
+<body>
+<div class="container" style="width:1480px;">
+      <div class="row">
+        <img class="logo-img" src="{:SITE_PATH}Public/Img/Buy/logo.png" />
+      </div>
+      <div class="row">
+        <div class="span3">
+         <include file="Common:menu" />
+        </div><!--/span-->
+        <div class="span9">
+                     <ul class="breadcrumb">
+				    <li><a href="#">主頁</a> <span class="divider">/</span></li>
+				    <li><a href="#">現正出讓業務 頁面管理</a> <span class="divider">/</span></li>
+				    <li class="active">項目管理</li>
+				    </ul>
+
+				<h3>新增項目</h3>	
+                  <div class="frame-box-div">
+                    <form class="form-horizontal form-project" id="myForm" method="post" action="{:U('save')}" onsubmit="return check_form();myForm.submit();" enctype="multipart/form-data">
+				    <div class="control-group">
+				    <label class="control-label">顯示位置<span class="required">*</span>&nbsp;：</label>
+				    <div class="controls">
+				    <input class="input-small" type="text" id="position" name="position" value="{$list.position}">
+                    <label class="control-label" style="float:right"><span class="required">*</span>&nbsp;為必須填上</label>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">顯示：</label>
+				    <div class="controls">
+				    <input type="checkbox" id="visible" name="visible" <if condition="$list['visible'] eq '1'">checked</if>>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">熱門推介：</label>
+				    <div class="controls">
+				    <input type="checkbox" id="hot_recomm" name="hot_recomm" <if condition="$list['hot_recomm'] eq '1'">checked</if>>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">荀盤推介：</label>
+				    <div class="controls">
+				    <input type="checkbox" id="estate_recomm" name="estate_recomm" <if condition="$list['estate_recomm'] eq '1'">checked</if>>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">小本創業：</label>
+				    <div class="controls">
+				    <input type="checkbox" id="small_business" name="small_business" <if condition="$list['small_business'] eq '1'">checked</if>>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">行業：</label>
+				    <div class="controls">
+				    <select id="c_field" name="c_field">
+                      <option value='1' <if condition="$list['c_field'] eq $vo['id']">selected</if>>教育業（非持牌）</option>
+                      <option value='2'>field2</option>
+                    </select>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">項目名稱：</label>
+				    <div class="controls">
+				    <input type="text" id="title" name="title" value="{$list.title}">
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">代號名稱：</label>
+				    <div class="controls">
+				    <input type="text" id="codename" name="codename" value="{$list.codename}">
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">地區 ：</label>
+				    <div class="controls">
+				    <select id="c_area" name="c_area">
+                      <option value='1' <if condition="$list['c_area'] eq $vo['id']">selected</if>>全港</option>
+                      <option value='2'>area2</option>
+                    </select>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label" style="position:relative; top:80px;">業務重點 ：</label>
+				    <div class="controls">
+				     <textarea id="business_focus" name="business_focus" style="width:700px;height:200px;">{$list.business_focus}</textarea>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">牌照 ：</label>
+				    <div class="controls">
+				    <select id="c_certificate" name="c_certificate">
+                      <option value='1' <if condition="$list['c_certificate'] eq $vo['id']">selected</if>>牌照1</option>
+                      <option value='2'>certificate2</option>
+                    </select>
+				    </div>
+				    </div>
+
+				    <div class="control-group">
+				    <label class="control-label">出讓原因 ：</label>
+				    <div class="controls">
+				    <input type="text" id="reason" name="reason" value="{$list.reason}">
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">定價 ：</label>
+				    <div class="controls">
+				    <input type="text" id="price" name="price" value="{$list.price}">
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">包括存貨/其他 ：</label>
+				    <div class="controls">
+				    <input type="text" id="store" name="store" value="{$list.store}">
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">營業額（每月）：</label>
+				    <div class="controls">
+				    <input type="text" id="turnover" name="turnover" value="{$list.turnover}">
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">參考利潤（每月）：</label>
+				    <div class="controls" style="position:relative; left:-13px">
+				    <input type="radio" id="turnover_option1" name="turnover_option" style="position:relative; left:-10px" value="1" checked><input type="text" id="turnover" name="turnover" value=""><br/><br/>
+				    <input type="radio" id="turnover_option2" name="turnover_option" style="position:relative; left:-10px" value="2"><input type="text" id="turnover_text" name="turnover_text" value="" placeholder="其它字句">
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">回本期（月）：</label>
+				    <div class="controls">
+				    <input type="text" id="recovery_period" name="recovery_period" value="{$list.recovery_period}">
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">面積（平方呎）：</label>
+				    <div class="controls">
+				    <input type="text" id="square" name="square" value="{$list.square}">
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">租金 ：</label>
+				    <div class="controls">
+				    <input type="text" id="rent" name="rent" value="{$list.rent}">
+				    </div>
+				    </div>
+
+				    <div class="control-group">
+				    <label class="control-label">東主參與程度 ：</label>
+				    <div class="controls">
+				    <select id="c_participation" name="c_participation">
+                      <option value='1' <if condition="$list['c_participation'] eq $vo['id']">selected</if>></option>
+                      <option value='2'>participation</option>
+                    </select>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">經營場所類別 ：</label>
+				    <div class="controls">
+				    <select id="c_location" name="c_location">
+                      <option value='1' <if condition="$list['c_location'] eq $vo['id']">selected</if>></option>
+                      <option value='2'>location2</option>
+                    </select>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">轉讓形式 ：</label>
+				    <div class="controls">
+				    <select id="c_transfer" name="c_transfer">
+                      <option value='1' <if condition="$list['c_transfer'] eq $vo['id']">selected</if>></option>
+                      <option value='2'>transfer2</option>
+                    </select>
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">地鐵沿線 ：</label>
+				    <div class="controls">
+				    <select id="c_metro" name="c_metro">
+                      <option value='1' <if condition="$list['c_metro'] eq $vo['id']">selected</if>></option>
+                      <option value='2'>metro2</option>
+                    </select>
+				    </div>
+				    </div>
+
+				    <div class="control-group">
+				    <label class="control-label">首期 ：</label>
+				    <div class="controls">
+				    <input type="text" id="downpay" name="downpay" value="{$list.downpay}">
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">每月供款 ：</label>
+				    <div class="controls">
+				    <input type="text" id="allowance" name="allowance" value="{$list.allowance}">
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">供款期數 ：</label>
+				    <div class="controls">
+				    <input type="text" id="allowance_period" name="allowance_period" value="{$list.allowance_period}">
+				    </div>
+				    </div>
+				    <div class="control-group">
+				    <label class="control-label">項目現況 ：</label>
+				    <div class="controls">
+				    <select id="c_situation" name="c_situation">
+                      <option value='1' <if condition="$list['c_situation'] eq $vo['id']">selected</if>></option>
+                      <option value='2'>situation2</option>
+                    </select>
+				    </div>
+				    </div>
+
+				    <input type="hidden" id="id" name="id" value="{$list.id}" />
+                    <input type="hidden" id="type" name="type" value="{$type}" />
+				    <div class="control-group">
+				    <div class="controls">
+				    <button type="submit" class="btn"><if condition="$list['id'] neq ''">更改<else/>新增</if></button>
+				    <if condition="$list['id'] neq ''"><button type="button" class="btn" onclick="window.location.href='{:U('admin',array('type'=>$type,'pid'=>$pid))}';">取消</button></if>
+				    </div>
+				    </div>
+				    </form>
+                  </div><!--/frame-box-div-->
+
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+    </div>
+<script src="__JS__/jquery-1.8.2.min.js"></script>
+<script src="__JS__/kindeditor/kindeditor.js"></script>
+<script src="__JS__/jquery.form.js"></script>
+<script src="__JS__/CheckForm.js"></script>
+<script src="__JS__/bootstrap-datepicker.js"></script>
+<script src="__JS__/common.js"></script>
+<script>
+KindEditor.ready(function(K) {
+	editor1 = K.create('#business_focus', {
+					allowFileManager : true,
+					urlType : 'domain'
+	});
+});
+
+function check_form(){
+  return true;
+}
+
+  function del(url){
+	  if(url=='') return false;
+      if(window.confirm('Are you sure to delete this record?')){	  
+		  $.get(url,function(responseText){
+			    var info=responseText['info'];
+		        var status=responseText['status'];
+		        var url=responseText['url'];
+		        if(status==1){
+		        alert(info)
+		        window.location.href=url;
+		        } else alert(info);
+		  });
+		  return true;
+	  }
+  }
+</script>
+</body>
+</html>

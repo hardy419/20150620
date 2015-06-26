@@ -143,7 +143,7 @@ class ListController extends BaseController{
         $pid=I('get.pid',0);
         $this->assign('pid',$pid);
         $type=I('get.type');
-        if(!in_array($type,array('banner','catagory','page','project','projectphoto')) || (empty($id) && !in_array($type,array('banner','catagory','project','projectphoto'))))$this->error('',U('Index/index'));
+        if(!in_array($type,array('project')) || (empty($id) && !in_array($type,array('project'))))$this->error('',U('Index/index'));
         $this->assign('type',$type);
         $tname=$type;
 

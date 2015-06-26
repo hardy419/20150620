@@ -21,6 +21,10 @@ a{color:#000}
 .table th, .table td{padding:8px 4px;}
 .form-horizontal .control-label{width:100px;font-weight:bold}
 .form-horizontal .controls{margin-left:110px}
+.form-project .control-label{width:150px;font-weight:bold}
+.form-project .controls{margin-left:200px}
+.form-project .control-group{margin-bottom:10px}
+.form-project {line-height:10px}
 
 #console{height:400px;background:#000;color:#fff;width:97%;font-size:12px;overflow:scroll;padding:20px;}
 .table th, .table td{border:none;}
@@ -117,7 +121,7 @@ li+.nav-header {
 #search-form img {
   height: 32px;
 }
-#search-form>div:first-child, #search-form>div:first-child+input {
+#search-form>div, #search-form>input {
   margin-right: 10px;
 }
 #search-form .btn {
@@ -130,6 +134,13 @@ input[type="checkbox"] {
   width: 20px;
   height: 20px;
 }
+.top_submenus input[type="checkbox"] {
+  width: 15px;
+  margin-right: 5px;
+  position: relative;
+  top: -3px;
+}
+
 button[type="submit"],button[type="button"] {
   width: 80px;
 }
@@ -175,7 +186,7 @@ button[type="submit"],button[type="button"] {
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
 }
 
-.caretv{display:inline-block;width:0;height:0;vertical-align:top;border-bottom:6px solid #000;border-right:4px solid transparent;border-left:4px solid transparent;content:""}
+.caretv{display:inline-block;width:0;height:0;vertical-align:top;border-bottom:6px solid #000;border-right:4px solid transparent;border-left:4px solid transparent;content:"";position:relative;top:7px}
 .caret {border-top:6px solid #000}
 .table-striped .inline-block {
   display: inline-block;
@@ -186,4 +197,12 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
   position: relative;
   left: 8px;
   top: 8px;
+}
+
+.btn-wide {
+  width: 140px !important;
+}
+
+.required {
+  color: red;
 }

@@ -44,6 +44,12 @@ class ListController extends BaseController{
         if(!in_array($type,array('user', 'banner','page','category','project'))) $this->error('',U('Index/index'));
         $tname=$type;
 
+        // Sort
+        $order = I('post.o','id');
+        $sort = I('post.s','DESC');
+        $this->assign ('order', $order);
+        $this->assign ('sort', $sort);
+
         // Special variables & filters
         if ('category' == $type) {
             $ti = I('get.ti', 1);
@@ -73,15 +79,29 @@ class ListController extends BaseController{
                     $cur_t = '項目現況';
                     break;
             }
-            $this->assign ('ti', $ti);
-            $this->assign ('cur_t', $cur_t);
             
             if (1==$ti || 2==$ti) {
-                $map = array ('t'=>'地區', 't'=>'行業', '_logic'=>'or');
+                $map = array ('t'=>array('in','地區,行業'));
             }
             else {
                 $map = array ('t'=>$cur_t);
             }
+
+            // Search
+            $postcurt = I('post.cur_t',null);
+            $keyword = I('post.keyword',null);
+            if($postcurt!==null && !empty($postcurt)) {
+                $cur_t = $postcurt;
+                $map = array ('t'=>$cur_t);
+                $this->assign ('postcurt', $postcurt);
+            }
+            if (null !== $keyword && !empty($keyword)) {
+                $map['name|t|position'] = array ('like', "%{$keyword}%");
+                $this->assign ('keyword', $keyword);
+            }
+
+            $this->assign ('ti', $ti);
+            $this->assign ('cur_t', $cur_t);
         }
         else {
             $map = array ();
@@ -94,7 +114,7 @@ class ListController extends BaseController{
             }
         }
         else {
-            $this->_select($tname, $map);
+            $this->_select($tname, $map, $order, $sort);
             cookie("__CURRENTURL__",__SELF__);
         }
         $this->assign('type',$type);

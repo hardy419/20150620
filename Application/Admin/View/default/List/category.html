@@ -33,10 +33,10 @@
 						<label class="control-label">類型：</label>
 						<div class="controls">
 							<label class="radio inline">
-								<input type="radio" name="t" value="地區" checked>地區
+								<input type="radio" name="t" value="地區" <if condition="$list['id'] eq '' OR $list['t'] eq '地區'">checked</if>>地區
 							</label>
 							<label class="radio inline">
-								<input type="radio" name="t" value="行業">行業
+								<input type="radio" name="t" value="行業" <if condition="$list['id'] neq '' AND $list['t'] eq '行業'">checked</if>>行業
 							</label>
 						</div>
 					</div>
@@ -98,9 +98,9 @@
 <if condition="$list['id'] eq ''">
 <if condition="$cur_t eq '地區' OR $cur_t eq '行業'">
 				<h3>所有類型</h3>	
-                    <form class="form-inline" id="search-form" method="post" action="{:U('admin', array('type'=>'category'))}">
+                    <form class="form-inline" id="search-form" method="post" action="{:U('admin', array('type'=>'category','ti'=>$ti))}">
                     <div class="input-append">
-				      <input class="input-medium" type="text" name="cur_t" placeholder="類型">
+				      <input class="input-medium" type="text" name="cur_t" value="{$postcurt}" placeholder="類型">
                       <div class="btn-group">
                         <button class="btn dropdown-toggle" data-toggle="dropdown">
                           <span class="caret"></span>
@@ -111,19 +111,40 @@
                         </ul>
                       </div>
                     </div>
-				    <input class="input-small" type="text" id="keyword" name="keyword" value="" placeholder="輸入關鍵字"/>
+				    <input class="input-small" type="text" id="keyword" name="keyword" value="{$keyword}" placeholder="輸入關鍵字"/>
 
 				    <input type="hidden" id="idn" name="id" value="{$list.id}" />
                     <input type="hidden" id="typen" name="type" value="{$type}" />
+
+				    <input type="hidden" id="order" name="o" value="{$order}" />
+				    <input type="hidden" id="sort" name="s" value="{$sort}" />
 				    <a href="javascript:document.getElementById('search-form').submit();"><img src="{:SITE_PATH}Public/Img/Buy/search_btn.png" /></a>
 				    </form>
                 <div class="frame-box-div">
                 <table class="table table-striped">
 	              <thead>
 	                <tr>
-	                    <th>類型<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
-	                    <th>名稱<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
-	                    <th>位置<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
+						<th>類型
+						  <?PHP if ('t'==$order && 'ASC'==$sort) { ?>
+						  <a href="javascript:(function(){$('#sort').val('DESC');$('#search-form').submit();})();"><div class="inline-block"><span class="caretv"></span></div></a>
+						  <?PHP } else { ?>
+						  <a href="javascript:(function(){$('#order').val('t');$('#sort').val('ASC');$('#search-form').submit();})();"><div class="inline-block"><span class="caret"></span></div></a>
+						  <?PHP } ?>
+						</th>
+						<th>名稱
+						  <?PHP if ('name'==$order && 'ASC'==$sort) { ?>
+						  <a href="javascript:(function(){$('#sort').val('DESC');$('#search-form').submit();})();"><div class="inline-block"><span class="caretv"></span></div></a>
+						  <?PHP } else { ?>
+						  <a href="javascript:(function(){$('#order').val('name');$('#sort').val('ASC');$('#search-form').submit();})();"><div class="inline-block"><span class="caret"></span></div></a>
+						  <?PHP } ?>
+						</th>
+						<th>位置
+						  <?PHP if ('position'==$order && 'ASC'==$sort) { ?>
+						  <a href="javascript:(function(){$('#sort').val('DESC');$('#search-form').submit();})();"><div class="inline-block"><span class="caretv"></span></div></a>
+						  <?PHP } else { ?>
+						  <a href="javascript:(function(){$('#order').val('position');$('#sort').val('ASC');$('#search-form').submit();})();"><div class="inline-block"><span class="caret"></span></div></a>
+						  <?PHP } ?>
+						</th>
 	                    <th>動作</th>
 	                </tr>
 	              </thead>
@@ -149,20 +170,34 @@
 	            </div>
 <else/>
 				<h3>所有{$cur_t}</h3>	
-                    <form class="form-inline" id="search-form" method="post" action="{:U('admin', array('type'=>'category'))}">
-				    <input class="input-small" type="text" id="keyword" name="keyword" value="" placeholder="輸入關鍵字"/>
+                    <form class="form-inline" id="search-form" method="post" action="{:U('admin', array('type'=>'category','ti'=>$ti))}">
+				    <input class="input-small" type="text" id="keyword" name="keyword" value="{$keyword}" placeholder="輸入關鍵字"/>
 
 				    <input type="hidden" name="cur_t" value="{$cur_t}" />
 				    <input type="hidden" id="idn" name="id" value="{$list.id}" />
                     <input type="hidden" id="typen" name="type" value="{$type}" />
+				    <input type="hidden" id="order" name="o" value="{$order}" />
+				    <input type="hidden" id="sort" name="s" value="{$sort}" />
 				    <a href="javascript:document.getElementById('search-form').submit();"><img src="{:SITE_PATH}Public/Img/Buy/search_btn.png" /></a>
 				    </form>
                 <div class="frame-box-div">
                 <table class="table table-striped">
 	              <thead>
 	                <tr>
-	                    <th>{$cur_t}名稱<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
-	                    <th>位置<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
+						<th>{$cur_t}名稱
+						  <?PHP if ('name'==$order && 'ASC'==$sort) { ?>
+						  <a href="javascript:(function(){$('#sort').val('DESC');$('#search-form').submit();})();"><div class="inline-block"><span class="caretv"></span></div></a>
+						  <?PHP } else { ?>
+						  <a href="javascript:(function(){$('#order').val('name');$('#sort').val('ASC');$('#search-form').submit();})();"><div class="inline-block"><span class="caret"></span></div></a>
+						  <?PHP } ?>
+						</th>
+						<th>位置
+						  <?PHP if ('position'==$order && 'ASC'==$sort) { ?>
+						  <a href="javascript:(function(){$('#sort').val('DESC');$('#search-form').submit();})();"><div class="inline-block"><span class="caretv"></span></div></a>
+						  <?PHP } else { ?>
+						  <a href="javascript:(function(){$('#order').val('position');$('#sort').val('ASC');$('#search-form').submit();})();"><div class="inline-block"><span class="caret"></span></div></a>
+						  <?PHP } ?>
+						</th>
 	                    <th>動作</th>
 	                </tr>
 	              </thead>

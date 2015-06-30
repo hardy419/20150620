@@ -62,8 +62,11 @@ CREATE TABLE IF NOT EXISTS `buy_category` (
   `t` enum('地區','行業','牌照','東主參與程度','經營場所類別','轉讓形式','地鐵沿線','項目現況') NOT NULL DEFAULT '地區',
   `district` varchar(64) NOT NULL,
   `position` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`id`),
+  KEY `NAME` (`name`),
+  KEY `TYPE` (`t`),
+  KEY `POSITION` (`position`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -117,33 +120,47 @@ INSERT INTO `buy_page` (`id`, `title`, `menu`, `banner`, `content`, `status`) VA
 
 CREATE TABLE IF NOT EXISTS `buy_project` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `position` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `cid` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `preview` varchar(256) NOT NULL,
-  `images` varchar(4096) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
-
---
--- Dumping data for table `buy_project`
---
-
-INSERT INTO `buy_project` (`id`, `title`, `cid`, `date`, `description`, `preview`, `images`) VALUES
-(19, 'CreatLearning', 7, '2015-04-16', 'CreatLearning media pitching – HKET', './Uploads/project/20150416/552f7dd2f04d0.jpg', ''),
-(20, 'HKICT Award', 7, '2015-04-16', 'HKICT Award – press release write up and ongoing pitching', './Uploads/project/20150416/552f7d6149b32.jpg', ''),
-(21, 'Light Angel Charity Walk 2015', 7, '2015-04-16', 'Light Angel Charity Walk 2015 media pitching – Oriental Daily News', './Uploads/projectphoto/20150416/552f7768ac21f.jpg', ''),
-(22, 'Sense Production', 7, '2015-04-16', 'Sense Production 「幸福家庭. 奇妙恩典」全港感動影像比賽 media pitching – 大日子', './Uploads/project/20150416/552f7d023932e.jpg', ''),
-(23, 'Sing And You Mucis Certer_clipping', 7, '2015-04-16', '', './Uploads/projectphoto/20150416/552f77bc2d1de.jpg', ''),
-(24, 'Nu-hart', 8, '2015-04-16', 'Nu- Hart advertising design', './Uploads/project/20150416/552f7ca53dcf3.jpg', ''),
-(25, 'The Girls'' Brigade Hong Kong', 8, '2015-04-16', 'The Girls’ Brigade Hong Kong postcard design and production', './Uploads/project/20150416/552f509266069.jpg', ''),
-(26, 'Four Seasons Hospital (German) Fresh Cell Treatment Hong Kong Press Conference 6 March 2014', 9, '2015-04-16', '德國四季醫院抗衰老鮮活細胞療法香港記者招待會 2014年3月6日', './Uploads/project/20150416/552f5131cd07d.jpg', ''),
-(27, 'Hong Kong Mini Maker Faire 2014', 9, '2015-04-16', '18 – 19 Oct, 2014', './Uploads/project/20150416/552f7c4845ba5.jpg', ''),
-(28, 'Light Angel Charity Walk 2015', 9, '2015-04-16', '光明天使慈善行 2015 2015年1月18日', './Uploads/project/20150416/552f530278435.jpg', ''),
-(29, 'Sing and You music center', 9, '2015-04-16', 'Sing and You x Lutheran event', './Uploads/projectphoto/20150416/552f547419a5b.JPG', ''),
-(30, 'Sing and You', 10, '2015-04-16', 'Sing and You x Funpon campaign', './Uploads/project/20150416/552f8c4bb3146.jpg', ''),
-(31, 'Sense Production', 10, '2015-04-16', '「幸福家庭. 奇妙恩典」全港感動影像比賽', './Uploads/project/20150416/552f8cc22003a.jpg', '');
+  `visible` varchar(4) NOT NULL,
+  `hot_recomm` varchar(4) NOT NULL,
+  `estate_recomm` varchar(4) NOT NULL,
+  `small_business` varchar(4) NOT NULL,
+  `c_field` int(11) NOT NULL,
+  `codename` varchar(64) NOT NULL,
+  `c_area` int(11) NOT NULL,
+  `business_focus` text NOT NULL,
+  `c_certificate` varchar(255) NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL,
+  `store` varchar(64) NOT NULL,
+  `turnover` int(11) NOT NULL,
+  `profit_option` tinyint(4) NOT NULL,
+  `profit` int(11) NOT NULL,
+  `profit_text` varchar(64) NOT NULL,
+  `recovery_period` int(11) NOT NULL,
+  `square` int(11) NOT NULL,
+  `rent` int(11) NOT NULL,
+  `c_participation` int(11) NOT NULL,
+  `c_location` int(11) NOT NULL,
+  `c_transfer` int(11) NOT NULL,
+  `c_metro` int(11) NOT NULL,
+  `downpay` int(11) NOT NULL,
+  `allowance` int(11) NOT NULL,
+  `allowance_period` int(11) NOT NULL,
+  `c_situation` int(11) NOT NULL,
+  `status` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `POSITION` (`position`),
+  KEY `TITLE` (`title`),
+  KEY `C_FIELD` (`c_field`),
+  KEY `CODENAME` (`codename`),
+  KEY `PROFIT` (`profit_option`,`profit`),
+  KEY `PRICE` (`price`),
+  KEY `RECOVERY_PERIOD` (`recovery_period`),
+  KEY `STATUS` (`status`),
+  KEY `VISIBLE` (`visible`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

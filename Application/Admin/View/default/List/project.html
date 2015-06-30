@@ -380,10 +380,10 @@
 	                    <th>出讓項目<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
 	                    <th>每月利潤<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
 	                    <th>定價<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
-	                    <th>回本期<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
-	                    <th>狀態<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
-	                    <th>網頁位置<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
-	                    <th>顯示<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
+	                    <th style="text-align:center">回本期<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
+	                    <th style="text-align:center">狀態<a href="#"><div class="inline-block"><span class="caret"></span></div></a></th>
+	                    <th>網頁位置</th>
+	                    <th>顯示</th>
 	                    <th>動作</th>
 	                </tr>
 	              </thead>
@@ -391,14 +391,14 @@
 	               <volist name="list" id="vo">
 	                <tr <if condition="$current eq $vo['id']">class="warning"</if>>
 	                    <td>{$vo.title}</td>
-	                    <td>{$vo.c_field}</td>
-	                    <td>{$vo.contract}</td>
-	                    <td>{$vo.profit}</td>
-	                    <td>{$vo.price}</td>
-	                    <td>{$vo.recovery_period}</td>
-	                    <td>{$vo.status}</td>
-	                    <td>{$vo.position}</td>
-	                    <td><input style="position:relative;left:4px" type="checkbox" class="status-checkbox" name="status_group[]" <if condition="$vo['visible'] eq '1'">checked</if>></td>
+	                    <td><?PHP echo $catelist[$vo['c_field']]; ?></td>
+	                    <td>{$vo.codename}</td>
+	                    <td><if condition="$vo['profit_option'] eq '1'">${$vo.profit}<else/>{$vo.profit_text}</if></td>
+	                    <td>${$vo.price}</td>
+	                    <td style="text-align:center">{$vo.recovery_period}月</td>
+	                    <td style="text-align:center">{$vo.status}</td>
+	                    <td>位置：{$vo.position}</td>
+	                    <td><input style="position:relative;left:4px" type="checkbox" class="status-checkbox" name="status_group[]" <if condition="$vo['visible'] eq 'on'">checked</if>></td>
 	                    <td>
 	                    <a href="{:U('edit',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid))}">編輯</a>&nbsp;｜&nbsp;
                         <a href="javascript:void(0);" onclick="del('{:U('del',array('id'=>$vo['id'],'type'=>$type))}');">刪除</a></td>
@@ -406,13 +406,13 @@
 	                </volist>
 	              </tbody>
 	            </table>
-	            </div><!--/frame-box-div-->
 
 	            <div class="pagination pagination-right">
 	              <ul>
 	                {$show}
 	             </ul>
 	            </div>
+	            </div><!--/frame-box-div-->
         </div><!--/span-->
       </div><!--/row-->
 

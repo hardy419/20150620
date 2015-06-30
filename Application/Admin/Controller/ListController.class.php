@@ -103,6 +103,15 @@ class ListController extends BaseController{
             $this->assign ('ti', $ti);
             $this->assign ('cur_t', $cur_t);
         }
+        else if('project' == $type) {
+            // Retrieve the category list for selection
+            $dblist = M('category')->select();
+            $catelist = array();
+            foreach ($dblist as $item) {
+                $catelist[$item['id']] = $item['name'];
+            }
+            $this->assign('catelist', $catelist);
+        }
         else {
             $map = array ();
         }
@@ -169,9 +178,9 @@ class ListController extends BaseController{
         $tname=$type;
 
         if('project' == $type) {
-            // Retrieve the catagory list for selection
-            $catalist = M('catagory')->select();
-            $this->assign('catalist', $catalist);
+            // Retrieve the category list for selection
+            $catelist = M('category')->select();
+            $this->assign('catelist', $catelist);
         }
 
         cookie('current',$id);
@@ -211,6 +220,12 @@ class ListController extends BaseController{
     }
     protected  function _edit($tname,$id){
         $list=M($tname)->where(array('id'=>$id))->find();
+
+        // Special columns
+        if (isset ($list['c_certificate'])) {
+            $list['c_certificate'] = explode (',', $list['c_certificate']);
+        }
+
         $this->assign('list',$list);
     }
 
@@ -268,6 +283,26 @@ class ListController extends BaseController{
                     $db->status = 0;
                 }
             }
+            if (in_array('visible',$fields)) {
+                // radio buttons
+                if (null === I('post.visible', null)) {
+                    $db->visible = 'off';
+                }
+                if (null === I('post.hot_recomm', null)) {
+                    $db->hot_recomm = 'off';
+                }
+                if (null === I('post.estate_recomm', null)) {
+                    $db->estate_recomm = 'off';
+                }
+                if (null === I('post.small_business', null)) {
+                    $db->small_business = 'off';
+                }
+            }
+            $certs = I('post.c_certificate', null);
+            if (null !== $certs && in_array('c_certificate',$fields)) {
+                // Post var is an array (eg. checkbox)
+                $db->c_certificate = implode (',', $certs);
+            }
 
             // Add or Edit
             if(!empty($id)){
@@ -278,8 +313,8 @@ class ListController extends BaseController{
             }
 
             cookie('current',$id);
-            if ($query)$this->success('Action Success',$jump);
-            else $this->error('Action Failure'.'('.$db->getLastSql().')',$jump);
+            if ($query)$this->success('操作成功',$jump);
+            else $this->error('操作失敗/未作任何更改',$jump);
         }
     }
     public function savePhotos(){
@@ -517,8 +552,6 @@ class ListController extends BaseController{
                 if($count>0)$this->error("Delete Failure. Please delete all projects under this catagory.",$jump);
             break;
             case 'project':
-                $count=M('projectphoto')->where(array('pid'=>$id))->count();
-                if($count>0)$this->error("Delete Failure. Please delete this project's photos",$jump);
             break;
         }
     }

@@ -80,7 +80,14 @@ class ListController extends BaseController{
                     break;
             }
             
-            if (1==$ti || 2==$ti) {
+            if (null !== $pid) {
+                $pname = M('category')->where(array('id'=>$pid))->getField('name');
+                $cur_t = $pname;
+                $map = array ('t'=>$pname);
+                $this->assign ('pname', $pname);
+                $this->assign ('pid', $pid);
+            }
+            else if (1==$ti || 2==$ti) {
                 $map = array ('t'=>array('in','地區,行業'));
             }
             else {

@@ -59,14 +59,27 @@ INSERT INTO `buy_banner` (`id`, `title`, `sid`, `url`) VALUES
 CREATE TABLE IF NOT EXISTS `buy_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
-  `t` enum('地區','行業','牌照','東主參與程度','經營場所類別','轉讓形式','地鐵沿線','項目現況') NOT NULL DEFAULT '地區',
-  `district` varchar(64) NOT NULL,
+  `t` varchar(32) NOT NULL,
   `position` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `NAME` (`name`),
+  UNIQUE KEY `NAME` (`name`),
   KEY `TYPE` (`t`),
   KEY `POSITION` (`position`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- 转存表中的数据 `buy_category`
+--
+
+INSERT INTO `buy_category` (`id`, `name`, `t`, `position`) VALUES
+(1, '地區', '-', 0),
+(2, '行業', '-', 0),
+(3, '牌照', '-', 0),
+(4, '東主參與程度', '-', 0),
+(5, '經營場所類別', '-', 0),
+(6, '轉讓形式', '-', 0),
+(7, '地鐵沿線', '-', 0),
+(8, '項目現況', '-', 0);
 
 -- --------------------------------------------------------
 

@@ -1,0 +1,823 @@
+@charset "utf-8";
+/*=======================页头=======================*/
+#header {
+	width: 100%;
+}
+#header .hTop {
+	width: 1080px;
+	height: 102px;
+	margin: 0 auto;
+}
+/*------logo------*/
+#header .hTop h1 {
+	width: 338px;
+	height: 78px;
+	background: url(../images/logo.jpg) no-repeat;
+}
+/*------我想找：行业，投资金额，利润下拉选择框------*/
+#header .hSelect {
+	border: 1px solid #ADADAD;
+	width: 984px;
+	height: 618px;
+	top: 87px;
+	background: #fff;
+	z-index: 9999;
+	left: 60px;
+	font-size: 13px;
+}
+/*------我想找：行业，投资金额，利润下拉选择框-第一行------*/
+#header .hSelect .line_01 {
+	width: 925px;
+	height: 26px;
+	margin-top: 9px;
+	margin-left: 13px;
+	border-bottom: 1px dotted #99999B;
+	color: #ff3000;
+}
+#header .hSelect .line_01 ul {
+}
+#header .hSelect .line_01 ul li {
+	float: left;
+}
+#header .hSelect .line_01 ul li.close {
+	float: right;
+}
+#header .hSelect .line_01 ul li span {
+	margin-left: 9px;
+	margin-right: 46px;
+}
+#header .hSelect .line_01 ul li a {
+	display: block;
+	background: url(../images/close.jpg) no-repeat;
+	width: 18px;
+	height: 20px;
+	right: 10px;
+	float: right;
+}
+/*------我想找：行业，投资金额，利润下拉选择框-第二行------*/
+#header .hSelect .line_02 {
+	width: 925px;
+	height: 26px;
+	margin-top: 9px;
+	margin-left: 13px;
+	border-bottom: 1px dotted #99999B;
+	color: #333;
+}
+#header .hSelect .line_02 ul li span {
+	margin-left: 9px;
+	margin-right: 46px;
+}
+/*------我想找：行业，投资金额，利润下拉选择框-第三行+第四行------*/
+#header .hSelect .line_03 {
+	width: 945px;
+	height: 230px;
+	margin-top: 9px;
+	margin-left: 13px;
+	border-bottom: 1px dotted #99999B;
+	color: #333;
+}
+#header .hSelect .line_03 h4 {
+	font-size: 13px;
+	margin-bottom: 8px;
+}
+#header .hSelect .line_03 ul {
+	font-size: 11px;
+	border-right: 1px dotted #99999B;
+	width: 110px;
+	float: left;
+	margin-right: 14px;
+}
+#header .hSelect .line_03 ul.last {
+	font-size: 11px;
+	width: 135px;
+	float: left;
+	margin-right: 14px;
+	border-right: 0;
+}
+#header .hSelect .line_03 ul.w97 {
+	font-size: 11px;
+	width: 97px;
+	float: left;
+	margin-right: 14px;
+	border-right: 1px dotted #99999B;
+}
+#header .hSelect .line_03 ul.w149 {
+	font-size: 11px;
+	width: 149px;
+	float: left;
+	margin-right: 14px;
+	border-right: 1px dotted #99999B;
+}
+#header .hSelect .line_03 ul.w125 {
+	font-size: 11px;
+	width: 125px;
+	float: left;
+	margin-right: 14px;
+	border-right: 1px dotted #99999B;
+}
+#header .hSelect .line_03 ul.w130 {
+	font-size: 11px;
+	width: 130px;
+	float: left;
+	margin-right: 14px;
+	border-right: 1px dotted #99999B;
+}
+#header .hSelect .line_03 ul.w150 {
+	font-size: 11px;
+	width: 150px;
+	float: left;
+	margin-right: 14px;
+	border-right: 1px dotted #99999B;
+}
+#header .hSelect .line_03 ul.w160 {
+	font-size: 11px;
+	width: 160px;
+	float: left;
+	margin-right: 14px;
+	border-right: 1px dotted #99999B;
+}
+#header .hSelect .line_03 ul.w180 {
+	font-size: 11px;
+	width: 180px;
+	float: left;
+	margin-right: 14px;
+	border-right: 1px dotted #99999B;
+}
+#header .hSelect .line_03 ul.w170 {
+	font-size: 11px;
+	width: 170px;
+	float: left;
+	margin-right: 14px;
+	border-right: 1px dotted #99999B;
+}
+#header .hSelect .line_03 ul.w220 {
+	font-size: 11px;
+	width: 220px;
+	float: left;
+	margin-right: 14px;
+	border-right: 1px dotted #99999B;
+}
+#header .hSelect .line_03 ul li span.all {
+	font-size: 11px;
+	color: #000;
+}
+#header .hSelect .line_03 ul li {
+	margin-bottom: 6px;
+	color: #666;
+}
+#header .hSelect .line_03 h5 {
+	margin-top: 16px;
+	margin-bottom: 10px;
+}
+#header .hSelect .line_03 h5 a {
+	font-size: 12px;
+	color: #ff3000;
+	display: inline-block;
+}
+#header .hSelect .line_03 h5 a.triangle {
+	width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 8px solid #ff3000;
+	display: inline-block;
+}
+/*------我想找：行业，投资金额，利润下拉选择框-第五行------*/
+#header .hSelect .line_05 {
+	width: 945px;
+	height: 230px;
+	margin-top: 9px;
+	margin-left: 13px;
+	border-bottom: 1px dotted #99999B;
+	color: #333;
+}
+#header .hSelect .line_05 a.cancel, #header .hSelect .line_05 a.sure {
+	width: 94px;
+	height: 33px;
+	border-radius: 5px;
+	display: inline-block;
+	color: #fff;
+	line-height: 33px;
+	text-align: center;
+	font-weight: 600;
+	font-size: 15px;
+	margin-right: 16px;
+	float: right;
+}
+#header .hSelect .line_05 a.cancel {
+	background: #cbcbcb;
+	border: 1px solid #D6D6D6;
+}
+#header .hSelect .line_05 a.sure {
+	background: #ce2b2e;
+}
+/*------我想找：行业，投资金额，利润弹框------*/
+#header .hpopup {
+	width: 914px;
+	height: 404px;
+	border-radius: 5px;
+	background: #fff;
+	margin: 0 auto;
+	top: 300px;
+	z-index: 9999;
+	border: 1px solid #333;
+	position: absolute;
+}
+#header .hpopup .line01 {
+	margin-top: 21px;
+	margin-left: 24px;
+	height: 100px;
+	width: 869px;
+}
+#header .hpopup .line01 p {
+	font-size: 20px;
+	margin-bottom: 13px;
+}
+#header .hpopup .line01 .navBar {
+	background: #FCE9DA;
+	width: 849px;
+	height: 34px;
+	line-height: 34px;
+	border-radius: 5px;
+	font-size: 13px;
+	color: #666;
+	padding-left: 20px;
+}
+#header .hpopup .line01 .list {
+	font-size: 13px;
+	color: #666;
+	width: 849px;
+	padding-left: 20px;
+	margin-top: 12px;
+}
+#header .hpopup .line01 .list ul {
+}
+#header .hpopup .line01 .list ul li {
+	float: left;
+	width: 140px;
+	margin-bottom: 15px;
+}
+#header .hpopup .line02 {
+	margin-top: 223px;
+	margin-left: 13px;
+	color: #333;
+}
+#header .hpopup .line02 a.cancel, #header .hpopup .line02 a.sure {
+	width: 94px;
+	height: 33px;
+	border-radius: 5px;
+	display: inline-block;
+	color: #fff;
+	line-height: 33px;
+	text-align: center;
+	font-weight: 600;
+	font-size: 15px;
+	margin-right: 16px;
+	float: right;
+}
+#header .hpopup .line02 a.cancel {
+	background: #cbcbcb;
+	border: 1px solid #D6D6D6;
+}
+#header .hpopup .line02 a.sure {
+	background: #ce2b2e;
+}
+/*------sns图标及语言版本------*/
+#header .hTop .hInfo {
+	right: 0;
+	width:500px;
+}
+#header .hTop .hInfo span {
+	color: #dd2c21;
+	font-size: 13px;
+	margin-top: 15px;
+	display: block;
+	height:30px;
+	line-height:30px;
+}
+#header .hTop .hInfo span.font {
+	font-family: 'Arial, Helvetica, sans-serif';
+}
+#header .hTop .hInfo ul {
+}
+#header .hTop .hInfo ul li {
+	float: left;
+}
+#header .hTop .hInfo ul li.chat {
+	font-size:13px;
+	color:#666;
+}
+#header .hTop .hInfo ul li.hot {
+	font-size:16px;
+	color:#dd2c21;
+	font-weight:600;
+}
+/*------搜索------*/
+#header .hTop .search {
+	width: 720px;
+	height: 66px;
+}
+/*------搜索的标题------*/
+#header .hTop .searchTitle {
+	width: 85px;
+	height: 25px;
+	background: url(../images/searchTitle.jpg) no-repeat;
+}
+/*------搜索的下拉多选表单------*/
+#header .hTop .searchSelect {
+	width: 85px;
+	height: 25px;
+	margin-top: 5px;
+}
+#header .hTop .searchSelect ul {
+	width: 720px;
+}
+#header .hTop .searchSelect ul li {
+}
+#header .hTop .searchSelect select {
+	border-radius: 6px;
+	cursor: pointer;
+	border: 1px solid #b3b3b3;
+	height: 31px;
+	margin-right: 10px;
+	color: #acacac;
+	font-family: 'Microsoft YaHei';
+	font-size: 13px;
+	padding-left: 13px;
+	margin-top: 3px;
+}
+#header .hTop .searchSelect select.wd_293 {
+	width: 293px;
+}
+#header .hTop .searchSelect select.wd_176 {
+	width: 176px;
+}
+#header .hTop .searchSelect input {
+	width: 131px;
+	height: 29px;
+	border-radius: 6px;
+	border: 1px solid #b3b3b3;
+	color: #acacac;
+	font-family: 'Microsoft YaHei';
+	font-size: 13px;
+	padding-left: 13px;
+	margin-top: 3px;
+	margin-right: 10px;
+}
+/*------导航------*/
+#header .hNav {
+	width: 100%;
+	height: 41px;
+	background: #fdca2e;
+	margin: 0 auto;
+}
+#header .hNav ul {
+	width: 1080px;
+	margin: 0 auto;
+	line-height: 41px;
+}
+#header .hNav ul li {
+	float: left;
+	background: url(../images/navLine.jpg) center right no-repeat;
+}
+#header .hNav ul li.last {
+	float: left;
+	background: none;
+}
+#header .hNav ul li a, #header .hNav ul li a:hover {
+	font-weight: 600;
+	display: block;
+	padding-left: 24px;
+	padding-right: 24px;
+}
+#header .hNav ul li a {
+	color: #000;
+}
+#header .hNav ul li a:hover {
+	color: #fff;
+	background: url(../images/navBg.png) center bottom no-repeat #ff4400;
+}
+#header .hNav ul li a.current {
+	color: #fff;
+	background: url(../images/navBg.png) center bottom no-repeat #ff4400;
+}
+/*=======================首页主体部分=======================*/
+#wrapIndex {
+	width: 100%;
+}
+#wrapIndex .wIndex01, #wrapIndex .wIndex02, #wrapIndex .wIndex03 {
+	width: 1080px;
+	margin: 0 auto;
+}
+/*------首页主体部分-第一部分------*/
+#wrapIndex .wIndex01 {
+	height: 310px;
+}
+/*------首页主体部分-第一部分-第一列------*/
+#wrapIndex .wIndex01 .wIndex01_01 {
+	width: 250px;
+}
+/*------首页主体部分-第一部分-第二列------*/
+#wrapIndex .wIndex01 .wIndex01_02 {
+	width: 560px;
+}
+#wrapIndex .wIndex01 .wIndex01_02 ul {
+}
+#wrapIndex .wIndex01 .wIndex01_02 ul li {
+	float: left;
+}
+/*------首页主体部分-第一部分-第三列------*/
+#wrapIndex .wIndex01 .wIndex01_03 {
+	width: 248px;
+	border: 1px solid #acacac;
+}
+#wrapIndex .wIndex01 .wIndex01_03 h1 {
+	width: 100%;
+	height: 30px;
+	border-bottom: 1px solid #acacac;
+	background: url(../images/wIndex01_03_navBg.jpg) repeat-x;
+}
+#wrapIndex .wIndex01 .wIndex01_03 h1 img {
+	margin-left: 10px;
+}
+#wrapIndex .wIndex01 .wIndex01_03 h1 a {
+	color: #fff;
+	right: 10px;
+	top: 7px;
+}
+#wrapIndex .wIndex01 .wIndex01_03 ul {
+	margin: 9px 15px 9px 20px;
+}
+#wrapIndex .wIndex01 .wIndex01_03 ul li {
+}
+#wrapIndex .wIndex01 .wIndex01_03 ul li a {
+	color: #ff0000;
+	font-weight: 600;
+}
+#wrapIndex .wIndex01 .wIndex01_03 ul li p {
+	color: #333;
+}
+/*------首页主体部分-第二部分------*/
+#wrapIndex .wIndex02 {
+	height: 180px;
+	margin-top: 10px;
+}
+#wrapIndex .wIndex02 ul {
+	width: 1080px;
+	margin: 0 auto;
+}
+#wrapIndex .wIndex02 ul li {
+	float: left;
+}
+/*------首页主体部分-第三部分------*/
+#wrapIndex .wIndex03 {
+	height: 210px;
+	margin-top: 10px;
+}
+/*------首页主体部分第三部分-第一列------*/
+#wrapIndex .wIndex03 .wIndex03_01 {
+	width: 248px;
+}
+#wrapIndex .wIndex03 .wIndex03_01 a {
+	display: block;
+}
+/*------首页主体部分第三部分-第二列------*/
+#wrapIndex .wIndex03 .wIndex03_02 {
+	width: 558px;
+	height: 208px;
+}
+#wrapIndex .wIndex03 .wIndex03_02 h1 {
+	width: 100%;
+	height: 30px;
+	border-bottom: 1px solid #acacac;
+	background: url(../images/wIndex01_03_navBg.jpg) repeat-x;
+}
+#wrapIndex .wIndex03 .wIndex03_02 h1 img {
+	margin-left: 10px;
+}
+#wrapIndex .wIndex03 .wIndex03_02 h1 a {
+	color: #fff;
+	right: 10px;
+	top: 7px;
+}
+#wrapIndex .wIndex03 .wIndex03_02 h2 {
+	margin: 20px 20px 10px 20px;
+	;
+	font-size: 16px;
+	font-weight: normal;
+}
+#wrapIndex .wIndex03 .wIndex03_02 p {
+	font-size: 14px;
+	margin: 0 20px 20px 20px;
+	;
+	line-height: 22px;
+}
+/*------首页主体部分-第四部分------*/
+#wrapIndex .wIndex04 {
+	margin: 0 auto;
+	width: 1078px;
+	height: 744px;
+	margin-top: 10px;
+}
+#wrapIndex .wIndex04 h1 {
+	width: 100%;
+	height: 30px;
+	border-bottom: 1px solid #acacac;
+	background: url(../images/wIndex01_03_navBg.jpg) repeat-x;
+}
+#wrapIndex .wIndex04 h1 img {
+	margin-left: 10px;
+}
+#wrapIndex .wIndex04 h1 a {
+	color: #fff;
+	right: 10px;
+	top: 7px;
+}
+/*------首页主体部分-第四部分-表格------*/
+.wIndex04 table {
+	margin: 0 auto;
+	font-size: 12px;
+	text-align: center;
+}
+.wIndex04 table th {
+	background: url(../images/th_bg.jpg) repeat-x;
+	height: 33px;
+	border-right: 1px solid #999;
+	border-left: 1px solid #f3f3f3;
+}
+.wIndex04 table td {
+	border-right: 1px solid #d2d2d2;
+	height: 30px;
+}
+.wIndex04 table td a {
+	color: #000;
+}
+.wIndex04 table td a:hover {
+	color: #ff3000;
+}
+.wIndex04 .page {
+	font-size: 12px;
+	margin-top: 16px;
+	margin-left: 26px;
+	margin-bottom: 10px;
+	height: 16px;
+}
+.wIndex04 .page ul {
+}
+.wIndex04 .page ul li {
+	float: left;
+	margin-right: 8px;
+}
+.wIndex04 .page ul li a {
+	color: #666;
+}
+.wIndex04 .page ul li a.currentPage {
+	color: #000;
+}
+.wIndex04 .page ul li a:hover {
+	color: #000;
+}
+.wIndex04 h2 {
+	right: 24px;
+	top: 42px;
+}
+.wIndex04 h3 {
+	right: 24px;
+	bottom: 7px;
+}
+/*=======================页尾=======================*/
+#footer {
+	width: 100%;
+	border-top: 2px solid #ccc;
+}
+/*------页尾菜单------*/
+#footer .fMenu {
+	width: 1080px;
+	height: 123px;
+	padding-top: 13px;
+	padding-bottom: 45px;
+	margin: 0 auto;
+}
+#footer .fMenu ul {
+	float: left;
+	border-left: 1px solid #ccc;
+	height: 123px;
+	padding-top: 4px;
+}
+#footer .fMenu ul.first {
+	float: left;
+	border-left: none;
+	height: 123px;
+	padding-top: 4px;
+}
+#footer .fMenu ul li {
+	margin-left: 15px;
+	margin-right: 42px;
+	font-size: 13px;
+}
+#footer .fMenu ul li a.title {
+	font-weight: 600;
+	margin-bottom: 17px;
+	display: block;
+	margin-bottom: 8px;
+}
+#footer .fMenu ul li a, #footer .fMenu ul li a:hover {
+	color: #333;
+	display: block;
+	margin-bottom: 8px;
+}
+/*------页尾版权------*/
+#footer .fCopyright {
+	width: 100%;
+	height: 60px;
+	background: #e6e6e6;
+}
+#footer .fCopyright .fCopyright_in {
+	width: 1080px;
+	height: 60px;
+	background: #e6e6e6;
+	margin: 0 auto;
+}
+#footer .fCopyright .fCopyright_in h3 {
+	display: inline;
+}
+#footer .fCopyright .fCopyright_in dl {
+	left: 50px;
+	top: 16px;
+	font-size: 12px;
+	color: #4d4d4d;
+}
+#footer .fCopyright .fCopyright_in ul {
+	right: 0;
+	top: 8px;
+}
+#footer .fCopyright .fCopyright_in ul li {
+	float: left;
+}
+#footer .fCopyright .fCopyright_in ul li a, #footer .fCopyright .fCopyright_in ul li a:hover {
+	color: #666;
+	font-size: 12px;
+	margin-right: 26px;
+}
+.productTitle {
+	width: 100%;
+}
+.productTitle h1 {
+	width: 1080px;
+	margin: 0 auto;
+	color: #ff3000;
+	font-size: 34px;
+	font-weight: 900;
+	border-bottom: 1px solid #ff6600;
+	text-indent: 20px;
+	display: block;
+}
+.demo {
+	width: 300px;
+	margin: 40px auto 0 auto;
+}
+/* select */
+.select {
+	position: relative;
+	float: left;
+	margin: 0 10px;
+}
+.select dt {
+	height: 28px;
+	display: inline-block;
+	border: 1px solid #d2ccc4;
+	background: #fcfcfb url(ico.gif) no-repeat 97px center;
+	line-height: 28px;
+	font-weight: bold;
+	padding-left: 10px;
+	cursor: pointer;
+	width: 90px;
+	padding-right: 12px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	position: relative;
+	z-index: 99;
+}
+.select dt:hover, .select dt.cur {
+	border: 1px solid #409DFE;
+	box-shadow: 0 0 3px #409DFE;
+}
+.select dd {
+	position: absolute;
+	left: 0;
+	top: 29px;
+	border: 1px solid #d2ccc4;
+	background: #fff;
+	display: none;
+}
+.select dd ul {
+	padding: 4px;
+	width: 104px;
+	max-height: 250px;
+	overflow: auto;
+}
+.select dd ul li a {
+	line-height: 28px;
+	display: block;
+	padding: 0 8px;
+}
+.select dd ul li a:hover {
+	background: #f5f5f5;
+}
+/*=============焦点图==============*/
+#divSmallBox {
+	overflow: hidden;
+*display:inline;
+*zoom:1;
+	width: 10px;
+	height: 10px;
+	margin: 0 5px;
+	border-radius: 10px;
+	background: #ffffff;
+}
+#playBox {
+	width: 250px;
+	height: 310px;
+	margin: 0 auto;
+	background: #333;
+	position: relative;
+	overflow: hidden;
+}
+#playBox .oUlplay {
+	width: 99999px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#playBox .oUlplay li {
+	float: left;
+}
+#playBox .pre {
+	cursor: pointer;
+	width: 45px;
+	height: 45px;
+	background: url(../images/l.png) no-repeat;
+	position: absolute;
+	top: 140px;
+	left: 10px;
+	z-index: 10;
+}
+#playBox .next {
+	cursor: pointer;
+	width: 45px;
+	height: 45px;
+	background: url(../images/r.png) no-repeat;
+	position: absolute;
+	top: 140px;
+	right: 10px;
+	z-index: 10;
+}
+#playBox .smalltitle {
+	width: 250px;
+	left: 33px;
+	height: 18px;
+	position: absolute;
+	bottom: 15px;
+	z-index: 10;
+	cursor: pointer;
+}
+#playBox .smalltitle ul {
+	width: 120px;
+	margin: 0 auto;
+}
+#playBox .smalltitle ul li {
+	width: 10px;
+	height: 10px;
+	margin: 0 5px;
+	border-radius: 10px;
+	background: #ffffff;
+	float: left;
+	overflow: hidden;
+*display:inline;
+*zoom:1;
+}
+#playBox .smalltitle .thistitle {
+	background: #ff0000;
+}
+/*=============浮动层==============*/
+#Float {
+	background-color: #000;
+	height: 82px;
+	width: 59px;
+	position: absolute;
+	top: 90px;
+	right: 50px;
+}
+#Float h5 {
+	border-radius: 24px;
+	width: 24px;
+	height: 24px;
+	background: #c71917;
+	color: #fff;
+	text-align: center;
+	z-index: 999;
+	position: relative;
+	left: -13px;
+	top: -90px;
+}

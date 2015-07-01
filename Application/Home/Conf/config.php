@@ -3,6 +3,7 @@ return array(
 	'AUTH_Home_TOKEN'=>'_^&javakdyadmin222_',
 	'LOGIN_Home_TIMEOUT'=>3600,
     'URL_HTML_SUFFIX'=>'',
+	'URL_MODEL'=>0,
     //邮件配置
      'THINK_EMAIL' => array(
          'SMTP_HOST'   => 'smtp.qq.com', //SMTP服务器

@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/zh/css/layout.css">
-<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/zh/css/public.css">
-<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/zh/css/reset.css">
-<script type="text/javascript" src="{:SITE_PATH}Public/zh/js/jquery.1.4.2-min.js"></script>
-<script type="text/javascript" src="{:SITE_PATH}Public/zh/js/scrollImg.js"></script>
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/layout.css">
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/public.css">
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/reset.css">
+<script type="text/javascript" src="{:SITE_PATH}Public/{$lang}/js/jquery.1.4.2-min.js"></script>
+<script type="text/javascript" src="{:SITE_PATH}Public/{$lang}/js/scrollImg.js"></script>
 <script language="javascript"> 
 $(document).ready(function(){
 	$(window).scroll(function (){
@@ -21,7 +21,7 @@ $(document).ready(function(){
 <body>
 <!------------------------頁頭------------------------>
 <div id="header" class=" mb10">
-  <div id="Float"><img src="{:SITE_PATH}Public/zh/images/search_chance.jpg" />
+  <div id="Float"><img src="{:SITE_PATH}Public/{$lang}/images/search_chance.jpg" />
     <h5>4</h5>
   </div>
   <div class="hTop pr"> 
@@ -30,11 +30,11 @@ $(document).ready(function(){
     <!--------聯系方式+sns-------->
     <div class="hInfo pa">
       <ul>
-        <li class="mt10 mr8"><a href="#"><img src="{:SITE_PATH}Public/zh/images/snsCall.jpg" /></a><a href="#"><img src="{:SITE_PATH}Public/zh/images/snsChat.jpg" /></a></li>
+        <li class="mt10 mr8"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/snsCall.jpg" /></a><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/snsChat.jpg" /></a></li>
         <li class="mt15 mr8 chat">(852)9422 8989</li>
          <li class="mt15 mr8 chat">|</li>
         <li class="mt12 mr20 hot">查詢熱線:(852)8108 0303</li>
-        <li class="mt10"><a href="index.html"><img src="{:SITE_PATH}Public/zh/images/zh.jpg" /></a><a href="../cn/index.html"><img src="{:SITE_PATH}Public/zh/images/cn.jpg" /></a><a href="#"><img src="{:SITE_PATH}Public/zh/images/en.jpg" /></a></li>
+        <li class="mt10"><a href="{:U('', array('lang'=>'zh'))}"><img src="{:SITE_PATH}Public/{$lang}/images/zh.jpg" /></a><a href="{:U('', array('lang'=>'cn'))}"><img src="{:SITE_PATH}Public/{$lang}/images/cn.jpg" /></a><a href="{:U('', array('lang'=>'en'))}"><img src="{:SITE_PATH}Public/{$lang}/images/en.jpg" /></a></li>
       </ul>
     </div>
     <!--------我想找：行業，投資金額，利潤下拉彈框-------->
@@ -673,7 +673,7 @@ $(document).ready(function(){
           <li class="fl">
             <input value="輸入關鍵字" />
           </li>
-          <li class="fl"><a href="#"><img src="{:SITE_PATH}Public/zh/images/searchIcon.jpg" /></a></li>
+          <li class="fl"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/searchIcon.jpg" /></a></li>
         </ul>
       </div>
     </div>
@@ -710,26 +710,26 @@ $(document).ready(function(){
           </ul>
         </div>
         <ul class="oUlplay">
-          <li><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex01_01img.jpg"</a></li>
-          <li><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex01_01img.jpg"</a></li>
-          <li><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex01_01img.jpg"</a></li>
+          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_01img.jpg"</a></li>
+          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_01img.jpg"</a></li>
+          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_01img.jpg"</a></li>
         </ul>
       </div>
     </div>
     <!--------首頁主體部分-第一部分-第二列-------->
     <div class="wIndex01_02 mr10 fl">
       <ul>
-        <li class="mr10"><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex01_02_01img.jpg" /></a></li>
-        <li class="mr10"><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex01_02_02img.jpg" /></a></li>
-        <li><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex01_02_03img.jpg" /></a></li>
-        <li class="mr10 mt6"><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex01_02_04img.jpg" /></a></li>
-        <li class="mr10 mt6"><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex01_02_05img.jpg" /></a></li>
-        <li class="mt6"><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex01_02_06img.jpg" /></a></li>
+        <li class="mr10"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_01img.jpg" /></a></li>
+        <li class="mr10"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_02img.jpg" /></a></li>
+        <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_03img.jpg" /></a></li>
+        <li class="mr10 mt6"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_04img.jpg" /></a></li>
+        <li class="mr10 mt6"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_05img.jpg" /></a></li>
+        <li class="mt6"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_06img.jpg" /></a></li>
       </ul>
     </div>
     <!--------首頁主體部分-第一部分-第三列-------->
     <div class="wIndex01_03 fl">
-      <h1 class="pr"><img src="{:SITE_PATH}Public/zh/images/wIndex01_03_title.png" /><a href="#" class="fs13 pa">更多</a></h1>
+      <h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_03_title.png" /><a href="#" class="fs13 pa">更多</a></h1>
       <ul>
         <li class="bb_acacac mb10"><a href="#">NS066 元朗婚紗店</a>
           <p class="mt10 mb10">定價：$550</p>
@@ -748,34 +748,34 @@ $(document).ready(function(){
   <!--------首頁主體部分-第二部分-------->
   <div class="wIndex02 mt10">
     <ul>
-      <li class="mr10"><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex02_01img.jpg" /></a></li>
-      <li class="mr10"><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex02_02img.jpg" /></a></li>
-      <li class="mr10"><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex02_03img.jpg" /></a></li>
-      <li><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex02_04img.jpg" /></a></li>
+      <li class="mr10"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_01img.jpg" /></a></li>
+      <li class="mr10"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_02img.jpg" /></a></li>
+      <li class="mr10"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_03img.jpg" /></a></li>
+      <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_04img.jpg" /></a></li>
     </ul>
   </div>
   <!--------首頁主體部分-第三部分-------->
   <div class="wIndex03">
     <div class="wIndex03_01 b_aeaeae fl">
       <ul>
-        <li><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex03_01_01img.jpg" /></a></li>
-        <li><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex03_01_02img.jpg" /></a></li>
-        <li><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex03_01_03img.jpg" /></a></li>
+        <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_01_01img.jpg" /></a></li>
+        <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_01_02img.jpg" /></a></li>
+        <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_01_03img.jpg" /></a></li>
       </ul>
     </div>
     <div class="wIndex03_02 b_aeaeae fl ml10 mr10">
-      <h1 class="pr"><img src="{:SITE_PATH}Public/zh/images/wIndex03_02_title.png" /><a href="#" class="fs13 pa">更多</a></h1>
+      <h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_02_title.png" /><a href="#" class="fs13 pa">更多</a></h1>
       <h2>樓市「雙辣招」，投資者資金另覓新出路</h2>
       <p>面對香港特區政府推出樓市「雙辣招」壓抑樓價，加上投資市場對美國聯儲局退市時間及加息周期而作出不同的預測，令大量投機資金準備退岀樓市，尋找資金新出路。由於受惠國內旅客帶動本港內銷市場(例如:餐飲業及零售業)，加上相關行業投資回報相對穩定可觀，從而吸引投資者把資金轉向投資收購生意(如餐飲業)，作為長遠投資工具。</p>
     </div>
-    <div class="wIndex03_03 fl"><a href="#"><img src="{:SITE_PATH}Public/zh/images/wIndex03_03_01img.jpg" /></a></div>
+    <div class="wIndex03_03 fl"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_03_01img.jpg" /></a></div>
   </div>
   <!--------首頁主體部分-第四部分-------->
   <div class="wIndex04 b_aeaeae pr">
-    <h1 class="pr"><img src="{:SITE_PATH}Public/zh/images/wIndex04_title.png" /><a href="#" class="fs13 pa">更多</a></h1>
-    <h2 class="pa"><a href="#"><img src="{:SITE_PATH}Public/zh/images/searchicon.png" /></a></h2>
+    <h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex04_title.png" /><a href="#" class="fs13 pa">更多</a></h1>
+    <h2 class="pa"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h2>
     <h3 class="pa">
-    <a href="#"><img src="{:SITE_PATH}Public/zh/images/searchicon.png" /></a>
+    <a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a>
     </h2>
     <div class="page">
       <ul>
@@ -787,23 +787,23 @@ $(document).ready(function(){
         <li><a href="#">6</a></li>
         <li><a href="#">7</a></li>
         <li><a href="#">8</a></li>
-        <li><a href="#"><img src="{:SITE_PATH}Public/zh/images/arrow_right.png" /></a></li>
+        <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_right.png" /></a></li>
       </ul>
     </div>
     <table width="95%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <th scope="col">代號名稱<a href="#"><img src="{:SITE_PATH}Public/zh/images/arrow_bottom.png" /></a></th>
-        <th scope="col">出讓項目<a href="#"><img src="{:SITE_PATH}Public/zh/images/arrow_bottom.png" /></a></th>
-        <th scope="col">參考利潤<a href="#"><img src="{:SITE_PATH}Public/zh/images/arrow_bottom.png" /></a></th>
-        <th scope="col">包括存貨其他<a href="#"><img src="{:SITE_PATH}Public/zh/images/arrow_bottom.png" /></a></th>
-        <th scope="col">回本期(月)<a href="#"><img src="{:SITE_PATH}Public/zh/images/arrow_bottom.png" /></a></th>
-        <th scope="col">定價(HKD)<a href="#"><img src="{:SITE_PATH}Public/zh/images/arrow_bottom.png" /></a></th>
-        <th scope="col">供款(月)<a href="#"><img src="{:SITE_PATH}Public/zh/images/arrow_bottom.png" /></a></th>
-        <th scope="col">面積(平方尺)<a href="#"><img src="{:SITE_PATH}Public/zh/images/arrow_bottom.png" /></a></th>
-        <th scope="col">租金(月)<a href="#"><img src="{:SITE_PATH}Public/zh/images/arrow_bottom.png" /></a></th>
-        <th scope="col">參與程度<a href="#"><img src="{:SITE_PATH}Public/zh/images/arrow_bottom.png" /></a></th>
-        <th scope="col">項目情況<a href="#"><img src="{:SITE_PATH}Public/zh/images/arrow_bottom.png" /></a></th>
-        <th scope="col"><img src="{:SITE_PATH}Public/zh/images/select.png" width="24" height="24" /></th>
+        <th scope="col">代號名稱<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">出讓項目<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">參考利潤<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">包括存貨其他<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">回本期(月)<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">定價(HKD)<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">供款(月)<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">面積(平方尺)<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">租金(月)<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">參與程度<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">項目情況<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" width="24" height="24" /></th>
       </tr>
       <tr>
         <td>Peter Chan</td>
@@ -817,7 +817,7 @@ $(document).ready(function(){
         <td>$200</td>
         <td>投資者</td>
         <td>*歡迎查詢*</td>
-        <td><img src="{:SITE_PATH}Public/zh/images/selectok.png" width="24" height="24" /></td>
+        <td><img src="{:SITE_PATH}Public/{$lang}/images/selectok.png" width="24" height="24" /></td>
       </tr>
       <tr>
         <td class="bg_f3f3f3">Danny Yeung</td>
@@ -831,7 +831,7 @@ $(document).ready(function(){
         <td class="bg_f3f3f3">$1000</td>
         <td class="bg_f3f3f3">投資者</td>
         <td class="bg_f3f3f3">*歡迎查詢*</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/zh/images/selectok.png" alt="" width="24" height="24" /></td>
+        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/selectok.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td>helen yau</td>
@@ -845,7 +845,7 @@ $(document).ready(function(){
         <td>$30,000</td>
         <td>兼職營運</td>
         <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td class="bg_f3f3f3">Caleb</td>
@@ -859,7 +859,7 @@ $(document).ready(function(){
         <td class="bg_f3f3f3">$4,500</td>
         <td class="bg_f3f3f3">&nbsp;</td>
         <td class="bg_f3f3f3">已售</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/zh/images/selectok.png" alt="" width="24" height="24" /></td>
+        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/selectok.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td>HS065</td>
@@ -873,7 +873,7 @@ $(document).ready(function(){
         <td>$20,000</td>
         <td>全職營運</td>
         <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td class="bg_f3f3f3">Noah</td>
@@ -887,7 +887,7 @@ $(document).ready(function(){
         <td class="bg_f3f3f3">$12,500</td>
         <td class="bg_f3f3f3">&nbsp;</td>
         <td class="bg_f3f3f3">已售</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td>KF227</td>
@@ -901,7 +901,7 @@ $(document).ready(function(){
         <td><span class="bg_f3f3f3">$12,000</span></td>
         <td>全職營運</td>
         <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td class="bg_f3f3f3">KS032</td>
@@ -915,7 +915,7 @@ $(document).ready(function(){
         <td class="bg_f3f3f3">$14,000</td>
         <td class="bg_f3f3f3">全職營運</td>
         <td class="bg_f3f3f3">&nbsp;</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td>HR090</td>
@@ -929,7 +929,7 @@ $(document).ready(function(){
         <td><span class="bg_f3f3f3">$38,000</span></td>
         <td>兼職營運</td>
         <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td class="bg_f3f3f3">HF167</td>
@@ -943,7 +943,7 @@ $(document).ready(function(){
         <td class="bg_f3f3f3">$68,000</td>
         <td class="bg_f3f3f3">兼職營運</td>
         <td class="bg_f3f3f3">*歡迎查詢*</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/zh/images/selectok.png" alt="" width="24" height="24" /></td>
+        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/selectok.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td>KF284</td>
@@ -957,7 +957,7 @@ $(document).ready(function(){
         <td><span class="bg_f3f3f3">$15,000</span></td>
         <td><span class="bg_f3f3f3">投資者</span></td>
         <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td class="bg_f3f3f3">HF164</td>
@@ -971,7 +971,7 @@ $(document).ready(function(){
         <td class="bg_f3f3f3">$53</td>
         <td class="bg_f3f3f3">全職營運</td>
         <td class="bg_f3f3f3">&nbsp;</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td>Christopher</td>
@@ -985,7 +985,7 @@ $(document).ready(function(){
         <td>$39,000</td>
         <td>&nbsp;</td>
         <td><span class="bg_f3f3f3">已售</span></td>
-        <td><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td class="bg_f3f3f3">Brian</td>
@@ -999,7 +999,7 @@ $(document).ready(function(){
         <td class="bg_f3f3f3">$8,200</td>
         <td class="bg_f3f3f3">&nbsp;</td>
         <td class="bg_f3f3f3">*歡迎查詢*</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/zh/images/selectok.png" alt="" width="24" height="24" /></td>
+        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/selectok.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td>HE047</td>
@@ -1013,7 +1013,7 @@ $(document).ready(function(){
         <td>$24,000</td>
         <td><span class="bg_f3f3f3">兼職營運</span></td>
         <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td class="bg_f3f3f3">NS066</td>
@@ -1027,7 +1027,7 @@ $(document).ready(function(){
         <td class="bg_f3f3f3">$15,000</td>
         <td class="bg_f3f3f3">投資者</td>
         <td class="bg_f3f3f3">*歡迎查詢*</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td>Daisy</td>
@@ -1041,7 +1041,7 @@ $(document).ready(function(){
         <td>$11,200</td>
         <td>&nbsp;</td>
         <td><span class="bg_f3f3f3">已售</span></td>
-        <td><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td class="bg_f3f3f3">Ewan</td>
@@ -1055,7 +1055,7 @@ $(document).ready(function(){
         <td class="bg_f3f3f3">$0</td>
         <td class="bg_f3f3f3">&nbsp;</td>
         <td class="bg_f3f3f3">*歡迎查詢*</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
       <tr>
         <td>Lola</td>
@@ -1069,7 +1069,7 @@ $(document).ready(function(){
         <td>$4,500</td>
         <td>&nbsp;</td>
         <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><span class="bg_f3f3f3"><img src="{:SITE_PATH}Public/zh/images/selectok.png" alt="" width="24" height="24" /></span></td>
+        <td><span class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/selectok.png" alt="" width="24" height="24" /></span></td>
       </tr>
       <tr>
         <td class="bg_f3f3f3">Aiden</td>
@@ -1083,7 +1083,7 @@ $(document).ready(function(){
         <td class="bg_f3f3f3">$22,300</td>
         <td class="bg_f3f3f3">&nbsp;</td>
         <td class="bg_f3f3f3">已售</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/zh/images/select.png" alt="" width="24" height="24" /></td>
+        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
       </tr>
     </table>
     <div class="page">
@@ -1096,7 +1096,7 @@ $(document).ready(function(){
         <li><a href="#">6</a></li>
         <li><a href="#">7</a></li>
         <li><a href="#">8</a></li>
-        <li><a href="#"><img src="{:SITE_PATH}Public/zh/images/arrow_right.png" /></a></li>
+        <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_right.png" /></a></li>
       </ul>
     </div>
   </div>
@@ -1148,7 +1148,7 @@ $(document).ready(function(){
     </ul>
   </div>
   <div class="fCopyright">
-    <div class="fCopyright_in pr"><a href="#"><img src="{:SITE_PATH}Public/zh/images/footer_logo.jpg" /></a>
+    <div class="fCopyright_in pr"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/footer_logo.jpg" /></a>
       <dl class="pa fl">
         <dd>© 2005 - 2015創富易業務轉讓有限公司 天域國際投資投資成員</dd>
         <dd>版權所有 不得轉載</dd>
@@ -1162,6 +1162,6 @@ $(document).ready(function(){
     </div>
   </div>
 </div>
-<script type="text/javascript" src="{:SITE_PATH}Public/zh/js/scrolltopcontrol.js"></script>
+<script type="text/javascript" src="{:SITE_PATH}Public/{$lang}/js/scrolltopcontrol.js"></script>
 </body>
 </html>

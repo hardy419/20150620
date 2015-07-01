@@ -1,0 +1,111 @@
+@charset "utf-8";
+/*=======================关于我们=======================*/
+.about {
+	width: 100%;
+}
+.about .aboutTitle, .about .aboutwrap {
+	width: 1080px;
+}
+/*------标题------*/
+.about .aboutTitle {
+	margin: 0 auto;
+	color: #ff3000;
+	font-size: 34px;
+	font-weight: 900;
+	border-bottom: 1px solid #ff6600;
+	text-indent: 20px;
+}
+/*------主体容器------*/
+.about .aboutwrap {
+	margin: 0 auto;
+	margin-top: 10px;
+	background:#fcfcfc;
+}
+/*------主体容器左边------*/
+.about .aboutwrap_l {
+	width: 818px;
+	margin-bottom:10px;
+	padding-bottom:40px;
+}
+.about .aboutwrap_l_menu {
+	width: 179px;
+	height: 507px;
+	margin-top: 22px;
+	margin-left: 19px;
+}
+.about .aboutwrap_l_menu li {
+	margin-bottom: 22px;
+	font-size: 16px;
+	font-weight:600;
+}
+.about .aboutwrap_l_menu li a, .about .aboutwrap_l_menu li a:hover {
+	padding-left: 22px;
+}
+.about .aboutwrap_l_menu li a {
+	color: #2a2a2a;
+}
+.about .aboutwrap_l_menu li a:hover {
+	color: #ff6600;
+	background: url(../images/arrow.png) no-repeat left center;
+}
+.about .aboutwrap_l_menu li a.current {
+	color: #ff6600;
+	background: url(../images/arrow.png) no-repeat left center;
+}
+
+.about .aboutwrap_l_txt {
+	width: 580px;
+	margin-top: 22px;
+	margin-left: 19px;
+	font-size:15px;
+	line-height:30px;
+}
+/*------Banner------*/
+.about .aboutBanner {
+	margin: 0 auto;
+	height: 221px;
+	background: url(../images/about_banner.jpg) 19px 19px no-repeat;
+}
+/*------Banner------*/
+.about .buyersBanner {
+	margin: 0 auto;
+	height: 221px;
+	background: url(../images/buyers_banner.jpg) 19px 19px no-repeat;
+}
+/*------主体容器右边------*/
+.about .aboutwrap_r  {
+	width: 248px;
+}
+.about .aboutwrap_r .aboutwrap_r_hot {
+	width: 248px;
+	border: 1px solid #acacac;
+}
+.about .aboutwrap_r .aboutwrap_r_hot h1 {
+	width: 100%;
+	height: 30px;
+	border-bottom: 1px solid #acacac;
+	background: url(../images/wIndex01_03_navBg.jpg) repeat-x;
+}
+.about .aboutwrap_r .aboutwrap_r_hot h1 img {
+	margin-left: 10px;
+}
+.about .aboutwrap_r .aboutwrap_r_hot h1 a {
+	color: #fff;
+	right: 10px;
+	top: 7px;
+}
+.about .aboutwrap_r .aboutwrap_r_hot ul {
+	margin: 9px 15px 9px 20px;
+}
+.about .aboutwrap_r .aboutwrap_r_hot ul li {
+}
+.about .aboutwrap_r .aboutwrap_r_hot ul li a {
+	color: #ff0000;
+	font-weight: 600;
+}
+.about .aboutwrap_r .aboutwrap_r_hot ul li p {
+	color: #333;
+}
+/*------广告------*/
+.about .aboutwrap_r .aboutwrap_r_ad{}
+.about .aboutwrap_r .aboutwrap_r_ad img{padding-top:10px;}

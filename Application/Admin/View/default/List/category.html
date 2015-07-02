@@ -214,7 +214,8 @@
 	                    <td>{$vo.position}</td>
 	                    <td>
 	                    <a href="{:U('admin',array('id'=>$vo['id'],'type'=>$type,'pid'=>$pid,'ti'=>$ti))}">編輯</a>&nbsp;｜&nbsp;
-                        <a href="javascript:void(0);" onclick="del('{:U('del',array('id'=>$vo['id'],'type'=>$type))}');">刪除</a></td>
+                        <a href="javascript:void(0);" onclick="del('{:U('del',array('id'=>$vo['id'],'type'=>$type))}');">刪除</a>
+                        <if condition="in_array($vo['name'], array('菜式','食店','持牌狀況','類別'))">&nbsp;｜&nbsp;<a href="{:U('admin',array('pid'=>$vo['id'],'type'=>$type,'ti'=>$ti))}">管理</a></if></td>
 	                </tr>
 	                </volist>
 	              </tbody>

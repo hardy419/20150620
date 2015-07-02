@@ -50,6 +50,12 @@
 				    </div>
 				    </div>
 				    <div class="control-group">
+				    <label class="control-label">投資首選：</label>
+				    <div class="controls">
+				    <input type="checkbox" id="first_choice" name="first_choice" <if condition="$list['first_choice'] eq 'on'">checked</if>>
+				    </div>
+				    </div>
+				    <div class="control-group">
 				    <label class="control-label">行業：</label>
 				    <div class="controls">
 				    <select id="c_field" name="c_field"><volist name="catelist" id="vo"><if condition="$vo['t'] eq '行業'">

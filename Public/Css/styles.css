@@ -73,7 +73,7 @@ ul li {list-style:none}
 
 /*头部搜索*/
 #top-Search .top_submenus{border: 1px solid #99979c;margin-top: 29px;right: 0px;}
-.top_submenus{background: #fff;border: 1px solid #99979c;padding: 24px 10px 10px 10px;margin-top: 15px;position: absolute;z-index: 999;}
+.top_submenus{background: #fff;border: 1px solid #99979c;padding: 5px 10px 10px 10px;margin-top: 15px;position: absolute;z-index: 999;}
 .top_submenus .element-tit,.top_submenus .element-tit_2{height: 24px;line-height: 24px;/*padding-left: 10px;*/font-size: 13px;font-weight: bold;color: #55554d;/*margin-bottom: 10px;*/}
 .top_submenus div.element-tit{margin: 0px;padding: 0px;}
 .top_submenus h2.element-tit{padding-left:20px}
@@ -81,7 +81,7 @@ ul li {list-style:none}
 .top_submenus .element-name{font-size: 13px;color: #55554d;}
 .top_submenus .element-name i{font-style: normal;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體";font-size: 12px;}
 .top_submenus .elementBox,.top_submenus .elementBox ul{margin: 0px;}
-.top_submenus .elementBox li.left{margin-left:20px;border-left: 1px dotted #99979c;padding-left: 10px;margin-right: 6px;min-height: 218px;/*width: 146px;*/}
+.top_submenus .elementBox li.left{margin-left:0;border-left: 1px dotted #99979c;padding-left: 10px;padding-right: 10px;padding-top:5px;padding-bottom:5px;min-height: 218px;/*width: 146px;*/}
 .top_submenus .elementBox li.left:first-child{border: none;padding: 0px;}
 .top_submenus .elementBox li.left li{height: 18px; line-height:18px;margin-bottom:6px;}
 #top-Search .top_submenus .elementBox li.left{width: 146px;}
@@ -130,6 +130,9 @@ ul li {list-style:none}
 .top_submenus ul.clearfix.font-A li a{font-size: 13px;color: #58595b;display: block;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體";}
 .top_submenus .more_link:hover{text-decoration: underline;}
 .jshop table.jshop_pagination{float: right;margin-top: -44px;}
+
+h3.element-tit{font-weight:bold;font-size:16px !important}
+.clearboth{clear:both}
 
 /*最新消息*/
 .text-info{width: 765px;float: left;border: 1px solid #ccc;padding: 20px;min-height: 484px;background: #fcfcfc;}

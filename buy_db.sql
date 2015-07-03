@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `buy_category` (
   `t` varchar(32) NOT NULL,
   `position` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `NAME` (`name`),
+  KEY `NAME` (`name`),
   KEY `TYPE` (`t`),
   KEY `POSITION` (`position`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;

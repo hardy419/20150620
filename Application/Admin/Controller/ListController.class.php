@@ -118,6 +118,7 @@ class ListController extends BaseController{
                 $catelist[$item['id']] = $item['name'];
             }
             $this->assign('catelist', $catelist);
+            $this->assign('categories', $dblist);
         }
         else {
             $map = array ();

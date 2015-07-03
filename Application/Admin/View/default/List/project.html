@@ -22,7 +22,11 @@
 				    </form>
 
 				<h3>所有項目</h3>	
-                    <form class="form-inline" id="search-form" method="post" action="{:U('admin', array('type'=>'category'))}">
+
+<!-- Search form START -->
+                    <form class="form-inline" id="search-form" method="post" action="{:U('admin', array('type'=>'project'))}">
+
+<!-- Input Select all START -->
                     <div class="input-append">
 				      <input class="input-medium" type="text" name="fip" placeholder="行業、投資金額、利潤">
                       <div class="btn-group">
@@ -31,6 +35,133 @@
                         </button>
                       </div>
                     </div>
+
+<!-- Advanced Search Box START -->
+<div id="TB_window" class="top_submenus" style="position:absolute; top:25%; left:50%; width: 913px;height: 405px; margin-left:-457px;margin-top:-250px;border-radius:10px;padding:10px 30px;background-color:white; display: none;z-index:2147483647">
+  <h3 class="element-tit" id="TB_title" style="padding:10px 0">飲食業</h3>
+  <div style="width:96%;height:auto;background-color:rgb(253,233,217);border-radius:10px;padding:5px 20px">
+    <h3 class="element-tit" id="TB_subtitle" style="width: 90px;display:block; float:left;">菜式</h3>
+    <h3 class="element-tit" style="width: 100px;display:block; float:left;"><input type="checkbox" value="1" class="selectall" name="all_extra_18" onclick="checkall('#TB_options_u input',$(this));">&nbsp;選擇全部</h3>
+    <div class="clearboth"></div>
+  </div>
+  <ul id="TB_options_u" style="width:96%;height:auto;padding:5px 0;margin-left:20px">
+    <div id="TB_options" class="clearboth"></div>
+  </ul>
+  <div id="TB_section_2">
+    <div style="width:96%;height:auto;background-color:rgb(253,233,217);border-radius:10px;padding:5px 20px">
+      <h3 class="element-tit" id="TB_subtitle_2" style="width: 90px;display:block; float:left;">食店</h3>
+      <h3 class="element-tit" style="width: 100px;display:block; float:left;"><input type="checkbox" value="1" class="selectall" name="all_extra_18" onclick="checkall('#TB_options_2_u input',$(this));">&nbsp;選擇全部</h3>
+      <div class="clearboth"></div>
+    </div>
+    <ul id="TB_options_2_u" style="width:96%;height:auto;padding:5px 0;margin-left:20px">
+      <div id="TB_options_2" class="clearboth"></div>
+    </ul>
+  </div>
+
+  <div class="submit-buttons" style="float:right; margin:10px"><a href="javascript:(function(){$('#TB_window input').removeAttr('checked');js_op_close(false)})();"><img src="{:SITE_PATH}Public/zh/images/cancel.png" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:js_op_close(false);"><img src="{:SITE_PATH}Public/zh/images/yes.png" /></a></a></div>
+</div>
+<div id="TB_mask" style="filter:alpha(opacity=30);-moz-opacity:0.5;opacity:0.5;background-color:#000000;position:absolute;left:0px;top:0px;width:100%;height:300%;z-index:2147483646;display:none" onclick="js_op_close(false)"></div>
+<script>
+function js_op_close(reload){
+  // Return options from advanced search box
+  $('#TB_options_u li,#TB_options_2_u li').css('float','initial');
+  $('#TB_options_u li,#TB_options_2_u li').css('width','inherit');
+  if('飲食業'==$('#TB_title').text()){
+    $('#TB_options_u li:first-child+li+li~li,#TB_options_2_u li:first-child+li~li').css('display','none');
+    $('#TB_options_u li').appendTo('.checkbox-block-'+$("#TB_window").attr('fid'));
+    $('#TB_options_2_u li').appendTo('.checkbox-block-'+$("#TB_window").attr('fid'));
+  }
+  else if('教育業'==$('#TB_title').text()){
+    $('#TB_options_u li:first-child+li~li,#TB_options_2_u li:first-child+li+li+li~li').css('display','none');
+    $('#TB_options_u li').css('float','left');
+    $('#TB_options_u li:first-child').css('width','46px');
+    $('#TB_options_u li:first-child+li').css('width','59px');
+    $('#TB_options_u li').insertBefore('.checkbox-block-'+$("#TB_window").attr('fid')+' li:first-child+li>ul>.clearboth');
+    $('#TB_options_2_u li').appendTo('.checkbox-block-'+$("#TB_window").attr('fid'));
+  }
+  else{
+    $('#TB_options_u li:first-child+li+li+li+li~li').css('display','none');
+    $('#TB_options_u li').appendTo('.checkbox-block-'+$("#TB_window").attr('fid'));
+  }
+
+	$("#TB_mask").css("display",'none');
+	$("#TB_window").css("display",'none');
+}
+function tb_show(fname,id)
+{
+  // Move options to advanced search box
+  if('飲食業'==fname){
+    $('.checkbox-block-'+id+' li:first-child~.li-1').insertBefore('#TB_options');
+    $('.checkbox-block-'+id+' li:first-child~.li-2').insertBefore('#TB_options_2');
+    $('#TB_section_2').css('display','block');
+  }
+  else if('教育業'==fname){
+    $('.checkbox-block-'+id+' li:first-child+li>ul>.li-1').insertBefore('#TB_options');
+    $('.checkbox-block-'+id+' li:first-child~.li-2').insertBefore('#TB_options_2');
+    $('#TB_section_2').css('display','block');
+  }
+  else{
+    $('.checkbox-block-'+id+' li:first-child~.li-1').insertBefore('#TB_options');
+    $('#TB_section_2').css('display','none');
+  }
+
+  $('#TB_options_u li,#TB_options_2_u li').css('float','left');
+  $('#TB_options_u li,#TB_options_2_u li').css('width','145px');
+  $('#TB_options_u li,#TB_options_2_u li').css('display','block');
+  $('#TB_title').text(fname);
+  if('飲食業'==fname){
+    $('#TB_subtitle').text('菜式');
+    $('#TB_subtitle_2').text('食店');
+  }
+  else if('教育業'==fname){
+    $('#TB_subtitle').text('持牌狀況');
+    $('#TB_subtitle_2').text('類別');
+  }
+  else {
+    $('#TB_subtitle').text('');
+    $('#TB_subtitle').css('width','0');
+  }
+
+	$("#TB_mask").css("display",'block');
+	$("#TB_window").css("display",'block');
+	$("#TB_window").attr('fid',id);
+}
+
+function js_op(_url)
+{
+	$.ajax({
+		type:'POST',
+		url:_url,
+		dataType:'json',
+		cache:false,
+		error:function(){
+			alert('出错了！');
+			return false;
+		},
+		success:function(json){
+			if('1' == json.data)
+			{
+				alert('操作成功！');
+				location.reload();
+			}
+			else
+			{
+				alert('操作失败！');
+			}
+		}
+	});
+}
+
+function checkall(selector,refbox){
+  if('undefined'!=typeof(refbox.attr('checked'))){
+    $(selector).attr('checked','1');
+  }
+  else{
+    $(selector).removeAttr('checked');
+  }
+}
+</script>
+<!-- Advanced Search Box END -->
 
 <div class="top_submenus search_all" style="display: none;">
   <div class="top_submenus_Industry _Many" style="width: 1060px;">
@@ -42,79 +173,42 @@
         </div>
     </div>
 
-  <ul class="elementBox" style="border-bottom:1px dotted #99979c; padding-bottom: 5px; padding-top: 5px">    
-    <li class="left" style="width: 184px;">
-      <h3 class="element-tit">投資金額</h3>
-      <ul class="invest">
-        <li><input type="checkbox" name="extra_fields_19_all" value="1" class="checkedall_19"><span class="element-name">投資金額不限</span></li>
-              <li><input type="checkbox" name="extra_19[]" value="48" class="element_19"><span class="element-name">HK$100,000或以下</span></li>
-              <li><input type="checkbox" name="extra_19[]" value="49" class="element_19"><span class="element-name">HK$100,001-300,000</span></li>
-              <li><input type="checkbox" name="extra_19[]" value="50" class="element_19"><span class="element-name">HK$300,001-500,000</span></li>
-              <li><input type="checkbox" name="extra_19[]" value="51" class="element_19"><span class="element-name">HK$500,001-800,000</span></li>
-              <li><input type="checkbox" name="extra_19[]" value="52" class="element_19"><span class="element-name">HK$800,001-1,500,000</span></li>
-              <li><input type="checkbox" name="extra_19[]" value="149" class="element_19"><span class="element-name">HK$1,500,001-2,500,000</span></li>
-              <li><input type="checkbox" name="extra_19[]" value="150" class="element_19"><span class="element-name">HK$2,500,000以上</span></li>
+<style>
+.top_submenus .elementBox li.left:first-child{width:120px}
+.top_submenus .elementBox li.left:first-child+li{width:157px}
+</style>
+  <ul class="elementBox fields-u" style="border-bottom:1px dotted #99979c; padding-bottom: 5px; padding-top: 5px">    
+<?PHP foreach ($categories as $cate) if('行業' == $cate['t']) { ?>
+    <li class="left">
+      <h3 class="element-tit">{$cate.name}</h3>
+      <ul class="checkbox-block-{$cate.id}">
+        <li><input type="checkbox" name="checkbox_block_{$cate.id}_all" value="1" class="checkedall_{$cate.id}" onclick="checkall('ul.checkbox-block-{$cate.id} input',$(this));"><span class="element-name" style="font-weight:bold">所有類別</span></li>
+        <?PHP if ('飲食業' == $cate['name']) { ?>
+          <?PHP $count=0;foreach ($categories as $cate2) if('菜式' == $cate2['t'] || '食店' == $cate2['t']) { ++$count; ?>
+            <li class="li-<?PHP echo ('菜式' == $cate2['t'])?1:2; ?> <?PHP echo ($count>5)?'displaynone':''; ?>"><input type="checkbox" name="checkbox[{$cate.id}][<?PHP echo ('菜式' == $cate2['t'])?1:2; ?>][]" value="{$cate2.id}" class="element_{$cate.id}"><span class="element-name">{$cate2.name}</span></li>
+          <?PHP } ?>
+        <?PHP } else if ('教育業' == $cate['name']) { ?>
+          <li>
+            <ul class="elementBox" style="border-bottom:1px dotted #99979c;">
+              <?PHP foreach ($categories as $cate2) if('持牌狀況' == $cate2['t']) { ?>
+              <li class="li-1 floatleft"><input type="checkbox" name="checkbox[{$cate.id}][1][]" value="{$cate2.id}" class="element_{$cate.id}"><span class="element-name">{$cate2.name}</span></li>
+              <?PHP } ?>
+              <div class="clearboth"></div>
             </ul>
-    </li>
-    <li class="left" style="width: 157px;">
-      <h3 class="element-tit">利潤</h3>
-      <input type="checkbox" name="extra_5[]" value="0-1" class="element_5"><span class="element-name">裝修/設備/客戶轉讓</span>
-      <div>
-      <ul class="Profit">
-        <li><input type="checkbox" name="extra_5[]" value="0-2" class="checkedall_5 element_5"><span class="element-name">利潤不限</span></li>
-        <li><input type="checkbox" name="extra_5[]" value="0-10000" class="element_5"><span class="element-name">HK$10,000 或以下</span></li>
-        <li><input type="checkbox" name="extra_5[]" value="10001-20000" class="element_5"><span class="element-name">HK$10,001-20,000</span></li>
-        <li><input type="checkbox" name="extra_5[]" value="20001-30000" class="element_5"><span class="element-name">HK$20,001-30,000</span></li>
-        <li><input type="checkbox" name="extra_5[]" value="30001-40000" class="element_5"><span class="element-name">HK$30,001-40,000</span></li>
-        <li><input type="checkbox" name="extra_5[]" value="40001-50000" class="element_5"><span class="element-name">HK$40,001-50,000</span></li>
-        <li><input type="checkbox" name="extra_5[]" value="50001-99999999" class="element_5"><span class="element-name">HK$50,000 以上</span></li>
+          </li>
+          <li style="height:5px"></li>
+          <?PHP $count=0;foreach ($categories as $cate2) if('類別' == $cate2['t']) { ++$count; ?>
+            <li class="li-2 <?PHP echo ($count>4)?'displaynone':''; ?>"><input type="checkbox" name="checkbox[{$cate.id}][2][]" value="{$cate2.id}" class="element_{$cate.id}"><span class="element-name">{$cate2.name}</span></li>
+          <?PHP } ?>
+        <?PHP } else { ?>
+          <?PHP $count=0;foreach ($categories as $cate2) if($cate['name'] == $cate2['t']) { ++$count; ?>
+            <li class="li-1 <?PHP echo ($count>5)?'displaynone':''; ?>"><input type="checkbox" name="checkbox[{$cate.id}][1][]" value="{$cate2.id}" class="element_{$cate.id}"><span class="element-name">{$cate2.name}</span></li>
+          <?PHP } ?>
+        <?PHP } ?>
       </ul>
-      </div>
+      <div class="more-button"><a href="javascript:tb_show('{$cate.name}',{$cate.id});"><img style="width:53px;height:23px;position:relative;left:-10px" src="{:SITE_PATH}Public/zh/images/more.png" /></a></div>
     </li>
-    <li class="left" style="width: 100px;">
-      <h3 class="element-tit">參與程度</h3>
-      <ul class="Participate">
-      <li><input type="checkbox" name="extra_fields_12_all" value="1" class="checkedall_12"><span class="element-name">參與程度不限</span></li>
-              <li><input type="checkbox" name="extra_12[]" value="40" class="element_12"><span class="element-name">投資者</span></li>
-              <li><input type="checkbox" name="extra_12[]" value="5" class="element_12"><span class="element-name">全職營運</span></li>
-              <li><input type="checkbox" name="extra_12[]" value="41" class="element_12"><span class="element-name">兼職營運</span></li>
-            </ul>
-    </li>
-    <li class="left" style="width: 100px;">
-      <h3 class="element-tit">回本期</h3>
-      <ul class="Back">
-        <li><input type="checkbox" name="extra_fields_16_all" value="1" class="checkedall_16"><span class="element-name">回本期不限</span></li>
-        <li><input type="checkbox" name="extra_16[]" value="0-6" class="element_16"><span class="element-name">6個月或以下</span></li>
-        <li><input type="checkbox" name="extra_16[]" value="6.1-12" class="element_16"><span class="element-name">7個月-12個月</span></li>
-        <li><input type="checkbox" name="extra_16[]" value="12.1-24" class="element_16"><span class="element-name">13個月-24個月</span></li>
-        <li><input type="checkbox" name="extra_16[]" value="24.1-9999999" class="element_16"><span class="element-name">24個月以上</span></li>
-
-      </ul>
-    </li>
-    <li class="left" style="width: 157px;">
-      <h3 class="element-tit">面積</h3>
-      <ul class="Square">
-        <li><input type="checkbox" name="extra_fields_7_all" value="1" class="checkedall_7"><span class="element-name">面積不限</span></li>
-        <li><input type="checkbox" name="extra_7[]" value="0-200" class="element_7"><span class="element-name">200平方呎 或以下</span></li>
-        <li><input type="checkbox" name="extra_7[]" value="201-500" class="element_7"><span class="element-name">201-500平方呎</span></li>
-        <li><input type="checkbox" name="extra_7[]" value="501-800" class="element_7"><span class="element-name">501-800平方呎</span></li>
-        <li><input type="checkbox" name="extra_7[]" value="801-1200" class="element_7"><span class="element-name">801-1,200平方呎</span></li>
-        <li><input type="checkbox" name="extra_7[]" value="1201-2000" class="element_7"><span class="element-name">1,201-2,000平方呎</span></li>
-        <li><input type="checkbox" name="extra_7[]" value="2001-99999999" class="element_7"><span class="element-name">2,000平方呎以上</span></li>
-      </ul>
-    </li>
-    <li class="left" style="width: 157px;">
-      <h3 class="element-tit">租金</h3>
-      <ul class="Rent">
-        <li><input type="checkbox" name="extra_fields_6_all" value="1" class="checkedall_6"><span class="element-name">租金不限</span></li>
-        <li><input type="checkbox" name="extra_6[]" value="0-10000" class="element_6"><span class="element-name">HK$10,000或以下</span></li>
-        <li><input type="checkbox" name="extra_6[]" value="10001-30000" class="element_6"><span class="element-name">HK$10,001-30,000</span></li>
-        <li><input type="checkbox" name="extra_6[]" value="30001-50000" class="element_6"><span class="element-name">HK$30,001-50,000</span></li>
-        <li><input type="checkbox" name="extra_6[]" value="50001-80000" class="element_6"><span class="element-name">HK$50,001-80,000</span></li>
-        <li><input type="checkbox" name="extra_6[]" value="80001-100000" class="element_6"><span class="element-name">HK$80,001-100,000</span></li>
-         <li><input type="checkbox" name="extra_6[]" value="100001-99999999" class="element_6"><span class="element-name">HK$100,000以上</span></li>
-      </ul>
-    </li>
+<?PHP } ?>
     <div class="clearboth"></div>
   </ul>
 
@@ -196,7 +290,9 @@
 
   <div class="submit-buttons" style="float:right; margin:10px"><a href="javascript:(function(){$('.search_all input').removeAttr('checked');close_div();})();"><img src="{:SITE_PATH}Public/zh/images/cancel.png" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_div();"><img src="{:SITE_PATH}Public/zh/images/yes.png" /></a></a></div>
 </div>
+<!-- Input Select all END -->
 
+<!-- Input Area START -->
                     <div class="input-append">
 				      <input class="input-small" type="text" name="area" placeholder="地區">
                       <div class="btn-group">
@@ -314,6 +410,7 @@
     </li>
       </ul>
     </div>
+<!-- Input Area END -->
 
 				    <input class="input-small" type="text" id="keyword" name="keyword" value="" placeholder="輸入關鍵字"/>
 
@@ -321,6 +418,8 @@
                     <input type="hidden" id="typen" name="type" value="{$type}" />
 				    <a href="javascript:document.getElementById('search-form').submit();"><img src="{:SITE_PATH}Public/Img/Buy/search_btn.png" /></a>
 				    </form>
+<!-- Search form END -->
+
                 <div class="frame-box-div">
                 <table class="table table-striped">
 	              <thead>

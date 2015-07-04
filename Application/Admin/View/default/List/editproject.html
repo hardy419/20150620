@@ -61,6 +61,8 @@
 				    <select id="c_field" name="c_field"><volist name="catelist" id="vo"><if condition="$vo['t'] eq '行業'">
 				      <option value='{$vo.id}' <if condition="$list['c_field'] eq $vo['id']">selected</if>>{$vo.name}</option>
 				    </if></volist></select>
+				    <select id="c_field1" name="c_field1" val="{$list.c_field1}"></select>
+				    <select id="c_field2" name="c_field2" val="{$list.c_field2}"></select>
 				    </div>
 				    </div>
 				    <div class="control-group">
@@ -81,6 +83,7 @@
 				    <select id="c_area" name="c_area"><volist name="catelist" id="vo"><if condition="$vo['t'] eq '地區'">
 				      <option value='{$vo.id}' <if condition="$list['c_area'] eq $vo['id']">selected</if>>{$vo.name}</option>
 				    </if></volist></select>
+				    <select id="c_area1" name="c_area1" val="{$list.c_area1}"></select>
 				    </div>
 				    </div>
 				    <div class="control-group">
@@ -125,8 +128,8 @@
 				    <div class="control-group">
 				    <label class="control-label">參考利潤（每月）：</label>
 				    <div class="controls" style="position:relative; left:-13px">
-				    <input type="radio" id="profit_option1" name="profit_option" style="position:relative; left:-10px" value="1" <if condition="$list['profit_option'] neq '2'">checked</if> onclick="$('#profit_text').attr('disabled','disabled');$('#profit').removeAttr('disabled');"><input type="text" id="profit" name="profit" value="{$list.profit}" <if condition="$list['profit_option'] eq '2'">disabled</if>><br/><br/>
-				    <input type="radio" id="profit_option2" name="profit_option" style="position:relative; left:-10px" value="2" <if condition="$list['profit_option'] eq '2'">checked</if> onclick="$('#profit').attr('disabled','disabled');$('#profit_text').removeAttr('disabled');"><input type="text" id="profit_text" name="profit_text" value="{$list.profit_text}" placeholder="其它字句" <if condition="$list['profit_option'] neq '2'">disabled</if>>
+				    <input type="radio" id="profit_option1" name="profit_option" style="position:relative; left:-10px" value="1" <if condition="$list['profit_option'] neq '2'">checked</if> onclick="$('#profit_text').attr('disabled','disabled');$('#profit_text').val('');$('#profit').removeAttr('disabled');"><input type="text" id="profit" name="profit" value="{$list.profit}" <if condition="$list['profit_option'] eq '2'">disabled</if>><br/><br/>
+				    <input type="radio" id="profit_option2" name="profit_option" style="position:relative; left:-10px" value="2" <if condition="$list['profit_option'] eq '2'">checked</if> onclick="$('#profit').attr('disabled','disabled');$('#profit').val('');$('#profit_text').removeAttr('disabled');"><input type="text" id="profit_text" name="profit_text" value="{$list.profit_text}" placeholder="其它字句" <if condition="$list['profit_option'] neq '2'">disabled</if>>
 				    </div>
 				    </div>
 				    <div class="control-group">
@@ -207,6 +210,12 @@
 				    </if></volist></select>
 				    </div>
 				    </div>
+				    <div class="control-group">
+				    <label class="control-label">投資金額 ：</label>
+				    <div class="controls">
+				    <input type="text" id="investment" name="investment" value="{$list.investment}">
+				    </div>
+				    </div>
 
 				    <input type="hidden" id="id" name="id" value="{$list.id}" />
                     <input type="hidden" id="type" name="type" value="{$type}" />
@@ -258,6 +267,48 @@ function check_form(){
 		  return true;
 	  }
   }
+
+var cate_id=[];
+var cate_name=[];
+var cate_t=[];
+<volist name="catelist" id="vo">
+cate_id.push({$vo.id});
+cate_name.push('{$vo.name}');
+cate_t.push('{$vo.t}');
+
+</volist>
+function fill_options(sel,tname){
+  sel.html('');
+  var i;
+  for(i=0;i<cate_id.length;i++) if(cate_t[i]==tname){
+    sel.append('<option value="'+cate_id[i]+'">'+cate_name[i]+'</option>');
+    if(sel.attr('val')==cate_id[i]){
+      sel.find('option[value="'+cate_id[i]+'"]').attr('selected','selected');
+    }
+  }
+}
+function retrieve_options(){
+  var field=$('#c_field option[value="'+$('#c_field').val()+'"]').text();
+  if('飲食業'==field){
+    fill_options($('#c_field1'),'菜式');
+    fill_options($('#c_field2'),'食店');
+  }
+  else if('教育業'==field){
+    fill_options($('#c_field1'),'持牌狀況');
+    fill_options($('#c_field2'),'類別');
+  }
+  else{
+    fill_options($('#c_field1'),field);
+    fill_options($('#c_field2'),'');
+  }
+}
+
+$(function(){
+  retrieve_options();
+  $('#c_field').change(function(){
+    retrieve_options();
+  });
+});
 </script>
 
 <link href="__CSS__/bootstrap-multiselect.css" type="text/css" rel="stylesheet" />

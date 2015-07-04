@@ -166,6 +166,7 @@ CREATE TABLE IF NOT EXISTS `buy_project` (
   `allowance` int(11) NOT NULL,
   `allowance_period` int(11) NOT NULL,
   `c_situation` int(11) NOT NULL,
+  `investment` int(11) NOT NULL,
   `status` varchar(64) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `POSITION` (`position`),
@@ -176,7 +177,19 @@ CREATE TABLE IF NOT EXISTS `buy_project` (
   KEY `PRICE` (`price`),
   KEY `RECOVERY_PERIOD` (`recovery_period`),
   KEY `STATUS` (`status`),
-  KEY `VISIBLE` (`visible`)
+  KEY `VISIBLE` (`visible`),
+  KEY `HOT_RECOMM` (`hot_recomm`),
+  KEY `ESTATE_RECOMM` (`estate_recomm`),
+  KEY `SMALL_BUSINESS` (`small_business`),
+  KEY `FIRST_CHOICE` (`first_choice`),
+  KEY `C_PARTICIPATION` (`c_participation`),
+  KEY `SQUARE` (`square`),
+  KEY `RENT` (`rent`),
+  KEY `C_FIELD1` (`c_field1`),
+  KEY `C_FIELD2` (`c_field2`),
+  KEY `C_AREA` (`c_area`),
+  KEY `C_AREA1` (`c_area1`),
+  KEY `INVESTMENT` (`investment`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------

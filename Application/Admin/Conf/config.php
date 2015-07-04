@@ -2,6 +2,7 @@
 return array(
 		'LOAD_EXT_CONFIG' => '',
 		'AUTH_TOKEN'=>'_^&javakdyadmin2211112_',
+		'URL_MODEL'=>0,
 		'LOGIN_TIMEOUT'=>3600,
 		'ATTACHSIZE'=>52428800,//文件大小byte
 		 

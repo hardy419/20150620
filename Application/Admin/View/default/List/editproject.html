@@ -301,11 +301,13 @@ function retrieve_options(){
     fill_options($('#c_field1'),field);
     fill_options($('#c_field2'),'');
   }
+  var area=$('#c_area option[value="'+$('#c_area').val()+'"]').text();
+  fill_options($('#c_area1'),area);
 }
 
 $(function(){
   retrieve_options();
-  $('#c_field').change(function(){
+  $('#c_field,#c_area').change(function(){
     retrieve_options();
   });
 });

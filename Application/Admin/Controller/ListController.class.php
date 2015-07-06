@@ -61,14 +61,21 @@ class ListController extends BaseController{
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
+            $catelist_t[$item['id']] = $item['t'];
         }
 
         $model=D($type);
 
         $map = array();
 
-        if (null === $order) {
+        if (null === $order || '' == $order) {
             $order = $model->getPK();
+        }
+        if (null === $sort || '' == $sort) {
+            $sort = 'DESC';
+        }
+        if (null === $page || '' == $page) {
+            $page = 1;
         }
 
         // Filtering
@@ -83,6 +90,38 @@ class ListController extends BaseController{
         }
         if (null !== $map_participate) {
             $map['c_participation'] = array('in', $map_participate);
+        }
+        if (null !== $map_location) {
+            $map['c_location'] = array('in', $map_location);
+        }
+        if (null !== $map_metro) {
+            $map['c_metro'] = array('in', $map_metro);
+        }
+
+        if (null !== $map_invest) {
+            $map['investment'] = array ();
+            if (in_array ('48', $map_invest)) {
+                $map['investment'][] = array ('between','0,100000');
+            }
+            if (in_array ('49', $map_invest)) {
+                $map['investment'][] = array ('between','100001,300000');
+            }
+            if (in_array ('50', $map_invest)) {
+                $map['investment'][] = array ('between','300001,500000');
+            }
+            if (in_array ('51', $map_invest)) {
+                $map['investment'][] = array ('between','500001,800000');
+            }
+            if (in_array ('52', $map_invest)) {
+                $map['investment'][] = array ('between','800001,1500000');
+            }
+            if (in_array ('149', $map_invest)) {
+                $map['investment'][] = array ('between','1500001,2500000');
+            }
+            if (in_array ('150', $map_invest)) {
+                $map['investment'][] = array ('gt',2500000);
+            }
+            $map['investment'][] = 'or';
         }
 
         if (null !== $map_profit) {
@@ -174,15 +213,24 @@ class ListController extends BaseController{
         if (null !== $map_checkbox) {
             $c_field1 = array();
             $c_field2 = array();
+            $c_area1 = array();
             foreach ($map_checkbox as $key=>$vals) {
-                $c_field1 = array_merge ($c_field1, $vals[1]);
-                $c_field2 = array_merge ($c_field2, $vals[2]);
+                if('地區' != $catelist_t[$key]) {
+                    $c_field1 = array_merge ($c_field1, $vals[1]);
+                    $c_field2 = array_merge ($c_field2, $vals[2]);
+                }
+                else {
+                    $c_area1 = array_merge ($c_area1, $vals);
+                }
             }
             if (count($c_field1) > 0) {
                 $map['c_field1'] = array ('in', $c_field1);
             }
             if (count($c_field2) > 0) {
                 $map['c_field2'] = array ('in', $c_field2);
+            }
+            if (count($c_area1) > 0) {
+                $map['c_area1'] = array ('in', $c_area1);
             }
         }
 
@@ -216,6 +264,8 @@ class ListController extends BaseController{
         $results['msg'] = 'Success';
 
         $results['p'] = $page;
+
+        $results['sql'] = $model->getLastSql();
 
         echo json_encode($results);
     }

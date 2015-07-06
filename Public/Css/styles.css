@@ -105,6 +105,9 @@ ul li {list-style:none}
 .top_submenus._Area h3.element-tit{background:#fde9d9;width: 474px;}
 .top_submenus._Area li.left li{width: 154px;margin-left: 27px;}
 .top_submenus._Area li.left .element-box2 li{margin-left: 11px;}
+.Area .elementBox>div li.left{margin-top: 10px;padding-left:15px}
+.Area .elementBox li.left{min-height:360px}
+.Area .elementBox li.left li {float:none}
 /*行業*/
 /*.top_submenus.top_submenus_Industry */.element-tit{width: 656px;cursor: pointer;}
 .top_submenus.top_submenus_Industry h2.element-tit{margin-left: 10px;width: 646px;}
@@ -137,6 +140,7 @@ ul li {list-style:none}
 
 h3.element-tit{font-weight:bold;font-size:16px !important}
 .floatleft{float:left}
+.floatright{float:right}
 .clearboth{clear:both}
 .displaynone{display:none}
 

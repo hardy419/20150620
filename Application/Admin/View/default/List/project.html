@@ -297,7 +297,7 @@ function checkall(selector,refbox){
     <div class="clearboth"></div>
   </ul>
 
-  <div class="submit-buttons" style="float:right; margin:10px"><a href="javascript:(function(){$('.search_all input').removeAttr('checked');close_div();})();"><img src="{:SITE_PATH}Public/zh/images/cancel.png" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_div();"><img src="{:SITE_PATH}Public/zh/images/yes.png" /></a></a></div>
+  <div class="submit-buttons" style="text-align:right; margin:10px"><a href="javascript:(function(){$('.search_all input').removeAttr('checked');close_div();})();"><img src="{:SITE_PATH}Public/zh/images/cancel.png" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_div();"><img src="{:SITE_PATH}Public/zh/images/yes.png" /></a></a></div>
 </div>
 <!-- Input Select all END -->
 
@@ -311,96 +311,48 @@ function checkall(selector,refbox){
                       </div>
                     </div>
 
-<div class="top_submenus Area" style="display: none;"><div class="closed_icon">X</div>
+<div class="top_submenus Area" style="display: none;">
       <ul class="elementBox">
-        <li class="left">
+        <li class="left" style="padding-top:0">
           <h2 class="element-tit_2">經營場所類別</h2>
           <ul>
-          	<li><input type="checkbox" name="extra_fields_20_all" value="-1" class="checkedall_20"><span class="element-tit">任何經營場所類別</span></li>
-                      <li style="margin-left: 18px;"><input type="checkbox" name="extra_20[]" value="151" class="element_20"><span class="element-name">地舖</span></li>
-                      <li style="margin-left: 18px;"><input type="checkbox" name="extra_20[]" value="152" class="element_20"><span class="element-name">商場舖</span></li>
-                      <li style="margin-left: 18px;"><input type="checkbox" name="extra_20[]" value="153" class="element_20"><span class="element-name">樓上舖</span></li>
-                      <li style="margin-left: 18px;"><input type="checkbox" name="extra_20[]" value="154" class="element_20"><span class="element-name">商業大廈</span></li>
-                      <li style="margin-left: 18px;"><input type="checkbox" name="extra_20[]" value="155" class="element_20"><span class="element-name">網上店</span></li>
-                      <li style="margin-left: 18px;"><input type="checkbox" name="extra_20[]" value="156" class="element_20"><span class="element-name">其他</span></li>
-                    </ul>
+          	<li><input type="checkbox" name="extra_fields_20_all" value="-1" class="checkedall_20"><span class="element-tit">任何經營場所類別</span></li><li style="height:8px"></li>
+              <?PHP foreach ($categories as $cate) if('經營場所類別' == $cate['t']) { ?>
+              <li style="margin-left: 18px;"><input type="checkbox" name="checkbox_location[]" value="{$cate.id}" class="element_20"><span class="element-name">{$cate.name}</span></li>
+              <?PHP } ?>
+          </ul>
         </li>
-        <div style="width: 1020px;">
-         <h2 class="element-tit_2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地區</h2>
+
+        <div style="width: 1020px; border-bottom:1px dotted #99979c; padding-bottom:5px">
+         <h2 class="element-tit_2">&nbsp;&nbsp;&nbsp;&nbsp;地區</h2>
+         <div class="closed_icon floatright">X</div>
         <li>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="extra_fields_17_all" value="" class="checkedall_17"><span class="element-tit">&nbsp;&nbsp;覆盖全港</span></li>
-      <li class="left" style="width: 120px;">
-      <h2 class="element-tit_2">香港島區</h2>
+<?PHP foreach ($categories as $cate) if('地區' == $cate['t'] && '香港境外' != $cate['name']) { ?>
+    <li class="left">
+      <h2 class="element-tit_2">{$cate.name}區</h2>
       <ul class="hkd">
-        <li><input type="checkbox" name="sub_extra_17_1" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">全香港島</span></li>
+        <li><input type="checkbox" name="sub_extra_17_1" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">全{$cate.name}</span></li>
         <li class="add-left2">
 	        <ul class="clearfix"> 
-		        <li><input type="checkbox" name="extra_17[]" value="14" class="element_17"><span class="element-name">中西區</span></li>
-		        <li><input type="checkbox" name="extra_17[]" value="15" class="element_17"><span class="element-name">灣仔區</span></li>
-		        <li><input type="checkbox" name="extra_17[]" value="16" class="element_17"><span class="element-name">銅鑼灣</span></li>
-		        <li><input type="checkbox" name="extra_17[]" value="130" class="element_17"><span class="element-name">港島東區</span></li>
-		        <li><input type="checkbox" name="extra_17[]" value="131" class="element_17"><span class="element-name">港島南區</span></li>
+              <?PHP foreach ($categories as $cate2) if($cate['name'] == $cate2['t']) { ?>
+              <li><input type="checkbox" name="checkbox[{$cate.id}][]" value="{$cate2.id}" class="element_17"><span class="element-name">{$cate2.name}</span></li>
+              <?PHP } ?>
 	        </ul>
 	    </li>
       </ul>
     </li>
-
-      <li class="left" style="width: 120px;">
-      <h2 class="element-tit_2">九龍區</h2>
-      <ul class="hkd">
-        <li><input type="checkbox" name="sub_extra_17_2" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">全九龍</span></li>
-        <li class="add-left2">
-	         <ul class="clearfix">
-	        <li><input type="checkbox" name="extra_17[]" value="22" class="element_17"><span class="element-name">油尖旺區</span></li>
-	        <li><input type="checkbox" name="extra_17[]" value="25" class="element_17"><span class="element-name">深水埗區</span></li>
-	        <li><input type="checkbox" name="extra_17[]" value="23" class="element_17"><span class="element-name">九龍城區</span></li>
-	        <li><input type="checkbox" name="extra_17[]" value="26" class="element_17"><span class="element-name">黃大仙區</span></li>
-	        <li><input type="checkbox" name="extra_17[]" value="24" class="element_17"><span class="element-name">觀塘區</span></li>
-	        </ul>
-    	</li>
-      </ul>
-    </li>
-     <li class="left" style="width: 120px;">
-      <h2 class="element-tit_2">新界區</h2>
-      <ul class="hkd">
-        <li><input type="checkbox" name="sub_extra_17_3" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">全新界</span></li>
-        <li class="add-left2">
-        <ul class="clearfix">
-        <li><input type="checkbox" name="extra_17[]" value="31" class="element_17"><span class="element-name">沙田區</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="38" class="element_17"><span class="element-name">馬鞍山</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="27" class="element_17"><span class="element-name">大埔區</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="32" class="element_17"><span class="element-name">西貢區</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="30" class="element_17"><span class="element-name">將軍澳</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="33" class="element_17"><span class="element-name">新界北區</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="29" class="element_17"><span class="element-name">荃灣區</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="34" class="element_17"><span class="element-name">屯門區</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="35" class="element_17"><span class="element-name">天水圍</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="36" class="element_17"><span class="element-name">元朗區</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="133" class="element_17"><span class="element-name">東涌</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="28" class="element_17"><span class="element-name">離島區</span></li>
-
-        </ul>
-         </li>
-      </ul>
-    </li>
+<?PHP } else if('香港境外' == $cate['name']) { $oversea_id = $cate['id']; } ?>
     </div>
-     <li class="left" style="width: 120px;">
+
+     <li class="left" style="width: 140px;">
       <h2 class="element-tit_2">地鐵沿線</h2>
       <ul class="hkd">
         <li><input type="checkbox" name="sub_extra_17_4" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">任何地鐵沿線</span></li>
         <li class="add-left2">
         <ul class="clearfix">
-        <li><input type="checkbox" name="extra_17[]" value="176" class="element_17"><span class="element-name">港島線</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="189" class="element_17"><span class="element-name">西港島線</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="177" class="element_17"><span class="element-name">觀塘線</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="178" class="element_17"><span class="element-name">將軍澳線</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="179" class="element_17"><span class="element-name">東鐵線</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="180" class="element_17"><span class="element-name">馬鞍山線</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="184" class="element_17"><span class="element-name">沙中線</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="181" class="element_17"><span class="element-name">荃灣線</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="182" class="element_17"><span class="element-name">西鐵線</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="183" class="element_17"><span class="element-name">東涌線/迪士尼線</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="185" class="element_17"><span class="element-name">機場快線</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="186" class="element_17"><span class="element-name">其他</span></li>
+          <?PHP foreach ($categories as $cate) if('地鐵沿線' == $cate['t']) { ?>
+          <li><input type="checkbox" name="checkbox_metro[]" value="{$cate.id}" class="element_17"><span class="element-name">{$cate.name}</span></li>
+          <?PHP } ?>
         </ul>
          </li>
       </ul>
@@ -411,13 +363,16 @@ function checkall(selector,refbox){
         <li><input type="checkbox" name="sub_extra_17_5" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">所有地區</span></li>
         <li class="add-left2">
          <ul class="clearfix">
-        <li><input type="checkbox" name="extra_17[]" value="147" class="element_17"><span class="element-name">中國內地</span></li>
-        <li><input type="checkbox" name="extra_17[]" value="148" class="element_17"><span class="element-name">海外業務</span></li>
+           <?PHP foreach ($categories as $cate2) if('香港境外' == $cate2['t']) { ?>
+           <li><input type="checkbox" name="checkbox[{$oversea_id}][]" value="{$cate2.id}" class="element_17"><span class="element-name">{$cate2.name}</span></li>
+           <?PHP } ?>
 		</ul>
         </li>
       </ul>
     </li>
       </ul>
+  <div class="clearboth"></div>
+  <div class="submit-buttons" style="text-align:right; margin:10px; border-top:1px dotted #99979c;padding-top:5px"><a href="javascript:(function(){$('.Area input').removeAttr('checked');close_div();})();"><img src="{:SITE_PATH}Public/zh/images/cancel.png" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_div();"><img src="{:SITE_PATH}Public/zh/images/yes.png" /></a></a></div>
     </div>
 <!-- Input Area END -->
 

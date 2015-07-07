@@ -149,19 +149,10 @@ $(document).ready(function(){
     <a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a>
     </h2>
     <div class="page">
-      <ul>
-        <li><a href="#" class="currentPage">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">6</a></li>
-        <li><a href="#">7</a></li>
-        <li><a href="#">8</a></li>
-        <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_right.png" /></a></li>
+      <ul class="page-u">
       </ul>
     </div>
-    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+    <table width="95%" border="0" cellspacing="0" cellpadding="0" id="project-table">
       <tr>
         <th scope="col">代號名稱<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
         <th scope="col">出讓項目<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
@@ -176,298 +167,9 @@ $(document).ready(function(){
         <th scope="col">項目情況<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
         <th scope="col"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" width="24" height="24" /></th>
       </tr>
-      <tr>
-        <td>Peter Chan</td>
-        <td><a href="product_detail.html">Peter</a></td>
-        <td>$2,000</td>
-        <td>3000</td>
-        <td>1月</td>
-        <td>$6,900,000</td>
-        <td>$20</td>
-        <td>100</td>
-        <td>$200</td>
-        <td>投資者</td>
-        <td>*歡迎查詢*</td>
-        <td><img src="{:SITE_PATH}Public/{$lang}/images/selectok.png" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td class="bg_f3f3f3">Danny Yeung</td>
-        <td class="bg_f3f3f3"><a href="product_detail.html">Danny</a></td>
-        <td class="bg_f3f3f3">$20,000</td>
-        <td class="bg_f3f3f3">3000</td>
-        <td class="bg_f3f3f3">3月</td>
-        <td class="bg_f3f3f3">$3,000</td>
-        <td class="bg_f3f3f3">$100</td>
-        <td class="bg_f3f3f3">100</td>
-        <td class="bg_f3f3f3">$1000</td>
-        <td class="bg_f3f3f3">投資者</td>
-        <td class="bg_f3f3f3">*歡迎查詢*</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/selectok.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td>helen yau</td>
-        <td><a href="product_detail.html">test</a></td>
-        <td>$2,000</td>
-        <td>6000</td>
-        <td>7.9<span class="bg_f3f3f3">月</span></td>
-        <td>$690,000</td>
-        <td><span class="bg_f3f3f3">$</span>10</td>
-        <td>100</td>
-        <td>$30,000</td>
-        <td>兼職營運</td>
-        <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td class="bg_f3f3f3">Caleb</td>
-        <td class="bg_f3f3f3"><a href="product_detail.html">銅鑼灣商場時裝店</a></td>
-        <td class="bg_f3f3f3">$7,500</td>
-        <td class="bg_f3f3f3">40000(存貨)</td>
-        <td class="bg_f3f3f3">10月</td>
-        <td class="bg_f3f3f3">$115,000</td>
-        <td class="bg_f3f3f3">$0</td>
-        <td class="bg_f3f3f3">200</td>
-        <td class="bg_f3f3f3">$4,500</td>
-        <td class="bg_f3f3f3">&nbsp;</td>
-        <td class="bg_f3f3f3">已售</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/selectok.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td>HS065</td>
-        <td><a href="product_detail.html">補習中介網</a></td>
-        <td><span class="bg_f3f3f3">$</span>15,000</td>
-        <td>53</td>
-        <td>11<span class="bg_f3f3f3">月</span></td>
-        <td>$651,100</td>
-        <td><span class="bg_f3f3f3">$</span>4,128</td>
-        <td>190</td>
-        <td>$20,000</td>
-        <td>全職營運</td>
-        <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td class="bg_f3f3f3">Noah</td>
-        <td class="bg_f3f3f3"><a href="product_detail.html">尖沙咀樓上美容院</a></td>
-        <td class="bg_f3f3f3">$0</td>
-        <td class="bg_f3f3f3">不適用</td>
-        <td class="bg_f3f3f3">0月</td>
-        <td class="bg_f3f3f3">$68,000</td>
-        <td class="bg_f3f3f3">$0</td>
-        <td class="bg_f3f3f3">600</td>
-        <td class="bg_f3f3f3">$12,500</td>
-        <td class="bg_f3f3f3">&nbsp;</td>
-        <td class="bg_f3f3f3">已售</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td>KF227</td>
-        <td><a href="product_detail.html">其他行業</a></td>
-        <td>$60,000</td>
-        <td>53</td>
-        <td>10<span class="bg_f3f3f3">月</span></td>
-        <td>$600,000</td>
-        <td>$32,105</td>
-        <td>300</td>
-        <td><span class="bg_f3f3f3">$12,000</span></td>
-        <td>全職營運</td>
-        <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td class="bg_f3f3f3">KS032</td>
-        <td class="bg_f3f3f3"><a href="product_detail.html">土瓜灣洗衣店</a></td>
-        <td class="bg_f3f3f3">$17,000</td>
-        <td class="bg_f3f3f3">53</td>
-        <td class="bg_f3f3f3">11月</td>
-        <td class="bg_f3f3f3">$260,000</td>
-        <td class="bg_f3f3f3">$16,695</td>
-        <td class="bg_f3f3f3">400</td>
-        <td class="bg_f3f3f3">$14,000</td>
-        <td class="bg_f3f3f3">全職營運</td>
-        <td class="bg_f3f3f3">&nbsp;</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td>HR090</td>
-        <td><a href="product_detail.html">銅鑼灣時裝店</a></td>
-        <td>$48,750</td>
-        <td>53</td>
-        <td>8<span class="bg_f3f3f3">月</span></td>
-        <td>$230,000</td>
-        <td><span class="bg_f3f3f3">$</span>14,768</td>
-        <td>150</td>
-        <td><span class="bg_f3f3f3">$38,000</span></td>
-        <td>兼職營運</td>
-        <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td class="bg_f3f3f3">HF167</td>
-        <td class="bg_f3f3f3"><a href="product_detail.html">港島區知名連鎖美式食店</a></td>
-        <td class="bg_f3f3f3">$50,000</td>
-        <td class="bg_f3f3f3">53</td>
-        <td class="bg_f3f3f3">11月</td>
-        <td class="bg_f3f3f3">$880,000</td>
-        <td class="bg_f3f3f3">$56,505</td>
-        <td class="bg_f3f3f3">2000</td>
-        <td class="bg_f3f3f3">$68,000</td>
-        <td class="bg_f3f3f3">兼職營運</td>
-        <td class="bg_f3f3f3">*歡迎查詢*</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/selectok.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td>KF284</td>
-        <td><a href="product_detail.html">尖沙咀地鋪意式西餐廳及酒吧</a></td>
-        <td>$136,000</td>
-        <td>53</td>
-        <td>11<span class="bg_f3f3f3">月</span></td>
-        <td>$100,000</td>
-        <td>$115,579</td>
-        <td>1800</td>
-        <td><span class="bg_f3f3f3">$15,000</span></td>
-        <td><span class="bg_f3f3f3">投資者</span></td>
-        <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td class="bg_f3f3f3">HF164</td>
-        <td class="bg_f3f3f3"><a href="product_detail.html">炮台山靓裝西餅CAFE</a></td>
-        <td class="bg_f3f3f3">$18,000</td>
-        <td class="bg_f3f3f3">53</td>
-        <td class="bg_f3f3f3">8月</td>
-        <td class="bg_f3f3f3">$350</td>
-        <td class="bg_f3f3f3">$22</td>
-        <td class="bg_f3f3f3">600</td>
-        <td class="bg_f3f3f3">$53</td>
-        <td class="bg_f3f3f3">全職營運</td>
-        <td class="bg_f3f3f3">&nbsp;</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td>Christopher</td>
-        <td><a href="product_detail.html">屯門冷凍海産餐飲供應商</a></td>
-        <td>$65,000</td>
-        <td>200000(存貨)</td>
-        <td>19.2<span class="bg_f3f3f3">月</span></td>
-        <td><span class="bg_f3f3f3">$</span>1,450,000</td>
-        <td>$0</td>
-        <td>1000</td>
-        <td>$39,000</td>
-        <td>&nbsp;</td>
-        <td><span class="bg_f3f3f3">已售</span></td>
-        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td class="bg_f3f3f3">Brian</td>
-        <td class="bg_f3f3f3"><a href="product_detail.html">元朗樓上點心食品批發公司</a></td>
-        <td class="bg_f3f3f3">$38,000</td>
-        <td class="bg_f3f3f3">80000(存貨)</td>
-        <td class="bg_f3f3f3">23.9月</td>
-        <td class="bg_f3f3f3">$988,000</td>
-        <td class="bg_f3f3f3">$0</td>
-        <td class="bg_f3f3f3">800</td>
-        <td class="bg_f3f3f3">$8,200</td>
-        <td class="bg_f3f3f3">&nbsp;</td>
-        <td class="bg_f3f3f3">*歡迎查詢*</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/selectok.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td>HE047</td>
-        <td><a href="product_detail.html">港島區大型屋苑商場教育中心</a></td>
-        <td>$60,000</td>
-        <td>53</td>
-        <td>11<span class="bg_f3f3f3">月</span></td>
-        <td><span class="bg_f3f3f3">$</span>25,000</td>
-        <td>$16,053</td>
-        <td>700</td>
-        <td>$24,000</td>
-        <td><span class="bg_f3f3f3">兼職營運</span></td>
-        <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td class="bg_f3f3f3">NS066</td>
-        <td class="bg_f3f3f3"><a href="product_detail.html">元朗婚紗店</a></td>
-        <td class="bg_f3f3f3">$34,202</td>
-        <td class="bg_f3f3f3">53</td>
-        <td class="bg_f3f3f3">8月</td>
-        <td class="bg_f3f3f3">$550</td>
-        <td class="bg_f3f3f3">$35,316</td>
-        <td class="bg_f3f3f3">600</td>
-        <td class="bg_f3f3f3">$15,000</td>
-        <td class="bg_f3f3f3">投資者</td>
-        <td class="bg_f3f3f3">*歡迎查詢*</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td>Daisy</td>
-        <td><a href="product_detail.html">美孚影碟租賃店</a></td>
-        <td>$70,000</td>
-        <td>800000(存貨)</td>
-        <td>6<span class="bg_f3f3f3">月</span></td>
-        <td><span class="bg_f3f3f3">$</span>1,220,000</td>
-        <td>$0</td>
-        <td>500</td>
-        <td>$11,200</td>
-        <td>&nbsp;</td>
-        <td><span class="bg_f3f3f3">已售</span></td>
-        <td><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td class="bg_f3f3f3">Ewan</td>
-        <td class="bg_f3f3f3"><a href="product_detail.html">網上遊艇出租服務公司</a></td>
-        <td class="bg_f3f3f3">$50,000</td>
-        <td class="bg_f3f3f3">250000(船價)</td>
-        <td class="bg_f3f3f3">10.6月</td>
-        <td class="bg_f3f3f3">$780,000</td>
-        <td class="bg_f3f3f3">$0</td>
-        <td class="bg_f3f3f3">0</td>
-        <td class="bg_f3f3f3">$0</td>
-        <td class="bg_f3f3f3">&nbsp;</td>
-        <td class="bg_f3f3f3">*歡迎查詢*</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
-      <tr>
-        <td>Lola</td>
-        <td><a href="product_detail.html">葵湧持牌樓上中藥材批發商</a></td>
-        <td>$25,000</td>
-        <td>80000(存貨)</td>
-        <td>12.7<span class="bg_f3f3f3">月</span></td>
-        <td><span class="bg_f3f3f3">$</span>398,000</td>
-        <td>$0</td>
-        <td>600</td>
-        <td>$4,500</td>
-        <td>&nbsp;</td>
-        <td><span class="bg_f3f3f3">*歡迎查詢*</span></td>
-        <td><span class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/selectok.png" alt="" width="24" height="24" /></span></td>
-      </tr>
-      <tr>
-        <td class="bg_f3f3f3">Aiden</td>
-        <td class="bg_f3f3f3"><a href="product_detail.html">將軍澳持牌室內遊樂場</a></td>
-        <td class="bg_f3f3f3">$0</td>
-        <td class="bg_f3f3f3">不適用</td>
-        <td class="bg_f3f3f3">0月</td>
-        <td class="bg_f3f3f3">$155,000</td>
-        <td class="bg_f3f3f3">$0</td>
-        <td class="bg_f3f3f3">600</td>
-        <td class="bg_f3f3f3">$22,300</td>
-        <td class="bg_f3f3f3">&nbsp;</td>
-        <td class="bg_f3f3f3">已售</td>
-        <td class="bg_f3f3f3"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" alt="" width="24" height="24" /></td>
-      </tr>
     </table>
     <div class="page">
-      <ul>
-        <li><a href="#" class="currentPage">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">6</a></li>
-        <li><a href="#">7</a></li>
-        <li><a href="#">8</a></li>
-        <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_right.png" /></a></li>
+      <ul class="page-u">
       </ul>
     </div>
   </div>
@@ -534,5 +236,131 @@ $(document).ready(function(){
   </div>
 </div>
 <script type="text/javascript" src="{:SITE_PATH}Public/{$lang}/js/scrolltopcontrol.js"></script>
+<script>
+function ajax_search_op_home(data){
+data=eval('('+data+')');
+$('#project-table').html('');
+
+var ths=['代號名稱','出讓項目','參考利潤','包括存貨其他','回本期(月)','定價(HKD)','供款(月)','面積(平方尺)','租金(月)','參與程度','項目情況'];
+var th_html='<tr>';
+var i;
+for(i=0;i<ths.length;++i){
+  th_html+='<th scope="col">'+ths[i]+'<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>';
+}
+th_html+='<th scope="col"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" width="24" height="24" /></th></tr>';
+$('#project-table').append(th_html);
+
+for(i=0;i<data['data'].length;++i){
+  var html='<tr>';
+  if(i%2==1){
+    var tdclass='class="bg_f3f3f3"';
+  }
+  else{
+    var tdclass='';
+  }
+  html+='<td '+tdclass+'>'+data['data'][i]['codename']+'</td>';
+  html+='<td '+tdclass+'>'+data['data'][i]['title']+'</td>';
+  if(1==data['data'][i]['profit_option']){
+    html+='<td '+tdclass+'>$'+data['data'][i]['profit']+'</td>';
+  }
+  else{
+    html+='<td '+tdclass+'>'+data['data'][i]['profit_text']+'</td>';
+  }
+  html+='<td '+tdclass+'>'+data['data'][i]['store']+'</td>';
+  html+='<td '+tdclass+'>'+data['data'][i]['recovery_period']+'月</td>';
+  html+='<td '+tdclass+'>$'+data['data'][i]['price']+'</td>';
+  html+='<td '+tdclass+'>$'+data['data'][i]['allowance']+'</td>';
+  html+='<td '+tdclass+'>'+data['data'][i]['square']+'</td>';
+  html+='<td '+tdclass+'>$'+data['data'][i]['rent']+'</td>';
+  html+='<td '+tdclass+'>'+data['data'][i]['participation']+'</td>';
+  html+='<td '+tdclass+'>'+data['data'][i]['situation']+'</td>';
+  html+='<td '+tdclass+'><a href=""><img src="Public/zh/images/select.png" width="24" height="24" /></a></td>';
+  html+='</tr>';
+  $('#project-table').append(html);
+}
+
+$('.page-u').html('');
+for(i=0;i<data['numpages'];++i){
+  var pagei=i+1;
+  if(pagei==data['p']){
+    $('.page-u').append('<li><a href="javascript:void(0)" class="page-index currentPage">'+pagei+'</a></li>');
+  }
+  else{
+    $('.page-u').append('<li><a href="javascript:void(0)" class="page-index">'+pagei+'</a></li>');
+  }
+}
+$('.page-u').append('<li><a href="javascript:void(0)" class="arrow-right-a"><img src="Public/zh/images/arrow_right.png" /></a></li>');
+
+$('.page-index').each(function(){
+  var page=parseInt($(this).text());
+  if(!$(this).hasClass('currentPage')){
+    $(this).click(function(){
+      $('#search-form').ajaxSubmit({
+        url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20&p="+page,
+        success:function(data){
+          ajax_search_op_home(data);
+        },
+        error:function(xhr){
+          alert('查詢失敗，請重試');
+        }
+      });
+    });
+  }
+});
+if(data['p']<data['numpages']){
+  $('.arrow-right-a').click(function(){
+    var page=parseInt(data['p'])+1;
+    $('#search-form').ajaxSubmit({
+      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20&p="+page,
+      success:function(data){
+        ajax_search_op_home(data);
+      },
+      error:function(xhr){
+        alert('查詢失敗，請重試');
+      }
+    });
+  });
+}
+}
+
+function ajax_submit_home(p,o,spanid){
+  var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20";
+  if(null!==p){
+    $('#curpage').val(p);
+  }
+  else{
+    $('#curpage').val(1);
+  }
+  if(null!=o){
+    if($('#order').val()==o && $('#sort').val()=='ASC'){
+      $('#sort').val('DESC');
+      $('#'+spanid).addClass('caret').removeClass('caretv');
+    }
+    else{
+      $('#sort').val('ASC');
+      $('.frame-box-div .caretv').addClass('caret').removeClass('caretv');
+      $('#'+spanid).addClass('caretv').removeClass('caret');
+    }
+    $('#order').val(o);
+  }
+  $('#search-form').ajaxSubmit({
+    url:_url,
+    //dataType:'json',
+    success:function(data){
+      ajax_search_op_home(data);
+    },
+    error:function(xhr){
+      alert('查詢失敗，請重試');
+    }
+  });
+}
+
+$(function(){
+  ajax_submit_home(null,null,null);
+  $('#search-submit').click(function(){
+    ajax_submit_home(null,null,null);
+  });
+});
+</script>
 </body>
 </html>

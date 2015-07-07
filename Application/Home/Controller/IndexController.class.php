@@ -251,7 +251,7 @@ class IndexController extends BaseController {
         $results = array ();
 
         if ($count>0) {
-            $pageNum=C("PAGENUM");
+            $pageNum=I('request.nr','');
             $listRows=!empty($pageNum)?$pageNum:12;
 
             $results['data'] = $model->where($map)->order("`" . $order . "` " . $sort)->limit((($page-1)*$listRows).",".$listRows)->select();
@@ -259,6 +259,8 @@ class IndexController extends BaseController {
             // Special processes
             foreach ($results['data'] as &$data) {
                 $data['field'] = $catelist[$data['c_field']];
+                $data['participation'] = $catelist[$data['c_participation']];
+                $data['situation'] = $catelist[$data['c_situation']];
             }
 
             $results['numpages'] = (int)($count/$listRows)+1;

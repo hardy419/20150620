@@ -136,6 +136,7 @@ ul li {list-style:none}
 .top_submenus ul.clearfix li a{font-size: 13px;color: #58595b;display: block;}
 .top_submenus ul.clearfix.font-A li a{font-size: 13px;color: #58595b;display: block;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體";}
 .top_submenus .more_link:hover{text-decoration: underline;}
+.top_submenus a{text-decoration:none}
 .jshop table.jshop_pagination{float: right;margin-top: -44px;}
 
 h3.element-tit{font-weight:bold;font-size:16px !important}

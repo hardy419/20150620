@@ -166,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `buy_project` (
   `allowance` int(11) NOT NULL,
   `allowance_period` int(11) NOT NULL,
   `c_situation` int(11) NOT NULL,
-  `investment` int(11) NOT NULL,
+  `investment` enum('HK$100,000或以下','HK$100,001-300,000','HK$300,001-500,000','HK$500,001-800,000','HK$800,001-1,500,000','HK$1,500,001-2,500,000','HK$2,500,000以上') NOT NULL,
   `status` varchar(64) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `POSITION` (`position`),

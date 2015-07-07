@@ -213,7 +213,15 @@
 				    <div class="control-group">
 				    <label class="control-label">投資金額 ：</label>
 				    <div class="controls">
-				    <input type="text" id="investment" name="investment" value="{$list.investment}">
+				      <select id="investment" name="investment">
+				        <option value="HK$100,000或以下" <if condition="$list['investment'] eq 'HK$100,000或以下'">selected</if>>HK$100,000或以下</option>
+				        <option value="HK$100,001-300,000" <if condition="$list['investment'] eq 'HK$100,001-300,000'">selected</if>>HK$100,001-300,000</option>
+				        <option value="HK$300,001-500,000" <if condition="$list['investment'] eq 'HK$300,001-500,000'">selected</if>>HK$300,001-500,000</option>
+				        <option value="HK$500,001-800,000" <if condition="$list['investment'] eq 'HK$500,001-800,000'">selected</if>>HK$500,001-800,000</option>
+				        <option value="HK$800,001-1,500,000" <if condition="$list['investment'] eq 'HK$800,001-1,500,000'">selected</if>>HK$800,001-1,500,000</option>
+				        <option value="HK$1,500,001-2,500,000" <if condition="$list['investment'] eq 'HK$1,500,001-2,500,000'">selected</if>>HK$1,500,001-2,500,000</option>
+				        <option value="HK$2,500,000以上" <if condition="$list['investment'] eq 'HK$2,500,000以上'">selected</if>>HK$2,500,000以上</option>
+				      </select>
 				    </div>
 				    </div>
 

@@ -365,6 +365,9 @@ function checkall(selector,refbox){
 				    </form>
 <!-- Search form END -->
 
+<script src="__JS__/jquery-1.8.2.min.js"></script>
+<script src="__JS__/jquery.form.js"></script>
+
 <script>
 
 function popup_box(popdiv,btn){
@@ -435,7 +438,7 @@ $('.page-li').each(function(index){
   if(data['p']!=index){
     $(this).click(function(){
       $('#search-form').ajaxSubmit({
-        url:"admin.php?m=Admin&c=List&a=AjaxSearch&type=project&p="+index,
+        url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+index,
         success:function(data){
           ajax_search_op(data);
         },
@@ -450,7 +453,7 @@ if(data['p']>1){
   $('.prev-li').click(function(){
     var page=parseInt(data['p'])-1;
     $('#search-form').ajaxSubmit({
-      url:"admin.php?m=Admin&c=List&a=AjaxSearch&type=project&p="+page,
+      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+page,
       success:function(data){
         ajax_search_op(data);
       },
@@ -464,7 +467,7 @@ if(data['p']<data['numpages']){
   $('.next-li').click(function(){
     var page=parseInt(data['p'])+1;
     $('#search-form').ajaxSubmit({
-      url:"admin.php?m=Admin&c=List&a=AjaxSearch&type=project&p="+page,
+      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+page,
       success:function(data){
         ajax_search_op(data);
       },
@@ -477,7 +480,7 @@ if(data['p']<data['numpages']){
 }
 
 function ajax_submit(p,o,spanid){
-  var _url="admin.php?m=Admin&c=List&a=AjaxSearch&type=project";
+  var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project";
   if(null!==p){
     $('#curpage').val(p);
   }

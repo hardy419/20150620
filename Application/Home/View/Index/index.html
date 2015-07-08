@@ -119,7 +119,11 @@ $(document).ready(function(){
       <li class="mr10"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_01img.jpg" /></a></li>
       <li class="mr10"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_02img.jpg" /></a></li>
       <li class="mr10"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_03img.jpg" /></a></li>
+      <if condition="isset ($ads_1[0])">
+      <li><a href="{$ads_1[0]['href']}"><img src="{:SITE_PATH}{$ads_1[0]['image']}" style="width:250px;height:180px" /></a></li>
+      <else/>
       <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_04img.jpg" /></a></li>
+      </if>
     </ul>
   </div>
   <!--------首頁主體部分-第三部分-------->
@@ -136,7 +140,11 @@ $(document).ready(function(){
       <h2>樓市「雙辣招」，投資者資金另覓新出路</h2>
       <p>面對香港特區政府推出樓市「雙辣招」壓抑樓價，加上投資市場對美國聯儲局退市時間及加息周期而作出不同的預測，令大量投機資金準備退岀樓市，尋找資金新出路。由於受惠國內旅客帶動本港內銷市場(例如:餐飲業及零售業)，加上相關行業投資回報相對穩定可觀，從而吸引投資者把資金轉向投資收購生意(如餐飲業)，作為長遠投資工具。</p>
     </div>
+    <if condition="isset ($ads_2[0])">
+    <div class="wIndex03_03 fl"><a href="{$ads_2[0]['href']}"><img src="{:SITE_PATH}{$ads_2[0]['image']}" style="width:250px;height:210px" /></a></div>
+    <else/>
     <div class="wIndex03_03 fl"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_03_01img.jpg" /></a></div>
+    </if>
   </div>
   <!--------首頁主體部分-第四部分-------->
   <div class="wIndex04 b_aeaeae pr">

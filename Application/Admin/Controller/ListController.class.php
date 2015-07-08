@@ -41,7 +41,7 @@ class ListController extends BaseController{
         $type=I('get.type', 'user');
         $pid=I('get.pid', null);
         $id=I('get.id', null);
-        if(!in_array($type,array('user', 'banner','page','category','project'))) $this->error('',U('Index/index'));
+        if(!in_array($type,array('user', 'banner','page','category','project','ads'))) $this->error('',U('Index/index'));
         $tname=$type;
 
         // Sort
@@ -119,6 +119,12 @@ class ListController extends BaseController{
             }
             $this->assign('catelist', $catelist);
             $this->assign('categories', $dblist);
+        }
+        else if('ads' == $type) {
+            $ads_1 = M('ads')->where(array('type'=>1))->select();
+            $ads_2 = M('ads')->where(array('type'=>2))->select();
+            $this->assign('ads_1', $ads_1);
+            $this->assign('ads_2', $ads_2);
         }
         else {
             $map = array ();
@@ -240,7 +246,7 @@ class ListController extends BaseController{
     public function save(){
         if(''==I('post.id','') || 0==I('post.id','')) unset($_POST['id']);
         $type=I('post.type');
-        if(!in_array($type,array('user', 'banner','page','category','project')))$this->error('非法操作類型',U('Index/index'));
+        if(!in_array($type,array('user', 'banner','page','category','project','ads')))$this->error('非法操作類型',U('Index/index'));
         $tname=$type;
         $jump=cookie("__CURRENTURL__");
         $db=D($tname);
@@ -310,6 +316,14 @@ class ListController extends BaseController{
             if (null !== $certs && in_array('c_certificate',$fields)) {
                 // Post var is an array (eg. checkbox)
                 $db->c_certificate = implode (',', $certs);
+            }
+
+            // Special cases for this project
+            if ('ads' == $type) {
+                $db->type = M('ads')->where(array('id'=>$id))->getField('type');
+                if (substr ($db->href,0,4) !== 'http') {
+                    $db->href = 'http://'.$db->href;
+                }
             }
 
             // Add or Edit
@@ -565,11 +579,19 @@ class ListController extends BaseController{
     }
     public function del(){
         $type=I('get.type');
-        if(!in_array($type,array('user', 'banner','page','category','project')))$this->error('',U('Index/index'));
+        if(!in_array($type,array('user', 'banner','page','category','project','ads')))$this->error('',U('Index/index'));
         $tname=$type;
         $id=I('get.id','');
         $jump=cookie('__CURRENTURL__');
         if(empty($id))$this->error('Delete Failure',$jump);
+
+        // Special cases
+        if ('ads' == $type) {
+            $query=M($tname)->where(array('id'=>$id))->save(array('image'=>''));
+            if ($query)$this->success('廣告移除成功',$jump);
+            else $this->error('廣告移除失敗',$jump);
+            return;
+        }
         
         $this->checkChild($type,$id,$jump);
         $query=M($tname)->where(array('id'=>$id))->delete();

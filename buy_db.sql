@@ -282,6 +282,31 @@ INSERT INTO `buy_projectphoto` (`id`, `title`, `pic`, `sid`, `status`, `pid`) VA
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `buy_ads`
+--
+
+CREATE TABLE IF NOT EXISTS `buy_ads` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `href` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `TYPE` (`type`),
+  KEY `STATUS` (`status`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- 转存表中的数据 `buy_ads`
+--
+
+INSERT INTO `buy_ads` (`id`, `type`, `image`, `href`, `status`) VALUES
+(1, 1, '', '', 0),
+(2, 2, '', '', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `buy_user`
 --
 

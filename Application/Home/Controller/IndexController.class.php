@@ -11,6 +11,12 @@ class IndexController extends BaseController {
         }
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
+        // For banner
+        $bannerlist = M('banner')->where(array('status'=>1))->select();
+        $this->assign('banners', $bannerlist);
+        // For hot recomm projects
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $this->assign('hot', $hot);
         // language
         $lang = I('get.lang', 'zh');
         $this->assign ('lang', $lang);
@@ -23,6 +29,7 @@ class IndexController extends BaseController {
         $sort = I('request.s','DESC');
         $keyword = I('request.keyword',null);
         $page = I('request.p',1);
+        $visible = I('request.visible',null);
 
         $map_recomm = I('post.recomm',null);
         $map_smallbusiness = I('post.small_business',null);
@@ -243,7 +250,11 @@ class IndexController extends BaseController {
             $map['title'] = array ('like', "%{$keyword}%");
         }
 
-        $map['_logic'] = 'or';
+        if (null !== $visible) {
+            $map['visible'] = 'on';
+        }
+
+        //$map['_logic'] = 'or';
         // Filtering END
 
         $count = $model->where($map)->count();

@@ -445,10 +445,17 @@
 	right: 10px;
 	top: 7px;
 }
+#wrapIndex .wIndex01 .wIndex01_03 .u-div {
+	height: 277px;
+	overflow: hidden;
+}
 #wrapIndex .wIndex01 .wIndex01_03 ul {
 	margin: 9px 15px 9px 20px;
+	position: relative;
+	top: 0px;
 }
 #wrapIndex .wIndex01 .wIndex01_03 ul li {
+	height: 91px;
 }
 #wrapIndex .wIndex01 .wIndex01_03 ul li a {
 	color: #ff0000;
@@ -753,6 +760,10 @@
 #playBox .oUlplay li {
 	float: left;
 }
+#playBox .oUlplay li img {
+  width: 250px;
+  height: 310px;
+}
 #playBox .pre {
 	cursor: pointer;
 	width: 45px;
@@ -775,7 +786,6 @@
 }
 #playBox .smalltitle {
 	width: 250px;
-	left: 33px;
 	height: 18px;
 	position: absolute;
 	bottom: 15px;
@@ -784,7 +794,6 @@
 }
 #playBox .smalltitle ul {
 	width: 120px;
-	margin: 0 auto;
 }
 #playBox .smalltitle ul li {
 	width: 10px;

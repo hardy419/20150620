@@ -75,15 +75,15 @@ $(document).ready(function(){
         <div class="next"></div>
         <div class="smalltitle">
           <ul>
-            <li class="thistitle"></li>
-            <li></li>
-            <li></li>
+            <volist name="banners" id="vo">
+            <li <if condition="$i eq 1">class="thistitle"</if>></li>
+            </volist>
           </ul>
         </div>
         <ul class="oUlplay">
-          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_01img.jpg"</a></li>
-          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_01img.jpg"</a></li>
-          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_01img.jpg"</a></li>
+          <volist name="banners" id="vo">
+          <li><a href="#"><img src="{:SITE_PATH}{$vo.url}" /></a></li>
+          </volist>
         </ul>
       </div>
     </div>
@@ -101,19 +101,16 @@ $(document).ready(function(){
     <!--------首頁主體部分-第一部分-第三列-------->
     <div class="wIndex01_03 fl">
       <h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_03_title.png" /><a href="#" class="fs13 pa">更多</a></h1>
-      <ul>
-        <li class="bb_acacac mb10"><a href="#">NS066 元朗婚紗店</a>
-          <p class="mt10 mb10">定價：$550</p>
-          <p class="mb8">參考利潤(每月)：$34,202</p>
-        </li>
-        <li class="bb_acacac mb10"><a href="#">HR090 銅鑼灣時裝店</a>
-          <p class="mt10 mb10">定價：$230,000</p>
-          <p class="mb8">參考利潤(每月)：$48,750</p>
-        </li>
-        <li><a href="#">Daisy 美孚影碟租賃店</a>
-          <p class="mt10 mb10">定價：$1,220,000</p>
-        </li>
-      </ul>
+      <div class="u-div">
+        <ul>
+          <volist name="hot" id="vo">
+          <li class="bb_acacac mb10"><a href="#">{$vo.codename} {$vo.title}</a>
+            <p class="mt10 mb10">定價：${$vo.price}</p>
+            <p class="mb8">參考利潤(每月)：${$vo.profit}</p>
+          </li>
+          </volist>
+        </ul>
+      </div>
     </div>
   </div>
   <!--------首頁主體部分-第二部分-------->
@@ -237,17 +234,26 @@ $(document).ready(function(){
 </div>
 <script type="text/javascript" src="{:SITE_PATH}Public/{$lang}/js/scrolltopcontrol.js"></script>
 <script>
+function update_query(){
+  var n=$('.query-selected').length;
+  if($('#query-img-all').hasClass('query-selected')){
+    n--;
+  }
+  $('#Float').find('h5').text(n);
+}
+
 function ajax_search_op_home(data){
 data=eval('('+data+')');
 $('#project-table').html('');
 
 var ths=['代號名稱','出讓項目','參考利潤','包括存貨其他','回本期(月)','定價(HKD)','供款(月)','面積(平方尺)','租金(月)','參與程度','項目情況'];
+var thfs=['codename','title','profit','store','recovery_period','price','allowance','square','rent','participation','situation'];
 var th_html='<tr>';
 var i;
 for(i=0;i<ths.length;++i){
-  th_html+='<th scope="col">'+ths[i]+'<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>';
+  th_html+='<th scope="col">'+ths[i]+'<a href="javascript:ajax_submit_home(null,'+"'"+thfs[i]+"','img-"+thfs[i]+"')"+'"><img src="Public/zh/images/arrow_bottom.png" id="img-'+thfs[i]+'" /></a></th>';
 }
-th_html+='<th scope="col"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" width="24" height="24" /></th></tr>';
+th_html+='<th scope="col"><a href="'+"javascript:(function(){var img=$('.query-img');if(!$('#query-img-all').hasClass('query-selected')){img.attr('src','Public/zh/images/selectok.png').addClass('query-selected');}else{img.attr('src','Public/zh/images/select.png').removeClass('query-selected');}update_query();})();"+'"><img class="query-img" id="query-img-all" src="Public/zh/images/select.png" width="24" height="24" /></a></th></tr>';
 $('#project-table').append(th_html);
 
 for(i=0;i<data['data'].length;++i){
@@ -258,7 +264,12 @@ for(i=0;i<data['data'].length;++i){
   else{
     var tdclass='';
   }
-  html+='<td '+tdclass+'>'+data['data'][i]['codename']+'</td>';
+  if('on'==data['data'][i]['estate_recomm']){
+    html+='<td '+tdclass+'><div style="position:relative;top:3px;display:inline-block">'+data['data'][i]['codename']+'</div><img src="Public/zh/images/estate_recomm.png" class="floatright" /></td>';
+  }
+  else{
+    html+='<td '+tdclass+'>'+data['data'][i]['codename']+'</td>';
+  }
   html+='<td '+tdclass+'>'+data['data'][i]['title']+'</td>';
   if(1==data['data'][i]['profit_option']){
     html+='<td '+tdclass+'>$'+data['data'][i]['profit']+'</td>';
@@ -274,7 +285,7 @@ for(i=0;i<data['data'].length;++i){
   html+='<td '+tdclass+'>$'+data['data'][i]['rent']+'</td>';
   html+='<td '+tdclass+'>'+data['data'][i]['participation']+'</td>';
   html+='<td '+tdclass+'>'+data['data'][i]['situation']+'</td>';
-  html+='<td '+tdclass+'><a href=""><img src="Public/zh/images/select.png" width="24" height="24" /></a></td>';
+  html+='<td '+tdclass+'><a href="'+"javascript:(function(){var img=$('#query-img-"+i+"');if(!img.hasClass('query-selected')){img.attr('src','Public/zh/images/selectok.png').addClass('query-selected');}else{img.attr('src','Public/zh/images/select.png').removeClass('query-selected');}update_query();})();"+'"><img class="query-img" id="query-img-'+i+'" src="Public/zh/images/select.png" width="24" height="24" /></a></td>';
   html+='</tr>';
   $('#project-table').append(html);
 }
@@ -296,7 +307,7 @@ $('.page-index').each(function(){
   if(!$(this).hasClass('currentPage')){
     $(this).click(function(){
       $('#search-form').ajaxSubmit({
-        url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20&p="+page,
+        url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20&visible=1&p="+page,
         success:function(data){
           ajax_search_op_home(data);
         },
@@ -311,7 +322,7 @@ if(data['p']<data['numpages']){
   $('.arrow-right-a').click(function(){
     var page=parseInt(data['p'])+1;
     $('#search-form').ajaxSubmit({
-      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20&p="+page,
+      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20&visible=1&p="+page,
       success:function(data){
         ajax_search_op_home(data);
       },
@@ -324,7 +335,7 @@ if(data['p']<data['numpages']){
 }
 
 function ajax_submit_home(p,o,spanid){
-  var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20";
+  var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20&visible=1";
   if(null!==p){
     $('#curpage').val(p);
   }
@@ -334,12 +345,12 @@ function ajax_submit_home(p,o,spanid){
   if(null!=o){
     if($('#order').val()==o && $('#sort').val()=='ASC'){
       $('#sort').val('DESC');
-      $('#'+spanid).addClass('caret').removeClass('caretv');
+      $('#'+spanid).attr('src','Public/zh/images/arrow_bottom.png');
     }
     else{
       $('#sort').val('ASC');
-      $('.frame-box-div .caretv').addClass('caret').removeClass('caretv');
-      $('#'+spanid).addClass('caretv').removeClass('caret');
+      $('#project-table th>a>img').attr('src','Public/zh/images/arrow_bottom.png');
+      $('#'+spanid).attr('src','Public/zh/images/arrow_up.png');
     }
     $('#order').val(o);
   }
@@ -355,7 +366,40 @@ function ajax_submit_home(p,o,spanid){
   });
 }
 
+var hotlist_sliding=true;
+function hotlist_slide(){
+  var u=$('.wIndex01_03 ul');
+  var cy=parseInt(u.css('top'));
+  var li_1st=$('.wIndex01_03 ul li:first-child');
+  var li_h=parseInt(li_1st.css('height'));
+  cy--;
+  if(-li_h==cy){
+    li_1st.appendTo(u);
+    cy=0;
+  }
+  u.css('top',cy+'px');
+  if(hotlist_sliding){
+    setTimeout('hotlist_slide()',20);
+  }
+}
+
 $(function(){
+  update_query();
+
+  // Banner css
+  var banum=$('#playBox .smalltitle ul li').length;
+  $('#playBox .smalltitle ul').css('margin-left',((250-20*banum)/2)+'px');
+
+  // Hot list sliding
+  setTimeout('hotlist_slide()',20);
+  $('.wIndex01_03 ul').mouseover(function(){
+    hotlist_sliding=false;
+  });
+  $('.wIndex01_03 ul').mouseleave(function(){
+    hotlist_sliding=true;
+    setTimeout('hotlist_slide()',20);
+  });
+
   ajax_submit_home(null,null,null);
   $('#search-submit').click(function(){
     ajax_submit_home(null,null,null);

@@ -1,37 +1,66 @@
-<!-- Container starts -->
-<div style="width: 1100px; margin: 0px auto; font-family:Arial; ">
-<!-- Header starts -->
-<div class="header">
-    <div class='header-div-right' style="visibility:hidden">
-        <a href='javascript:void(0)' onclick='change_lang(2)'>中</a>&nbsp;|&nbsp;<a href='javascript:void(0)' onclick='change_lang(1)'>EN</a>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/layout.css">
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/public.css">
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/reset.css">
+<script src="__JS__/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="{:SITE_PATH}Public/{$lang}/js/scrollImg.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script language="javascript"> 
+$(document).ready(function(){
+	$(window).scroll(function (){
+		var offsetTop = $(window).scrollTop() + 80 +"px";
+		$("#Float").animate({top : offsetTop },{ duration:500 , queue:false });
+	}); 
+}); 
+</script>
+<title>創富易業務轉讓有限公司</title>
+</head>
+
+<body>
+<!------------------------頁頭------------------------>
+<div id="header" class=" mb10">
+  <div id="Float"><img src="{:SITE_PATH}Public/{$lang}/images/search_chance.jpg" />
+    <h5>4</h5>
+  </div>
+  <div class="hTop pr"> 
+    <!--------Logo-------->
+    <h1 title="logo" class="fl mt12"></h1>
+    <!--------聯系方式+sns-------->
+    <div class="hInfo pa">
+      <ul>
+        <li class="mt10 mr8"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/snsCall.jpg" /></a><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/snsChat.jpg" /></a></li>
+        <li class="mt15 mr8 chat">(852)9422 8989</li>
+         <li class="mt15 mr8 chat">|</li>
+        <li class="mt12 mr20 hot">查詢熱線:(852)8108 0303</li>
+        <li class="mt10"><a href="{:U('', array('lang'=>'zh'))}"><img src="{:SITE_PATH}Public/{$lang}/images/zh.jpg" /></a><a href="{:U('', array('lang'=>'cn'))}"><img src="{:SITE_PATH}Public/{$lang}/images/cn.jpg" /></a><a href="{:U('', array('lang'=>'en'))}"><img src="{:SITE_PATH}Public/{$lang}/images/en.jpg" /></a></li>
+      </ul>
     </div>
-    <div class='header-div'>
-        <i>Tel: 2898 8283</i>
+    <!--------我想找：行業，投資金額，利潤下拉彈框-------->
+    <!--------我想找：行業，投資金額，利潤下拉選擇框-------->
+    
+    <!--------搜索-------->
+    <div class="search mt24 fr">
+      <div class="searchTitle"></div>
+      <div>
+        <include file="./Application/Home/View/Common/search.html" />
+      </div>
     </div>
-    <div class='header-div'>
-        <i>E-Mail: info@gccomhk.com</i>
-    </div>
+  </div>
+  <!--------導航-------->
+  <div class="hNav fs15">
+    <ul>
+      <li><a href="{:U('Index/index')}" <?PHP $hr = explode('&', $_SERVER['QUERY_STRING']); if(in_array('c=Index', $hr) && in_array('a=index', $hr)) { ?>class="current"<?PHP } ?>>首頁</a></li>
+      <li><a href="about.html">關于我們</a></li>
+      <li><a href="noticeUs.html">創富須知</a></li>
+      <li><a href="buyers.html">買家收購業務</a></li>
+      <li><a href="sale.html">賣家出讓業務</a></li>
+      <li><a href="{:U('Project/index')}" <?PHP if(in_array('c=Project', $hr)) { ?>class="current"<?PHP } ?>>現正出讓業務</a></li>
+      <li><a href="noticeSale.html">營商須知</a></li>
+      <li><a href="link.html">相關連結</a></li>
+      <li class="last"><a href="contact.html">聯絡我們</a></li>
+    </ul>
+  </div>
 </div>
-<!-- Navigator -->
-<div class="navigator">
-    <div class="logo-div">
-        <a href=""><img id="image-logo" src="{:SITE_PATH}Public/Img/GC/logo.png" ></img></a>
-    </div>
-    <div class="menu-div">
-        <ul class="menu-u">
-            <li><div id="menu-home-div"><a id="menu-home-a" href="{:SITE_PATH}index.php">Home</a></div></li>
-            <li><div id="menu-whoweare-div"><a id="menu-whoweare-a" href="{:SITE_PATH}about.php">Who We Are</a></div></li>
-            <li><div id="menu-whatwedo-div"><a id="menu-whatwedo-a" href="{:SITE_PATH}service.php">What We Do</a></div></li>
-            <li><div id="menu-smartchoice-div"><a id="menu-smartchoice-a" href="">Smart Choice</a></div></li>
-            <li><div id="menu-portfolio-div"><a id="menu-portfolio-a" href="{:SITE_PATH}project.php">Portfolio</a></div></li>
-            <li><div id="menu-clientlist-div"><a id="menu-clientlist-a" href="{:SITE_PATH}client.php">Client List</a></div></li>
-            <li><div id="menu-contactus-div"><a id="menu-contactus-a" href="{:SITE_PATH}contact.php">Contact Us</a></div></li>
-        </ul>
-    </div>
-    <div style="clear:both"></div>
-</div>
-<!-- banner -->
-<div class="banner">
-    <img width="{:BANNER_WIDTH}" height="{:BANNER_HEIGHT}" src="{:SITE_PATH}{$refurl}"></img>
-</div>
-<!-- Header ends -->

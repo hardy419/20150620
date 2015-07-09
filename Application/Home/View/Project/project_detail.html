@@ -1,0 +1,97 @@
+<include file="Common:header" />
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/products.css">
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/about.css">
+<!------------------------現正出讓業務主體部分------------------------>
+<div id="wrapIndex" class="about mb10">
+  <div class="aboutTitle">現正出讓業務</div>
+  <div class="aboutwrap">
+    <div class="aboutwrap_l b_aeaeae fl mr10">
+      <div class="productsTop">
+        <h1>{$project.title}</h1>
+        <ul>
+          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/product_share.jpg" /></a></li>
+          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/product_list.jpg" /></a></li>
+          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/product_search.jpg" /></a></li>
+          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/product_print.jpg" /></a></li>
+        </ul>
+      </div>
+      <div class="productsCon">
+        <dl>
+          <dt class="bg">代號名稱：</dt>
+          <dd class="bg">{$project.codename}&nbsp;</dd>
+          <dt>項目名稱：</dt>
+          <dd>{$project.title}&nbsp;</dd>
+          <dt class="bg">業務重點：</dt>
+          <dd class="bg">‧位於九龍市區，就近地鐵站，人流極旺。<br />
+            ‧附近多住宅及寫字樓，中午晚市人流不絕。<br />
+            ‧主要售賣串燒，菜飯，焗飯，同類競爭不多。<br />
+            ‧設備新淨，開業不久，已有一定客源，發展潛力大。</dd>
+          <dt>牌照：</dt>
+          <dd><volist name="certificates" id="vo">{$catelist[$vo]}&nbsp;&nbsp;</volist>&nbsp;</dd>
+          <dt class="bg">出讓原因：</dt>
+          <dd class="bg">{$project.reason}&nbsp;</dd>
+          <dt>定價：</dt>
+          <dd>${$project.price}&nbsp;</dd>
+          <dt class="bg">包括存貨/其他：</dt>
+          <dd class="bg">{$project.store}&nbsp;</dd>
+          <dt>營業額(每月)</dt>
+          <dd>${$project.turnover}&nbsp;</dd>
+          <dt class="bg">參考利潤(每月)：</dt>
+          <dd class="bg"><if condition="$project['profit_option'] eq 1">${$project.profit}<else/>{$project.profit_text}</if>&nbsp;</dd>
+          <dt>回本期(月)：</dt>
+          <dd>{$project.recovery_period}&nbsp;</dd>
+          <dt class="bg">面積(平方呎)：</dt>
+          <dd class="bg">{$project.square}&nbsp;</dd>
+          <dt>租金：</dt>
+          <dd>${$project.rent}&nbsp;</dd>
+          <dt class="bg">東主參與程度：</dt>
+          <dd class="bg">{$catelist[$project['c_participation']]}&nbsp;</dd>
+          <dt>經營場所類別：</dt>
+          <dd>{$catelist[$project['c_location']]}&nbsp;</dd>
+          <dt class="bg">轉讓形式：</dt>
+          <dd class="bg">{$catelist[$project['c_transfer']]}&nbsp;</dd>
+          <dt>地鐵沿線：</dt>
+          <dd>{$catelist[$project['c_metro']]}&nbsp;</dd>
+          <dt class="bg">首期：</dt>
+          <dd class="bg">${$project.downpay}&nbsp;</dd>
+          <dt>每月供款：</dt>
+          <dd>${$project.allowance}&nbsp;</dd>
+          <dt class="bg">供款期數：</dt>
+          <dd class="bg">{$project.allowance_period}&nbsp;</dd>
+          <dt>項目現況：</dt>
+          <dd>{$catelist[$project['c_situation']]}&nbsp;</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="aboutwrap_r fl">
+    <div class="aboutwrap_r_hot mb10">
+      <h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_03_title.png" /><a href="#" class="fs13 pa">更多</a></h1>
+      <div class="u-div">
+        <ul>
+          <volist name="hot" id="vo">
+          <li class="bb_acacac mb10"><a href="{:U('Project/project_detail',array('id'=>$vo['id']))}">{$vo.codename} {$vo.title}</a>
+            <p class="mt10 mb10">定價：${$vo.price}</p>
+            <p class="mb8">參考利潤(每月)：${$vo.profit}</p>
+          </li>
+          </volist>
+        </ul>
+      </div>
+    </div>
+    <div class="aboutwrap_r_ad">
+      <if condition="isset ($ads_1[0])">
+      <a href="{$ads_1[0]['href']}"><img src="{:SITE_PATH}{$ads_1[0]['image']}" style="width:250px;height:180px" /></a>
+      <else/>
+      <a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_04img.jpg" /></a>
+      </if>
+      <if condition="isset ($ads_2[0])">
+      <a href="{$ads_2[0]['href']}"><img src="{:SITE_PATH}{$ads_2[0]['image']}" style="width:250px;height:210px" /></a>
+      <else/>
+      <a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_03_01img.jpg" /></a>
+      </if>
+    </div>
+  </div>
+</div>
+</div>
+<div class="clear"></div>
+<include file="Common:footer" />

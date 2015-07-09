@@ -445,23 +445,24 @@
 	right: 10px;
 	top: 7px;
 }
-#wrapIndex .wIndex01 .wIndex01_03 .u-div {
+/*------熱鬧推薦------*/
+.u-div {
 	height: 277px;
 	overflow: hidden;
 }
-#wrapIndex .wIndex01 .wIndex01_03 ul {
+.u-div ul {
 	margin: 9px 15px 9px 20px;
 	position: relative;
 	top: 0px;
 }
-#wrapIndex .wIndex01 .wIndex01_03 ul li {
+.u-div ul li {
 	height: 91px;
 }
-#wrapIndex .wIndex01 .wIndex01_03 ul li a {
+.u-div ul li a {
 	color: #ff0000;
 	font-weight: 600;
 }
-#wrapIndex .wIndex01 .wIndex01_03 ul li p {
+.u-div ul li p {
 	color: #333;
 }
 /*------首页主体部分-第二部分------*/

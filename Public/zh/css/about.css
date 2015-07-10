@@ -64,7 +64,10 @@
 .about .aboutBanner {
 	margin: 0 auto;
 	height: 221px;
-	background: url(../images/about_banner.jpg) 19px 19px no-repeat;
+	padding: 20px;
+}
+.about .aboutBanner img {
+  height: 220px;
 }
 /*------Banner------*/
 .about .buyersBanner {

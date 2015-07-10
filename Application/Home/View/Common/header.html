@@ -53,9 +53,9 @@ $(document).ready(function(){
   <div class="hNav fs15">
     <ul>
       <li><a href="{:U('Index/index')}" <?PHP $hr = explode('&', $_SERVER['QUERY_STRING']); if(in_array('c=Index', $hr) && in_array('a=index', $hr)) { ?>class="current"<?PHP } ?>>首頁</a></li>
-      <li><a href="about.html">關于我們</a></li>
+      <li><a href="{:U('Page/about')}" <?PHP if(in_array('c=Page', $hr) && in_array('a=about', $hr)) { ?>class="current"<?PHP } ?>>關于我們</a></li>
       <li><a href="noticeUs.html">創富須知</a></li>
-      <li><a href="buyers.html">買家收購業務</a></li>
+      <li><a href="{:U('Page/buyers')}" <?PHP if(in_array('c=Page', $hr) && in_array('a=buyers', $hr)) { ?>class="current"<?PHP } ?>>買家收購業務</a></li>
       <li><a href="sale.html">賣家出讓業務</a></li>
       <li><a href="{:U('Project/index')}" <?PHP if(in_array('c=Project', $hr)) { ?>class="current"<?PHP } ?>>現正出讓業務</a></li>
       <li><a href="noticeSale.html">營商須知</a></li>

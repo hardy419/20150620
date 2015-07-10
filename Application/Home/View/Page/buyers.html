@@ -1,0 +1,50 @@
+<include file="Common:header" />
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/about.css">
+<!------------------------關于我們主體部分------------------------>
+<div id="wrapIndex" class="about mb10">
+  <div class="aboutTitle">買家收購業務</div>
+  <div class="aboutwrap">
+    <div class="aboutwrap_l b_aeaeae fl mr10">
+      <div class="aboutBanner"><img src="{:SITE_PATH}{$banner}" /></div>
+      <div class="aboutwrap_l_menu br_acacac fl">
+        <ul>
+          <li><a href="#" class="current">買家收購程序</a></li>
+          <li><a href="#">爲何選擇我們</a></li>
+          <li><a href="#">買家查詢</a></li>
+        </ul>
+      </div>
+      <div class="aboutwrap_l_txt fl">
+        {$content|html_entity_decode=###}
+      </div>
+    </div>
+    <div class="aboutwrap_r fl">
+      <div class="aboutwrap_r_hot mb10">
+        <h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_03_title.png" /><a href="#" class="fs13 pa">更多</a></h1>
+        <div class="u-div">
+          <ul>
+            <volist name="hot" id="vo">
+            <li class="bb_acacac mb10"><a href="{:U('Project/project_detail',array('id'=>$vo['id']))}">{$vo.codename} {$vo.title}</a>
+              <p class="mt10 mb10">定價：${$vo.price}</p>
+              <p class="mb8">參考利潤(每月)：${$vo.profit}</p>
+            </li>
+            </volist>
+          </ul>
+        </div>
+      </div>
+      <div class="aboutwrap_r_ad">
+        <if condition="isset ($ads_1[0])">
+        <a href="{$ads_1[0]['href']}"><img src="{:SITE_PATH}{$ads_1[0]['image']}" style="width:250px;height:180px" /></a>
+        <else/>
+        <a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_04img.jpg" /></a>
+        </if>
+        <if condition="isset ($ads_2[0])">
+        <a href="{$ads_2[0]['href']}"><img src="{:SITE_PATH}{$ads_2[0]['image']}" style="width:250px;height:210px" /></a>
+        <else/>
+        <a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_03_01img.jpg" /></a>
+        </if>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<include file="Common:footer" />

@@ -307,6 +307,36 @@ INSERT INTO `buy_ads` (`id`, `type`, `image`, `href`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `buy_news`
+--
+
+CREATE TABLE IF NOT EXISTS `buy_news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `pdf` varchar(255) NOT NULL,
+  `date` datetime NOT NULL,
+  `order` int(11) NOT NULL,
+  `info` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ORDER` (`order`),
+  KEY `STATUS` (`status`),
+  KEY `DATE` (`date`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- 转存表中的数据 `buy_news`
+--
+
+INSERT INTO `buy_news` (`id`, `title`, `description`, `link`, `pdf`, `date`, `order`, `info`, `status`) VALUES
+(1, '樓市「雙辣招」，投資者資金另覓新出路', '面對香港特區政府推出樓市「雙辣招」壓抑樓價，加上投資市場對美國聯儲局退市時間及加息周期而作出不同的預測，令大量投機資金準備退岀樓市，尋找資金新出路。由於受惠國內旅客帶動本港內銷市場(例如:餐飲業及零售業)，加上相關行業投資回報相對穩定可觀，從而吸引投資者把資金轉向投資收購生意(如餐飲業)，作為長遠投資工具。', 'www.baidu.com', './Uploads/document/559f685ad31cc.pdf', '2015-07-01 05:14:41', 1, '', 1),
+(2, '測試添加2', '測試添加2\r\nhahaha\r\nHardy', 'TEST2', './Uploads/document/559f6637aa6b1.pdf', '2015-07-10 10:10:56', 2, '', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `buy_user`
 --
 

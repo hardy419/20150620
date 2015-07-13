@@ -25,9 +25,9 @@ class IndexController extends BaseController {
         // News
         $news = M('news')->where(array('status'=>1))->order('`date` DESC')->limit('1')->select();
         $this->assign('news', $news[0]);
-        // language
-        $lang = I('get.lang', 'zh');
-        $this->assign ('lang', $lang);
+
+        parent::language();
+
         $this->display();
     }
 

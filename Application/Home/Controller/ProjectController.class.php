@@ -12,9 +12,9 @@ class ProjectController extends BaseController {
         }
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
-        // language
-        $lang = I('get.lang', 'zh');
-        $this->assign ('lang', $lang);
+
+        parent::language();
+
         $this->display('projects');
     }
 
@@ -42,9 +42,9 @@ class ProjectController extends BaseController {
         $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
         $this->assign('ads_1', $ads_1);
         $this->assign('ads_2', $ads_2);
-        // language
-        $lang = I('get.lang', 'zh');
-        $this->assign ('lang', $lang);
+
+        parent::language();
+
         $this->display();
     }
 }

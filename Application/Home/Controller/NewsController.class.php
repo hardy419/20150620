@@ -15,9 +15,9 @@ class NewsController extends BaseController {
         // All news
         $news = M('news')->where(array('status'=>1))->select();
         $this->assign('news', $news);
-        // language
-        $lang = I('get.lang', 'zh');
-        $this->assign ('lang', $lang);
+
+        parent::language();
+
         $this->display();
     }
 }

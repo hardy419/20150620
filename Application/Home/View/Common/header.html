@@ -16,7 +16,7 @@ $(document).ready(function(){
 	}); 
 }); 
 </script>
-<title>創富易業務轉讓有限公司</title>
+<title>{$text_header_title}</title>
 </head>
 
 <body>
@@ -34,7 +34,7 @@ $(document).ready(function(){
         <li class="mt10 mr8"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/snsCall.jpg" /></a><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/snsChat.jpg" /></a></li>
         <li class="mt15 mr8 chat">(852)9422 8989</li>
          <li class="mt15 mr8 chat">|</li>
-        <li class="mt12 mr20 hot">查詢熱線:(852)8108 0303</li>
+        <li class="mt12 mr20 hot">{$text_chaxunrexian}:(852)8108 0303</li>
         <li class="mt10"><a href="{:U('', array('lang'=>'zh'))}"><img src="{:SITE_PATH}Public/{$lang}/images/zh.jpg" /></a><a href="{:U('', array('lang'=>'cn'))}"><img src="{:SITE_PATH}Public/{$lang}/images/cn.jpg" /></a><a href="{:U('', array('lang'=>'en'))}"><img src="{:SITE_PATH}Public/{$lang}/images/en.jpg" /></a></li>
       </ul>
     </div>
@@ -52,15 +52,15 @@ $(document).ready(function(){
   <!--------導航-------->
   <div class="hNav fs15">
     <ul>
-      <li><a href="{:U('Index/index')}" <?PHP $hr = explode('&', $_SERVER['QUERY_STRING']); if(in_array('c=Index', $hr) && in_array('a=index', $hr)) { ?>class="current"<?PHP } ?>>首頁</a></li>
-      <li><a href="{:U('Page/about')}" <?PHP if(in_array('c=Page', $hr) && in_array('a=about', $hr)) { ?>class="current"<?PHP } ?>>關于我們</a></li>
-      <li><a href="noticeUs.html">創富須知</a></li>
-      <li><a href="{:U('Page/buyers')}" <?PHP if(in_array('c=Page', $hr) && in_array('a=buyers', $hr)) { ?>class="current"<?PHP } ?>>買家收購業務</a></li>
-      <li><a href="sale.html">賣家出讓業務</a></li>
-      <li><a href="{:U('Project/index')}" <?PHP if(in_array('c=Project', $hr)) { ?>class="current"<?PHP } ?>>現正出讓業務</a></li>
-      <li><a href="noticeSale.html">營商須知</a></li>
-      <li><a href="link.html">相關連結</a></li>
-      <li class="last"><a href="contact.html">聯絡我們</a></li>
+      <li><a href="{:U('Index/index',array('lang'=>$lang))}" <?PHP $hr = explode('&', $_SERVER['QUERY_STRING']); if(in_array('c=Index', $hr) && in_array('a=index', $hr)) { ?>class="current"<?PHP } ?>>{$text_shouye}</a></li>
+      <li><a href="{:U('Page/about',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && in_array('a=about', $hr)) { ?>class="current"<?PHP } ?>>{$text_guanyuwomen}</a></li>
+      <li><a href="noticeUs.html">{$text_chuangfuxuzhi}</a></li>
+      <li><a href="{:U('Page/buyers',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && in_array('a=buyers', $hr)) { ?>class="current"<?PHP } ?>>{$text_maijiashougouyewu}</a></li>
+      <li><a href="sale.html">{$text_maijiachurangyewu}</a></li>
+      <li><a href="{:U('Project/index',array('lang'=>$lang))}" <?PHP if(in_array('c=Project', $hr)) { ?>class="current"<?PHP } ?>>{$text_xianzhengchurangyewu}</a></li>
+      <li><a href="noticeSale.html">{$text_yingshangxuzhi}</a></li>
+      <li><a href="link.html">{$text_xiangguanlianjie}</a></li>
+      <li class="last"><a href="contact.html">{$text_lianluowomen}</a></li>
     </ul>
   </div>
 </div>

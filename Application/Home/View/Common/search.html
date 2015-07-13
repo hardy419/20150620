@@ -6,7 +6,7 @@
 
 <!-- Input Select all START -->
                     <div class="input-append">
-				      <input class="input-medium" type="text" name="fip" placeholder="行業、投資金額、利潤">
+				      <input class="input-medium" type="text" name="fip" placeholder="{$text_fip}">
                       <div class="btn-group">
                         <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="popup_box($('.search_all'), $(this))">
                           <span class="caret"></span>
@@ -148,7 +148,7 @@ function checkall(selector,refbox){
 <div class="top_submenus search_all" style="display: none;">
   <div class="top_submenus_Industry _Many">
         <div class="search_header" style="border-bottom:1px dotted #99979c; padding-bottom: 5px">
-          <h1 class="element-tit" style="display:block;"><input type="checkbox" value="1" class="recomm" name="recomm"><span style="color:red">筍盤推介</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="1" class="small_business" name="small_business"><span style="color:red">小本創業</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="1" class="first_choice" name="first_choice"><span style="color:red">投資首選</span></h1><div class="closed_icon" style="float:right">X</div>
+          <h1 class="element-tit" style="display:block;"><input type="checkbox" value="1" class="recomm" name="recomm"><span style="color:red">{$text_chaozhituijie}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="1" class="small_business" name="small_business"><span style="color:red">{$text_xiaobenchuangye}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="1" class="first_choice" name="first_choice"><span style="color:red">{$text_touzishouxuan}</span></h1><div class="closed_icon" style="float:right">X</div>
         </div>
         <div class="all_fields" style="border-bottom:1px dotted #99979c; padding-bottom: 5px; padding-top: 5px">
           <h1 class="element-tit" style="display:block;"><input type="checkbox" value="1" class="selectall" name="all_extra_18" onclick="checkall('.fields-u input',$(this))">任何行業</h1>
@@ -281,7 +281,7 @@ function checkall(selector,refbox){
 
 <!-- Input Area START -->
                     <div class="input-append">
-				      <input class="input-small" type="text" name="area" placeholder="地區">
+				      <input class="input-small" type="text" name="area" placeholder="{$text_diqu}">
                       <div class="btn-group">
                         <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="popup_box($('.Area'), $(this))">
                           <span class="caret"></span>
@@ -354,7 +354,7 @@ function checkall(selector,refbox){
     </div>
 <!-- Input Area END -->
 
-				    <input class="input-small" type="text" id="keyword" name="keyword" value="" placeholder="輸入關鍵字"/>
+				    <input class="input-small" type="text" id="keyword" name="keyword" value="" placeholder="{$text_shuruguanjianzi}"/>
 
 				    <input type="hidden" id="idn" name="id" value="{$list.id}" />
                     <input type="hidden" id="typen" name="type" value="{$type}" />

@@ -2,59 +2,59 @@
 <div id="footer">
   <div class="fMenu">
     <ul class="first">
-      <li><a href="#" class="title">關于我們</a></li>
-      <li><a href="#">公司簡介</a></li>
-      <li><a href="#">我們的價值觀</a></li>
-      <li><a href="#">服務範圍</a></li>
-      <li><a href="#">聯絡我們</a></li>
+      <li><a href="#" class="title">{$text_guanyuwomen}</a></li>
+      <li><a href="#">{$text_gongsijianjie}</a></li>
+      <li><a href="#">{$text_jiazhiguan}</a></li>
+      <li><a href="#">{$text_fuwufanwei}</a></li>
+      <li><a href="#">{$text_lianluowomen}</a></li>
     </ul>
     <ul>
-      <li><a href="#" class="title">創富須知</a></li>
-      <li><a href="#">創富做老板</a></li>
-      <li><a href="#">創富模式之比較</a></li>
-      <li><a href="#">何謂「業務轉讓」</a></li>
-      <li><a href="#">爲何選擇業務轉讓</a></li>
-      <li><a href="#">常見問題</a></li>
+      <li><a href="#" class="title">{$text_chuangfuxuzhi}</a></li>
+      <li><a href="#">{$text_chuangfuzuolaoban}</a></li>
+      <li><a href="#">{$text_chuangfumoshi}</a></li>
+      <li><a href="#">{$text_heweiyewuzhuanrang}</a></li>
+      <li><a href="#">{$text_weihexuanzeyewuzhuanrang}</a></li>
+      <li><a href="#">{$text_changjianwenti}</a></li>
     </ul>
     <ul>
-      <li><a href="#" class="title">買家收購業務</a></li>
-      <li><a href="#">買家收購程序</a></li>
-      <li><a href="#">爲何選擇我們</a></li>
-      <li><a href="#">買家查詢</a></li>
+      <li><a href="#" class="title">{$text_maijiashougouyewu}</a></li>
+      <li><a href="#">{$text_maijiashougouchengxu}</a></li>
+      <li><a href="#">{$text_weihexuanzewomen}</a></li>
+      <li><a href="#">{$text_maijiachaxun}</a></li>
     </ul>
     <ul>
-      <li><a href="#" class="title">賣家出讓業務</a></li>
-      <li><a href="#">賣家出讓程序</a></li>
-      <li><a href="#">業務估值</a></li>
-      <li><a href="#">爲何選擇我們</a></li>
-      <li><a href="#">賣家查詢</a></li>
+      <li><a href="#" class="title">{$text_maijiachurangyewu}</a></li>
+      <li><a href="#">{$text_maijiachurangchengxu}</a></li>
+      <li><a href="#">{$text_yewuguzhi}</a></li>
+      <li><a href="#">{$text_weihexuanzewomen}</a></li>
+      <li><a href="#">{$text_maijiachaxun}</a></li>
     </ul>
     <ul>
-      <li><a href="#" class="title">現正出讓業務</a></li>
+      <li><a href="#" class="title">{$text_xianzhengchurangyewu}</a></li>
     </ul>
     <ul>
-      <li><a href="#" class="title">營商須知</a></li>
-      <li><a href="#">開業資料庫</a></li>
-      <li><a href="#">營業資料庫</a></li>
+      <li><a href="#" class="title">{$text_yingshangxuzhi}</a></li>
+      <li><a href="#">{$text_kaiyeziliaoku}</a></li>
+      <li><a href="#">{$text_yingyeziliaoku}</a></li>
     </ul>
     <ul>
-      <li><a href="#" class="title">相關連結</a></li>
+      <li><a href="#" class="title">{$text_xiangguanlianjie}</a></li>
     </ul>
     <ul>
-      <li><a href="#" class="title">聯絡我們</a></li>
+      <li><a href="#" class="title">{$text_lianluowomen}</a></li>
     </ul>
   </div>
   <div class="fCopyright">
     <div class="fCopyright_in pr"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/footer_logo.jpg" /></a>
       <dl class="pa fl">
-        <dd>© 2005 - 2015創富易業務轉讓有限公司 天域國際投資投資成員</dd>
-        <dd>版權所有 不得轉載</dd>
+        <dd>{$text_copyright}</dd>
+        <dd>{$text_banquansuoyou}</dd>
       </dl>
       <ul class="pa">
-        <li><a href="#">版權聲明</a></li>
-        <li><a href="#">免責條款</a></li>
-        <li><a href="#">聯絡我們</a></li>
-        <li><a href="#">個人私隱政策</a></li>
+        <li><a href="#">{$text_banquanshengming}</a></li>
+        <li><a href="#">{$text_mianzetiaokuan}</a></li>
+        <li><a href="#">{$text_lianluowomen}</a></li>
+        <li><a href="#">{$text_gerensiyinzhengce}</a></li>
       </ul>
     </div>
   </div>
@@ -80,7 +80,7 @@ if(true!==init){
 
 $('#project-table').html('');
 
-var ths=['代號名稱','出讓項目','參考利潤','包括存貨其他','回本期(月)','定價(HKD)','供款(月)','面積(平方尺)','租金(月)','參與程度','項目情況'];
+var ths=['{$text_daihaomingcheng}','{$text_churangxiangmu}','{$text_cankaolirun}','{$text_baokuocunhuo}','{$text_huibenqi}','{$text_dingjia}','{$text_gongkuan}','{$text_mianji}','{$text_zujin}','{$text_canyuchengdu}','{$text_xiangmuqingkuang}'];
 var thfs=['codename','title','profit','store','recovery_period','price','allowance','square','rent','participation','situation'];
 var th_html='<tr>';
 var i;
@@ -91,7 +91,7 @@ th_html+='<th scope="col"><a href="'+"javascript:(function(){var img=$('.query-i
 $('#project-table').append(th_html);
 
 for(i=0;i<data['data'].length;++i){
-  var onclick_html='onclick="window.location.href='+"'{:U('Project/project_detail')}&id="+data['data'][i]['id']+"'"+'"';
+  var onclick_html='onclick="window.location.href='+"'{:U('Project/project_detail',array('lang'=>$lang))}&id="+data['data'][i]['id']+"'"+'"';
   var html='<tr style="cursor:pointer">';
   if(i%2==1){
     var tdclass='class="bg_f3f3f3"';

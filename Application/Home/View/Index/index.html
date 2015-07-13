@@ -40,8 +40,8 @@
         <ul>
           <volist name="hot" id="vo">
           <li class="bb_acacac mb10"><a href="{:U('Project/project_detail',array('id'=>$vo['id']))}">{$vo.codename} {$vo.title}</a>
-            <p class="mt10 mb10">定價：${$vo.price}</p>
-            <p class="mb8">參考利潤(每月)：${$vo.profit}</p>
+            <p class="mt10 mb10">{$text_dingjia}：${$vo.price}</p>
+            <p class="mb8">{$text_cankaolirun}：${$vo.profit}</p>
           </li>
           </volist>
         </ul>
@@ -95,17 +95,17 @@
     </div>
     <table width="95%" border="0" cellspacing="0" cellpadding="0" id="project-table">
       <tr>
-        <th scope="col">代號名稱<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
-        <th scope="col">出讓項目<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
-        <th scope="col">參考利潤<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
-        <th scope="col">包括存貨其他<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
-        <th scope="col">回本期(月)<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
-        <th scope="col">定價(HKD)<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
-        <th scope="col">供款(月)<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
-        <th scope="col">面積(平方尺)<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
-        <th scope="col">租金(月)<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
-        <th scope="col">參與程度<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
-        <th scope="col">項目情況<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">{$text_daihaomingcheng}<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">{$text_churangxiangmu}<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">{$text_cankaolirun}<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">{$text_baokuocunhuo}<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">{$text_huibenqi}<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">{$text_dingjia}<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">{$text_gongkuan}<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">{$text_mianji}<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">{$text_zujin}<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">{$text_canyuchengdu}<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
+        <th scope="col">{$text_xiangmuqingkuang}<a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/arrow_bottom.png" /></a></th>
         <th scope="col"><img src="{:SITE_PATH}Public/{$lang}/images/select.png" width="24" height="24" /></th>
       </tr>
     </table>

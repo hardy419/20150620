@@ -84,6 +84,9 @@ ul li {list-style:none}
 .top_submenus .elementBox li.left{margin-left:0;border-left: 1px dotted #99979c;padding-right: 10px;padding-top:5px;padding-bottom:5px;min-height: 218px;/*width: 146px;*/}
 .top_submenus .elementBox li.left:first-child{border: none;}
 .top_submenus .elementBox li.left:first-child~li.left{padding-left:15px}
+#header .top_submenus input[type="checkbox"] {margin-right:5px}
+#header #TB_window li {line-height:2.4}
+#header #TB_window #TB_options_u {margin-bottom: 15px}
 .top_submenus .elementBox li.left li{height: 18px; line-height:18px;margin-bottom:6px;}
 #top-Search .top_submenus .elementBox li.left{width: 146px;}
 
@@ -139,7 +142,9 @@ ul li {list-style:none}
 .top_submenus a,.top_submenus a:hover{text-decoration:none}
 .jshop table.jshop_pagination{float: right;margin-top: -44px;}
 
-h3.element-tit{font-weight:bold;font-size:16px !important}
+h3.element-tit{font-weight:bold;font-size:14px !important}
+#TB_title{font-size:20px !important}
+#TB_window li{white-space:nowrap}
 .floatleft{float:left}
 .floatright{float:right}
 .clearboth{clear:both}

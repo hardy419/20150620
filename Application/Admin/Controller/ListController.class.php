@@ -119,6 +119,10 @@ class ListController extends BaseController{
             }
             $this->assign('catelist', $catelist);
             $this->assign('categories', $dblist);
+
+            $this->assign ('text_touzishouxuan', '投資首選');
+            $this->assign ('text_chaozhituijie', '筍盤推介');
+            $this->assign ('text_xiaobenchuangye', '小本創業');
         }
         else if('ads' == $type) {
             $ads_1 = M('ads')->where(array('type'=>1))->select();

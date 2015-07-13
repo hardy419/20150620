@@ -16,6 +16,10 @@ class IndexController extends BaseController {
         $this->assign('banners', $bannerlist);
         // For hot recomm projects
         $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        foreach ($hot as &$proj) {
+            $proj['price'] = number_format ($proj['price'], 0);
+            $proj['profit'] = number_format ($proj['profit'], 0);
+        }
         $this->assign('hot', $hot);
         // For ads
         $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
@@ -280,6 +284,11 @@ class IndexController extends BaseController {
                 $data['field'] = $catelist[$data['c_field']];
                 $data['participation'] = $catelist[$data['c_participation']];
                 $data['situation'] = $catelist[$data['c_situation']];
+                $data['profit'] = number_format ($data['profit'], 0);
+                $data['recovery_period'] = str_replace ('.0', '', number_format ($data['recovery_period'], 1));
+                $data['price'] = number_format ($data['price'], 0);
+                $data['allowance'] = number_format ($data['allowance'], 0);
+                $data['rent'] = number_format ($data['rent'], 0);
             }
 
             $results['numpages'] = (int)($count/$listRows)+1;

@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `buy_banner` (
   `title` varchar(255) NOT NULL,
   `sid` int(11) NOT NULL,
   `url` varchar(255) NOT NULL,
+  `href` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
@@ -155,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `buy_project` (
   `profit_option` tinyint(4) NOT NULL,
   `profit` int(11) NOT NULL,
   `profit_text` varchar(64) NOT NULL,
-  `recovery_period` int(11) NOT NULL,
+  `recovery_period` float NOT NULL,
   `square` int(11) NOT NULL,
   `rent` int(11) NOT NULL,
   `c_participation` int(11) NOT NULL,

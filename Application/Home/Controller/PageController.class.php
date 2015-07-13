@@ -14,6 +14,10 @@ class PageController extends BaseController {
         $this->assign('categories', $dblist);
         // For hot recomm projects
         $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        foreach ($hot as &$proj) {
+            $proj['price'] = number_format ($proj['price'], 0);
+            $proj['profit'] = number_format ($proj['profit'], 0);
+        }
         $this->assign('hot', $hot);
         // For ads
         $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();

@@ -26,15 +26,16 @@
 				    <div class="control-group">
 				    <label class="control-label">Link：</label>
 				    <div class="controls">
-				    <input type="text" id="image-url" name="url" value="{$list.url}" ><span id="upload-progress" class="help-inline"></span>
+				    <input type="text" id="href" name="href" value="{$list.href}" >
 				    </div>
 				    </div>
+				    <input type="hidden" id="image-url" name="url" value="{$list.url}" >
 				    <div class=" control-group">
 		                   <label class="control-label">相片：</label>
 		                   <div class="controls fileinput-button">
                              <span class="fileinput-image"><img class="uploaded-img main-banner-img" src="" /></span>
 		                     <span class="fileinput-button"><span>點此上傳圖片</span><input id="fileupload" type="file" name="files" class="input" ></span>
-		                     <span class=" iconshadow" ><i class="icon-remove" onClick="tool.removeMovie('#time')"></i></span>
+		                     <span class=" iconshadow" ><i class="icon-remove" onClick="tool.removeMovie('#time')"></i></span><span id="upload-progress" class="help-inline"></span>
 		                     <br/><span class="help-text"><span class="label label-important">( size: 250px X 310px )</span></span>
 		                </div>
 		            </div>

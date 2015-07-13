@@ -24,6 +24,13 @@ class ProjectController extends BaseController {
             $this->error('');
         }
         $project = M('project')->where(array('id'=>$id))->select();
+        $project[0]['price'] = number_format ($project[0]['price'], 0);
+        $project[0]['turnover'] = number_format ($project[0]['turnover'], 0);
+        $project[0]['profit'] = number_format ($project[0]['profit'], 0);
+        $project[0]['recovery_period'] = str_replace ('.0', '', number_format ($project[0]['recovery_period'], 1));
+        $project[0]['rent'] = number_format ($project[0]['rent'], 0);
+        $project[0]['downpay'] = number_format ($project[0]['downpay'], 0);
+        $project[0]['allowance'] = number_format ($project[0]['allowance'], 0);
         $this->assign ('project', $project[0]);
         $certificates = explode (',', $project[0]['c_certificate']);
         $this->assign ('certificates', $certificates);
@@ -36,6 +43,10 @@ class ProjectController extends BaseController {
         $this->assign('catelist', $catelist);
         // For hot recomm projects
         $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        foreach ($hot as &$proj) {
+            $proj['price'] = number_format ($proj['price'], 0);
+            $proj['profit'] = number_format ($proj['profit'], 0);
+        }
         $this->assign('hot', $hot);
         // For ads
         $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();

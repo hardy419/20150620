@@ -16,16 +16,17 @@
         </ul>
       </div>
       <div class="productsCon">
+        <style>
+          .productsCon ul,.productsCon ul li {list-style:disc inside none;}
+          .productsCon ul li {margin-left:10px}
+        </style>
         <dl>
           <dt class="bg">代號名稱：</dt>
           <dd class="bg">{$project.codename}&nbsp;</dd>
           <dt>項目名稱：</dt>
           <dd>{$project.title}&nbsp;</dd>
           <dt class="bg">業務重點：</dt>
-          <dd class="bg">‧位於九龍市區，就近地鐵站，人流極旺。<br />
-            ‧附近多住宅及寫字樓，中午晚市人流不絕。<br />
-            ‧主要售賣串燒，菜飯，焗飯，同類競爭不多。<br />
-            ‧設備新淨，開業不久，已有一定客源，發展潛力大。</dd>
+          <dd class="bg">{$project.business_focus|html_entity_decode=###}&nbsp;</dd>
           <dt>牌照：</dt>
           <dd><volist name="certificates" id="vo">{$catelist[$vo]}&nbsp;&nbsp;</volist>&nbsp;</dd>
           <dt class="bg">出讓原因：</dt>

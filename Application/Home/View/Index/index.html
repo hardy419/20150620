@@ -17,7 +17,7 @@
         </div>
         <ul class="oUlplay">
           <volist name="banners" id="vo">
-          <li><a href="#"><img src="{:SITE_PATH}{$vo.url}" /></a></li>
+          <li><a href="<?PHP echo 'http'==strtolower(substr($vo['href'],0,4))?$vo['href']:'http://'.$vo['href']; ?>"><img src="{:SITE_PATH}{$vo.url}" /></a></li>
           </volist>
         </ul>
       </div>

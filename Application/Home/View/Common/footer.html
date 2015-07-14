@@ -203,9 +203,9 @@ function ajax_submit_home(p,o,spanid,init){
 
 var hotlist_sliding=true;
 function hotlist_slide(){
-  var u=$('.u-div ul');
+  var u=$('.u-div>ul');
   var cy=parseInt(u.css('top'));
-  var li_1st=$('.u-div ul li:first-child');
+  var li_1st=$('.u-div>ul li:first-child');
   var li_h=102;//parseInt(li_1st.css('height'))+parseInt(li_1st.css('border-width'))+parseInt(li_1st.css('padding-bottom'));
   cy--;
   if(-li_h==cy){
@@ -227,10 +227,10 @@ $(function(){
 
   // Hot list sliding
   setTimeout('hotlist_slide()',20);
-  $('.u-div ul').mouseover(function(){
+  $('.u-div>ul').mouseover(function(){
     hotlist_sliding=false;
   });
-  $('.u-div ul').mouseleave(function(){
+  $('.u-div>ul').mouseleave(function(){
     hotlist_sliding=true;
     setTimeout('hotlist_slide()',20);
   });

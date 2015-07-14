@@ -177,10 +177,10 @@ class IndexController extends BaseController {
                 $map['recovery_period'][] = array ('between','0,6');
             }
             if (in_array ('6.1-12', $map_recovery)) {
-                $map['recovery_period'][] = array ('between','7,12');
+                $map['recovery_period'][] = array ('between','6.1,12');
             }
             if (in_array ('12.1-24', $map_recovery)) {
-                $map['recovery_period'][] = array ('between','13,24');
+                $map['recovery_period'][] = array ('between','12.1,24');
             }
             if (in_array ('24.1-9999999', $map_recovery)) {
                 $map['recovery_period'][] = array ('gt',24);
@@ -239,12 +239,18 @@ class IndexController extends BaseController {
             $c_field2 = array();
             $c_area1 = array();
             foreach ($map_checkbox as $key=>$vals) {
-                if('�؅^' != $catelist_t[$key]) {
-                    $c_field1 = array_merge ($c_field1, $vals[1]);
-                    $c_field2 = array_merge ($c_field2, $vals[2]);
+                if('地區' != $catelist_t[$key]) {
+                    foreach ($vals[1] as $v) {
+                        $c_field1[] = $v;
+                    }
+                    foreach ($vals[2] as $v) {
+                        $c_field2[] = $v;
+                    }
                 }
                 else {
-                    $c_area1 = array_merge ($c_area1, $vals);
+                    foreach ($vals as $v) {
+                        $c_area1[] = $v;
+                    }
                 }
             }
             if (count($c_field1) > 0) {
@@ -291,7 +297,7 @@ class IndexController extends BaseController {
                 $data['rent'] = number_format ($data['rent'], 0);
             }
 
-            $results['numpages'] = (int)($count/$listRows)+1;
+            $results['numpages'] = (int)(($count-1)/$listRows)+1;
         }
         else {
         }

@@ -5,13 +5,23 @@
     <h1>最新消息</h1>
   </div>
   <div class="wIndex04 b_aeaeae pr u-div">
-    <ul>
-      <volist name="news" id="vo">
-      <li class="bb_acacac mb10">
-        <a href="{:SITE_PATH}{$vo.pdf}">{$vo.title}</a>
-      </li>
-      </volist>
-    </ul>
+    <div>
+      <ul>
+        <volist name="news" id="vo">
+        <li class="bb_acacac mb10">
+          <a href="{:SITE_PATH}{$vo.pdf}">{$vo.title}</a>
+        </li>
+        </volist>
+      </ul>
+    </div>
+    <div class="page">
+      <ul class="fr">
+        <?PHP for ($i=0; $i<$total_pages; $i++) { ?>
+        <li><a href="{:U('News/index',array('p'=>$i+1))}" class="page-index <if condition="$i+1 eq $page">currentPage</if>">{$i+1}</a></li>
+        <?PHP } ?>
+        <if condition="$page lt $total_pages"><li><a href="{:U('News/index',array('p'=>$page+1))}" class="arrow-right-a"><img src="Public/zh/images/arrow_right.png" /></a></li></if>
+      </ul>
+    </div>
   </div>
 </div>
 <include file="Common:footer" />

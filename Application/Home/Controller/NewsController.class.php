@@ -13,8 +13,13 @@ class NewsController extends BaseController {
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
         // All news
-        $news = M('news')->where(array('status'=>1))->select();
+        $listRows = 6;
+        $page = I('request.p',1);
+        $total_pages = (int) ((M('news')->where(array('status'=>1))->count()-1) / $listRows) + 1;
+        $news = M('news')->where(array('status'=>1))->limit((($page-1)*$listRows).",".$listRows)->select();
         $this->assign('news', $news);
+        $this->assign('page', $page);
+        $this->assign('total_pages', $total_pages);
 
         parent::language();
 

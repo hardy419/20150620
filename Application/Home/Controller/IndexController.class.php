@@ -109,6 +109,49 @@ class IndexController extends BaseController {
         return $mail->Send() ? true : $mail->ErrorInfo;
     }
 
+    public function shareFormSubmit() {
+        $email = I('post.email');
+        $subject = I('post.subject');
+        $body = I('post.body').'<br/>Email Address: '.$email;
+        $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
+
+        $id = I('post.project_id');
+        $project = M('project')->where(array('id'=>$id))->select();
+        $project[0]['price'] = number_format ($project[0]['price'], 0);
+        $project[0]['turnover'] = number_format ($project[0]['turnover'], 0);
+        $project[0]['profit'] = number_format ($project[0]['profit'], 0);
+        $project[0]['recovery_period'] = str_replace ('.0', '', number_format ($project[0]['recovery_period'], 1));
+        $project[0]['rent'] = number_format ($project[0]['rent'], 0);
+        $project[0]['downpay'] = number_format ($project[0]['downpay'], 0);
+        $project[0]['allowance'] = number_format ($project[0]['allowance'], 0);
+        $this->assign ('project', $project[0]);
+        $certificates = explode (',', $project[0]['c_certificate']);
+        $this->assign ('certificates', $certificates);
+
+        $dblist = M('category')->select();
+        $catelist = array();
+        foreach ($dblist as $item) {
+            $catelist[$item['id']] = $item['name'];
+        }
+        $this->assign('catelist', $catelist);
+        // For hot recomm projects
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        foreach ($hot as &$proj) {
+            $proj['price'] = number_format ($proj['price'], 0);
+            $proj['profit'] = number_format ($proj['profit'], 0);
+        }
+        $this->assign('hot', $hot);
+        // For ads
+        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $this->assign('ads_1', $ads_1);
+        $this->assign('ads_2', $ads_2);
+
+        parent::language();
+
+        $this->display('Project/project_detail');
+    }
+
     public function AjaxSearch() {
         $type = I('get.type', 'project');
         $order = I('request.o',null);
@@ -116,6 +159,8 @@ class IndexController extends BaseController {
         $keyword = I('request.keyword',null);
         $page = I('request.p',1);
         $visible = I('request.visible',null);
+        $cate = I('request.cate',null);
+        $hot = I('request.hot',null);
 
         $map_recomm = I('post.recomm',null);
         $map_smallbusiness = I('post.small_business',null);
@@ -199,7 +244,7 @@ class IndexController extends BaseController {
             */
             $inarray = array();
             if (in_array ('48', $map_invest)) {
-                $inarray[] = 'HK$100,000»òÒÔÏÂ';
+                $inarray[] = 'HK$100,000æˆ–ä»¥ä¸‹';
             }
             if (in_array ('49', $map_invest)) {
                 $inarray[] = 'HK$100,001-300,000';
@@ -217,7 +262,7 @@ class IndexController extends BaseController {
                 $inarray[] = 'HK$1,500,001-2,500,000';
             }
             if (in_array ('150', $map_invest)) {
-                $inarray[] = 'HK$2,500,000ÒÔÉÏ';
+                $inarray[] = 'HK$2,500,000ä»¥ä¸Š';
             }
             $map['investment'] = array('in', $inarray);
         }
@@ -344,6 +389,19 @@ class IndexController extends BaseController {
 
         if (null !== $visible) {
             $map['visible'] = 'on';
+        }
+
+        if (null != $cate && !empty($cate)) {
+            foreach ($catelist as $id=>$name) {
+                if ($cate == $name) {
+                    $map['c_field'] = $id;
+                    break;
+                }
+            }
+        }
+
+        if ('on' == $hot) {
+            $map['hot_recomm'] = 'on';
         }
 
         //$map['_logic'] = 'or';

@@ -14,7 +14,55 @@ function update_query(){
   }
   $('#Float').find('h5').text(c);
 }
+function share_submit(){
+  if($('#subject').val()==''||$('#email').val()==''){
+    alert('請輸入主題和電郵');
+  }
+  else{
+    alert('您的消息已經發送，謝謝。');
+    $('#share-form').submit();
+  }
+}
 </script>
+
+<style>
+#share-form tr {margin:10px 0 5px 0}
+</style>
+
+<div id="TB_window_2" class="top_submenus" style="position:fixed; top:25%; left:50%; width: 480px;height: 350px; margin-left:-240px;padding:0;background-color:white; display: none;z-index:2147483647">
+  <div>
+    <img src="{:SITE_PATH}Public/zh/images/share_header.png" />
+  </div>
+  <form id="share-form" action="{:U('Index/shareFormSubmit')}" method="post">
+    <table>
+      <tr>&nbsp;</tr>
+      <tr><td width="150" align="center">主題：</td><td width="330"><input id="subject" type="text" name="subject" /></td></tr>
+      <tr height="15">&nbsp;</tr>
+      <tr><td align="center">電郵：</td><td><input id="email" type="text" name="email" /></td></tr>
+      <tr height="15">&nbsp;</tr>
+      <tr><td align="center">內容：</td><td><textarea cols="5" rows="20" name="body" ></textarea></td></tr>
+      <tr height="20">&nbsp;</tr>
+    </table>
+    <input type="hidden" name="project_id" value="{$project.id}" />
+  </form>
+  <div align="center">
+    <a href="javascript:share_submit();"><img src="{:SITE_PATH}Public/zh/images/share_button.png" /></a>
+  </div>
+</div>
+<div id="TB_mask_2" style="filter:alpha(opacity=30);-moz-opacity:0.5;opacity:0.5;background-color:#000000;position:fixed;left:0px;top:0px;width:100%;height:300%;z-index:2147483646;display:none" onclick="js_op_close_2(false)"></div>
+<script>
+function js_op_close_2(reload){
+	$("#TB_mask_2").css("display",'none');
+	$("#TB_window_2").css("display",'none');
+}
+function tb_show_2()
+{
+  $('#share-form input[name="subject"]').val('創富易 - {$project.title}');
+	$("#TB_mask_2").css("display",'block');
+	$("#TB_window_2").css("display",'block');
+}
+</script>
+
 <!------------------------現正出讓業務主體部分------------------------>
 <div id="wrapIndex" class="about mb10">
   <div class="aboutTitle">現正出讓業務</div>
@@ -23,7 +71,7 @@ function update_query(){
       <div class="productsTop">
         <h1>{$project.title}</h1>
         <ul>
-          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/product_share.jpg" /></a></li>
+          <li><a href="javascript:tb_show_2();"><img src="{:SITE_PATH}Public/{$lang}/images/product_share.jpg" /></a></li>
           <li><a href="javascript:(function(){document.cookie='id-<?PHP echo $project['id']; ?>=<?PHP echo $project['title']; ?>';update_query();alert('添加成功');})();"><img src="{:SITE_PATH}Public/{$lang}/images/product_list.jpg" /></a></li>
           <li><a href="{:U('Index/query')}"><img src="{:SITE_PATH}Public/{$lang}/images/product_search.jpg" /></a></li>
           <li><a href="javascript:window.print();"><img src="{:SITE_PATH}Public/{$lang}/images/product_print.jpg" /></a></li>
@@ -81,7 +129,7 @@ function update_query(){
   </div>
   <div class="aboutwrap_r fl">
     <div class="aboutwrap_r_hot mb10">
-      <h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_03_title.png" /><a href="#" class="fs13 pa">更多</a></h1>
+      <h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_03_title.png" /><a href="javascript:ajax_submit_home(null,null,null,false,'','on')" class="fs13 pa">更多</a></h1>
       <div class="u-div">
         <ul>
           <volist name="hot" id="vo">

@@ -461,6 +461,7 @@
 .u-div ul li a {
 	color: #ff0000;
 	font-weight: 600;
+	white-space: nowrap;
 }
 .u-div ul li p {
 	color: #333;

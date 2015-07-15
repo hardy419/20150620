@@ -103,7 +103,7 @@ data=eval('('+data+')');
 
 if(true!==init){
   var mhtml='<div class="productTitle"><h1>現正出讓業務</h1></div>';
-  mhtml+='<div class="wIndex04 b_aeaeae pr"><h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex04_title.png" /></h1><h2 class="pa"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h2><h3 class="pa"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h3><div class="page"><ul class="page-u"></ul></div><table width="95%" border="0" cellspacing="0" cellpadding="0" id="project-table"></table><div class="page"><ul class="page-u"></ul></div></div>';
+  mhtml+='<div class="wIndex04 b_aeaeae pr"><h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex04_title.png" /></h1><h2 class="pa"><a href="index.php?c=Index&a=query"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h2><h3 class="pa"><a href="index.php?c=Index&a=query"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h3><div class="page"><ul class="page-u"></ul></div><table width="95%" border="0" cellspacing="0" cellpadding="0" id="project-table"></table><div class="page"><ul class="page-u"></ul></div></div>';
   $('#wrapIndex').html(mhtml);
 }
 
@@ -199,8 +199,8 @@ if(data['p']<data['numpages']){
 }
 }
 
-function ajax_submit_home(p,o,spanid,init){
-  var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20&visible=1";
+function ajax_submit_home(p,o,spanid,init,cate,hot){
+  var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20&visible=1&cate="+cate+"&hot="+hot;
   if(null!==p){
     $('#curpage').val(p);
   }

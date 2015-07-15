@@ -1,6 +1,20 @@
 <include file="Common:header" />
 <link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/products.css">
 <link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/about.css">
+<script>
+function update_query(){
+  var arr=document.cookie.split('; ');
+  var c=0;
+  var i;
+  for(i=0; i<arr.length; i++){
+    var kv=arr[i].split('=');
+    if(kv[0].substr(0,2)=='id'){
+      c++;
+    }
+  }
+  $('#Float').find('h5').text(c);
+}
+</script>
 <!------------------------現正出讓業務主體部分------------------------>
 <div id="wrapIndex" class="about mb10">
   <div class="aboutTitle">現正出讓業務</div>
@@ -10,9 +24,9 @@
         <h1>{$project.title}</h1>
         <ul>
           <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/product_share.jpg" /></a></li>
-          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/product_list.jpg" /></a></li>
-          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/product_search.jpg" /></a></li>
-          <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/product_print.jpg" /></a></li>
+          <li><a href="javascript:(function(){document.cookie='id-<?PHP echo $project['id']; ?>=<?PHP echo $project['title']; ?>';update_query();alert('添加成功');})();"><img src="{:SITE_PATH}Public/{$lang}/images/product_list.jpg" /></a></li>
+          <li><a href="{:U('Index/query')}"><img src="{:SITE_PATH}Public/{$lang}/images/product_search.jpg" /></a></li>
+          <li><a href="javascript:window.print();"><img src="{:SITE_PATH}Public/{$lang}/images/product_print.jpg" /></a></li>
         </ul>
       </div>
       <div class="productsCon">

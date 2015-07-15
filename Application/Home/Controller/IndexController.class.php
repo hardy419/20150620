@@ -35,6 +35,80 @@ class IndexController extends BaseController {
         $this->display();
     }
 
+    public function query(){
+        // For search box
+        $dblist = M('category')->select();
+        $catelist = array();
+        foreach ($dblist as $item) {
+            $catelist[$item['id']] = $item['name'];
+        }
+        $this->assign('catelist', $catelist);
+        $this->assign('categories', $dblist);
+        // For hot recomm projects
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        foreach ($hot as &$proj) {
+            $proj['price'] = number_format ($proj['price'], 0);
+            $proj['profit'] = number_format ($proj['profit'], 0);
+        }
+        $this->assign('hot', $hot);
+        // For ads
+        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $this->assign('ads_1', $ads_1);
+        $this->assign('ads_2', $ads_2);
+        // All project info
+        $projects = M('project')->select();
+        $this->assign('projects', $projects);
+
+        parent::language();
+
+        $this->display('query');
+    }
+
+    public function formSubmit() {
+        $name = I('post.guestname');
+        $email = I('post.guestemail');
+        $phone = I('post.guesttel');
+        $message = I('post.other');
+        $jshopv = I('post.jshop_value');
+        $subject = '[Message From: Buy Business]';
+        $body = $jshopv.'<br/><br/>'.$message.'<br/><br/>Name: '.$name.'<br/>Email: '.$email.'<br/>Phone: '.$phone;
+        $this->msg = $this->postMail ($body, $subject, '540115739@qq.com', '2757144278@qq.com');
+
+        $this->assign('sent', '1');
+        $this->query();
+    }
+    public function postMail($body,$subject,$to,$name,$isHTML = true) {
+        require('./ThinkPHP/Library/Vendor/PHPMailer/class.smtp.php');
+        require('./ThinkPHP/Library/Vendor/PHPMailer/class.phpmailer.php');
+        $mail = new \PHPMailer;
+        $mail->CharSet = 'UTF-8';
+        $mail->IsSMTP ();
+        $mail->SMTPDebug = 0;
+        $mail->SMTPAuth = true;
+        $mail->Host = 'smtp.qq.com';
+        $mail->Port = '25';
+        $mail->Username = '2757144278@qq.com';
+        $mail->Password = '1q2w3e4r';
+        mb_internal_encoding ('UTF-8');
+        $mail->Subject = mb_encode_mimeheader ($subject, 'UTF-8');
+        $mail->From = '2757144278@qq.com';
+        $mail->FromName = 'Buy Business';
+
+        if (!$isHTML) {
+            $mail->isHTML (false);
+            $mail->Body = $body;
+        }
+        else {
+            $mail->AltBody = 'To view the message, please use an HTML compatible email viewer.';
+            $mail->MsgHTML ($body);
+        }
+        
+        $mail->AddAddress ($to, $name);
+        
+        return $mail->Send() ? true : $mail->ErrorInfo;
+    }
+
     public function AjaxSearch() {
         $type = I('get.type', 'project');
         $order = I('request.o',null);

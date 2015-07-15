@@ -1,0 +1,177 @@
+<include file="Common:header" />
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/about.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/default.css">
+<!------------------------關于我們主體部分------------------------>
+<div id="wrapIndex" class="about">
+  <div class="aboutwrap">
+
+<div class="article-info">
+			    	<div class="page-header">
+		<h2>
+															已加入查詢項目									</h2>
+	</div>
+    					
+	
+	
+		
+								<div class="jshop_cat">		<div class="moduletable">
+					<script type="text/javascript">
+function check_form(){
+  if($('#guestname').val()==''||$('#guesttel').val()==''||$('#guestemail').val()==''){
+    alert('帶紅色*號為必填項');
+    return false;
+  }
+  return true;
+}
+function reset_form(){
+  $('#guestname').val('');
+  $('#guestemail').val('');
+  $('#guesttel').val('');
+  $('#other').val('');
+}
+
+	jQuery(window).on('load',  function() {
+		var arr=document.cookie.split('; ');
+		var i,j=0;
+		for(i=0; i<arr.length; ++i){
+			var kv=arr[i].split('=');
+			if(kv[0].substr(0,2)=='id'){
+				j++;
+				var odd,id;
+				id=kv[0].split('-');
+				id=id[1];
+				if(j%2==1){
+					odd='odd';
+				}
+				else{
+					odd='even';
+				}
+				var html='<tr class="jshop_prod_cart '+odd+'">';
+				html+='<td>'+j+'</td>';
+				html+='<td class="product_name"><a href="{:U("Project/project_detail",array("lang"=>$lang))}&id='+id+'">'+unescape(kv[1])+'</a></td>';
+				html+='<td class="cat_del"><a href="javascript:(function(){var date=new Date();date.setTime(date.getTime()-10000);document.cookie='+"'id-"+id+"=1; expires='+date.toGMTString()"+';window.location.href='+"'index.php?a=query'"+';})();" onclick="return confirm('+"'刪除'"+')">刪除</a></td></tr>';
+				$('table.jshop').find('tbody').append(html);
+			}
+		}
+		
+
+		var str_html = '咨詢的項目：';
+		jQuery('.product_name').each(function(){
+			str_html += jQuery(this).text()+'，';
+		});	
+		jQuery('.jshop_value').val(str_html);
+	});
+</script>
+<div class="jshop_cat_con">
+
+  <table class="jshop cart">
+     
+    <tbody>
+      </tbody></table>
+<div class="jshop_fm">
+<div class="enquiry_fm_t"><span class="t">您的基本信息</span> <span class="required">*</span> 必填</div>
+
+</div>
+
+
+
+		</div>
+	 <form action="{:U('formSubmit')}" name="Enquiry_Email" id="chronoform_Enquiry_Email" method="post" class="Chronoform hasValidation"><div class="jshop_cat_con">
+<table width="100%" align="center" cellpadding="0" cellspacing="0" class="enquiry_form">
+  <tbody>
+    <tr>
+      <td align="center" class="icon"><span class="required">* </span></td>
+      <td align="right" class="tit"><b>姓名</b></td>
+      <td><div class="ccms_form_element cfdiv_text" id="guestname_container_div" style="">
+          <label for="guestname">&nbsp;</label>
+          <input id="guestname" maxlength="150" size="30" class=" validate['required']" title="" type="text" value="" name="guestname">
+          <div class="clear"></div>
+          <div id="error-message-guestname"></div>
+        </div></td>
+    </tr>
+    <tr>
+      <td align="center" class="icon"><span class="required">* </span></td>
+      <td align="right" class="tit"><b>聯繫電話</b></td>
+      <td><div class="ccms_form_element cfdiv_text" id="guesttel_container_div" style="">
+          <label for="guesttel">&nbsp;</label>
+          <input id="guesttel" maxlength="150" size="30" class=" validate['required','number','phone']" title="" type="text" value="" name="guesttel">
+          <div class="clear"></div>
+          <div id="error-message-guesttel"></div>
+        </div></td>
+    </tr>
+    <tr>
+      <td align="center" class="icon"><span class="required">* </span></td>
+      <td align="right" class="tit"><b>電郵</b></td>
+      <td><div class="ccms_form_element cfdiv_text" id="guestemail_container_div" style="">
+          <label for="guestemail">&nbsp;</label>
+          <input id="guestemail" maxlength="150" size="30" class=" validate['required','email']" title="" type="text" value="" name="guestemail">
+          <div class="clear"></div>
+          <div id="error-message-guestemail"></div>
+        </div></td>
+    </tr>
+    <tr>
+      <td align="center" class="icon">&nbsp;</td>
+      <td align="right" class="tit"><b>其它意見</b></td>
+      <td><div class="ccms_form_element cfdiv_textarea" id="other_container_div" style="">
+          <label for="other">&nbsp;</label>
+          <textarea id="other" cols="45" rows="12" class="" title="" name="other" style="margin: 13px 2px 5px; width: 332px; height: 60px;"></textarea>
+          <div class="clear"></div>
+          <div id="error-message-other"></div>
+        </div></td>
+    </tr>
+  </tbody>
+</table>
+<div class="ccms_form_element cfdiv_text" id="input_text_51_container_div" style="">
+  <textarea name="jshop_value" class="jshop_value" style="display:none"></textarea>
+  <div class="clear"></div>
+  <div id="error-message-input_text_5"></div>
+</div>
+<div class="ccms_form_element cfdiv_submit" id="id1_container_div">
+  <input name="" onclick="return check_form();" class="enquiry_bottom" value="傳送" type="submit">
+  &nbsp;
+  <input type="reset" onclick="reset_form();" name="reset" value="重寫" class="enquiry_bottom">
+  <div class="clear"></div>
+  <div id="error-message-"></div>
+</div>
+<if condition="$sent eq 1"><div class="enquiry_fm_t"><span class="required">您的消息已發送，謝謝。</span></div></if>
+<div class="ccms_form_element cfdiv_empty" id="empty_container_div" style="">
+  <div class="clear"></div>
+  <div id="error-message-empty"></div>
+</div></div>
+<div class="pcontent_bottom">&nbsp;</div>
+<input type="hidden" name="18b8b680693c0466e7e9443600b3194f" value="1"></form><div class="chronoform"><a href="http://www.chronoengine.com">Powered By ChronoForms - ChronoEngine.com</a></div></div>
+<div class="pcontent_top">&nbsp;</div>
+	
+						 </div></div>
+
+    <div class="aboutwrap_r fl">
+      <div class="aboutwrap_r_hot mb10">
+        <h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_03_title.png" /><a href="#" class="fs13 pa">更多</a></h1>
+        <div class="u-div">
+          <ul>
+            <volist name="hot" id="vo">
+            <li class="bb_acacac mb10"><a href="{:U('Project/project_detail',array('id'=>$vo['id']))}">{$vo.codename} {$vo.title}</a>
+              <p class="mt10 mb10">{$text_dingjia}：${$vo.price}</p>
+              <if condition="$vo['profit_option'] eq 1"><p class="mb8">{$text_cankaolirun}：${$vo.profit}</p></if>
+            </li>
+            </volist>
+          </ul>
+        </div>
+      </div>
+      <div class="aboutwrap_r_ad">
+        <if condition="isset ($ads_1[0])">
+        <a href="{$ads_1[0]['href']}"><img src="{:SITE_PATH}{$ads_1[0]['image']}" style="width:250px;height:180px" /></a>
+        <else/>
+        <a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_04img.jpg" /></a>
+        </if>
+        <if condition="isset ($ads_2[0])">
+        <a href="{$ads_2[0]['href']}"><img src="{:SITE_PATH}{$ads_2[0]['image']}" style="width:250px;height:210px;margin-bottom:20px" /></a>
+        <else/>
+        <a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_03_01img.jpg" style="width:250px;height:210px;margin-bottom:20px" /></a>
+        </if>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<include file="Common:footer" />

@@ -17,7 +17,8 @@
 .search_all .top_submenus_Industry._Many ul.clearfix li{font-size:13px;}
 
 /*最新消息*/
-.article-info{width: 765px;float: left;border: 1px solid #ccc;padding: 20px;min-height: 484px;background: #fcfcfc;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體";
+/*.article-info{width: 765px;float: left;border: 1px solid #ccc;padding: 20px;min-height: 484px;background: #fcfcfc;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體";*/
+.article-info{float: left;min-height: 484px;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體";
 
 font-size:15px;line-height:1.25em; word-spacing:0.2em;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體";color: #222;
 
@@ -40,10 +41,11 @@ font-size:15px;line-height:1.25em; word-spacing:0.2em;font-family:"微軟正黑�
 
 /*.article-info h3{background:url(../Img/Buy/info_h2.png) left top no-repeat;color:#FFF; font-size:18px;font-weight:bold; padding-left:48px; line-height:32px; height:42px; overflow:hidden;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體"; letter-spacing:1px;}*/
 
-.article-info h3{background:url(../Img/Buy/info_h3.png) left top no-repeat;color:#039; font-size:18px;font-weight:bold; padding-left:48px; margin-top:2em; line-height:32px; height:42px; overflow:hidden;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體"; letter-spacing:0.15em; font-size:large}
+/*.article-info h3{background:url(../Img/Buy/info_h3.png) left top no-repeat;color:#039; font-size:18px;font-weight:bold; padding-left:48px; margin-top:2em; line-height:32px; height:42px; overflow:hidden;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體"; letter-spacing:0.15em; font-size:large}*/
+.article-info h3{background:url(../Img/Buy/info_h3.png) left top no-repeat;color:#039; font-size:18px;font-weight:bold; padding-left:48px; line-height:32px; height:42px; overflow:hidden;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體"; letter-spacing:0.15em; font-size:large}
 
-.article-info h4{background:url(../Img/Buy/info_h4.png) left top no-repeat;color:#039; font-size:15px;font-weight:bold; padding-left:28px; margin-top:2.5em; margin-bottom:0; line-height:19px; height:29px; overflow:hidden;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體"; letter-spacing:0.15em;}
-
+/*.article-info h4{background:url(../Img/Buy/info_h4.png) left top no-repeat;color:#039; font-size:15px;font-weight:bold; padding-left:28px; margin-top:2.5em; margin-bottom:0; line-height:19px; height:29px; overflow:hidden;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體"; letter-spacing:0.15em;}*/
+.article-info h4{background:url(../Img/Buy/info_h4.png) left top no-repeat;color:#039; font-size:15px;font-weight:bold; padding-left:28px; margin-bottom:0; line-height:19px; height:29px; overflow:hidden;font-family:"微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體"; letter-spacing:0.15em;}
 
 .article-info h6{font-size:1.1em; font-weight:bold; color:#000}
 

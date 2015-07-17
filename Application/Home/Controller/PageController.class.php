@@ -34,6 +34,10 @@ class PageController extends BaseController {
         $this->display();
     }
 
+//////////////////////////////////////////////////////////////////////////////
+// About pages
+//////////////////////////////////////////////////////////////////////////////
+
     public function about(){
         $this->common();
         // Retrieve page contents
@@ -43,6 +47,30 @@ class PageController extends BaseController {
 
         $this->display();
     }
+
+    public function our_values(){
+        $this->common();
+        // Retrieve page contents
+        $page = M('page')->where(array('title'=>'我們的價值觀'))->select();
+        $this->assign('banner', $page[0]['banner']);
+        $this->assign('content', $page[0]['content']);
+
+        $this->display();
+    }
+
+    public function services(){
+        $this->common();
+        // Retrieve page contents
+        $page = M('page')->where(array('title'=>'服務範圍'))->select();
+        $this->assign('banner', $page[0]['banner']);
+        $this->assign('content', $page[0]['content']);
+
+        $this->display();
+    }
+
+//////////////////////////////////////////////////////////////////////////////
+// Buyers pages
+//////////////////////////////////////////////////////////////////////////////
 
     public function buyers(){
         $this->common();

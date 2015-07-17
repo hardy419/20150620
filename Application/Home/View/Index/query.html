@@ -144,33 +144,7 @@ function reset_form(){
 	
 						 </div></div>
 
-    <div class="aboutwrap_r fl">
-      <div class="aboutwrap_r_hot mb10">
-        <h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_03_title.png" /><a href="javascript:ajax_submit_home(null,null,null,false,'','on')" class="fs13 pa">更多</a></h1>
-        <div class="u-div">
-          <ul>
-            <volist name="hot" id="vo">
-            <li class="bb_acacac mb10"><a href="{:U('Project/project_detail',array('id'=>$vo['id']))}">{$vo.codename} {$vo.title}</a>
-              <p class="mt10 mb10">{$text_dingjia}：${$vo.price}</p>
-              <if condition="$vo['profit_option'] eq 1"><p class="mb8">{$text_cankaolirun}：${$vo.profit}</p></if>
-            </li>
-            </volist>
-          </ul>
-        </div>
-      </div>
-      <div class="aboutwrap_r_ad">
-        <if condition="isset ($ads_1[0])">
-        <a href="{$ads_1[0]['href']}"><img src="{:SITE_PATH}{$ads_1[0]['image']}" style="width:250px;height:180px" /></a>
-        <else/>
-        <a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_04img.jpg" /></a>
-        </if>
-        <if condition="isset ($ads_2[0])">
-        <a href="{$ads_2[0]['href']}"><img src="{:SITE_PATH}{$ads_2[0]['image']}" style="width:250px;height:210px;margin-bottom:20px" /></a>
-        <else/>
-        <a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_03_01img.jpg" style="width:250px;height:210px;margin-bottom:20px" /></a>
-        </if>
-      </div>
-    </div>
+    <include file="Common:right" />
   </div>
 </div>
 <div class="clear"></div>

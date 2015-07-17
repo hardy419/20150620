@@ -73,7 +73,7 @@ function tb_show_2()
         <ul>
           <li><a href="javascript:tb_show_2();"><img src="{:SITE_PATH}Public/{$lang}/images/product_share.jpg" /></a></li>
           <li><a href="javascript:(function(){document.cookie='id-<?PHP echo $project['id']; ?>=<?PHP echo $project['title']; ?>';update_query();alert('添加成功');})();"><img src="{:SITE_PATH}Public/{$lang}/images/product_list.jpg" /></a></li>
-          <li><a href="{:U('Index/query')}"><img src="{:SITE_PATH}Public/{$lang}/images/product_search.jpg" /></a></li>
+          <li><a href="{:U('Index/query', array('lang'=>$lang))}"><img src="{:SITE_PATH}Public/{$lang}/images/product_search.jpg" /></a></li>
           <li><a href="javascript:window.print();"><img src="{:SITE_PATH}Public/{$lang}/images/product_print.jpg" /></a></li>
         </ul>
       </div>

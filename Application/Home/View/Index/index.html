@@ -40,7 +40,7 @@
       <div class="u-div">
         <ul>
           <volist name="hot" id="vo">
-          <li class="bb_acacac mb10"><a href="{:U('Project/project_detail',array('id'=>$vo['id']))}">{$vo.codename} {$vo.title}</a>
+          <li class="bb_acacac mb10"><a href="{:U('Project/project_detail',array('id'=>$vo['id'],'lang'=>$lang))}">{$vo.codename} {$vo.title}</a>
             <p class="mt10 mb10">{$text_dingjia}：${$vo.price}</p>
             <if condition="$vo['profit_option'] eq 1"><p class="mb8">{$text_cankaolirun}：${$vo.profit}</p></if>
           </li>
@@ -72,7 +72,7 @@
       </ul>
     </div>
     <div class="wIndex03_02 b_aeaeae fl ml10 mr10">
-      <h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_02_title.png" /><a href="{:U('News/index')}" class="fs13 pa">更多</a></h1>
+      <h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_02_title.png" /><a href="{:U('News/index', array('lang'=>$lang))}" class="fs13 pa">更多</a></h1>
       <h2>{$news.title}</h2>
       <p id="news-desc-p"></p>
       <p class="floatright"><a href="{:SITE_PATH}{$news.pdf}">閱讀全文</a></p>
@@ -86,9 +86,9 @@
   <!--------首頁主體部分-第四部分-------->
   <div class="wIndex04 b_aeaeae pr">
     <h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex04_title.png" /><a href="#" class="fs13 pa">更多</a></h1>
-    <h2 class="pa"><a href="{:U('Index/query')}"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h2>
+    <h2 class="pa"><a href="{:U('Index/query', array('lang'=>$lang))}"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h2>
     <h3 class="pa">
-    <a href="{:U('Index/query')}"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a>
+    <a href="{:U('Index/query', array('lang'=>$lang))}"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a>
     </h2>
     <div class="page">
       <ul class="page-u">

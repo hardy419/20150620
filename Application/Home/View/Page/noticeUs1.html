@@ -1,0 +1,29 @@
+<include file="Common:header" />
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/about.css">
+<style>
+ol {list-style:disc}
+</style>
+<!------------------------主體部分------------------------>
+<div id="wrapIndex" class="about mb10">
+  <div class="aboutTitle">創富須知</div>
+  <div class="aboutwrap">
+    <div class="aboutwrap_l b_aeaeae fl mr10">
+      <div class="aboutBanner"><img src="{:SITE_PATH}{$banner}" /></div>
+      <div class="aboutwrap_l_menu br_acacac fl">
+        <ul>
+          <li><a href="{:U('Page/noticeUs1', array('lang'=>$lang))}" class="current">創富做老闆</a></li>
+          <li><a href="{:U('Page/noticeUs2', array('lang'=>$lang))}">創業模式之比較</a></li>
+          <li><a href="{:U('Page/noticeUs3', array('lang'=>$lang))}">何謂「業務轉讓」</a></li>
+          <li><a href="{:U('Page/noticeUs4', array('lang'=>$lang))}">為何選擇業務轉讓</a></li>
+          <li><a href="{:U('Page/noticeUs5', array('lang'=>$lang))}">常見問題</a></li>
+        </ul>
+      </div>
+      <div class="aboutwrap_l_txt fl">
+        {$content|html_entity_decode=###}
+      </div>
+    </div>
+    <include file="Common:right" />
+  </div>
+</div>
+<div class="clear"></div>
+<include file="Common:footer" />

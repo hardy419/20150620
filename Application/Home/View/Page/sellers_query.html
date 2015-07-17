@@ -1,0 +1,75 @@
+<include file="Common:header" />
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/about.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/default.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/frontforms.css">
+<style>
+.enquiry_bottom {font-size:15px; line-height:20px}
+</style>
+<!------------------------關于我們主體部分------------------------>
+<div id="wrapIndex" class="about mb10">
+  <div class="aboutTitle">賣家出讓業務</div>
+  <div class="aboutwrap">
+    <div class="aboutwrap_l b_aeaeae fl mr10">
+      <div class="aboutBanner"><img src="{:SITE_PATH}{$banner}" /></div>
+      <div class="aboutwrap_l_menu br_acacac fl">
+        <ul>
+          <li><a href="{:U('Page/sellers', array('lang'=>$lang))}">賣家出讓程序</a></li>
+          <li><a href="{:U('Page/evaluate', array('lang'=>$lang))}">業務估值</a></li>
+          <li><a href="{:U('Page/sellers_why_us', array('lang'=>$lang))}">為何選擇我們</a></li>
+          <li><a href="{:U('Page/sellers_query', array('lang'=>$lang))}" class="current">賣家查詢</a></li>
+        </ul>
+      </div>
+      <div class="aboutwrap_l_txt fl">
+        {$content|html_entity_decode=###}
+      </div>
+    </div>
+    <include file="Common:right" />
+  </div>
+</div>
+<div class="clear"></div>
+<link rel="stylesheet" type="text/css" href="__CSS__/datepicker_dashboard.css">
+<script src="__JS__/datepicker_moo/mootools-core.js"></script>
+<script src="__JS__/datepicker_moo/mootools-more.js"></script>
+<script src="__JS__/datepicker_moo/Locale.en-US.DatePicker.js"></script>
+<script src="__JS__/datepicker_moo/Picker.js"></script>
+<script src="__JS__/datepicker_moo/Picker.Attach.js"></script>
+<script src="__JS__/datepicker_moo/Picker.Date.js"></script>
+<script>
+		$(function() {
+			new Picker.Date($$('.cf_date_picker'), {
+			pickerClass: 'datepicker_dashboard', format: '%Y-%m-%d', allowEmpty: true, useFadeInOut: !Browser.ie
+			});
+			
+			new Picker.Date($$('.cf_datetime_picker'), {
+			pickerClass: 'datepicker_dashboard', format: '%d-%m-%Y %H:%M:%S', timePicker: true, allowEmpty: true, useFadeInOut: !Browser.ie
+			});
+			
+			new Picker.Date($$('.cf_time_picker'), {
+			pickerClass: 'datepicker_dashboard', format: '%H:%M:%S', pickOnly: 'time', allowEmpty: true, useFadeInOut: !Browser.ie
+			});
+
+			$('input[type="reset"]').click(function(){
+			  $('input[type="text"]').val('');
+			  $('input[type="radio"]').removeAttr('checked');
+			  $('textarea').html('');
+			});
+		});
+
+function check_form(required){
+  var reqarr=required.split('|');
+  var flag=true;
+  var i;
+  for(i=0;i<reqarr.length;i++){
+    if($('#'+reqarr[i]).val()==''){
+      flag=false;
+      alert('帶*號必須填寫');
+      return false;
+    }
+  }
+  if(flag){
+    alert('您的消息已發送');
+    return true;
+  }
+}
+</script>
+<include file="Common:footer" />

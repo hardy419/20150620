@@ -52,14 +52,14 @@ $(document).ready(function(){
   <div class="hNav fs15">
     <ul>
       <li><a href="{:U('Index/index',array('lang'=>$lang))}" <?PHP $hr = explode('&', $_SERVER['QUERY_STRING']); if(in_array('c=Index', $hr) && in_array('a=index', $hr)) { ?>class="current"<?PHP } ?>>{$text_shouye}</a></li>
-      <li><a href="{:U('Page/about',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && in_array('a=about', $hr)) { ?>class="current"<?PHP } ?>>{$text_guanyuwomen}</a></li>
-      <li><a href="noticeUs.html">{$text_chuangfuxuzhi}</a></li>
-      <li><a href="{:U('Page/buyers',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && in_array('a=buyers', $hr)) { ?>class="current"<?PHP } ?>>{$text_maijiashougouyewu}</a></li>
-      <li><a href="sale.html">{$text_maijiachurangyewu}</a></li>
+      <li><a href="{:U('Page/about',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && (in_array('a=about', $hr)||in_array('a=our_values', $hr)||in_array('a=services', $hr))) { ?>class="current"<?PHP } ?>>{$text_guanyuwomen}</a></li>
+      <li><a href="{:U('Page/noticeUs1',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && (in_array('a=noticeUs1', $hr)||in_array('a=noticeUs2', $hr)||in_array('a=noticeUs3', $hr)||in_array('a=noticeUs4', $hr)||in_array('a=noticeUs5', $hr))) { ?>class="current"<?PHP } ?>>{$text_chuangfuxuzhi}</a></li>
+      <li><a href="{:U('Page/buyers',array('lang'=>$lang))}" <?PHP if((in_array('c=Page', $hr) && (in_array('a=buyers', $hr)||in_array('a=why_us', $hr)||in_array('a=buyers_query', $hr))) || (in_array('c=Index', $hr) && in_array('a=BuyersQuery', $hr))) { ?>class="current"<?PHP } ?>>{$text_maijiashougouyewu}</a></li>
+      <li><a href="{:U('Page/sellers',array('lang'=>$lang))}" <?PHP if((in_array('c=Page', $hr) && (in_array('a=sellers', $hr)||in_array('a=evaluate', $hr)||in_array('a=sellers_why_us', $hr)||in_array('a=sellers_query', $hr))) || (in_array('c=Index', $hr) && in_array('a=SellersQuery', $hr))) { ?>class="current"<?PHP } ?>>{$text_maijiachurangyewu}</a></li>
       <li><a href="{:U('Project/index',array('lang'=>$lang))}" <?PHP if(in_array('c=Project', $hr)) { ?>class="current"<?PHP } ?>>{$text_xianzhengchurangyewu}</a></li>
-      <li><a href="noticeSale.html">{$text_yingshangxuzhi}</a></li>
-      <li><a href="link.html">{$text_xiangguanlianjie}</a></li>
-      <li class="last"><a href="contact.html">{$text_lianluowomen}</a></li>
+      <li><a href="{:U('Page/noticeSale1',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && (in_array('a=noticeSale1', $hr)||in_array('a=noticeSale2', $hr))) { ?>class="current"<?PHP } ?>>{$text_yingshangxuzhi}</a></li>
+      <li><a href="{:U('Page/link',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && in_array('a=link', $hr)) { ?>class="current"<?PHP } ?>>{$text_xiangguanlianjie}</a></li>
+      <li class="last"><a href="{:U('Page/contact',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && in_array('a=contact', $hr)) { ?>class="current"<?PHP } ?>>{$text_lianluowomen}</a></li>
     </ul>
   </div>
 </div>

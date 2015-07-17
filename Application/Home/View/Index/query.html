@@ -49,7 +49,7 @@ function reset_form(){
 				var html='<tr class="jshop_prod_cart '+odd+'">';
 				html+='<td>'+j+'</td>';
 				html+='<td class="product_name"><a href="{:U("Project/project_detail",array("lang"=>$lang))}&id='+id+'">'+unescape(kv[1])+'</a></td>';
-				html+='<td class="cat_del"><a href="javascript:(function(){var date=new Date();date.setTime(date.getTime()-10000);document.cookie='+"'id-"+id+"=1; expires='+date.toGMTString()"+';window.location.href='+"'index.php?a=query'"+';})();" onclick="return confirm('+"'刪除'"+')">刪除</a></td></tr>';
+				html+='<td class="cat_del"><a href="javascript:(function(){var date=new Date();date.setTime(date.getTime()-10000);document.cookie='+"'id-"+id+"=1; expires='+date.toGMTString()"+';window.location.href='+"'index.php?a=query&lang=<?PHP echo $lang; ?>'"+';})();" onclick="return confirm('+"'刪除'"+')">刪除</a></td></tr>';
 				$('table.jshop').find('tbody').append(html);
 			}
 		}

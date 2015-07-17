@@ -73,7 +73,7 @@ class IndexController extends BaseController {
         $jshopv = I('post.jshop_value');
         $subject = '[Message From: Buy Business]';
         $body = $jshopv.'<br/><br/>'.$message.'<br/><br/>Name: '.$name.'<br/>Email: '.$email.'<br/>Phone: '.$phone;
-        $this->msg = $this->postMail ($body, $subject, '540115739@qq.com', '2757144278@qq.com');
+        $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
 
         $this->assign('sent', '1');
         $this->query();
@@ -150,6 +150,48 @@ class IndexController extends BaseController {
         parent::language();
 
         $this->display('Project/project_detail');
+    }
+
+    public function BuyersQuery() {
+        $name = I('post.input_text_1');
+        $email = I('post.input_text_2');
+        $tel = I('post.input_text_3');
+        $suggest = I('post.input_text_14');
+        $contact_date = I('post.input_datetime_15');
+        $accept = I('post.input_radio_19'); // 'Yes'
+        $subject = '[Message From: Buy Business, Buyers query]';
+        $body = '姓名: '.$name.'<br/>電郵: '.$email.'<br/>電話號碼: '.$tel.'<br/>意見: '.$suggest.'<br/>最方便之聯絡時間: '.$contact_date.'<br/>接收最新資訊: '.$accept;
+        $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
+
+        // For search box
+        $dblist = M('category')->select();
+        $catelist = array();
+        foreach ($dblist as $item) {
+            $catelist[$item['id']] = $item['name'];
+        }
+        $this->assign('catelist', $catelist);
+        $this->assign('categories', $dblist);
+        // For hot recomm projects
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        foreach ($hot as &$proj) {
+            $proj['price'] = number_format ($proj['price'], 0);
+            $proj['profit'] = number_format ($proj['profit'], 0);
+        }
+        $this->assign('hot', $hot);
+        // For ads
+        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $this->assign('ads_1', $ads_1);
+        $this->assign('ads_2', $ads_2);
+
+        parent::language();
+
+        // Retrieve page contents
+        $page = M('page')->where(array('title'=>'買家查詢'))->select();
+        $this->assign('banner', $page[0]['banner']);
+        $this->assign('content', $page[0]['content']);
+
+        $this->display('Page/buyers_query');
     }
 
     public function AjaxSearch() {

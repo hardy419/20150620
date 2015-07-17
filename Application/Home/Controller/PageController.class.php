@@ -81,4 +81,25 @@ class PageController extends BaseController {
 
         $this->display();
     }
+
+    public function why_us(){
+        $this->common();
+        // Retrieve page contents
+        $page = M('page')->where(array('title'=>'為何選擇我們'))->select();
+        $this->assign('banner', $page[0]['banner']);
+        $this->assign('content', $page[0]['content']);
+
+        $this->display();
+    }
+
+    public function buyers_query(){
+        $this->common();
+        // Retrieve page contents
+        $page = M('page')->where(array('title'=>'買家查詢'))->select();
+        $this->assign('banner', $page[0]['banner']);
+        $this->assign('content', $page[0]['content']);
+
+        $this->display();
+    }
+
 }

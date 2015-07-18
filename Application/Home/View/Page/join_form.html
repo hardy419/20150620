@@ -1,0 +1,193 @@
+<include file="Common:header" />
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/about.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/default.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/frontforms.css">
+<style>
+.article-info {width:765px;height:651px}
+.enquiry_bottom {font-size:15px; line-height:20px}
+</style>
+<!------------------------主體部分------------------------>
+<div id="wrapIndex" class="about mb10">
+  <div class="aboutTitle">加入創富會</div>
+  <div class="aboutwrap">
+    <div class="aboutwrap_l b_aeaeae fl mr10">
+      <div class="aboutwrap_l_txt fl">
+<div class="article-info">
+<form action="{:U('Index/JoinFormSubmit', array('lang'=>$lang))}" onsubmit=" return check_form('guestname|guestaddr|guesttel|guestemail|guestgender|guestage|guestbirth');" name="Join" id="chronoform_Join" method="post" class="Chronoform hasValidation"><div class="jshop_cat_con">
+<table width="100%" align="center" cellpadding="0" cellspacing="0" class="enquiry_form">
+  <tbody>
+    <tr>
+      <td align="center" class="icon"><span class="required">* </span></td>
+      <td align="right" class="tit"><b>姓名</b></td>
+      <td><div class="ccms_form_element cfdiv_text" id="guestname_container_div" style="">
+          <label for="guestname">&nbsp;</label>
+          <input id="guestname" maxlength="150" size="30" class=" validate['required']" title="" type="text" value="" name="guestname">
+          <div class="clear"></div>
+          <div id="error-message-guestname"></div>
+        </div></td>
+    </tr>
+    <tr>
+      <td align="center" class="icon"><span class="required">* </span></td>
+      <td align="right" class="tit"><b>地址</b></td>
+      <td>
+		<div class="ccms_form_element cfdiv_text" id="input_text_81_container_div" style="">
+		    <label>&nbsp;</label>
+		    <input id="guestaddr" maxlength="150" size="30" class=" validate['required']" title="" type="text" value="" name="guestaddr">
+		    <div class="clear"></div><div id="error-message-input_text_8"></div>
+		</div>
+	</td>
+    </tr>
+    <tr>
+      <td align="center" class="icon"><span class="required">* </span></td>
+      <td align="right" class="tit"><b>電話號碼</b></td>
+      <td>
+		<div class="ccms_form_element cfdiv_text" id="input_text_91_container_div" style="">
+		    <label>&nbsp;</label>
+		    <input id="guesttel" maxlength="150" size="30" class=" validate['required']" title="" type="text" value="" name="guesttel">
+		    <div class="clear"></div><div id="error-message-input_text_9"></div>
+		</div>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="icon"><span class="required">* </span></td>
+      <td align="right" class="tit"><b>電郵地址</b></td>
+      <td>
+		<div class="ccms_form_element cfdiv_text" id="input_text_101_container_div" style="">
+		    <label>&nbsp;</label>
+		    <input id="guestemail" maxlength="150" size="30" class="" title="" type="text" value="" name="guestemail">
+		    <div class="clear"></div><div id="error-message-input_text_10"></div>
+		</div>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="icon"><span class="required">* </span></td>
+      <td align="right" class="tit"><b>性別</b></td>
+      <td>
+		<div class="ccms_form_element cfdiv_radio" id="input_radio_111_container_div" style="">
+		    <input type="hidden" name="input_radio_11" value="" alt="ghost">
+		    <div style="float:left; clear:none;"><input type="radio" name="guestgender" id="guestgender" title="" value="1" class="">
+		        <label for="input_radio_11_0">男</label>
+		        <input type="radio" name="guestgender" id="guestgender" title="" value="2" class="">
+		        <label for="input_radio_11_1">女</label>
+		    </div>
+		    <div class="clear"></div><div id="error-message-input_radio_11"></div>
+		</div>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="icon"><span class="required">* </span></td>
+      <td align="right" class="tit"><b>年齡</b></td>
+      <td>
+		<div class="ccms_form_element cfdiv_datetime" id="input_datetime_121_container_div" style="">
+		    <label>&nbsp;</label>
+		    <input id="guestage" maxlength="150" size="16" class=" validate['required']" title="" type="text" value="" name="guestage">
+		    <div class="clear"></div><div id="error-message-input_datetime_12"></div>
+		</div>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="icon"><span class="required">* </span></td>
+      <td align="right" class="tit"><b>出生日期</b></td>
+      <td>
+		<div class="ccms_form_element cfdiv_text" id="input_text_131_container_div" style="">
+		    <label>&nbsp;</label>
+		    <input id="guestbirth" maxlength="150" size="30" class="cf_date_picker validate['required']" title="" type="text" value="" name="guestbirth">
+		    <div class="clear"></div><div id="error-message-input_text_13"></div>
+		</div>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="icon">&nbsp;</td>
+      <td align="right" class="tit"><b>職業</b></td>
+      <td>
+		<div class="ccms_form_element cfdiv_text" id="input_text_141_container_div" style="">
+		    <label>&nbsp;</label>
+		    <input id="guestoccu" maxlength="150" size="30" class="" title="" type="text" value="" name="guestoccu">
+		    <div class="clear"></div><div id="error-message-input_text_14"></div>
+		</div>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="icon">&nbsp;</td>
+      <td align="right" class="tit"><b>感興趣之行業</b></td>
+      <td>
+		<div class="ccms_form_element cfdiv_text" id="input_text_161_container_div" style="">
+		    <label>&nbsp;</label>
+		    <input id="interest" maxlength="150" size="30" class="" title="" type="text" value="" name="interest">
+		    <div class="clear"></div><div id="error-message-input_text_16"></div>
+		</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="ccms_form_element cfdiv_text" id="input_text_51_container_div" style="">
+  <textarea name="jshop_value" class="jshop_value" style="display:none"></textarea>
+  <div class="clear"></div>
+  <div id="error-message-input_text_5"></div>
+</div>
+<div class="ccms_form_element cfdiv_submit" id="id1_container_div">
+  <input name="" class="enquiry_bottom" value="傳送" type="submit">
+  &nbsp;
+  <input type="reset" name="reset" value="重寫" class="enquiry_bottom">
+  <div class="clear"></div>
+  <div id="error-message-"></div>
+</div>
+<div class="ccms_form_element cfdiv_empty" id="empty_container_div" style="">
+  <div class="clear"></div>
+  <div id="error-message-empty"></div>
+</div></div>
+<div class="pcontent_bottom">&nbsp;</div>
+<input type="hidden" name="b8caadfc9de7717cd8d8e26ef5bf0ac4" value="1"></form><div class="chronoform"><a href="http://www.chronoengine.com">Powered By ChronoForms - ChronoEngine.com</a></div>
+</div>
+      </div>
+    </div>
+    <include file="Common:right" />
+  </div>
+</div>
+<div class="clear"></div>
+<link rel="stylesheet" type="text/css" href="__CSS__/datepicker_dashboard.css">
+<script src="__JS__/datepicker_moo/mootools-core.js"></script>
+<script src="__JS__/datepicker_moo/mootools-more.js"></script>
+<script src="__JS__/datepicker_moo/Locale.en-US.DatePicker.js"></script>
+<script src="__JS__/datepicker_moo/Picker.js"></script>
+<script src="__JS__/datepicker_moo/Picker.Attach.js"></script>
+<script src="__JS__/datepicker_moo/Picker.Date.js"></script>
+<script>
+		$(function() {
+			new Picker.Date($$('.cf_date_picker'), {
+			pickerClass: 'datepicker_dashboard', format: '%Y-%m-%d', allowEmpty: true, useFadeInOut: !Browser.ie
+			});
+			
+			new Picker.Date($$('.cf_datetime_picker'), {
+			pickerClass: 'datepicker_dashboard', format: '%d-%m-%Y %H:%M:%S', timePicker: true, allowEmpty: true, useFadeInOut: !Browser.ie
+			});
+			
+			new Picker.Date($$('.cf_time_picker'), {
+			pickerClass: 'datepicker_dashboard', format: '%H:%M:%S', pickOnly: 'time', allowEmpty: true, useFadeInOut: !Browser.ie
+			});
+
+			$('input[type="reset"]').click(function(){
+			  $('input[type="text"]').val('');
+			  $('input[type="radio"]').removeAttr('checked');
+			  $('textarea').html('');
+			});
+		});
+
+function check_form(required){
+  var reqarr=required.split('|');
+  var flag=true;
+  var i;
+  for(i=0;i<reqarr.length;i++){
+    if($('#'+reqarr[i]).val()==''){
+      flag=false;
+      alert('帶*號必須填寫');
+      return false;
+    }
+  }
+  if(flag){
+    alert('您的消息已發送');
+    return true;
+  }
+}
+</script>
+<include file="Common:footer" />

@@ -244,4 +244,42 @@ class PageController extends BaseController {
         $this->display();
     }
 
+//////////////////////////////////////////////////////////////////////////////
+// Copyright, privacy & disclaimer
+//////////////////////////////////////////////////////////////////////////////
+
+    public function copyright(){
+        $this->common();
+        $this->display();
+    }
+    public function disclaimer(){
+        $this->common();
+        $this->display();
+    }
+    public function privacy(){
+        $this->common();
+        $this->display();
+    }
+
+    public function join(){
+        $this->common();
+        $this->display();
+    }
+    public function join_form(){
+        $this->common();
+        $this->display();
+    }
+    public function recruit(){
+        $this->common();
+        $this->display();
+    }
+    public function cooperation(){
+        $this->common();
+        $this->display();
+    }
+    public function enquiry(){
+        $this->common();
+        $this->display();
+    }
+
 }

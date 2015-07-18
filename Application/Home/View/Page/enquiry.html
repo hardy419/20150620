@@ -1,0 +1,180 @@
+<include file="Common:header" />
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/about.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/default.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/frontforms_tight.css">
+<style>
+.article-info {width:765px;min-height:651px}
+.enquiry_bottom {font-size:15px; line-height:20px}
+</style>
+<!------------------------主體部分------------------------>
+<div id="wrapIndex" class="about mb10">
+  <div class="aboutTitle">創業要求查詢表格</div>
+  <div class="aboutwrap">
+    <div class="aboutwrap_l b_aeaeae fl mr10">
+      <div class="aboutwrap_l_txt fl">
+<div class="article-info">
+<div class="find_business">
+  <form action="{:U('Index/EnquirySubmit', array('lang'=>$lang))}" onsubmit="return check_form('guestname|guestemail|guesttel');" name="find_for_business" id="chronoform_find_for_business" method="post" class="Chronoform hasValidation"><p>請輸入 閣下之理想創富要求，我們會為 閣下尋找最合適的業務並以E-mail發訊通知。</p>
+<p>(有 * 欄位必須填寫)</p><fieldset class="cf_container ccms_form_element right-label" id="cf_container_5"><legend>理想創業之行業選擇(首選)</legend><div class="ccms_form_element cfdiv_select multiline_start" id="input_business11_container_div" style=""><select size="1" class="" title="" name="input_business1">
+<option value="飲食業">飲食業</option>
+<option value="教育服務業">教育服務業</option>
+<option value="零售業">零售業</option>
+<option value="服務業">服務業</option>
+<option value="進出入口貿易">進出入口貿易</option>
+<option value="其他(請註明)">其他</option>
+</select>
+<div class="clear"></div><div id="error-message-input_business1"></div></div><div class="ccms_form_element cfdiv_text label_over multiline_add" id="input_business_other1_container_div" style=""><label>其他(請註明)</label><input maxlength="150" size="30" class="" title="" type="text" value="" name="input_business_other">
+<div class="clear"></div><div id="error-message-input_business_other"></div></div></fieldset><fieldset class="cf_container ccms_form_element right-label" id="cf_container_10"><legend>理想創業之行業選擇（次選）</legend><div class="ccms_form_element cfdiv_select multiline_start" id="input_business21_container_div" style=""><select size="1" class="" title="" name="input_business2">
+<option value="飲食業">飲食業</option>
+<option value="教育服務業">教育服務業</option>
+<option value="零售業">零售業</option>
+<option value="服務業">服務業</option>
+<option value="進出入口貿易">進出入口貿易</option>
+<option value="其他(請註明)">其他</option>
+</select>
+<div class="clear"></div><div id="error-message-input_business2"></div></div><div class="ccms_form_element cfdiv_text label_over multiline_add" id="input_business2_other1_container_div" style=""><label>其他(請註明)</label><input maxlength="150" size="30" class="" title="" type="text" value="" name="input_business2_other">
+<div class="clear"></div><div id="error-message-input_business2_other"></div></div></fieldset><div class="ccms_form_element cfdiv_select label_over" id="input_address11_container_div" style=""><label>理想創業之營業地點(首選)</label><select size="1" class="" title="" name="input_address1">
+<option value="香港島">香港島</option>
+<option value="中西區">　中西區</option>
+<option value="港島東區">　港島東區</option>
+<option value="港島南區">　港島南區</option>
+<option value="灣仔區">　灣仔區</option>
+<option value="九龍">九龍</option>
+<option value="九龍城區">　九龍城區</option>
+<option value="油尖旺區">　油尖旺區</option>
+<option value="深水埗區">　深水埗區</option>
+<option value="黃大仙">　黃大仙</option>
+<option value="觀塘">　觀塘</option>
+<option value="新界">新界</option>
+<option value="大埔區">　大埔區</option>
+<option value="屯門區">　屯門區</option>
+<option value="元朗區">　元朗區</option>
+<option value="北區">　北區</option>
+<option value="沙田區">　沙田區</option>
+<option value="荃灣區">　荃灣區</option>
+<option value="葵青區">　葵青區</option>
+<option value="離島區">　離島區</option>
+</select>
+<div class="clear"></div><div id="error-message-input_address1"></div></div><div class="ccms_form_element cfdiv_select label_over" id="input_address21_container_div" style=""><label>理想創業之營業地點(次選)</label><select size="1" class="" title="" name="input_address2">
+<option value="香港島">香港島</option>
+<option value="中西區">　中西區</option>
+<option value="港島東區">　港島東區</option>
+<option value="港島南區">　港島南區</option>
+<option value="灣仔區">　灣仔區</option>
+<option value="九龍">九龍</option>
+<option value="九龍城區">　九龍城區</option>
+<option value="油尖旺區">　油尖旺區</option>
+<option value="深水埗區">　深水埗區</option>
+<option value="黃大仙">　黃大仙</option>
+<option value="觀塘">　觀塘</option>
+<option value="新界">新界</option>
+<option value="大埔區">　大埔區</option>
+<option value="屯門區">　屯門區</option>
+<option value="元朗區">　元朗區</option>
+<option value="北區">　北區</option>
+<option value="沙田區">　沙田區</option>
+<option value="荃灣區">　荃灣區</option>
+<option value="葵青區">　葵青區</option>
+<option value="離島區">　離島區</option>
+</select>
+<div class="clear"></div><div id="error-message-input_address2"></div></div><div class="ccms_form_element cfdiv_select label_over" id="input_amount1_container_div" style=""><label>理想創業之投資金額</label><select size="1" class="" title="" name="input_amount">
+<option value="HK$200,000以下">HK$200,000以下</option>
+<option value="HK$200,000 - $500,000">HK$200,000 - $500,000</option>
+<option value="HK$500,001 - $1,000,000">HK$500,001 - $1,000,000</option>
+<option value="HK$1,000,000以上">HK$1,000,000以上</option>
+</select>
+<div class="clear"></div><div id="error-message-input_amount"></div></div><fieldset class="cf_container ccms_form_element right-label" id="cf_container_18"><legend>理想創業之投入程度</legend><div class="ccms_form_element cfdiv_select multiline_start" id="input_level1_container_div" style=""><select size="1" class="" title="" name="input_level">
+<option value="全職">全職</option>
+<option value="兼職">兼職</option>
+<option value="投資者">投資者</option>
+<option value="其他(請註明)">其他(請註明)</option>
+</select>
+<div class="clear"></div><div id="error-message-input_level"></div></div><div class="ccms_form_element cfdiv_text label_over multiline_add" id="input_level_other1_container_div" style=""><label>其他(請註明)</label><input maxlength="150" size="30" class="" title="" type="text" value="" name="input_level_other">
+<div class="clear"></div><div id="error-message-input_level_other"></div></div></fieldset><div class="ccms_form_element cfdiv_select label_over" id="input_now1_container_div" style=""><label>目前工作現況</label><select size="1" class="" title="" name="input_now">
+<option value="受僱">受僱</option>
+<option value="自僱人士">自僱人士</option>
+<option value="業務東主">業務東主</option>
+<option value="待業">待業</option>
+<option value="退休">退休</option>
+</select>
+<div class="clear"></div><div id="error-message-input_now"></div></div><fieldset class="cf_container ccms_form_element right-label" id="cf_container_24"><legend>有否創業合作伙伴？</legend><div class="ccms_form_element cfdiv_radio multiline_start" id="input_partner1_container_div" style=""><input type="hidden" name="input_partner" value="" alt="ghost">
+<div style="float:left; clear:none;"><input type="radio" name="input_partner" id="input_partner_0" title="" value="沒有" class="">
+<label for="input_partner_0">沒有</label>
+<input type="radio" name="input_partner" id="input_partner_1" title="" value="有" class="">
+<label for="input_partner_1">有</label>
+</div><div class="clear"></div><div id="error-message-input_partner"></div></div><div class="ccms_form_element cfdiv_text label_over multiline_add" id="input_partner_num1_container_div" style=""><label>人</label><input maxlength="150" size="30" class="" title="" type="text" value="" name="input_partner_num">
+<div class="clear"></div><div id="error-message-input_partner_num"></div></div></fieldset><fieldset class="cf_container ccms_form_element right-label" id="cf_container_31"><legend>有否創業經驗？</legend><div class="ccms_form_element cfdiv_radio multiline_start" id="input_exam1_container_div" style=""><input type="hidden" name="input_exam" value="" alt="ghost">
+<div style="float:left; clear:none;"><input type="radio" name="input_exam" id="input_exam_0" title="" value="沒有" class="">
+<label for="input_exam_0">沒有</label>
+<input type="radio" name="input_exam" id="input_exam_1" title="" value="有" class="">
+<label for="input_exam_1">有</label>
+</div><div class="clear"></div><div id="error-message-input_exam"></div></div><div class="ccms_form_element cfdiv_text label_over multiline_add" id="input_exam_other1_container_div" style=""><label>(請註明行業)</label><input maxlength="150" size="30" class="" title="" type="text" value="" name="input_exam_other">
+<div class="clear"></div><div id="error-message-input_exam_other"></div></div></fieldset><div class="cf_container ccms_form_element " id="cf_container_50"><div class="ccms_form_element cfdiv_text" id="input_name1_container_div" style=""><label>*姓名</label><input id="guestname" maxlength="150" size="30" class=" validate['required']" title="" type="text" value="" name="input_name">
+<div class="clear"></div><div id="error-message-input_name"></div></div><div class="ccms_form_element cfdiv_text" id="input_email1_container_div" style=""><label>*電郵地址</label><input id="guestemail" maxlength="150" size="30" class=" validate['required','email']" title="" type="text" value="" name="input_email">
+<div class="clear"></div><div id="error-message-input_email"></div></div><div class="ccms_form_element cfdiv_text" id="input_phone1_container_div" style=""><label>*聯絡電話：</label><input id="guesttel" maxlength="150" size="30" class=" validate['required','number']" title="" type="text" value="" name="input_phone">
+<div class="clear"></div><div id="error-message-input_phone"></div></div><div class="ccms_form_element cfdiv_radio" id="input_sex1_container_div" style=""><label>性別：</label><input type="hidden" name="input_sex" value="" alt="ghost">
+<div style="float:left; clear:none;"><input type="radio" name="input_sex" id="input_sex_0" title="" value="男" class="">
+<label for="input_sex_0">男</label>
+<input type="radio" name="input_sex" id="input_sex_1" title="" value="女" class="">
+<label for="input_sex_1">女</label>
+<input type="radio" name="input_sex" id="input_sex_2" title="" value="不透露" class="">
+<label for="input_sex_2">不透露</label>
+</div><div class="clear"></div><div id="error-message-input_sex"></div></div><div class="clear"></div></div><div class="ccms_form_element cfdiv_textarea label_over" id="input_comment1_container_div" style=""><label>其他意見(請註明)：</label><textarea cols="45" rows="12" class="" title="" name="input_comment"></textarea>
+<div class="clear"></div><div id="error-message-input_comment"></div></div><div class="ccms_form_element cfdiv_datetime label_over" id="input_time1_container_div" style=""><label>最方便之聯絡時間：</label><input maxlength="150" size="16" class="cf_datetime_picker" title="" type="text" value="" name="input_time">
+<div class="clear"></div><div id="error-message-input_time"></div></div><div class="ccms_form_element cfdiv_text label_over" id="input_job1_container_div" style=""><label>職業：</label><input maxlength="150" size="30" class="" title="" type="text" value="" name="input_job">
+<div class="clear"></div><div id="error-message-input_job"></div></div><div class="ccms_form_element cfdiv_submit" id="btn_submit1_container_div" style="text-align:center"><input name="btn_submit" class="" value="送出" type="submit">
+&nbsp;<input type="reset" name="reset" value="重設" class="">&nbsp;<input type="button" name="back" value="返回" class="" onclick="history.back()"><div class="clear"></div><div id="error-message-btn_submit"></div></div><div class="ccms_form_element cfdiv_empty" id="empty_container_div" style=""><div class="clear"></div><div id="error-message-empty"></div></div><input type="hidden" name="40e11aae55fdfe06dd082deef276037b" value="1"></form><div class="chronoform"><a href="http://www.chronoengine.com">Powered By ChronoForms - ChronoEngine.com</a></div>
+</div>
+</div>
+      </div>
+    </div>
+    <include file="Common:right" />
+  </div>
+</div>
+<div class="clear"></div>
+<link rel="stylesheet" type="text/css" href="__CSS__/datepicker_dashboard.css">
+<script src="__JS__/datepicker_moo/mootools-core.js"></script>
+<script src="__JS__/datepicker_moo/mootools-more.js"></script>
+<script src="__JS__/datepicker_moo/Locale.en-US.DatePicker.js"></script>
+<script src="__JS__/datepicker_moo/Picker.js"></script>
+<script src="__JS__/datepicker_moo/Picker.Attach.js"></script>
+<script src="__JS__/datepicker_moo/Picker.Date.js"></script>
+<script>
+		$(function() {
+			new Picker.Date($$('.cf_date_picker'), {
+			pickerClass: 'datepicker_dashboard', format: '%Y-%m-%d', allowEmpty: true, useFadeInOut: !Browser.ie
+			});
+			
+			new Picker.Date($$('.cf_datetime_picker'), {
+			pickerClass: 'datepicker_dashboard', format: '%d-%m-%Y %H:%M:%S', timePicker: true, allowEmpty: true, useFadeInOut: !Browser.ie
+			});
+			
+			new Picker.Date($$('.cf_time_picker'), {
+			pickerClass: 'datepicker_dashboard', format: '%H:%M:%S', pickOnly: 'time', allowEmpty: true, useFadeInOut: !Browser.ie
+			});
+
+			$('input[type="reset"]').click(function(){
+			  $('input[type="text"]').val('');
+			  $('input[type="radio"]').removeAttr('checked');
+			  $('textarea').html('');
+			});
+		});
+
+function check_form(required){
+  var reqarr=required.split('|');
+  var flag=true;
+  var i;
+  for(i=0;i<reqarr.length;i++){
+    if($('#'+reqarr[i]).val()==''){
+      flag=false;
+      alert('帶*號必須填寫');
+      return false;
+    }
+  }
+  if(flag){
+    alert('您的消息已發送');
+    return true;
+  }
+}
+</script>
+<include file="Common:footer" />

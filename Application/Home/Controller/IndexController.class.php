@@ -243,7 +243,7 @@ class IndexController extends BaseController {
         $other = I('post.other');
         $subject = '[Message From: Buy Business, 來自聯絡我們]';
         $body = '姓名: '.$name.'<br/>電郵: '.$email.'<br/>電話號碼: '.$tel.'<br/><br/>其它意見: '.$other;
-        $this->msg = $this->postMail ($body, $subject, '540115739@qq.com', '2757144278@qq.com');
+        $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
 
         // For search box
         $dblist = M('category')->select();
@@ -262,6 +262,89 @@ class IndexController extends BaseController {
         $this->assign('content', $page[0]['content']);
 
         $this->display('Page/contact');
+    }
+
+    public function JoinFormSubmit() {
+        $email = I('post.guestemail');
+        $name = I('post.guestname');
+        $tel = I('post.guesttel');
+        $age = I('post.guestage');
+        $addr = I('post.guestaddr');
+        $birth = I('post.guestbirth');
+        $gender = I('post.guestgender');
+        $occu = I('post.guestoccu');
+        $interest = I('post.interest');
+        $subject = '[Message From: Buy Business, 加入創富會]';
+        $body = '姓名: '.$name.'<br/>電郵: '.$email.'<br/>電話號碼: '.$tel.'<br/>地址: '.$addr.'<br/>性別: '.$gender.'<br/>年齡: '.(1==$age?'男':'女').'<br/>出生日期: '.$birth.'<br/>職業: '.$occu.'<br/>感興趣之行業: '.$interest;
+        $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
+
+        $dblist = M('category')->select();
+        $catelist = array();
+        foreach ($dblist as $item) {
+            $catelist[$item['id']] = $item['name'];
+        }
+        $this->assign('catelist', $catelist);
+        // For hot recomm projects
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        foreach ($hot as &$proj) {
+            $proj['price'] = number_format ($proj['price'], 0);
+            $proj['profit'] = number_format ($proj['profit'], 0);
+        }
+        $this->assign('hot', $hot);
+        // For ads
+        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $this->assign('ads_1', $ads_1);
+        $this->assign('ads_2', $ads_2);
+
+        parent::language();
+
+        $this->display('Page/join_form');
+    }
+
+    public function EnquirySubmit() {
+        $email = I('post.input_email');
+        $name = I('post.input_name');
+        $tel = I('post.input_phone');
+        $subject = '[Message From: Buy Business, 創業要求查詢表格]';
+        $body = '姓名: '.$name.'<br/>電郵: '.$email.'<br/>電話號碼: '.$tel;
+        $body.= '<br/>電話號碼: '.I('post.input_sex');
+        $body.= '<br/>職業: '.I('post.input_job');
+        $body.= '<br/>理想創業之行業選擇(首選): '.I('post.input_business1').'    (其它：'.I('post.input_business_other').')';
+        $body.= '<br/>理想創業之行業選擇（次選）: '.I('post.input_business2').'    (其它：'.I('post.input_business2_other').')';
+        $body.= '<br/>理想創業之營業地點(首選): '.I('post.input_address1');
+        $body.= '<br/>理想創業之營業地點(次選): '.I('post.input_address2');
+        $body.= '<br/>理想創業之投資金額: '.I('post.input_amount');
+        $body.= '<br/>理想創業之投入程度: '.I('post.input_level').'    (其它：'.I('post.input_level_other').')';
+        $body.= '<br/>目前工作現況: '.I('post.input_now');
+        $body.= '<br/>有否創業合作伙伴？: '.I('post.input_partner').'      ('.I('post.input_partner_num').')';
+        $body.= '<br/>有否創業經驗？: '.I('post.input_exam').'      ('.I('post.input_exam_other').')';
+        $body.= '<br/><br/>其他意見(請註明): '.I('post.input_comment');
+        $body.= '<br/>最方便之聯絡時間: '.I('post.input_time');
+        $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
+
+        $dblist = M('category')->select();
+        $catelist = array();
+        foreach ($dblist as $item) {
+            $catelist[$item['id']] = $item['name'];
+        }
+        $this->assign('catelist', $catelist);
+        // For hot recomm projects
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        foreach ($hot as &$proj) {
+            $proj['price'] = number_format ($proj['price'], 0);
+            $proj['profit'] = number_format ($proj['profit'], 0);
+        }
+        $this->assign('hot', $hot);
+        // For ads
+        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $this->assign('ads_1', $ads_1);
+        $this->assign('ads_2', $ads_2);
+
+        parent::language();
+
+        $this->display('Page/enquiry');
     }
 
     public function AjaxSearch() {

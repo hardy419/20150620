@@ -236,6 +236,34 @@ class IndexController extends BaseController {
         $this->display('Page/sellers_query');
     }
 
+    public function contactSubmit() {
+        $name = I('post.guestname');
+        $email = I('post.guestemail');
+        $tel = I('post.guesttel');
+        $other = I('post.other');
+        $subject = '[Message From: Buy Business, 來自聯絡我們]';
+        $body = '姓名: '.$name.'<br/>電郵: '.$email.'<br/>電話號碼: '.$tel.'<br/><br/>其它意見: '.$other;
+        $this->msg = $this->postMail ($body, $subject, '540115739@qq.com', '2757144278@qq.com');
+
+        // For search box
+        $dblist = M('category')->select();
+        $catelist = array();
+        foreach ($dblist as $item) {
+            $catelist[$item['id']] = $item['name'];
+        }
+        $this->assign('catelist', $catelist);
+        $this->assign('categories', $dblist);
+
+        parent::language();
+
+        // Retrieve page contents
+        $page = M('page')->where(array('title'=>'聯絡我們'))->select();
+        $this->assign('banner', $page[0]['banner']);
+        $this->assign('content', $page[0]['content']);
+
+        $this->display('Page/contact');
+    }
+
     public function AjaxSearch() {
         $type = I('get.type', 'project');
         $order = I('request.o',null);

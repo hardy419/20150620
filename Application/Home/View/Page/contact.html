@@ -1,5 +1,12 @@
 <include file="Common:header" />
 <link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/about.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/default.css">
+<link rel="stylesheet" type="text/css" href="__CSS__/frontforms.css">
+<style>
+.about .aboutwrap_l {width:100%}
+.article-info {width:765px}
+.enquiry_bottom {font-size:15px; line-height:20px}
+</style>
 <!------------------------主體部分------------------------>
 <div id="wrapIndex" class="about mb10">
   <div class="aboutTitle">聯絡我們</div>
@@ -15,8 +22,35 @@
         {$content|html_entity_decode=###}
       </div>
     </div>
-    <include file="Common:right" />
   </div>
 </div>
 <div class="clear"></div>
+
+<script>
+$(function() {
+	$('input[type="reset"]').click(function(){
+	  $('input[type="text"]').val('');
+	  $('input[type="radio"]').removeAttr('checked');
+	  $('textarea').html('');
+	});
+});
+
+function check_form(required){
+  var reqarr=required.split('|');
+  var flag=true;
+  var i;
+  for(i=0;i<reqarr.length;i++){
+    if($('#'+reqarr[i]).val()==''){
+      flag=false;
+      alert('帶*號必須填寫');
+      return false;
+    }
+  }
+  if(flag){
+    alert('您的消息已發送');
+    return true;
+  }
+}
+</script>
+
 <include file="Common:footer" />

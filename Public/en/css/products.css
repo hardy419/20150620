@@ -1,0 +1,46 @@
+@charset "utf-8";
+/*=======================关于我们=======================*/
+.productsTop {
+	margin-left: 20px;
+	margin-top: 31px;
+	height: 60px;
+}
+.productsTop h1 {
+	color: #bf0000;
+	font-size: 30px;
+	font-weight: 500;
+	float: left;
+}
+.productsTop ul {
+	float: right;
+	margin-right: 19px;
+	display: block;
+}
+.productsTop ul li {
+	float: left;
+	margin-left: 6px;
+}
+.productsCon {
+	margin-left: 20px;
+	margin-top:5px;
+}
+.productsCon dl {
+	width: 820px;
+	height: 780px;
+}
+.productsCon dl dt {
+	width: 25%;
+	float:left;
+	display:inline;
+	line-height:30px;
+	text-indent:20px;
+}
+.productsCon dl dd {
+	width: 70%;
+	float:left;
+	display:inline;
+	line-height:30px;
+}
+.productsCon dl .bg {
+	background:#ebebeb;
+}

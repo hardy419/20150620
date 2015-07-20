@@ -379,16 +379,24 @@
 #header .hNav ul li {
 	float: left;
 	background: url(../images/navLine.jpg) center right no-repeat;
+	text-align: center;
 }
 #header .hNav ul li.last {
 	float: left;
 	background: none;
 }
+#header .hNav ul li:first-child {width: 78px}
+#header .hNav ul li:first-child+li {width: 114px}
+#header .hNav ul li:first-child+li+li {width: 114px}
+#header .hNav ul li:first-child+li+li+li {width: 144px}
+#header .hNav ul li:first-child+li+li+li+li {width: 144px}
+#header .hNav ul li:first-child+li+li+li+li+li {width: 144px}
+#header .hNav ul li:first-child+li+li+li+li+li+li {width: 114px}
+#header .hNav ul li:first-child+li+li+li+li+li+li+li {width: 114px}
+#header .hNav ul li:first-child+li+li+li+li+li+li+li+li {width: 114px}
 #header .hNav ul li a, #header .hNav ul li a:hover {
 	font-weight: 600;
 	display: block;
-	padding-left: 24px;
-	padding-right: 24px;
 }
 #header .hNav ul li a {
 	color: #000;
@@ -634,6 +642,8 @@
 	color: #333;
 	display: block;
 	margin-bottom: 8px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 /*------页尾版权------*/
 #footer .fCopyright {

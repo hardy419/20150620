@@ -1,0 +1,123 @@
+body {
+	font-family: 'Microsoft YaHei';
+}
+input, select {
+	outline: medium none;
+}
+input, label {
+	vertical-align: middle;
+}
+/*display*/
+.dsn {
+	display: none;
+}
+/*background*/
+.bg_f3f3f3 {
+	background: #f3f3f3;
+}
+/*color*/
+.C_ff6630 {
+	color: #ff6630;
+}
+.C_990000 {
+	color: #990000;
+}
+.C_003399 {
+	color: #003399;
+}
+/*clear*/
+.clear {
+	clear: both;
+}
+/*border*/
+.br_acacac {
+	border-right: 1px solid #acacac;
+}
+.bb_acacac {
+	border-bottom: 1px solid #acacac;
+}
+.bb_dot {
+	border-bottom: 1px dotted #99999B;
+}
+.b_aeaeae {
+	border: 1px solid #aeaeae;
+}
+.br_d2d2d2 {
+	border: 1px solid #d2d2d2;
+}
+/*position*/
+.pr {
+	position: relative;
+}
+.pa {
+	position: absolute;
+}
+/*font-size*/
+.fs13 {
+	font-size: 13px;
+}
+.fs15 {
+	font-size: 15px;
+}
+/*float*/
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+/*margin*/
+.ml10 {
+	margin-left: 10px;
+}
+.mt6 {
+	margin-top: 6px;
+}
+.mt10 {
+	margin-top: 10px;
+}
+.mt11 {
+	margin-top: 11px;
+}
+.mt12 {
+	margin-top: 12px;
+}
+.mt15 {
+	margin-top: 15px;
+}
+.mt24 {
+	margin-top: 24px;
+}
+.mr8 {
+	margin-right: 8px;
+}
+.mr10 {
+	margin-right: 10px;
+}
+.mr15 {
+	margin-right: 15px;
+}
+.mr20 {
+	margin-right: 20px;
+}
+.mr30 {
+	margin-right: 30px;
+}
+.mr70 {
+	margin-right: 70px;
+}
+.mr100 {
+	margin-right: 100px;
+}
+.mb3 {
+	margin-bottom: 3px;
+}
+.mb8 {
+	margin-bottom: 8px;
+}
+.mb10 {
+	margin-bottom: 10px;
+}
+.mb32 {
+	margin-bottom: 32px;
+}

@@ -394,8 +394,10 @@
 #header .hNav ul li:first-child+li+li+li+li+li+li {width: 114px}
 #header .hNav ul li:first-child+li+li+li+li+li+li+li {width: 114px}
 #header .hNav ul li:first-child+li+li+li+li+li+li+li+li {width: 114px}
+#header .hNav ul li:first-child+li+li>a,#header .hNav ul li:first-child+li+li+li+li+li+li>a {line-height: 16px; padding-top: 5px; padding-bottom: 4px}
 #header .hNav ul li a, #header .hNav ul li a:hover {
-	font-weight: 600;
+	font-weight: 400;
+	font-size: 14px;
 	display: block;
 }
 #header .hNav ul li a {
@@ -627,9 +629,17 @@
 	height: 123px;
 	padding-top: 4px;
 }
+#footer .fMenu ul.first {width: 135px}
+#footer .fMenu ul.first+ul {width: 162px}
+#footer .fMenu ul.first+ul+ul {width: 136px}
+#footer .fMenu ul.first+ul+ul+ul {width: 136px}
+#footer .fMenu ul.first+ul+ul+ul+ul {width: 136px}
+#footer .fMenu ul.first+ul+ul+ul+ul+ul {width: 123px}
+#footer .fMenu ul.first+ul+ul+ul+ul+ul+ul {width: 100px}
+#footer .fMenu ul.first+ul+ul+ul+ul+ul+ul+ul {width: 110px}
 #footer .fMenu ul li {
 	margin-left: 15px;
-	margin-right: 42px;
+	margin-right: 10px;
 	font-size: 13px;
 }
 #footer .fMenu ul li a.title {
@@ -643,6 +653,7 @@
 	display: block;
 	margin-bottom: 8px;
 	white-space: nowrap;
+	overflow: hidden;
 	text-overflow: ellipsis;
 }
 /*------页尾版权------*/

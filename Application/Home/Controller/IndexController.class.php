@@ -86,13 +86,13 @@ class IndexController extends BaseController {
         $mail->IsSMTP ();
         $mail->SMTPDebug = 0;
         $mail->SMTPAuth = true;
-        $mail->Host = 'smtp.qq.com';
-        $mail->Port = '25';
-        $mail->Username = '2757144278@qq.com';
-        $mail->Password = '1q2w3e4r';
+        $mail->Host = 'mail.lifespring.com.hk';
+        $mail->Port = '26';
+        $mail->Username = 'system@lifespring.com.hk';
+        $mail->Password = '2201sys##';
         mb_internal_encoding ('UTF-8');
         $mail->Subject = mb_encode_mimeheader ($subject, 'UTF-8');
-        $mail->From = '2757144278@qq.com';
+        $mail->From = 'system@lifespring.com.hk';
         $mail->FromName = 'Buy Business';
 
         if (!$isHTML) {

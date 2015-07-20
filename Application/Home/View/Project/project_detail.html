@@ -31,7 +31,7 @@ function share_submit(){
 
 <div id="TB_window_2" class="top_submenus" style="position:fixed; top:25%; left:50%; width: 480px;height: 350px; margin-left:-240px;padding:0;background-color:white; display: none;z-index:2147483647">
   <div>
-    <img src="{:SITE_PATH}Public/zh/images/share_header.png" />
+    <img src="{:SITE_PATH}Public/{$lang}/images/share_header.png" />
   </div>
   <form id="share-form" action="{:U('Index/shareFormSubmit')}" method="post">
     <table>
@@ -46,7 +46,7 @@ function share_submit(){
     <input type="hidden" name="project_id" value="{$project.id}" />
   </form>
   <div align="center">
-    <a href="javascript:share_submit();"><img src="{:SITE_PATH}Public/zh/images/share_button.png" /></a>
+    <a href="javascript:share_submit();"><img src="{:SITE_PATH}Public/{$lang}/images/share_button.png" /></a>
   </div>
 </div>
 <div id="TB_mask_2" style="filter:alpha(opacity=30);-moz-opacity:0.5;opacity:0.5;background-color:#000000;position:fixed;left:0px;top:0px;width:100%;height:300%;z-index:2147483646;display:none" onclick="js_op_close_2(false)"></div>

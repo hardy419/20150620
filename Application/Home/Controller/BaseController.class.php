@@ -102,8 +102,11 @@ class BaseController extends Controller {
             $this->assign ('text_xiaobenchuangye', '小本創業');
             $this->assign ('text_rementuijie', '熱門推介');
             $this->assign ('text_jingxuantuijie', '精選推介');
+
+            $this->assign ('text_yueduquanwen', '閱讀全文');
+            $this->assign ('text_more', '更多');
         }
-        else {
+        else if ('cn' == $lang) {
             $this->assign ('text_header_title', '创富易业务转让有限公司');
             $this->assign ('text_chaxunrexian', '查询热线');
             $this->assign ('text_fip', '行业，投资金额，利润');
@@ -163,6 +166,73 @@ class BaseController extends Controller {
             $this->assign ('text_xiaobenchuangye', '小本创业');
             $this->assign ('text_rementuijie', '热门推介');
             $this->assign ('text_jingxuantuijie', '精选推介');
+
+            $this->assign ('text_yueduquanwen', '阅读全文');
+            $this->assign ('text_more', '更多');
+        }
+        else if ('en' == $lang) {
+            $this->assign ('text_header_title', 'Buy Business Ltd.');
+            $this->assign ('text_chaxunrexian', 'Hotline');
+            $this->assign ('text_fip', 'Indus., Invest. Amt, Profit');
+            $this->assign ('text_diqu', 'District');
+            $this->assign ('text_shuruguanjianzi', 'Enter keywords');
+            $this->assign ('text_shouye', 'Home');
+            $this->assign ('text_guanyuwomen', 'About Us');
+            $this->assign ('text_chuangfuxuzhi', "Buyer's Reference");
+            $this->assign ('text_maijiashougouyewu', 'Buyer Acquisition');
+            $this->assign ('text_maijiachurangyewu', 'Selling Business');
+            $this->assign ('text_xianzhengchurangyewu', 'Business For Sale');
+            $this->assign ('text_yingshangxuzhi', 'Useful Information');
+            $this->assign ('text_xiangguanlianjie', 'Useful Links');
+            $this->assign ('text_lianluowomen', 'Contact Us');
+            $this->assign ('text_gongsijianjie', 'Company Profile');
+            $this->assign ('text_jiazhiguan', 'Our Values');
+            $this->assign ('text_fuwufanwei', 'Scope of Services');
+            $this->assign ('text_chuangfuxuzhi', "Buyer's Reference");
+            $this->assign ('text_chuangfuzuolaoban', 'Startup Be a Boss');
+            $this->assign ('text_chuangfumoshi', 'Startup Model');
+            $this->assign ('text_heweiyewuzhuanrang', 'What is Business Brokerage');
+            $this->assign ('text_weihexuanzeyewuzhuanrang', 'Why Choose Business Brokerage');
+            $this->assign ('text_changjianwenti', 'FAQ');
+            $this->assign ('text_maijiashougouchengxu', 'Acquisition Procedure');
+            $this->assign ('text_weihexuanzewomen', 'Why Choose Us');
+            $this->assign ('text_maijiachaxun', 'Buyer Enquiry');
+            $this->assign ('text_maijiachurangchengxu', 'Selling Procedure');
+            $this->assign ('text_yewuguzhi', 'Business Valuation');
+            $this->assign ('text_weihexuanzewomen', 'Why Choose Us');
+            $this->assign ('text_maijiachaxun', 'Seller Enquiry');
+            $this->assign ('text_kaiyeziliaoku', 'Startup Reference');
+            $this->assign ('text_yingyeziliaoku', 'Reference');
+            $this->assign ('text_copyright', '&copy; 2005－2015 Buy Business Ltd. Sky Vision International Investments Ltd.');
+            $this->assign ('text_banquansuoyou', 'All Rights Reserved');
+            $this->assign ('text_banquanshengming', 'Copyright Notice');
+            $this->assign ('text_mianzetiaokuan', 'Disclaimer');
+            $this->assign ('text_lianluowomen', 'Contact Us');
+            $this->assign ('text_gerensiyinzhengce', 'Privacy Policy ');
+
+            $this->assign ('text_daihaomingcheng', 'Code Name');
+            $this->assign ('text_churangxiangmu', 'Selling Items');
+            $this->assign ('text_cankaolirun', 'Indicative Profit');
+            $this->assign ('text_baokuocunhuo', 'Including Inventory');
+            $this->assign ('text_huibenqi', 'Payback Period(Month)');
+            $this->assign ('text_dingjia', 'Selling Price(HKD)');
+            $this->assign ('text_gongkuan', 'Installment (Month)');
+            $this->assign ('text_mianji', 'Area(Sq.ft.)');
+            $this->assign ('text_zujin', 'Monthly Rent');
+            $this->assign ('text_canyuchengdu', "Proprietor's participation");
+            $this->assign ('text_xiangmuqingkuang', 'Status');
+
+            $this->assign ('text_dingjia', 'Selling Price');
+            $this->assign ('text_cankaolirun', 'Indicative Profit');
+
+            $this->assign ('text_touzishouxuan', 'Investment choice');
+            $this->assign ('text_chaozhituijie', 'Promotional Items');
+            $this->assign ('text_xiaobenchuangye', 'Small Captial Business');
+            $this->assign ('text_rementuijie', 'Hot Items');
+            $this->assign ('text_jingxuantuijie', 'Selective Items');
+
+            $this->assign ('text_yueduquanwen', 'More');
+            $this->assign ('text_more', 'More');
         }
 
         $this->assign ('lang', $lang);

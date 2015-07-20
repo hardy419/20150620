@@ -11,7 +11,7 @@
 <div class="article-info">
 			    	<div class="page-header">
 		<h2>
-															已加入查詢項目									</h2>
+															{$text_yijiaruchaxunxiangmu}									</h2>
 	</div>
     					
 	
@@ -21,7 +21,7 @@
 					<script type="text/javascript">
 function check_form(){
   if($('#guestname').val()==''||$('#guesttel').val()==''||$('#guestemail').val()==''){
-    alert('帶紅色*號為必填項');
+    alert('{$text_required}');
     return false;
   }
   return true;
@@ -52,7 +52,7 @@ function reset_form(){
 				var html='<tr class="jshop_prod_cart '+odd+'">';
 				html+='<td>'+j+'</td>';
 				html+='<td class="product_name"><a href="{:U("Project/project_detail",array("lang"=>$lang))}&id='+id+'">'+unescape(kv[1])+'</a></td>';
-				html+='<td class="cat_del"><a href="javascript:(function(){var date=new Date();date.setTime(date.getTime()-10000);document.cookie='+"'id-"+id+"=1; expires='+date.toGMTString()"+';window.location.href='+"'index.php?a=query&lang=<?PHP echo $lang; ?>'"+';})();" onclick="return confirm('+"'刪除'"+')">刪除</a></td></tr>';
+				html+='<td class="cat_del"><a href="javascript:(function(){var date=new Date();date.setTime(date.getTime()-10000);document.cookie='+"'id-"+id+"=1; expires='+date.toGMTString()"+';window.location.href='+"'index.php?a=query&lang=<?PHP echo $lang; ?>'"+';})();" onclick="return confirm('+"'{$text_shanchu}'"+')">{$text_shanchu}</a></td></tr>';
 				$('table.jshop').find('tbody').append(html);
 			}
 		}
@@ -84,7 +84,7 @@ function reset_form(){
   <tbody>
     <tr>
       <td align="center" class="icon"><span class="required">* </span></td>
-      <td align="right" class="tit"><b>姓名</b></td>
+      <td align="right" class="tit"><b>{$text_xingming}</b></td>
       <td><div class="ccms_form_element cfdiv_text" id="guestname_container_div" style="">
           <label for="guestname">&nbsp;</label>
           <input id="guestname" maxlength="150" size="30" class=" validate['required']" title="" type="text" value="" name="guestname">
@@ -94,7 +94,7 @@ function reset_form(){
     </tr>
     <tr>
       <td align="center" class="icon"><span class="required">* </span></td>
-      <td align="right" class="tit"><b>聯繫電話</b></td>
+      <td align="right" class="tit"><b>{$text_lianxidianhua}</b></td>
       <td><div class="ccms_form_element cfdiv_text" id="guesttel_container_div" style="">
           <label for="guesttel">&nbsp;</label>
           <input id="guesttel" maxlength="150" size="30" class=" validate['required','number','phone']" title="" type="text" value="" name="guesttel">
@@ -104,7 +104,7 @@ function reset_form(){
     </tr>
     <tr>
       <td align="center" class="icon"><span class="required">* </span></td>
-      <td align="right" class="tit"><b>電郵</b></td>
+      <td align="right" class="tit"><b>{$text_dianyou}</b></td>
       <td><div class="ccms_form_element cfdiv_text" id="guestemail_container_div" style="">
           <label for="guestemail">&nbsp;</label>
           <input id="guestemail" maxlength="150" size="30" class=" validate['required','email']" title="" type="text" value="" name="guestemail">
@@ -114,7 +114,7 @@ function reset_form(){
     </tr>
     <tr>
       <td align="center" class="icon">&nbsp;</td>
-      <td align="right" class="tit"><b>其它意見</b></td>
+      <td align="right" class="tit"><b>{$text_qitayijian}</b></td>
       <td><div class="ccms_form_element cfdiv_textarea" id="other_container_div" style="">
           <label for="other">&nbsp;</label>
           <textarea id="other" cols="45" rows="12" class="" title="" name="other" style="margin: 13px 2px 5px; width: 332px; height: 60px;"></textarea>
@@ -130,13 +130,13 @@ function reset_form(){
   <div id="error-message-input_text_5"></div>
 </div>
 <div class="ccms_form_element cfdiv_submit" id="id1_container_div">
-  <input name="" onclick="return check_form();" class="enquiry_bottom" value="傳送" type="submit">
+  <input name="" onclick="return check_form();" class="enquiry_bottom" value="{$text_chuansong}" type="submit">
   &nbsp;
-  <input type="reset" onclick="reset_form();" name="reset" value="重寫" class="enquiry_bottom">
+  <input type="reset" onclick="reset_form();" name="reset" value="{$text_chongxie}" class="enquiry_bottom">
   <div class="clear"></div>
   <div id="error-message-"></div>
 </div>
-<if condition="$sent eq 1"><div class="enquiry_fm_t"><span class="required">您的消息已發送，謝謝。</span></div></if>
+<if condition="$sent eq 1"><div class="enquiry_fm_t"><span class="required">{$text_fasongchenggong}</span></div></if>
 <div class="ccms_form_element cfdiv_empty" id="empty_container_div" style="">
   <div class="clear"></div>
   <div id="error-message-empty"></div>

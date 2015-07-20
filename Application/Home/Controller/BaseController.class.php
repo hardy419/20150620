@@ -72,7 +72,7 @@ class BaseController extends Controller {
             $this->assign ('text_maijiachurangchengxu', '賣家出讓程序');
             $this->assign ('text_yewuguzhi', '業務估值');
             $this->assign ('text_weihexuanzewomen', '爲何選擇我們');
-            $this->assign ('text_maijiachaxun', '賣家查詢');
+            $this->assign ('text_maijiachaxun2', '賣家查詢');
             $this->assign ('text_kaiyeziliaoku', '開業資料庫');
             $this->assign ('text_yingyeziliaoku', '營業資料庫');
             $this->assign ('text_copyright', '&copy; 2005 - 2015創富易業務轉讓有限公司 天域國際投資投資成員');
@@ -103,8 +103,43 @@ class BaseController extends Controller {
             $this->assign ('text_rementuijie', '熱門推介');
             $this->assign ('text_jingxuantuijie', '精選推介');
 
+            $this->assign ('text_chuangfuhui', '創富會');
+            $this->assign ('text_jingyingzhaopin', '精英招聘');
+            $this->assign ('text_hezuohuoban', '合作夥伴');
+            $this->assign ('text_chuangyechaxun', '創業查詢');
+            $this->assign ('text_zuixinxiaoxi', '最新消息');
+            $this->assign ('text_gengduoxinwen', '更多新聞');
+
+            $this->assign ('text_mianfeidengji', '免費登記您的創富要求');
+            $this->assign ('text_weininpeidui', '為您配對合適好生意');
+            $this->assign ('text_ancichaxun', '按此查詢');
+
+            $this->assign ('text_yinshi', '飲食');
+            $this->assign ('text_jiaoyu', '教育');
+            $this->assign ('text_meirongmeijia', '美容美甲');
+            $this->assign ('text_lingshou', '零售');
+            $this->assign ('text_fuwu', '服務');
+            $this->assign ('text_qita', '其他');
+
             $this->assign ('text_yueduquanwen', '閱讀全文');
             $this->assign ('text_more', '更多');
+
+            $this->assign ('text_xingming', '姓名');
+            $this->assign ('text_lianxidianhua', '聯繫電話');
+            $this->assign ('text_dianyou', '電郵');
+            $this->assign ('text_qitayijian', '其它意見');
+            $this->assign ('text_chuansong', '傳送');
+            $this->assign ('text_chongxie', '重寫');
+            $this->assign ('text_shanchu', '刪除');
+            $this->assign ('text_fasongchenggong', '您的消息發送成功，謝謝');
+            $this->assign ('text_required', '請填寫帶*號的部分');
+            $this->assign ('text_chaxunshibai', '查詢失敗，請重試');
+            $this->assign ('text_yijiaruchaxunxiangmu', '已加入查詢項目');
+
+            $this->assign ('text_zhuti', '主題');
+            $this->assign ('text_neirong', '內容');
+
+            $this->assign ('text_month', '月');
         }
         else if ('cn' == $lang) {
             $this->assign ('text_header_title', '创富易业务转让有限公司');
@@ -136,7 +171,7 @@ class BaseController extends Controller {
             $this->assign ('text_maijiachurangchengxu', '卖家出让程序');
             $this->assign ('text_yewuguzhi', '业务估值');
             $this->assign ('text_weihexuanzewomen', '为何选择我们');
-            $this->assign ('text_maijiachaxun', '卖家查询');
+            $this->assign ('text_maijiachaxun2', '卖家查询');
             $this->assign ('text_kaiyeziliaoku', '开业资料库');
             $this->assign ('text_yingyeziliaoku', '营业资料库');
             $this->assign ('text_copyright', '&copy; 2005 - 2015创富易业务转让有限公司 天域国际投资投资成员');
@@ -167,8 +202,43 @@ class BaseController extends Controller {
             $this->assign ('text_rementuijie', '热门推介');
             $this->assign ('text_jingxuantuijie', '精选推介');
 
+            $this->assign ('text_chuangfuhui', '创富会');
+            $this->assign ('text_jingyingzhaopin', '精英招聘');
+            $this->assign ('text_hezuohuoban', '合作伙伴');
+            $this->assign ('text_chuangyechaxun', '创业查询');
+            $this->assign ('text_zuixinxiaoxi', '最新消息');
+            $this->assign ('text_gengduoxinwen', '更多新闻');
+
+            $this->assign ('text_mianfeidengji', '免费登记您的创富要求');
+            $this->assign ('text_weininpeidui', '为您配对合适好生意');
+            $this->assign ('text_ancichaxun', '按此查询');
+
+            $this->assign ('text_yinshi', '饮食');
+            $this->assign ('text_jiaoyu', '教育');
+            $this->assign ('text_meirongmeijia', '美容美甲');
+            $this->assign ('text_lingshou', '零售');
+            $this->assign ('text_fuwu', '服务');
+            $this->assign ('text_qita', '其他');
+
             $this->assign ('text_yueduquanwen', '阅读全文');
             $this->assign ('text_more', '更多');
+
+            $this->assign ('text_xingming', '姓名');
+            $this->assign ('text_lianxidianhua', '联系电话');
+            $this->assign ('text_dianyou', '邮箱');
+            $this->assign ('text_qitayijian', '其它意见');
+            $this->assign ('text_chuansong', '传送');
+            $this->assign ('text_chongxie', '重写');
+            $this->assign ('text_shanchu', '删除');
+            $this->assign ('text_fasongchenggong', '您的消息发送成功，谢谢');
+            $this->assign ('text_required', '请填写带*号的部分');
+            $this->assign ('text_chaxunshibai', '查询失败，请重试');
+            $this->assign ('text_yijiaruchaxunxiangmu', '已加入查询项目');
+
+            $this->assign ('text_zhuti', '主题');
+            $this->assign ('text_neirong', '内容');
+
+            $this->assign ('text_month', '月');
         }
         else if ('en' == $lang) {
             $this->assign ('text_header_title', 'Buy Business Ltd.');
@@ -200,7 +270,7 @@ class BaseController extends Controller {
             $this->assign ('text_maijiachurangchengxu', 'Selling Procedure');
             $this->assign ('text_yewuguzhi', 'Business Valuation');
             $this->assign ('text_weihexuanzewomen', 'Why Choose Us');
-            $this->assign ('text_maijiachaxun', 'Seller Enquiry');
+            $this->assign ('text_maijiachaxun2', 'Seller Enquiry');
             $this->assign ('text_kaiyeziliaoku', 'Startup Reference');
             $this->assign ('text_yingyeziliaoku', 'Reference');
             $this->assign ('text_copyright', '&copy; 2005－2015 Buy Business Ltd. Sky Vision International Investments Ltd.');
@@ -231,8 +301,43 @@ class BaseController extends Controller {
             $this->assign ('text_rementuijie', 'Hot Items');
             $this->assign ('text_jingxuantuijie', 'Selective Items');
 
+            $this->assign ('text_chuangfuhui', 'Buy Business Club');
+            $this->assign ('text_jingyingzhaopin', 'Recruitment');
+            $this->assign ('text_hezuohuoban', 'Business Alliance');
+            $this->assign ('text_chuangyechaxun', 'Enquiry');
+            $this->assign ('text_zuixinxiaoxi', 'Latest news');
+            $this->assign ('text_gengduoxinwen', 'More');
+
+            $this->assign ('text_mianfeidengji', 'Free Registration');
+            $this->assign ('text_weininpeidui', 'Free Matching ');
+            $this->assign ('text_ancichaxun', 'Click Here');
+
+            $this->assign ('text_yinshi', 'Food & Beverage');
+            $this->assign ('text_jiaoyu', 'Education');
+            $this->assign ('text_meirongmeijia', 'Beauty');
+            $this->assign ('text_lingshou', 'Retails');
+            $this->assign ('text_fuwu', 'Services');
+            $this->assign ('text_qita', 'Others');
+
             $this->assign ('text_yueduquanwen', 'More');
             $this->assign ('text_more', 'More');
+
+            $this->assign ('text_xingming', 'Name');
+            $this->assign ('text_lianxidianhua', 'Mobile');
+            $this->assign ('text_dianyou', 'Email');
+            $this->assign ('text_qitayijian', 'Comments');
+            $this->assign ('text_chuansong', 'Send');
+            $this->assign ('text_chongxie', 'Reset');
+            $this->assign ('text_shanchu', 'Remove');
+            $this->assign ('text_fasongchenggong', 'Your message has been sent, thank you!');
+            $this->assign ('text_required', 'Please fill in the blanks with *');
+            $this->assign ('text_chaxunshibai', 'Query failed. Please retry');
+            $this->assign ('text_yijiaruchaxunxiangmu', '已加入查詢項目');
+
+            $this->assign ('text_zhuti', 'Subject');
+            $this->assign ('text_neirong', 'Contents');
+
+            $this->assign ('text_month', ' month');
         }
 
         $this->assign ('lang', $lang);

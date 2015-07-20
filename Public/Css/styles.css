@@ -172,7 +172,7 @@ form.form-inline{margin:0 0 20px}
 #header .hTop .caret {margin-top:2px;border-top:6px solid #000}
 /*Fixes*/
 #search-form h1{width:100% !important;height:100% !important;background:transparent !important}
-#header .hTop .search_all,#header .hTop .Area{left:30px}
+#header .hTop .search_all,#header .hTop .Area{left:-230px}
 #header .hTop #TB_window,#header .hTop #TB_mask{position:fixed !important}
 #header .hTop #TB_window{top:50% !important;}
 .searchTitle+div{margin-top:-10px}

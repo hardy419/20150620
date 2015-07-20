@@ -7,16 +7,16 @@
 </style>
 <!------------------------關于我們主體部分------------------------>
 <div id="wrapIndex" class="about mb10">
-  <div class="aboutTitle">賣家出讓業務</div>
+  <div class="aboutTitle">{$text_maijiachurangyewu}</div>
   <div class="aboutwrap">
     <div class="aboutwrap_l b_aeaeae fl mr10">
       <div class="aboutBanner"><img src="{:SITE_PATH}{$banner}" /></div>
       <div class="aboutwrap_l_menu br_acacac fl">
         <ul>
-          <li><a href="{:U('Page/sellers', array('lang'=>$lang))}">賣家出讓程序</a></li>
-          <li><a href="{:U('Page/evaluate', array('lang'=>$lang))}">業務估值</a></li>
-          <li><a href="{:U('Page/sellers_why_us', array('lang'=>$lang))}">為何選擇我們</a></li>
-          <li><a href="{:U('Page/sellers_query', array('lang'=>$lang))}" class="current">賣家查詢</a></li>
+          <li><a href="{:U('Page/sellers', array('lang'=>$lang))}">{$text_maijiachurangchengxu}</a></li>
+          <li><a href="{:U('Page/evaluate', array('lang'=>$lang))}">{$text_yewuguzhi}</a></li>
+          <li><a href="{:U('Page/sellers_why_us', array('lang'=>$lang))}">{$text_weihexuanzewomen}</a></li>
+          <li><a href="{:U('Page/sellers_query', array('lang'=>$lang))}" class="current">{$text_maijiachaxun2}</a></li>
         </ul>
       </div>
       <div class="aboutwrap_l_txt fl">
@@ -62,12 +62,12 @@ function check_form(required){
   for(i=0;i<reqarr.length;i++){
     if($('#'+reqarr[i]).val()==''){
       flag=false;
-      alert('帶*號必須填寫');
+      alert('{$text_required}');
       return false;
     }
   }
   if(flag){
-    alert('您的消息已發送');
+    alert('{$text_fasongchenggong}');
     return true;
   }
 }

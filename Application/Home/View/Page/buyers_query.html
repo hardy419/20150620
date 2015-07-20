@@ -7,15 +7,15 @@
 </style>
 <!------------------------關于我們主體部分------------------------>
 <div id="wrapIndex" class="about mb10">
-  <div class="aboutTitle">買家收購業務</div>
+  <div class="aboutTitle">{$text_maijiashougouyewu}</div>
   <div class="aboutwrap">
     <div class="aboutwrap_l b_aeaeae fl mr10">
       <div class="aboutBanner"><img src="{:SITE_PATH}{$banner}" /></div>
       <div class="aboutwrap_l_menu br_acacac fl">
         <ul>
-          <li><a href="{:U('Page/buyers', array('lang'=>$lang))}">買家收購程序</a></li>
-          <li><a href="{:U('Page/why_us', array('lang'=>$lang))}">爲何選擇我們</a></li>
-          <li><a href="{:U('Page/buyers_query', array('lang'=>$lang))}" class="current">買家查詢</a></li>
+          <li><a href="{:U('Page/buyers', array('lang'=>$lang))}">{$text_maijiashougouchengxu}</a></li>
+          <li><a href="{:U('Page/why_us', array('lang'=>$lang))}">{$text_weihexuanzewomen}</a></li>
+          <li><a href="{:U('Page/buyers_query', array('lang'=>$lang))}" class="current">{$text_maijiachaxun}</a></li>
         </ul>
       </div>
       <div class="aboutwrap_l_txt fl">
@@ -61,12 +61,12 @@ function check_form(required){
   for(i=0;i<reqarr.length;i++){
     if($('#'+reqarr[i]).val()==''){
       flag=false;
-      alert('帶*號必須填寫');
+      alert('{$text_required}');
       return false;
     }
   }
   if(flag){
-    alert('您的消息已發送');
+    alert('{$text_fasongchenggong}');
     return true;
   }
 }

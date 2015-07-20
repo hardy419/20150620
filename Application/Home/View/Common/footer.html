@@ -27,7 +27,7 @@
       <li><a href="{:U('Page/sellers', array('lang'=>$lang))}">{$text_maijiachurangchengxu}</a></li>
       <li><a href="{:U('Page/evaluate', array('lang'=>$lang))}">{$text_yewuguzhi}</a></li>
       <li><a href="{:U('Page/sellers_why_us', array('lang'=>$lang))}">{$text_weihexuanzewomen}</a></li>
-      <li><a href="{:U('Page/sellers_query', array('lang'=>$lang))}">{$text_maijiachaxun}</a></li>
+      <li><a href="{:U('Page/sellers_query', array('lang'=>$lang))}">{$text_maijiachaxun2}</a></li>
     </ul>
     <ul>
       <li><a href="{:U('Project/index', array('lang'=>$lang))}" class="title">{$text_xianzhengchurangyewu}</a></li>
@@ -102,7 +102,7 @@ function ajax_search_op_home(data,init){
 data=eval('('+data+')');
 
 if(true!==init){
-  var mhtml='<div class="productTitle"><h1>現正出讓業務</h1></div>';
+  var mhtml='<div class="productTitle"><h1>{$text_xianzhengchurangyewu}</h1></div>';
   mhtml+='<div class="wIndex04 b_aeaeae pr"><h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex04_title.png" /></h1><h2 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h2><h3 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h3><div class="page"><ul class="page-u"></ul></div><table width="95%" border="0" cellspacing="0" cellpadding="0" id="project-table"></table><div class="page"><ul class="page-u"></ul></div></div>';
   $('#wrapIndex').html(mhtml);
 }
@@ -142,7 +142,7 @@ for(i=0;i<data['data'].length;++i){
     html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['profit_text']+'</td>';
   }
   html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['store']+'</td>';
-  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['recovery_period']+'月</td>';
+  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['recovery_period']+'{$text_month}</td>';
   html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['price']+'</td>';
   html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['allowance']+'</td>';
   html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['square']+'</td>';
@@ -172,12 +172,12 @@ $('.page-index').each(function(){
   if(!$(this).hasClass('currentPage')){
     $(this).click(function(){
       $('#search-form').ajaxSubmit({
-        url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20&visible=1&p="+page,
+        url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page,
         success:function(data){
           ajax_search_op_home(data,false);
         },
         error:function(xhr){
-          alert('查詢失敗，請重試');
+          alert('{$text_chaxunshibai}');
         }
       });
     });
@@ -187,12 +187,12 @@ if(data['p']<data['numpages']){
   $('.arrow-right-a').click(function(){
     var page=parseInt(data['p'])+1;
     $('#search-form').ajaxSubmit({
-      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20&visible=1&p="+page,
+      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page,
       success:function(data){
         ajax_search_op_home(data,false);
       },
       error:function(xhr){
-        alert('查詢失敗，請重試');
+        alert('{$text_chaxunshibai}');
       }
     });
   });
@@ -200,7 +200,7 @@ if(data['p']<data['numpages']){
 }
 
 function ajax_submit_home(p,o,spanid,init,cate,hot){
-  var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=20&visible=1&cate="+cate+"&hot="+hot;
+  var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&cate="+cate+"&hot="+hot;
   if(null!==p){
     $('#curpage').val(p);
   }
@@ -226,7 +226,7 @@ function ajax_submit_home(p,o,spanid,init,cate,hot){
       ajax_search_op_home(data,init);
     },
     error:function(xhr){
-      alert('查詢失敗，請重試');
+      alert('{$text_chaxunshibai}');
     }
   });
 }

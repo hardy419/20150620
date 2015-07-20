@@ -16,10 +16,10 @@ function update_query(){
 }
 function share_submit(){
   if($('#subject').val()==''||$('#email').val()==''){
-    alert('請輸入主題和電郵');
+    alert('{$text_required}');
   }
   else{
-    alert('您的消息已經發送，謝謝。');
+    alert('{$text_fasongchenggong}');
     $('#share-form').submit();
   }
 }
@@ -27,6 +27,7 @@ function share_submit(){
 
 <style>
 #share-form tr {margin:10px 0 5px 0}
+#share-form input,#share-form textarea {border-radius:4px}
 </style>
 
 <div id="TB_window_2" class="top_submenus" style="position:fixed; top:25%; left:50%; width: 480px;height: 350px; margin-left:-240px;padding:0;background-color:white; display: none;z-index:2147483647">
@@ -36,11 +37,11 @@ function share_submit(){
   <form id="share-form" action="{:U('Index/shareFormSubmit')}" method="post">
     <table>
       <tr>&nbsp;</tr>
-      <tr><td width="150" align="center">主題：</td><td width="330"><input id="subject" type="text" name="subject" /></td></tr>
+      <tr><td style="width:100px;text-align:right;padding-right:20px">{$text_zhuti}：</td><td width="330"><input id="subject" style="width:266px" type="text" name="subject" /></td></tr>
       <tr height="15">&nbsp;</tr>
-      <tr><td align="center">電郵：</td><td><input id="email" type="text" name="email" /></td></tr>
+      <tr><td style="width:100px;text-align:right;padding-right:20px">{$text_dianyou}：</td><td><input id="email" style="width:266px" type="text" name="email" /></td></tr>
       <tr height="15">&nbsp;</tr>
-      <tr><td align="center">內容：</td><td><textarea cols="5" rows="20" name="body" ></textarea></td></tr>
+      <tr><td style="width:100px;text-align:right;padding-right:20px">{$text_neirong}：</td><td><textarea style="height:120px" cols="5" rows="20" name="body" ></textarea></td></tr>
       <tr height="20">&nbsp;</tr>
     </table>
     <input type="hidden" name="project_id" value="{$project.id}" />
@@ -65,7 +66,7 @@ function tb_show_2()
 
 <!------------------------現正出讓業務主體部分------------------------>
 <div id="wrapIndex" class="about mb10">
-  <div class="aboutTitle">現正出讓業務</div>
+  <div class="aboutTitle">{$text_xianzhengchurangyewu}</div>
   <div class="aboutwrap">
     <div class="aboutwrap_l b_aeaeae fl mr10">
       <div class="productsTop">

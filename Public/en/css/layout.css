@@ -284,7 +284,7 @@
 }
 /*------sns图标及语言版本------*/
 #header .hTop .hInfo {
-	right: 0;
+	right: -25px;
 	width:500px;
 }
 #header .hTop .hInfo span {
@@ -316,6 +316,8 @@
 #header .hTop .search {
 	width: 720px;
 	height: 66px;
+	position: relative;
+	left: 20px;
 }
 /*------搜索的标题------*/
 #header .hTop .searchTitle {

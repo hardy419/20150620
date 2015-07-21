@@ -42,7 +42,12 @@ class ListController extends BaseController{
         $pid=I('get.pid', null);
         $id=I('get.id', null);
         if(!in_array($type,array('user', 'banner','page','category','project','ads','news'))) $this->error('',U('Index/index'));
-        $tname=$type;
+        if ('user' == $type) {
+            $tname=$type;
+        }
+        else {
+            $tname=$type.'_'.$this->lang;
+        }
 
         // Sort
         $order = I('post.o','id');
@@ -112,7 +117,7 @@ class ListController extends BaseController{
         }
         else if('project' == $type) {
             // Retrieve the category list for selection
-            $dblist = M('category')->select();
+            $dblist = M('category_'.$this->lang)->select();
             $catelist = array();
             foreach ($dblist as $item) {
                 $catelist[$item['id']] = $item['name'];
@@ -125,8 +130,8 @@ class ListController extends BaseController{
             $this->assign ('text_xiaobenchuangye', '小本創業');
         }
         else if('ads' == $type) {
-            $ads_1 = M('ads')->where(array('type'=>1))->select();
-            $ads_2 = M('ads')->where(array('type'=>2))->select();
+            $ads_1 = M('ads_'.$this->lang)->where(array('type'=>1))->select();
+            $ads_2 = M('ads_'.$this->lang)->where(array('type'=>2))->select();
             $this->assign('ads_1', $ads_1);
             $this->assign('ads_2', $ads_2);
         }
@@ -197,7 +202,7 @@ class ListController extends BaseController{
 
         if('project' == $type) {
             // Retrieve the category list for selection
-            $catelist = M('category')->select();
+            $catelist = M('category_'.$this->lang)->select();
             $this->assign('catelist', $catelist);
         }
 
@@ -251,7 +256,12 @@ class ListController extends BaseController{
         if(''==I('post.id','') || 0==I('post.id','')) unset($_POST['id']);
         $type=I('post.type');
         if(!in_array($type,array('user', 'banner','page','category','project','ads','news')))$this->error('非法操作類型',U('Index/index'));
-        $tname=$type;
+        if ('user' == $type) {
+            $tname=$type;
+        }
+        else {
+            $tname=$type.'_'.$this->lang;
+        }
         $jump=cookie("__CURRENTURL__");
         $db=D($tname);
         unset($_POST['pic']);
@@ -273,7 +283,7 @@ class ListController extends BaseController{
                         foreach($files as $k=>$f){
                             $filename=$f['savepath'].$f['savename'];
                             $typename=$f['key'];
-                            if($typename=='pic')$this->changePic($db, $tname, $f,$filename,$path);
+                            if($typename=='pic')$this->changePic($db, $type, $f,$filename,$path);
                             $db->$typename=$f['savepath'].$f['savename'];
                         }
                     }
@@ -324,7 +334,7 @@ class ListController extends BaseController{
 
             // Special cases for this project
             if ('ads' == $type) {
-                $db->type = M('ads')->where(array('id'=>$id))->getField('type');
+                $db->type = M('ads_'.$this->lang)->where(array('id'=>$id))->getField('type');
                 if (substr ($db->href,0,4) !== 'http') {
                     $db->href = 'http://'.$db->href;
                 }
@@ -584,7 +594,12 @@ class ListController extends BaseController{
     public function del(){
         $type=I('get.type');
         if(!in_array($type,array('user', 'banner','page','category','project','ads','news')))$this->error('',U('Index/index'));
-        $tname=$type;
+        if ('user' == $type) {
+            $tname=$type;
+        }
+        else {
+            $tname=$type.'_'.$this->lang;
+        }
         $id=I('get.id','');
         $jump=cookie('__CURRENTURL__');
         if(empty($id))$this->error('Delete Failure',$jump);

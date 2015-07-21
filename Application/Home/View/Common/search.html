@@ -438,7 +438,7 @@ $('.page-li').each(function(index){
   if(data['p']!=index){
     $(this).click(function(){
       $('#search-form').ajaxSubmit({
-        url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+index,
+        url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+index+"&lang={$lang}",
         success:function(data){
           ajax_search_op(data);
         },
@@ -453,7 +453,7 @@ if(data['p']>1){
   $('.prev-li').click(function(){
     var page=parseInt(data['p'])-1;
     $('#search-form').ajaxSubmit({
-      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+page,
+      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+page+"&lang={$lang}",
       success:function(data){
         ajax_search_op(data);
       },
@@ -467,7 +467,7 @@ if(data['p']<data['numpages']){
   $('.next-li').click(function(){
     var page=parseInt(data['p'])+1;
     $('#search-form').ajaxSubmit({
-      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+page,
+      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+page+"&lang={$lang}",
       success:function(data){
         ajax_search_op(data);
       },
@@ -480,7 +480,7 @@ if(data['p']<data['numpages']){
 }
 
 function ajax_submit(p,o,spanid){
-  var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project";
+  var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project&lang={$lang}";
   if(null!==p){
     $('#curpage').val(p);
   }

@@ -83,6 +83,14 @@ h3 {
 .change-password-div {
   margin-bottom: 30px;
 }
+.change-password-div a:first-child~a, .change-password-div a:first-child~a:hover {
+  text-decoration: none;
+  color: #c0c0c0;
+}
+.change-password-div a:first-child~a.active {
+  color: #ff0000;
+}
+
 li+.nav-header {
   margin-top: 30px !important;
 }

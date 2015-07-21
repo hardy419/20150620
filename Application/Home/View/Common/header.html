@@ -34,7 +34,7 @@ $(document).ready(function(){
         <li class="mt15 mr8 chat">(852)9422 8989</li>
          <li class="mt15 mr8 chat">|</li>
         <li class="mt12 mr20 hot">{$text_chaxunrexian}:(852)8108 0303</li>
-        <li class="mt10"><a href="{:U('', array('lang'=>'zh'))}"><img src="{:SITE_PATH}Public/{$lang}/images/zh.jpg" /></a><a href="{:U('', array('lang'=>'cn'))}"><img src="{:SITE_PATH}Public/{$lang}/images/cn.jpg" /></a><a href="{:U('', array('lang'=>'en'))}"><img src="{:SITE_PATH}Public/{$lang}/images/en.jpg" /></a></li>
+        <li class="mt10"><a onclick="document.cookie='lang=zh';" href="{:U('', array('lang'=>'zh'))}"><img src="{:SITE_PATH}Public/{$lang}/images/zh.jpg" /></a><a onclick="document.cookie='lang=cn';" href="{:U('', array('lang'=>'cn'))}"><img src="{:SITE_PATH}Public/{$lang}/images/cn.jpg" /></a><a onclick="document.cookie='lang=en';" href="{:U('', array('lang'=>'en'))}"><img src="{:SITE_PATH}Public/{$lang}/images/en.jpg" /></a></li>
       </ul>
     </div>
     <!--------我想找：行業，投資金額，利潤下拉彈框-------->
@@ -52,12 +52,22 @@ $(document).ready(function(){
   <div class="hNav fs15">
     <ul>
       <li><a href="{:U('Index/index',array('lang'=>$lang))}" <?PHP $hr = explode('&', $_SERVER['QUERY_STRING']); if(in_array('c=Index', $hr) && in_array('a=index', $hr)) { ?>class="current"<?PHP } ?>>{$text_shouye}</a></li>
-      <li><a href="{:U('Page/about',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && (in_array('a=about', $hr)||in_array('a=our_values', $hr)||in_array('a=services', $hr))) { ?>class="current"<?PHP } ?>>{$text_guanyuwomen}</a></li>
-      <li><a href="{:U('Page/noticeUs1',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && (in_array('a=noticeUs1', $hr)||in_array('a=noticeUs2', $hr)||in_array('a=noticeUs3', $hr)||in_array('a=noticeUs4', $hr)||in_array('a=noticeUs5', $hr))) { ?>class="current"<?PHP } ?>>{$text_chuangfuxuzhi}</a></li>
-      <li><a href="{:U('Page/buyers',array('lang'=>$lang))}" <?PHP if((in_array('c=Page', $hr) && (in_array('a=buyers', $hr)||in_array('a=why_us', $hr)||in_array('a=buyers_query', $hr))) || (in_array('c=Index', $hr) && in_array('a=BuyersQuery', $hr))) { ?>class="current"<?PHP } ?>>{$text_maijiashougouyewu}</a></li>
-      <li><a href="{:U('Page/sellers',array('lang'=>$lang))}" <?PHP if((in_array('c=Page', $hr) && (in_array('a=sellers', $hr)||in_array('a=evaluate', $hr)||in_array('a=sellers_why_us', $hr)||in_array('a=sellers_query', $hr))) || (in_array('c=Index', $hr) && in_array('a=SellersQuery', $hr))) { ?>class="current"<?PHP } ?>>{$text_maijiachurangyewu}</a></li>
+      <li onmouseover="$(this).find('ul').removeClass('nav-child');" onmouseout="$(this).find('ul').addClass('nav-child');"><a href="{:U('Page/about',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && (in_array('a=about', $hr)||in_array('a=our_values', $hr)||in_array('a=services', $hr))) { ?>class="current"<?PHP } ?>>{$text_guanyuwomen}</a>
+        <ul class="nav-child unstyled small"><li class="item-171"><a href="{:U('Page/about',array('lang'=>$lang))}">{$text_gongsijianjie}</a></li><li class="item-172"><a href="{:U('Page/our_values',array('lang'=>$lang))}">{$text_jiazhiguan}</a></li><li class="item-173"><a href="{:U('Page/services',array('lang'=>$lang))}">{$text_fuwufanwei}</a></li><li class="item-174"><a href="{:U('Page/contact',array('lang'=>$lang))}">{$text_lianluowomen}</a></li></ul>
+      </li>
+      <li onmouseover="$(this).find('ul').removeClass('nav-child');" onmouseout="$(this).find('ul').addClass('nav-child');"><a href="{:U('Page/noticeUs1',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && (in_array('a=noticeUs1', $hr)||in_array('a=noticeUs2', $hr)||in_array('a=noticeUs3', $hr)||in_array('a=noticeUs4', $hr)||in_array('a=noticeUs5', $hr))) { ?>class="current"<?PHP } ?>>{$text_chuangfuxuzhi}</a>
+        <ul class="nav-child"><li><a href="{:U('Page/noticeUs1',array('lang'=>$lang))}">{$text_chuangfuzuolaoban}</a></li><li><a href="{:U('Page/noticeUs2',array('lang'=>$lang))}">{$text_chuangfumoshi}</a></li><li><a href="{:U('Page/noticeUs3',array('lang'=>$lang))}">{$text_heweiyewuzhuanrang}</a></li><li><a href="{:U('Page/noticeUs4',array('lang'=>$lang))}">{$text_weihexuanzeyewuzhuanrang}</a></li><li><a href="{:U('Page/noticeUs5',array('lang'=>$lang))}">{$text_changjianwenti}</a></li></ul>
+      </li>
+      <li onmouseover="$(this).find('ul').removeClass('nav-child');" onmouseout="$(this).find('ul').addClass('nav-child');"><a href="{:U('Page/buyers',array('lang'=>$lang))}" <?PHP if((in_array('c=Page', $hr) && (in_array('a=buyers', $hr)||in_array('a=why_us', $hr)||in_array('a=buyers_query', $hr))) || (in_array('c=Index', $hr) && in_array('a=BuyersQuery', $hr))) { ?>class="current"<?PHP } ?>>{$text_maijiashougouyewu}</a>
+        <ul class="nav-child"><li><a href="{:U('Page/buyers',array('lang'=>$lang))}">{$text_maijiashougouchengxu}</a></li><li><a href="{:U('Page/why_us',array('lang'=>$lang))}">{$text_weihexuanzewomen}</a></li><li><a href="{:U('Page/buyers_query',array('lang'=>$lang))}">{$text_maijiachaxun}</a></li></ul>
+      </li>
+      <li onmouseover="$(this).find('ul').removeClass('nav-child');" onmouseout="$(this).find('ul').addClass('nav-child');"><a href="{:U('Page/sellers',array('lang'=>$lang))}" <?PHP if((in_array('c=Page', $hr) && (in_array('a=sellers', $hr)||in_array('a=evaluate', $hr)||in_array('a=sellers_why_us', $hr)||in_array('a=sellers_query', $hr))) || (in_array('c=Index', $hr) && in_array('a=SellersQuery', $hr))) { ?>class="current"<?PHP } ?>>{$text_maijiachurangyewu}</a>
+        <ul class="nav-child"><li><a href="{:U('Page/sellers',array('lang'=>$lang))}">{$text_maijiachurangchengxu}</a></li><li><a href="{:U('Page/evaluate',array('lang'=>$lang))}">{$text_yewuguzhi}</a></li><li><a href="{:U('Page/sellers_why_us',array('lang'=>$lang))}">{$text_weihexuanzewomen}</a></li><li><a href="{:U('Page/sellers_query',array('lang'=>$lang))}">{$text_maijiachaxun2}</a></li></ul>
+      </li>
       <li><a href="{:U('Project/index',array('lang'=>$lang))}" <?PHP if(in_array('c=Project', $hr)) { ?>class="current"<?PHP } ?>>{$text_xianzhengchurangyewu}</a></li>
-      <li><a href="{:U('Page/noticeSale1',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && (in_array('a=noticeSale1', $hr)||in_array('a=noticeSale2', $hr))) { ?>class="current"<?PHP } ?>>{$text_yingshangxuzhi}</a></li>
+      <li onmouseover="$(this).find('ul').removeClass('nav-child');" onmouseout="$(this).find('ul').addClass('nav-child');"><a href="{:U('Page/noticeSale1',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && (in_array('a=noticeSale1', $hr)||in_array('a=noticeSale2', $hr))) { ?>class="current"<?PHP } ?>>{$text_yingshangxuzhi}</a>
+        <ul class="nav-child"><li><a href="{:U('Page/noticeSale1',array('lang'=>$lang))}">{$text_kaiyeziliaoku}</a></li><li><a href="{:U('Page/noticeSale2',array('lang'=>$lang))}">{$text_yingyeziliaoku}</a></li></ul>
+      </li>
       <li><a href="{:U('Page/link',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && in_array('a=link', $hr)) { ?>class="current"<?PHP } ?>>{$text_xiangguanlianjie}</a></li>
       <li class="last"><a href="{:U('Page/contact',array('lang'=>$lang))}" <?PHP if(in_array('c=Page', $hr) && in_array('a=contact', $hr)) { ?>class="current"<?PHP } ?>>{$text_lianluowomen}</a></li>
     </ul>

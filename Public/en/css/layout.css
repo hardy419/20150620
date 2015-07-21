@@ -373,45 +373,63 @@
 	background: #fdca2e;
 	margin: 0 auto;
 }
-#header .hNav ul {
+#header .hNav>ul {
 	width: 1080px;
 	margin: 0 auto;
 	line-height: 41px;
 }
-#header .hNav ul li {
+#header .hNav>ul>li {
 	float: left;
 	background: url(../images/navLine.jpg) center right no-repeat;
 	text-align: center;
 }
-#header .hNav ul li.last {
+#header .hNav>ul>li.last {
 	float: left;
 	background: none;
 }
-#header .hNav ul li:first-child {width: 78px}
-#header .hNav ul li:first-child+li {width: 114px}
-#header .hNav ul li:first-child+li+li {width: 114px}
-#header .hNav ul li:first-child+li+li+li {width: 144px}
-#header .hNav ul li:first-child+li+li+li+li {width: 144px}
-#header .hNav ul li:first-child+li+li+li+li+li {width: 144px}
-#header .hNav ul li:first-child+li+li+li+li+li+li {width: 114px}
-#header .hNav ul li:first-child+li+li+li+li+li+li+li {width: 114px}
-#header .hNav ul li:first-child+li+li+li+li+li+li+li+li {width: 114px}
-#header .hNav ul li:first-child+li+li>a,#header .hNav ul li:first-child+li+li+li+li+li+li>a {line-height: 16px; padding-top: 5px; padding-bottom: 4px}
-#header .hNav ul li a, #header .hNav ul li a:hover {
+#header .hNav>ul>li:first-child {width: 78px}
+#header .hNav>ul>li:first-child+li,#header .hNav>ul>li:first-child+li ul,#header .hNav>ul>li:first-child+li li {width: 114px}
+#header .hNav>ul>li:first-child+li+li,#header .hNav>ul>li:first-child+li+li ul,#header .hNav>ul>li:first-child+li+li li {width: 114px}
+#header .hNav>ul>li:first-child+li+li+li,#header .hNav>ul>li:first-child+li+li+li ul,#header .hNav>ul>li:first-child+li+li+li li {width: 144px}
+#header .hNav>ul>li:first-child+li+li+li+li,#header .hNav>ul>li:first-child+li+li+li+li ul,#header .hNav>ul>li:first-child+li+li+li+li li {width: 144px}
+#header .hNav>ul>li:first-child+li+li+li+li+li {width: 144px}
+#header .hNav>ul>li:first-child+li+li+li+li+li+li,#header .hNav>ul>li:first-child+li+li+li+li+li+li ul,#header .hNav>ul>li:first-child+li+li+li+li+li+li li {width: 114px}
+#header .hNav>ul>li:first-child+li+li+li+li+li+li+li {width: 114px}
+#header .hNav>ul>li:first-child+li+li+li+li+li+li+li+li {width: 114px}
+#header .hNav>ul>li:first-child+li+li>a,#header .hNav>ul>li:first-child+li+li+li+li+li+li>a {line-height: 16px; padding-top: 5px; padding-bottom: 4px}
+#header .hNav>ul>li a, #header .hNav>ul>li a:hover {
 	font-weight: 400;
 	font-size: 14px;
 	display: block;
 }
-#header .hNav ul li a {
+#header .hNav>ul>li a {
 	color: #000;
 }
-#header .hNav ul li a:hover {
+#header .hNav>ul>li a:hover {
 	color: #fff;
 	background: url(../images/navBg.png) center bottom no-repeat #ff4400;
 }
-#header .hNav ul li a.current {
+#header .hNav>ul>li a.current {
 	color: #fff;
 	background: url(../images/navBg.png) center bottom no-repeat #ff4400;
+}
+#header .hNav>ul>li a~ul {
+  position:absolute;
+  z-index:10000;
+  width: 154px !important;
+}
+#header .hNav>ul>li a~ul li {
+  background-color: #fdca2e;
+  border-bottom: 1px solid #ee8012;
+  width: 154px !important;
+}
+#header .hNav>ul>li a~ul li a {
+  line-height: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#header .hNav .nav-child {
+  display: none;
 }
 /*=======================首页主体部分=======================*/
 #wrapIndex {

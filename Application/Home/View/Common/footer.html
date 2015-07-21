@@ -172,7 +172,7 @@ $('.page-index').each(function(){
   if(!$(this).hasClass('currentPage')){
     $(this).click(function(){
       $('#search-form').ajaxSubmit({
-        url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page,
+        url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page+"&lang={$lang}",
         success:function(data){
           ajax_search_op_home(data,false);
         },
@@ -187,7 +187,7 @@ if(data['p']<data['numpages']){
   $('.arrow-right-a').click(function(){
     var page=parseInt(data['p'])+1;
     $('#search-form').ajaxSubmit({
-      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page,
+      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page+"&lang={$lang}",
       success:function(data){
         ajax_search_op_home(data,false);
       },
@@ -200,7 +200,7 @@ if(data['p']<data['numpages']){
 }
 
 function ajax_submit_home(p,o,spanid,init,cate,hot){
-  var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&cate="+cate+"&hot="+hot;
+  var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&cate="+cate+"&hot="+hot+"&lang={$lang}";
   if(null!==p){
     $('#curpage').val(p);
   }

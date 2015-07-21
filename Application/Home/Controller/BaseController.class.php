@@ -2,6 +2,9 @@
 namespace Home\Controller;
 use Think\Controller;
 class BaseController extends Controller {
+
+	protected $lang;
+
 	public function __construct(){
 		parent::__construct();
 		/* if(!$this->checkStatus()){
@@ -10,6 +13,10 @@ class BaseController extends Controller {
 				unset($_SESSION[$loginMarked]);
 			}
 		}  */
+
+		$this->lang = I('cookie.lang', 'zh');
+		$this->assign ('lang', $this->lang);
+
 		$this->menu();
 	}
 	private function menu(){
@@ -40,7 +47,7 @@ class BaseController extends Controller {
 
 	protected function language() {
         // language
-        $lang = I('get.lang', 'zh');
+        $lang = I('get.lang', I('cookie.lang', 'zh'));
 
         if ('zh' == $lang) {
             $this->assign ('text_header_title', '創富易業務轉讓有限公司');

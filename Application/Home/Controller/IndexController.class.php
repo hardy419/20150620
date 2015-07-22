@@ -4,7 +4,7 @@ use Think\Controller;
 class IndexController extends BaseController {
     public function index(){
         // For search box
-        $dblist = M('category')->select();
+        $dblist = M('category_'.$this->lang)->select();
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
@@ -12,22 +12,22 @@ class IndexController extends BaseController {
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
         // For banner
-        $bannerlist = M('banner')->where(array('status'=>1))->select();
+        $bannerlist = M('banner_'.$this->lang)->where(array('status'=>1))->select();
         $this->assign('banners', $bannerlist);
         // For hot recomm projects
-        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
         }
         $this->assign('hot', $hot);
         // For ads
-        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
-        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $ads_1 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>2))->select();
         $this->assign('ads_1', $ads_1);
         $this->assign('ads_2', $ads_2);
         // News
-        $news = M('news')->where(array('status'=>1))->order('`date` DESC')->limit('1')->select();
+        $news = M('news_'.$this->lang)->where(array('status'=>1))->order('`date` DESC')->limit('1')->select();
         $this->assign('news', $news[0]);
 
         parent::language();
@@ -37,7 +37,7 @@ class IndexController extends BaseController {
 
     public function query(){
         // For search box
-        $dblist = M('category')->select();
+        $dblist = M('category_'.$this->lang)->select();
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
@@ -45,19 +45,19 @@ class IndexController extends BaseController {
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
         // For hot recomm projects
-        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
         }
         $this->assign('hot', $hot);
         // For ads
-        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
-        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $ads_1 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>2))->select();
         $this->assign('ads_1', $ads_1);
         $this->assign('ads_2', $ads_2);
         // All project info
-        $projects = M('project')->select();
+        $projects = M('project_'.$this->lang)->select();
         $this->assign('projects', $projects);
 
         parent::language();
@@ -116,7 +116,7 @@ class IndexController extends BaseController {
         $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
 
         $id = I('post.project_id');
-        $project = M('project')->where(array('id'=>$id))->select();
+        $project = M('project_'.$this->lang)->where(array('id'=>$id))->select();
         $project[0]['price'] = number_format ($project[0]['price'], 0);
         $project[0]['turnover'] = number_format ($project[0]['turnover'], 0);
         $project[0]['profit'] = number_format ($project[0]['profit'], 0);
@@ -128,22 +128,22 @@ class IndexController extends BaseController {
         $certificates = explode (',', $project[0]['c_certificate']);
         $this->assign ('certificates', $certificates);
 
-        $dblist = M('category')->select();
+        $dblist = M('category_'.$this->lang)->select();
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
         }
         $this->assign('catelist', $catelist);
         // For hot recomm projects
-        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
         }
         $this->assign('hot', $hot);
         // For ads
-        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
-        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $ads_1 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>2))->select();
         $this->assign('ads_1', $ads_1);
         $this->assign('ads_2', $ads_2);
 
@@ -164,7 +164,7 @@ class IndexController extends BaseController {
         $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
 
         // For search box
-        $dblist = M('category')->select();
+        $dblist = M('category_'.$this->lang)->select();
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
@@ -172,22 +172,22 @@ class IndexController extends BaseController {
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
         // For hot recomm projects
-        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
         }
         $this->assign('hot', $hot);
         // For ads
-        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
-        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $ads_1 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>2))->select();
         $this->assign('ads_1', $ads_1);
         $this->assign('ads_2', $ads_2);
 
         parent::language();
 
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'買家查詢'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'買家查詢'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -206,7 +206,7 @@ class IndexController extends BaseController {
         $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
 
         // For search box
-        $dblist = M('category')->select();
+        $dblist = M('category_'.$this->lang)->select();
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
@@ -214,22 +214,22 @@ class IndexController extends BaseController {
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
         // For hot recomm projects
-        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
         }
         $this->assign('hot', $hot);
         // For ads
-        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
-        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $ads_1 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>2))->select();
         $this->assign('ads_1', $ads_1);
         $this->assign('ads_2', $ads_2);
 
         parent::language();
 
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'賣家查詢'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'賣家查詢'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -246,7 +246,7 @@ class IndexController extends BaseController {
         $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
 
         // For search box
-        $dblist = M('category')->select();
+        $dblist = M('category_'.$this->lang)->select();
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
@@ -257,7 +257,7 @@ class IndexController extends BaseController {
         parent::language();
 
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'聯絡我們'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'聯絡我們'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -278,22 +278,22 @@ class IndexController extends BaseController {
         $body = '姓名: '.$name.'<br/>電郵: '.$email.'<br/>電話號碼: '.$tel.'<br/>地址: '.$addr.'<br/>性別: '.$gender.'<br/>年齡: '.(1==$age?'男':'女').'<br/>出生日期: '.$birth.'<br/>職業: '.$occu.'<br/>感興趣之行業: '.$interest;
         $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
 
-        $dblist = M('category')->select();
+        $dblist = M('category_'.$this->lang)->select();
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
         }
         $this->assign('catelist', $catelist);
         // For hot recomm projects
-        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
         }
         $this->assign('hot', $hot);
         // For ads
-        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
-        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $ads_1 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>2))->select();
         $this->assign('ads_1', $ads_1);
         $this->assign('ads_2', $ads_2);
 
@@ -323,22 +323,22 @@ class IndexController extends BaseController {
         $body.= '<br/>最方便之聯絡時間: '.I('post.input_time');
         $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
 
-        $dblist = M('category')->select();
+        $dblist = M('category_'.$this->lang)->select();
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
         }
         $this->assign('catelist', $catelist);
         // For hot recomm projects
-        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
         }
         $this->assign('hot', $hot);
         // For ads
-        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
-        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $ads_1 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>2))->select();
         $this->assign('ads_1', $ads_1);
         $this->assign('ads_2', $ads_2);
 
@@ -370,14 +370,14 @@ class IndexController extends BaseController {
         $map_metro = I('post.checkbox_metro',null);
         $map_checkbox = I('post.checkbox',null);
 
-        $dblist = M('category')->select();
+        $dblist = M('category_'.$this->lang)->select();
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
             $catelist_t[$item['id']] = $item['t'];
         }
 
-        $model=D($type);
+        $model=D($type.'_'.$this->lang);
 
         $map = array();
 

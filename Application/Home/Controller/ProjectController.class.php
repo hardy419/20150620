@@ -5,7 +5,7 @@ class ProjectController extends BaseController {
 
     public function index(){
         // For search box
-        $dblist = M('category')->select();
+        $dblist = M('category_'.$this->lang)->select();
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
@@ -23,7 +23,7 @@ class ProjectController extends BaseController {
         if (empty($id) || null == $id) {
             $this->error('');
         }
-        $project = M('project')->where(array('id'=>$id))->select();
+        $project = M('project_'.$this->lang)->where(array('id'=>$id))->select();
         $project[0]['price'] = number_format ($project[0]['price'], 0);
         $project[0]['turnover'] = number_format ($project[0]['turnover'], 0);
         $project[0]['profit'] = number_format ($project[0]['profit'], 0);
@@ -35,22 +35,24 @@ class ProjectController extends BaseController {
         $certificates = explode (',', $project[0]['c_certificate']);
         $this->assign ('certificates', $certificates);
 
-        $dblist = M('category')->select();
+        // For search box
+        $dblist = M('category_'.$this->lang)->select();
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
         }
         $this->assign('catelist', $catelist);
+        $this->assign('categories', $dblist);
         // For hot recomm projects
-        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
         }
         $this->assign('hot', $hot);
         // For ads
-        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
-        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $ads_1 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>2))->select();
         $this->assign('ads_1', $ads_1);
         $this->assign('ads_2', $ads_2);
 

@@ -17,6 +17,19 @@ class BaseController extends Controller {
 		$this->lang = I('cookie.lang', 'zh');
 		$this->assign ('lang', $this->lang);
 
+		$this->assign ('area_id', 1);
+		$this->assign ('field_id', 2);
+		$this->assign ('participation_id', 4);
+		$this->assign ('location_id', 5);
+		$this->assign ('metro_id', 7);
+		$this->assign ('yinshiye_id', 9);
+		$this->assign ('jiaoyuye_id', 17);
+		$this->assign ('caishi_id', 10);
+		$this->assign ('shidian_id', 11);
+		$this->assign ('chipaizhuangkuang_id', 23);
+		$this->assign ('leibie_id', 24);
+		$this->assign ('hkjingwai_id', 126);
+
 		$this->menu();
 	}
 	private function menu(){
@@ -146,6 +159,14 @@ class BaseController extends Controller {
             $this->assign ('text_zhuti', '主題');
             $this->assign ('text_neirong', '內容');
 
+            $this->assign ('text_xuanzequanbu', '選擇全部');
+            $this->assign ('text_renhehangye', '任何行業');
+            $this->assign ('text_suoyouleibie', '所有類別');
+            $this->assign ('text_suoyou', '所有');
+            $this->assign ('text_renhe', '任何');
+            $this->assign ('text_quan', '全');
+            $this->assign ('text_qu', '區');
+
             $this->assign ('text_month', '月');
         }
         else if ('cn' == $lang) {
@@ -245,6 +266,14 @@ class BaseController extends Controller {
             $this->assign ('text_zhuti', '主题');
             $this->assign ('text_neirong', '内容');
 
+            $this->assign ('text_xuanzequanbu', '选择全部');
+            $this->assign ('text_renhehangye', '任何行业');
+            $this->assign ('text_suoyouleibie', '所有类别');
+            $this->assign ('text_suoyou', '所有');
+            $this->assign ('text_renhe', '任何');
+            $this->assign ('text_quan', '全');
+            $this->assign ('text_qu', '区');
+
             $this->assign ('text_month', '月');
         }
         else if ('en' == $lang) {
@@ -343,6 +372,14 @@ class BaseController extends Controller {
 
             $this->assign ('text_zhuti', 'Subject');
             $this->assign ('text_neirong', 'Contents');
+
+            $this->assign ('text_xuanzequanbu', 'Select All');
+            $this->assign ('text_renhehangye', 'Select All');
+            $this->assign ('text_suoyouleibie', 'Select All');
+            $this->assign ('text_suoyou', 'All ');
+            $this->assign ('text_renhe', 'Any ');
+            $this->assign ('text_quan', 'All ');
+            $this->assign ('text_qu', '');
 
             $this->assign ('text_month', ' month');
         }

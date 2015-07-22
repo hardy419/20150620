@@ -5,7 +5,7 @@ class PageController extends BaseController {
 
     protected function common(){
         // For search box
-        $dblist = M('category')->select();
+        $dblist = M('category_'.$this->lang)->select();
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
@@ -13,15 +13,15 @@ class PageController extends BaseController {
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
         // For hot recomm projects
-        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
         }
         $this->assign('hot', $hot);
         // For ads
-        $ads_1 = M('ads')->where(array('status'=>1,'type'=>1))->select();
-        $ads_2 = M('ads')->where(array('status'=>1,'type'=>2))->select();
+        $ads_1 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>2))->select();
         $this->assign('ads_1', $ads_1);
         $this->assign('ads_2', $ads_2);
 
@@ -41,7 +41,7 @@ class PageController extends BaseController {
     public function about(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'公司簡介'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'公司簡介'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -51,7 +51,7 @@ class PageController extends BaseController {
     public function our_values(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'我們的價值觀'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'我們的價值觀'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -61,7 +61,7 @@ class PageController extends BaseController {
     public function services(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'服務範圍'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'服務範圍'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -75,7 +75,7 @@ class PageController extends BaseController {
     public function buyers(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'買家收購程序'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'買家收購程序'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -85,7 +85,7 @@ class PageController extends BaseController {
     public function why_us(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'為何選擇我們'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'為何選擇我們'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -95,7 +95,7 @@ class PageController extends BaseController {
     public function buyers_query(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'買家查詢'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'買家查詢'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -109,7 +109,7 @@ class PageController extends BaseController {
     public function sellers(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'賣家出讓程序'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'賣家出讓程序'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -119,7 +119,7 @@ class PageController extends BaseController {
     public function evaluate(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'業務估值'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'業務估值'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -129,7 +129,7 @@ class PageController extends BaseController {
     public function sellers_why_us(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'為何選擇我們(賣家)'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'為何選擇我們(賣家)'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -139,7 +139,7 @@ class PageController extends BaseController {
     public function sellers_query(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'賣家查詢'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'賣家查詢'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -153,7 +153,7 @@ class PageController extends BaseController {
     public function noticeUs1(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'創富做老闆'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'創富做老闆'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -163,7 +163,7 @@ class PageController extends BaseController {
     public function noticeUs2(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'創業模式之比較'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'創業模式之比較'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -173,7 +173,7 @@ class PageController extends BaseController {
     public function noticeUs3(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'何謂「業務轉讓」'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'何謂「業務轉讓」'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -183,7 +183,7 @@ class PageController extends BaseController {
     public function noticeUs4(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'為何選擇業務轉讓'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'為何選擇業務轉讓'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -193,7 +193,7 @@ class PageController extends BaseController {
     public function noticeUs5(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'常見問題'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'常見問題'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -207,7 +207,7 @@ class PageController extends BaseController {
     public function noticeSale1(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'開業資料庫'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'開業資料庫'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -217,7 +217,7 @@ class PageController extends BaseController {
     public function noticeSale2(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'營商資料庫'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'營商資料庫'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -227,7 +227,7 @@ class PageController extends BaseController {
     public function link(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'相關連結'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'相關連結'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 
@@ -237,7 +237,7 @@ class PageController extends BaseController {
     public function contact(){
         $this->common();
         // Retrieve page contents
-        $page = M('page')->where(array('title'=>'聯絡我們'))->select();
+        $page = M('page_'.$this->lang)->where(array('title'=>'聯絡我們'))->select();
         $this->assign('banner', $page[0]['banner']);
         $this->assign('content', $page[0]['content']);
 

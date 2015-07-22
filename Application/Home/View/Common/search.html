@@ -19,7 +19,7 @@
   <h3 class="element-tit" id="TB_title" style="padding:10px 0">飲食業</h3>
   <div style="width:96%;height:auto;background-color:rgb(253,233,217);border-radius:10px;padding:5px 20px">
     <h3 class="element-tit" id="TB_subtitle" style="width: 90px;display:block; float:left;">菜式</h3>
-    <h3 class="element-tit" style="width: 100px;display:block; float:left;"><input type="checkbox" value="1" class="selectall" name="all_extra_18" onclick="checkall('#TB_options_u input',$(this));">&nbsp;選擇全部</h3>
+    <h3 class="element-tit" style="width: 100px;display:block; float:left;"><input type="checkbox" value="1" class="selectall" name="all_extra_18" onclick="checkall('#TB_options_u input',$(this));">&nbsp;{$text_xuanzequanbu}</h3>
     <div class="clearboth"></div>
   </div>
   <ul id="TB_options_u" style="width:96%;height:auto;padding:5px 0;margin-left:20px">
@@ -28,7 +28,7 @@
   <div id="TB_section_2">
     <div style="width:96%;height:auto;background-color:rgb(253,233,217);border-radius:10px;padding:5px 20px">
       <h3 class="element-tit" id="TB_subtitle_2" style="width: 90px;display:block; float:left;">食店</h3>
-      <h3 class="element-tit" style="width: 100px;display:block; float:left;"><input type="checkbox" value="1" class="selectall" name="all_extra_18" onclick="checkall('#TB_options_2_u input',$(this));">&nbsp;選擇全部</h3>
+      <h3 class="element-tit" style="width: 100px;display:block; float:left;"><input type="checkbox" value="1" class="selectall" name="all_extra_18" onclick="checkall('#TB_options_2_u input',$(this));">&nbsp;{$text_xuanzequanbu}</h3>
       <div class="clearboth"></div>
     </div>
     <ul id="TB_options_2_u" style="width:96%;height:auto;padding:5px 0;margin-left:20px">
@@ -44,12 +44,12 @@ function js_op_close(reload){
   // Return options from advanced search box
   $('#TB_options_u li,#TB_options_2_u li').css('float','initial');
   $('#TB_options_u li,#TB_options_2_u li').css('width','inherit');
-  if('飲食業'==$('#TB_title').text()){
+  if('{$catelist[$yinshiye_id]|html_entity_decode=###}'==$('#TB_title').text()){
     $('#TB_options_u li:first-child+li+li~li,#TB_options_2_u li:first-child+li~li').css('display','none');
     $('#TB_options_u li').appendTo('.checkbox-block-'+$("#TB_window").attr('fid'));
     $('#TB_options_2_u li').appendTo('.checkbox-block-'+$("#TB_window").attr('fid'));
   }
-  else if('教育業'==$('#TB_title').text()){
+  else if('{$catelist[$jiaoyuye_id]|html_entity_decode=###}'==$('#TB_title').text()){
     $('#TB_options_u li:first-child+li~li,#TB_options_2_u li:first-child+li+li+li~li').css('display','none');
     $('#TB_options_u li').css('float','left');
     $('#TB_options_u li:first-child').css('width','46px');
@@ -68,12 +68,12 @@ function js_op_close(reload){
 function tb_show(fname,id)
 {
   // Move options to advanced search box
-  if('飲食業'==fname){
+  if('{$catelist[$yinshiye_id]|html_entity_decode=###}'==fname){
     $('.checkbox-block-'+id+' li:first-child~.li-1').insertBefore('#TB_options');
     $('.checkbox-block-'+id+' li:first-child~.li-2').insertBefore('#TB_options_2');
     $('#TB_section_2').css('display','block');
   }
-  else if('教育業'==fname){
+  else if('{$catelist[$jiaoyuye_id]|html_entity_decode=###}'==fname){
     $('.checkbox-block-'+id+' li:first-child+li>ul>.li-1').insertBefore('#TB_options');
     $('.checkbox-block-'+id+' li:first-child~.li-2').insertBefore('#TB_options_2');
     $('#TB_section_2').css('display','block');
@@ -87,15 +87,15 @@ function tb_show(fname,id)
   $('#TB_options_u li,#TB_options_2_u li').css('width','145px');
   $('#TB_options_u li,#TB_options_2_u li').css('display','block');
   $('#TB_title').text(fname);
-  if('飲食業'==fname){
-    $('#TB_subtitle').text('菜式');
-    $('#TB_subtitle_2').text('食店');
+  if('{$catelist[$yinshiye_id]|html_entity_decode=###}'==fname){
+    $('#TB_subtitle').text('{$catelist[$caishi_id]|html_entity_decode=###}');
+    $('#TB_subtitle_2').text('{$catelist[$shidian_id]|html_entity_decode=###}');
     $('#TB_subtitle').css('width','60px');
     $('#TB_subtitle_2').css('width','60px');
   }
-  else if('教育業'==fname){
-    $('#TB_subtitle').text('持牌狀況');
-    $('#TB_subtitle_2').text('類別');
+  else if('{$catelist[$jiaoyuye_id]|html_entity_decode=###}'==fname){
+    $('#TB_subtitle').text('{$catelist[$chipaizhuangkuang_id]|html_entity_decode=###}');
+    $('#TB_subtitle_2').text('{$catelist[$leibie_id]|html_entity_decode=###}');
     $('#TB_subtitle').css('width','90px');
     $('#TB_subtitle_2').css('width','90px');
   }
@@ -151,7 +151,7 @@ function checkall(selector,refbox){
           <h1 class="element-tit" style="display:block;"><input type="checkbox" value="1" class="recomm" name="recomm"><span style="color:red">{$text_chaozhituijie}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="1" class="small_business" name="small_business"><span style="color:red">{$text_xiaobenchuangye}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" value="1" class="first_choice" name="first_choice"><span style="color:red">{$text_touzishouxuan}</span></h1><div class="closed_icon" style="float:right">X</div>
         </div>
         <div class="all_fields" style="border-bottom:1px dotted #99979c; padding-bottom: 5px; padding-top: 5px">
-          <h1 class="element-tit" style="display:block;"><input type="checkbox" value="1" class="selectall" name="all_extra_18" onclick="checkall('.fields-u input',$(this))">任何行業</h1>
+          <h1 class="element-tit" style="display:block;"><input type="checkbox" value="1" class="selectall" name="all_extra_18" onclick="checkall('.fields-u input',$(this))">{$text_renhehangye}</h1>
         </div>
     </div>
 
@@ -165,26 +165,26 @@ function checkall(selector,refbox){
 .top_submenus .fields-u li.left:first-child+li+li+li+li+li~li{width:140px}
 </style>
   <ul class="elementBox fields-u" style="border-bottom:1px dotted #99979c; padding-bottom: 5px; padding-top: 5px">    
-<?PHP foreach ($categories as $cate) if('行業' == $cate['t']) { ?>
+<?PHP foreach ($categories as $cate) if($catelist[$field_id] == $cate['t']) { ?>
     <li class="left">
       <h3 class="element-tit">{$cate.name}</h3>
       <ul class="checkbox-block-{$cate.id}">
-        <li><input type="checkbox" name="checkbox_block_{$cate.id}_all" value="1" class="checkedall_{$cate.id}" onclick="checkall('ul.checkbox-block-{$cate.id} input',$(this));"><span class="element-name" style="font-weight:bold">所有類別</span></li>
-        <?PHP if ('飲食業' == $cate['name']) { ?>
-          <?PHP $count=0;foreach ($categories as $cate2) if('菜式' == $cate2['t'] || '食店' == $cate2['t']) { ++$count; ?>
-            <li class="li-<?PHP echo ('菜式' == $cate2['t'])?1:2; ?> <?PHP echo ($count>5)?'displaynone':''; ?>"><input type="checkbox" name="checkbox[{$cate.id}][<?PHP echo ('菜式' == $cate2['t'])?1:2; ?>][]" value="{$cate2.id}" class="element_{$cate.id}"><span class="element-name">{$cate2.name}</span></li>
+        <li><input type="checkbox" name="checkbox_block_{$cate.id}_all" value="1" class="checkedall_{$cate.id}" onclick="checkall('ul.checkbox-block-{$cate.id} input',$(this));"><span class="element-name" style="font-weight:bold">{$text_suoyouleibie}</span></li>
+        <?PHP if ($catelist[$yinshiye_id] == $cate['name']) { ?>
+          <?PHP $count=0;foreach ($categories as $cate2) if($catelist[$caishi_id] == $cate2['t'] || $catelist[$shidian_id] == $cate2['t']) { ++$count; ?>
+            <li class="li-<?PHP echo ($catelist[$caishi_id] == $cate2['t'])?1:2; ?> <?PHP echo ($count>5)?'displaynone':''; ?>"><input type="checkbox" name="checkbox[{$cate.id}][<?PHP echo ($catelist[$caishi_id] == $cate2['t'])?1:2; ?>][]" value="{$cate2.id}" class="element_{$cate.id}"><span class="element-name">{$cate2.name}</span></li>
           <?PHP } ?>
-        <?PHP } else if ('教育業' == $cate['name']) { ?>
+        <?PHP } else if ($catelist[$jiaoyuye_id] == $cate['name']) { ?>
           <li>
             <ul class="elementBox" style="border-bottom:1px dotted #99979c;">
-              <?PHP foreach ($categories as $cate2) if('持牌狀況' == $cate2['t']) { ?>
+              <?PHP foreach ($categories as $cate2) if($catelist[$chipaizhuangkuang_id] == $cate2['t']) { ?>
               <li class="li-1 floatleft"><input type="checkbox" name="checkbox[{$cate.id}][1][]" value="{$cate2.id}" class="element_{$cate.id}"><span class="element-name">{$cate2.name}</span></li>
               <?PHP } ?>
               <div class="clearboth"></div>
             </ul>
           </li>
           <li style="height:5px"></li>
-          <?PHP $count=0;foreach ($categories as $cate2) if('類別' == $cate2['t']) { ++$count; ?>
+          <?PHP $count=0;foreach ($categories as $cate2) if($catelist[$leibie_id] == $cate2['t']) { ++$count; ?>
             <li class="li-2 <?PHP echo ($count>4)?'displaynone':''; ?>"><input type="checkbox" name="checkbox[{$cate.id}][2][]" value="{$cate2.id}" class="element_{$cate.id}"><span class="element-name">{$cate2.name}</span></li>
           <?PHP } ?>
         <?PHP } else { ?>
@@ -232,7 +232,7 @@ function checkall(selector,refbox){
       <h3 class="element-tit">參與程度</h3>
       <ul class="Participate">
             <li><input type="checkbox" name="checkall_participate" value="checkall_participate" class="element_4" onclick="checkall('ul.Participate input',$(this))"><span class="element-name">參與程度不限</span></li>
-          <?PHP foreach ($categories as $cate) if('東主參與程度' == $cate['t']) { ?>
+          <?PHP foreach ($categories as $cate) if($catelist[$participation_id] == $cate['t']) { ?>
             <li><input type="checkbox" name="checkbox_participate[]" value="{$cate.id}" class="element_{$cate.id}"><span class="element-name">{$cate.name}</span></li>
           <?PHP } ?>
             </ul>
@@ -292,24 +292,24 @@ function checkall(selector,refbox){
 <div class="top_submenus Area" style="display: none;">
       <ul class="elementBox">
         <li class="left" style="padding-top:0">
-          <h2 class="element-tit_2">經營場所類別</h2>
+          <h2 class="element-tit_2">{$catelist[$location_id]|html_entity_decode=###}</h2>
           <ul>
-          	<li><input type="checkbox" name="extra_fields_20_all" value="-1" class="checkedall_20"><span class="element-tit">任何經營場所類別</span></li><li style="height:8px"></li>
-              <?PHP foreach ($categories as $cate) if('經營場所類別' == $cate['t']) { ?>
+          	<li><input type="checkbox" name="extra_fields_20_all" value="-1" class="checkedall_20"><span class="element-tit">{$text_renhe}{$catelist[$location_id]|html_entity_decode=###}</span></li><li style="height:8px"></li>
+              <?PHP foreach ($categories as $cate) if($catelist[$location_id] == $cate['t']) { ?>
               <li style="margin-left: 18px;"><input type="checkbox" name="checkbox_location[]" value="{$cate.id}" class="element_20"><span class="element-name">{$cate.name}</span></li>
               <?PHP } ?>
           </ul>
         </li>
 
         <div style="width: 1020px; border-bottom:1px dotted #99979c; padding-bottom:5px">
-         <h2 class="element-tit_2">&nbsp;&nbsp;&nbsp;&nbsp;地區</h2>
+         <h2 class="element-tit_2">&nbsp;&nbsp;&nbsp;&nbsp;{$catelist[$area_id]|html_entity_decode=###}</h2>
          <div class="closed_icon floatright">X</div>
         <li>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="extra_fields_17_all" value="" class="checkedall_17"><span class="element-tit">&nbsp;&nbsp;覆盖全港</span></li>
-<?PHP foreach ($categories as $cate) if('地區' == $cate['t'] && '香港境外' != $cate['name']) { ?>
+<?PHP foreach ($categories as $cate) if($catelist[$area_id] == $cate['t'] && $catelist[$hkjingwai_id] != $cate['name']) { ?>
     <li class="left">
-      <h2 class="element-tit_2">{$cate.name}區</h2>
+      <h2 class="element-tit_2">{$cate.name}{$text_qu}</h2>
       <ul class="hkd">
-        <li><input type="checkbox" name="sub_extra_17_1" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">全{$cate.name}</span></li>
+        <li><input type="checkbox" name="sub_extra_17_1" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">{$text_quan}{$cate.name}</span></li>
         <li class="add-left2">
 	        <ul class="clearfix"> 
               <?PHP foreach ($categories as $cate2) if($cate['name'] == $cate2['t']) { ?>
@@ -319,16 +319,16 @@ function checkall(selector,refbox){
 	    </li>
       </ul>
     </li>
-<?PHP } else if('香港境外' == $cate['name']) { $oversea_id = $cate['id']; } ?>
+<?PHP } else if($catelist[$hkjingwai_id] == $cate['name']) { $oversea_id = $cate['id']; } ?>
     </div>
 
      <li class="left" style="width: 140px;">
-      <h2 class="element-tit_2">地鐵沿線</h2>
+      <h2 class="element-tit_2">{$catelist[$metro_id]|html_entity_decode=###}</h2>
       <ul class="hkd">
-        <li><input type="checkbox" name="sub_extra_17_4" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">任何地鐵沿線</span></li>
+        <li><input type="checkbox" name="sub_extra_17_4" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">{$text_renhe}{$catelist[$metro_id]|html_entity_decode=###}</span></li>
         <li class="add-left2">
         <ul class="clearfix">
-          <?PHP foreach ($categories as $cate) if('地鐵沿線' == $cate['t']) { ?>
+          <?PHP foreach ($categories as $cate) if($catelist[$metro_id] == $cate['t']) { ?>
           <li><input type="checkbox" name="checkbox_metro[]" value="{$cate.id}" class="element_17"><span class="element-name">{$cate.name}</span></li>
           <?PHP } ?>
         </ul>
@@ -336,12 +336,12 @@ function checkall(selector,refbox){
       </ul>
     </li>
        <li class="left" style="width: 100px;">
-      <h2 class="element-tit_2">香港境外</h2>
+      <h2 class="element-tit_2">{$catelist[$hkjingwai_id]|html_entity_decode=###}</h2>
       <ul class="hkd">
-        <li><input type="checkbox" name="sub_extra_17_5" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">所有地區</span></li>
+        <li><input type="checkbox" name="sub_extra_17_5" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">{$text_suoyou}{$catelist[$area_id]|html_entity_decode=###}</span></li>
         <li class="add-left2">
          <ul class="clearfix">
-           <?PHP foreach ($categories as $cate2) if('香港境外' == $cate2['t']) { ?>
+           <?PHP foreach ($categories as $cate2) if($catelist[$hkjingwai_id] == $cate2['t']) { ?>
            <li><input type="checkbox" name="checkbox[{$oversea_id}][]" value="{$cate2.id}" class="element_17"><span class="element-name">{$cate2.name}</span></li>
            <?PHP } ?>
 		</ul>

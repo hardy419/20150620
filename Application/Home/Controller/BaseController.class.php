@@ -288,7 +288,7 @@ class BaseController extends Controller {
             $this->assign ('text_maijiashougouyewu', 'Buyer Acquisition');
             $this->assign ('text_maijiachurangyewu', 'Selling Business');
             $this->assign ('text_xianzhengchurangyewu', 'Business For Sale');
-            $this->assign ('text_yingshangxuzhi', 'Useful Information');
+            $this->assign ('text_yingshangxuzhi', 'Useful　Information');
             $this->assign ('text_xiangguanlianjie', 'Useful Links');
             $this->assign ('text_lianluowomen', 'Contact Us');
             $this->assign ('text_gongsijianjie', 'Company Profile');

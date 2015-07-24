@@ -42,7 +42,7 @@
 <script>
 function js_op_close(reload){
   // Return options from advanced search box
-  $('#TB_options_u li,#TB_options_2_u li').css('float','initial');
+  $('#TB_options_u li,#TB_options_2_u li').css('float','inherit');
   $('#TB_options_u li,#TB_options_2_u li').css('width','inherit');
   if('{$catelist[$yinshiye_id]|html_entity_decode=###}'==$('#TB_title').text()){
     $('#TB_options_u li:first-child+li+li~li,#TB_options_2_u li:first-child+li~li').css('display','none');

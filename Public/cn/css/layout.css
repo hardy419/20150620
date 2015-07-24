@@ -284,7 +284,7 @@
 }
 /*------sns图标及语言版本------*/
 #header .hTop .hInfo {
-	right: -20px;
+	right: -27px;
 	width:500px;
 }
 #header .hTop .hInfo span {
@@ -622,6 +622,11 @@
 	right: 24px;
 	bottom: 7px;
 }
+
+
+#project-table td:first-child {text-align: left; padding-left: 5px; padding-right: 5px}
+#project-table td:first-child+td {text-align: left; padding-left: 10px}
+
 /*=======================页尾=======================*/
 #footer {
 	width: 100%;

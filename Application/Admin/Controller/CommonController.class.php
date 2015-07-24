@@ -56,6 +56,20 @@ class CommonController extends Controller {
       	 cookie($loginMarked,$cookie[0].'_'.time(),0,'/');
       	 return true;
       }
+      public function checkPrivilege() {
+        $userdb = M('user');
+        $loginMarked=md5(C('AUTH_TOKEN'));
+        $t = $userdb->where(array ('id'=>$_SESSION[$loginMarked]))->getField ('acct_name');
+        $hr = explode('&', $_SERVER['QUERY_STRING']);
+        $type = I('request.type', '');
+        if ('Manager' == $t && (in_array('c=List', $hr) && 'banner' != $type && 'news' != $type && 'ads' != $type && 'category' != $type && 'project' != $type)) {
+            return false;
+        }
+        else if ('Operator' == $t && (in_array('c=List', $hr) && 'project' != $type)) {
+            return false;
+        }
+        return true;
+      }
       public function logout(){
       	  $loginMarked=md5(C('AUTH_TOKEN'));
           if(isset($_SESSION[$loginMarked])){

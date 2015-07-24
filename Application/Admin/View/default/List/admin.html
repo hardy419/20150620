@@ -21,7 +21,10 @@
 				    <label class="control-label">名稱：</label>
 				    <div class="controls">
 				    <select id="acct_name" name="acct_name">
-                      <option value='Superadmin'>Superadmin</option>
+				      <option value='Superadmin' <if condition="$list['acct_name'] eq 'Superadmin'">selected</if>>Superadmin</option>
+				      <option value='CEO' <if condition="$list['acct_name'] eq 'CEO'">selected</if>>CEO</option>
+				      <option value='Manager' <if condition="$list['acct_name'] eq 'Manager'">selected</if>>Manager</option>
+				      <option value='Operator' <if condition="$list['acct_name'] eq 'Operator'">selected</if>>Operator</option>
                     </select>
 				    </div>
 				    </div>

@@ -13,6 +13,10 @@ class BaseController extends Controller {
 			$this->redirect('Common/login');
 		} 
 
+		if(!$common->checkPrivilege()){
+			$this->error('你所在的用戶組沒有此權限');
+		} 
+
 		$this->lang = I('cookie.lang', 'zh');
 		$this->assign ('lang', $this->lang);
 	}

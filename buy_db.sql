@@ -516,6 +516,7 @@ INSERT INTO `buy_projectphoto` (`id`, `title`, `pic`, `sid`, `status`, `pid`) VA
 
 CREATE TABLE IF NOT EXISTS `buy_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `acct_name` varchar(32) NOT NULL,
   `account` varchar(50) NOT NULL,
   `login_count` varchar(50) NOT NULL,
   `last_login_time` varchar(50) NOT NULL,
@@ -530,10 +531,10 @@ CREATE TABLE IF NOT EXISTS `buy_user` (
 -- 转存表中的数据 `buy_user`
 --
 
-INSERT INTO `buy_user` (`id`, `account`, `login_count`, `last_login_time`, `password`, `status`, `nickname`, `last_login_ip`) VALUES
-(1, 'admin', '216', '1437465311', 'b59c67bf196a4758191e42f76670ceba', 1, '', '127.0.0.1'),
-(2, 'admin2', '1', '1435134755', '934b535800b1cba8f96a5d72f72f1611', 1, '', NULL),
-(3, 'Danny Yeung', '', '', '4236e4b04826528c8b9901d80f5adef7', 0, '', NULL);
+INSERT INTO `buy_user` (`id`, `acct_name`, `account`, `login_count`, `last_login_time`, `password`, `status`, `nickname`, `last_login_ip`) VALUES
+(1, 'CEO', 'admin', '222', '1437705921', 'b59c67bf196a4758191e42f76670ceba', 1, '', '127.0.0.1'),
+(2, 'Manager', 'admin2', '3', '1437706124', '934b535800b1cba8f96a5d72f72f1611', 1, '', NULL),
+(3, '', 'Danny Yeung', '', '', '4236e4b04826528c8b9901d80f5adef7', 0, '', NULL);
 
 -- --------------------------------------------------------
 

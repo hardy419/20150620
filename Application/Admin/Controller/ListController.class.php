@@ -128,6 +128,26 @@ class ListController extends BaseController{
             $this->assign ('text_touzishouxuan', '投資首選');
             $this->assign ('text_chaozhituijie', '筍盤推介');
             $this->assign ('text_xiaobenchuangye', '小本創業');
+            $this->assign ('text_xuanzequanbu', '選擇全部');
+            $this->assign ('text_renhehangye', '任何行業');
+            $this->assign ('text_suoyouleibie', '所有類別');
+            $this->assign ('text_suoyou', '所有');
+            $this->assign ('text_renhe', '任何');
+            $this->assign ('text_quan', '全');
+            $this->assign ('text_qu', '區');
+
+            $this->assign ('area_id', 1);
+            $this->assign ('field_id', 2);
+            $this->assign ('participation_id', 4);
+            $this->assign ('location_id', 5);
+            $this->assign ('metro_id', 7);
+            $this->assign ('yinshiye_id', 9);
+            $this->assign ('jiaoyuye_id', 17);
+            $this->assign ('caishi_id', 10);
+            $this->assign ('shidian_id', 11);
+            $this->assign ('chipaizhuangkuang_id', 23);
+            $this->assign ('leibie_id', 24);
+            $this->assign ('hkjingwai_id', 126);
         }
         else if('ads' == $type) {
             $ads_1 = M('ads_'.$this->lang)->where(array('type'=>1))->select();

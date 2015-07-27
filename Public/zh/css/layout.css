@@ -484,12 +484,12 @@
 	top: 0px;
 }
 .u-div ul li {
-	height: 91px;
+	height: auto;
 }
 .u-div ul li a {
 	color: #ff0000;
 	font-weight: 600;
-	white-space: nowrap;
+	/*white-space: nowrap;*/
 }
 .u-div ul li p {
 	color: #333;

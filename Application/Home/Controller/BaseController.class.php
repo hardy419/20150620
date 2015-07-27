@@ -69,7 +69,7 @@ class BaseController extends Controller {
             $this->assign ('text_diqu', '地區');
             $this->assign ('text_shuruguanjianzi', '輸入關鍵字');
             $this->assign ('text_shouye', '首頁');
-            $this->assign ('text_guanyuwomen', '關于我們');
+            $this->assign ('text_guanyuwomen', '關於我們');
             $this->assign ('text_chuangfuxuzhi', '創富須知');
             $this->assign ('text_maijiashougouyewu', '買家收購業務');
             $this->assign ('text_maijiachurangyewu', '賣家出讓業務');

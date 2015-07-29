@@ -24,6 +24,10 @@ class BaseController extends Controller {
 		$this->assign ('metro_id', 7);
 		$this->assign ('yinshiye_id', 9);
 		$this->assign ('jiaoyuye_id', 17);
+		$this->assign ('meirongye_id', 56);
+		$this->assign ('lingshouye_id', 62);
+		$this->assign ('fuwuye_id', 77);
+		$this->assign ('qitahangye_id', 92);
 		$this->assign ('caishi_id', 10);
 		$this->assign ('shidian_id', 11);
 		$this->assign ('chipaizhuangkuang_id', 23);

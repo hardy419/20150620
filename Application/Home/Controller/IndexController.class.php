@@ -357,9 +357,9 @@ class IndexController extends BaseController {
         $cate = I('request.cate',null);
         $hot = I('request.hot',null);
 
-        $map_recomm = I('post.recomm',null);
-        $map_smallbusiness = I('post.small_business',null);
-        $map_1stchoice = I('post.first_choice',null);
+        $map_recomm = I('request.recomm',null);
+        $map_smallbusiness = I('request.small_business',null);
+        $map_1stchoice = I('request.first_choice',null);
         $map_invest = I('post.extra_19',null);
         $map_profit = I('post.extra_5',null);
         $map_participate = I('post.checkbox_participate',null);
@@ -586,13 +586,8 @@ class IndexController extends BaseController {
             $map['visible'] = 'on';
         }
 
-        if (null != $cate && !empty($cate)) {
-            foreach ($catelist as $id=>$name) {
-                if ($cate == $name) {
-                    $map['c_field'] = $id;
-                    break;
-                }
-            }
+        if (null != $cate && !empty($cate) && 'undefined' != $cate) {
+            $map['c_field'] = $cate;
         }
 
         if ('on' == $hot) {

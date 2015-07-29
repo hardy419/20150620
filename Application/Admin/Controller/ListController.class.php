@@ -355,9 +355,6 @@ class ListController extends BaseController{
             // Special cases for this project
             if ('ads' == $type) {
                 $db->type = M('ads_'.$this->lang)->where(array('id'=>$id))->getField('type');
-                if (substr ($db->href,0,4) !== 'http') {
-                    $db->href = 'http://'.$db->href;
-                }
             }
 
             // Add or Edit

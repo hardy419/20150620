@@ -18,7 +18,7 @@
         </div>
         <ul class="oUlplay">
           <volist name="banners" id="vo">
-          <li><a href="<?PHP echo 'http'==strtolower(substr($vo['href'],0,4))?$vo['href']:'http://'.$vo['href']; ?>"><img src="{:SITE_PATH}{$vo.url}" /></a></li>
+          <li><a href="<?PHP echo $vo['href']; ?>"><img src="{:SITE_PATH}{$vo.url}" /></a></li>
           </volist>
         </ul>
       </div>
@@ -26,12 +26,12 @@
     <!--------首頁主體部分-第一部分-第二列-------->
     <div class="wIndex01_02 mr10 fl">
       <ul>
-        <li class="mr10"><a href="javascript:ajax_submit_home(null,null,null,false,'飲食業','off')"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_01img.jpg" /></a></li>
-        <li class="mr10"><a href="javascript:ajax_submit_home(null,null,null,false,'教育業','off')"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_02img.jpg" /></a></li>
-        <li><a href="javascript:ajax_submit_home(null,null,null,false,'美容業','off')"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_03img.jpg" /></a></li>
-        <li class="mr10 mt6"><a href="javascript:ajax_submit_home(null,null,null,false,'零售業','off')"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_04img.jpg" /></a></li>
-        <li class="mr10 mt6"><a href="javascript:ajax_submit_home(null,null,null,false,'服務業','off')"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_05img.jpg" /></a></li>
-        <li class="mt6"><a href="javascript:ajax_submit_home(null,null,null,false,'其他行業','off')"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_06img.jpg" /></a></li>
+        <li class="mr10"><a href="javascript:ajax_submit_home(null,null,null,false,<?PHP echo $yinshiye_id; ?>,'off')"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_01img.jpg" /></a></li>
+        <li class="mr10"><a href="javascript:ajax_submit_home(null,null,null,false,<?PHP echo $jiaoyuye_id; ?>,'off')"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_02img.jpg" /></a></li>
+        <li><a href="javascript:ajax_submit_home(null,null,null,false,<?PHP echo $meirongye_id; ?>,'off')"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_03img.jpg" /></a></li>
+        <li class="mr10 mt6"><a href="javascript:ajax_submit_home(null,null,null,false,<?PHP echo $lingshouye_id; ?>,'off')"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_04img.jpg" /></a></li>
+        <li class="mr10 mt6"><a href="javascript:ajax_submit_home(null,null,null,false,<?PHP echo $fuwuye_id; ?>,'off')"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_05img.jpg" /></a></li>
+        <li class="mt6"><a href="javascript:ajax_submit_home(null,null,null,false,<?PHP echo $qitahangye_id; ?>,'off')"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex01_02_06img.jpg" /></a></li>
       </ul>
     </div>
     <!--------首頁主體部分-第一部分-第三列-------->
@@ -56,9 +56,9 @@
       <li class="mr10"><a href="{:U('Page/buyers', array('lang'=>$lang))}"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_02img.jpg" /></a></li>
       <li class="mr10"><a href="{:U('Page/sellers', array('lang'=>$lang))}"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_03img.jpg" /></a></li>
       <if condition="isset ($ads_1[0])">
-      <li><a href="{$ads_1[0]['href']}"><img src="{:SITE_PATH}{$ads_1[0]['image']}" style="width:250px;height:180px" /></a></li>
+      <li><a <?PHP if (!empty($ads_1[0]['href'])) { ?>href="{$ads_1[0]['href']}"<?PHP } ?>><img src="{:SITE_PATH}{$ads_1[0]['image']}" style="width:250px;height:180px" /></a></li>
       <else/>
-      <li><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_04img.jpg" /></a></li>
+      <li><a><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_04img.jpg" /></a></li>
       </if>
     </ul>
   </div>
@@ -78,9 +78,9 @@
       <p class="floatright"><a href="{:SITE_PATH}{$news.pdf}">{$text_yueduquanwen}</a></p>
     </div>
     <if condition="isset ($ads_2[0])">
-    <div class="wIndex03_03 fl"><a href="{$ads_2[0]['href']}"><img src="{:SITE_PATH}{$ads_2[0]['image']}" style="width:250px;height:210px" /></a></div>
+    <div class="wIndex03_03 fl"><a <?PHP if (!empty($ads_2[0]['href'])) { ?>href="{$ads_2[0]['href']}"<?PHP } ?>><img src="{:SITE_PATH}{$ads_2[0]['image']}" style="width:250px;height:210px" /></a></div>
     <else/>
-    <div class="wIndex03_03 fl"><a href="#"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_03_01img.jpg" /></a></div>
+    <div class="wIndex03_03 fl"><a><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_03_01img.jpg" /></a></div>
     </if>
   </div>
   <!--------首頁主體部分-第四部分-------->

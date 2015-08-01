@@ -296,6 +296,10 @@ class IndexController extends BaseController {
         $ads_2 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>2))->select();
         $this->assign('ads_1', $ads_1);
         $this->assign('ads_2', $ads_2);
+        // Retrieve page contents
+        $page = M('page_'.$this->lang)->where(array('title'=>'加入創富會'))->select();
+        $this->assign('banner', $page[0]['banner']);
+        $this->assign('content', $page[0]['content']);
 
         parent::language();
 
@@ -341,6 +345,10 @@ class IndexController extends BaseController {
         $ads_2 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>2))->select();
         $this->assign('ads_1', $ads_1);
         $this->assign('ads_2', $ads_2);
+        // Retrieve page contents
+        $page = M('page_'.$this->lang)->where(array('title'=>'為您配對合適好生意'))->select();
+        $this->assign('banner', $page[0]['banner']);
+        $this->assign('content', $page[0]['content']);
 
         parent::language();
 

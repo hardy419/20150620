@@ -12,6 +12,18 @@ class NewsController extends BaseController {
         }
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
+        // For hot recomm projects
+        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        foreach ($hot as &$proj) {
+            $proj['price'] = number_format ($proj['price'], 0);
+            $proj['profit'] = number_format ($proj['profit'], 0);
+        }
+        $this->assign('hot', $hot);
+        // For ads
+        $ads_1 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>1))->select();
+        $ads_2 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>2))->select();
+        $this->assign('ads_1', $ads_1);
+        $this->assign('ads_2', $ads_2);
         // All news
         $listRows = 6;
         $page = I('request.p',1);

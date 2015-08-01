@@ -263,22 +263,42 @@ class PageController extends BaseController {
 
     public function join(){
         $this->common();
+        // Retrieve page contents
+        $page = M('page_'.$this->lang)->where(array('title'=>'創富會'))->select();
+        $this->assign('banner', $page[0]['banner']);
+        $this->assign('content', $page[0]['content']);
         $this->display();
     }
     public function join_form(){
         $this->common();
+        // Retrieve page contents
+        $page = M('page_'.$this->lang)->where(array('title'=>'加入創富會'))->select();
+        $this->assign('banner', $page[0]['banner']);
+        $this->assign('content', $page[0]['content']);
         $this->display();
     }
     public function recruit(){
         $this->common();
+        // Retrieve page contents
+        $page = M('page_'.$this->lang)->where(array('title'=>'精英招聘'))->select();
+        $this->assign('banner', $page[0]['banner']);
+        $this->assign('content', $page[0]['content']);
         $this->display();
     }
     public function cooperation(){
         $this->common();
+        // Retrieve page contents
+        $page = M('page_'.$this->lang)->where(array('title'=>'合作夥伴'))->select();
+        $this->assign('banner', $page[0]['banner']);
+        $this->assign('content', $page[0]['content']);
         $this->display();
     }
     public function enquiry(){
         $this->common();
+        // Retrieve page contents
+        $page = M('page_'.$this->lang)->where(array('title'=>'為您配對合適好生意'))->select();
+        $this->assign('banner', $page[0]['banner']);
+        $this->assign('content', $page[0]['content']);
         $this->display();
     }
 

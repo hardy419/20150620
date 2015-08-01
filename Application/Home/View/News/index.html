@@ -1,10 +1,15 @@
 <include file="Common:header" />
+<link rel="stylesheet" type="text/css" href="{:SITE_PATH}Public/{$lang}/css/about.css">
+<style>
+.aboutwrap_l {width:765px;height:688px;margin-right:10px}
+.clearboth {clear:both}
+.aboutwrap_l ul li {height:100px}
+</style>
 <!------------------------首頁主體部分------------------------>
-<div id="wrapIndex" class="mb10">
-  <div class="productTitle">
-    <h1>最新消息</h1>
-  </div>
-  <div class="wIndex04 b_aeaeae pr u-div">
+<div id="wrapIndex" class="about mb10">
+  <div class="aboutTitle">{$text_zuixinxiaoxi}</div>
+<div class="aboutwrap">
+  <div class="aboutwrap_l fl b_aeaeae pr u-div">
     <div>
       <ul>
         <volist name="news" id="vo">
@@ -23,5 +28,8 @@
       </ul>
     </div>
   </div>
+  <include file="Common:right" />
+  <div class="clearboth"></div>
+</div>
 </div>
 <include file="Common:footer" />

@@ -25,10 +25,10 @@ class NewsController extends BaseController {
         $this->assign('ads_1', $ads_1);
         $this->assign('ads_2', $ads_2);
         // All news
-        $listRows = 6;
+        $listRows = 10;
         $page = I('request.p',1);
         $total_pages = (int) ((M('news_'.$this->lang)->where(array('status'=>1))->count()-1) / $listRows) + 1;
-        $news = M('news_'.$this->lang)->where(array('status'=>1))->limit((($page-1)*$listRows).",".$listRows)->select();
+        $news = M('news_'.$this->lang)->where(array('status'=>1))->order("`order` ASC, `date` DESC, `id` DESC")->limit((($page-1)*$listRows).",".$listRows)->select();
         $this->assign('news', $news);
         $this->assign('page', $page);
         $this->assign('total_pages', $total_pages);

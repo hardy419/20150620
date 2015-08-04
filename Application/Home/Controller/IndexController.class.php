@@ -110,10 +110,10 @@ class IndexController extends BaseController {
     }
 
     public function shareFormSubmit() {
-        $email = I('post.email');
         $subject = I('post.subject');
-        $body = I('post.body').'<br/>Email Address: '.$email;
-        $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
+        $project_url = I('post.project_url');
+        $body = '鏈接：<br/><a href="'.$project_url.'">'.$subject.'</a><br/><br/>若上面鏈接無法點擊可將下面地址復制到瀏覽器：<br/>'.$project_url.'<br/><br/>'.I('post.body');
+        $this->msg = $this->postMail ($body, $subject, I('post.email'), '2757144278@qq.com');
 
         $id = I('post.project_id');
         $project = M('project_'.$this->lang)->where(array('id'=>$id))->select();

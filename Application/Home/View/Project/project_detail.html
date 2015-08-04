@@ -44,6 +44,7 @@ function share_submit(){
       <tr><td style="width:100px;text-align:right;padding-right:20px">{$text_neirong}：</td><td><textarea style="height:120px" cols="5" rows="20" name="body" ></textarea></td></tr>
       <tr height="20">&nbsp;</tr>
     </table>
+    <input type="hidden" name="project_url" value="http://{$_SERVER['SERVER_NAME']}{:U('Project/project_detail', array('id'=>$project['id']))}" />
     <input type="hidden" name="project_id" value="{$project.id}" />
   </form>
   <div align="center">

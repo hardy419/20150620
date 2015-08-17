@@ -116,6 +116,9 @@ class ListController extends BaseController{
             $this->assign ('cur_t', $cur_t);
         }
         else if('project' == $type) {
+            // Default order
+            $order = 'position';
+            
             // Retrieve the category list for selection
             $dblist = M('category_'.$this->lang)->select();
             $catelist = array();
@@ -218,7 +221,7 @@ class ListController extends BaseController{
         $type=I('get.type');
         if(!in_array($type,array('project')) || (empty($id) && !in_array($type,array('project'))))$this->error('',U('Index/index'));
         $this->assign('type',$type);
-        $tname=$type;
+        $tname=$type.'_'.$this->lang;
 
         if('project' == $type) {
             // Retrieve the category list for selection

@@ -3,9 +3,9 @@
 .productsTop {
 	margin-left: 20px;
 	margin-top: 31px;
-	height: 60px;
 }
 .productsTop h1 {
+	width: 500px;
 	color: #bf0000;
 	font-size: 30px;
 	font-weight: 500;

@@ -6,7 +6,7 @@
         <volist name="hot" id="vo">
         <li class="bb_acacac mb10"><a href="{:U('Project/project_detail',array('id'=>$vo['id'], 'lang'=>$lang))}">{$vo.codename} {$vo.title}</a>
           <p class="mt10 mb10">{$text_dingjia}：${$vo.price}</p>
-          <if condition="$vo['profit_option'] eq 1"><p class="mb8">{$text_cankaolirun}：${$vo.profit}</p></if>
+            <if condition="$vo['profit_option'] eq 1"><p class="mb8">{$text_cankaolirun}：${$vo.profit}</p><else/><?PHP if (!empty($vo['profit_text'])) { ?><p class="mb8">{$vo.profit_text}</p><?PHP } ?></if>
         </li>
         </volist>
       </ul>

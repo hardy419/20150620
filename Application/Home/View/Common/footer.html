@@ -72,8 +72,13 @@ function update_query(){
     }
   }
   $('#Float').find('h5').text(c);
+  return c;
 }
 function query_click(i,id,title,all){
+  if(5==update_query()){
+    alert('{$text_ticknomorethan}5');
+    return;
+  }
   var img=$('#query-img-'+i);
   if(!img.hasClass('query-selected')){
     if(!all){
@@ -103,14 +108,14 @@ data=eval('('+data+')');
 
 if(true!==init){
   var mhtml='<div class="productTitle"><h1>{$text_xianzhengchurangyewu}</h1></div>';
-  mhtml+='<div class="wIndex04 b_aeaeae pr"><h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex04_title.png" /></h1><h2 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h2><h3 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h3><div class="page"><ul class="page-u"></ul></div><table width="95%" border="0" cellspacing="0" cellpadding="0" id="project-table"></table><div class="page"><ul class="page-u"></ul></div></div>';
+  mhtml+='<div class="wIndex04 b_aeaeae pr"><h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex04_title.png" /></h1><h2 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h2><h3 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h3><div class="page"><ul class="page-u"></ul></div><table width="95%" border="0" cellspacing="0" cellpadding="0" id="project-table"></table><div class="page"><ul class="page-u"></ul></div><div class="clearboth"></div></div>';
   $('#wrapIndex').html(mhtml);
 }
 
 $('#project-table').html('');
 
 var ths=["{$text_daihaomingcheng}","{$text_churangxiangmu}","{$text_cankaolirun}","{$text_baokuocunhuo}","{$text_huibenqi}","{$text_dingjia}","{$text_gongkuan}","{$text_mianji}","{$text_zujin}","{$text_canyuchengdu}","{$text_xiangmuqingkuang}"];
-var thfs=['codename','title','profit','store','recovery_period','price','allowance','square','rent','participation','situation'];
+var thfs=['codename','title','profit','store','recovery_period','price','allowance','square','rent','c_participation','c_situation'];
 var th_html='<tr>';
 var i;
 for(i=0;i<ths.length;++i){

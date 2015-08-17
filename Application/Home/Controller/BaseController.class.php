@@ -172,6 +172,9 @@ class BaseController extends Controller {
             $this->assign ('text_qu', '區');
 
             $this->assign ('text_month', '月');
+
+            $this->assign ('text_ticknomorethan', '查詢項目數不能超過');
+
         }
         else if ('cn' == $lang) {
             $this->assign ('text_header_title', '创富易业务转让有限公司');
@@ -279,6 +282,9 @@ class BaseController extends Controller {
             $this->assign ('text_qu', '区');
 
             $this->assign ('text_month', '月');
+
+            $this->assign ('text_ticknomorethan', '查询项目数不能超过');
+
         }
         else if ('en' == $lang) {
             $this->assign ('text_header_title', 'Buy Business Ltd.');
@@ -386,6 +392,9 @@ class BaseController extends Controller {
             $this->assign ('text_qu', '');
 
             $this->assign ('text_month', ' month');
+
+            $this->assign ('text_ticknomorethan', '查詢項目數不能超過');
+
         }
 
         $this->assign ('lang', $lang);

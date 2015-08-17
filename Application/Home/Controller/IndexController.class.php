@@ -390,7 +390,7 @@ class IndexController extends BaseController {
         $map = array();
 
         if (null === $order || '' == $order) {
-            $order = $model->getPK();
+            $order = 'position';
         }
         if (null === $sort || '' == $sort) {
             $sort = 'DESC';

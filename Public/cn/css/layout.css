@@ -508,7 +508,7 @@
 }
 /*------首页主体部分-第三部分------*/
 #wrapIndex .wIndex03 {
-	height: 210px;
+	height: 250px;
 	margin-top: 10px;
 }
 /*------首页主体部分第三部分-第一列------*/
@@ -521,7 +521,7 @@
 /*------首页主体部分第三部分-第二列------*/
 #wrapIndex .wIndex03 .wIndex03_02 {
 	width: 558px;
-	height: 208px;
+	height: 248px;
 }
 #wrapIndex .wIndex03 .wIndex03_02 h1 {
 	width: 100%;
@@ -553,8 +553,9 @@
 #wrapIndex .wIndex04 {
 	margin: 0 auto;
 	width: 1078px;
-	height: 744px;
+	/*height: 744px;*/
 	margin-top: 10px;
+	padding-bottom: 10px;
 }
 #wrapIndex .wIndex04 h1 {
 	width: 100%;
@@ -597,6 +598,7 @@
 	margin-top: 16px;
 	margin-left: 26px;
 	margin-bottom: 10px;
+	width: 90%;
 	height: 16px;
 }
 .wIndex04 .page ul {

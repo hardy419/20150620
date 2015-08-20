@@ -55,11 +55,16 @@
       <li class="mr10"><a href="{:U('Page/enquiry', array('lang'=>$lang))}"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_01img.jpg" /></a></li>
       <li class="mr10"><a href="{:U('Page/buyers', array('lang'=>$lang))}"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_02img.jpg" /></a></li>
       <li class="mr10"><a href="{:U('Page/sellers', array('lang'=>$lang))}"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_03img.jpg" /></a></li>
-      <if condition="isset ($ads_1[0])">
-      <li><a <?PHP if (!empty($ads_1[0]['href'])) { ?>href="{$ads_1[0]['href']}"<?PHP } ?>><img src="{:SITE_PATH}{$ads_1[0]['image']}" style="width:250px;height:180px" /></a></li>
-      <else/>
-      <li><a><img src="{:SITE_PATH}Public/{$lang}/images/wIndex02_04img.jpg" /></a></li>
-      </if>
+
+      <li style="width:250px;height:180px;overflow:hidden">
+        <ul class="slide-right" uw="250" style="padding:0;position:relative">
+          <volist name="adlist" id="vo">
+            <li style="float:left;width:250px;height:180px">
+              <a <?PHP if (!empty($vo['href'])) { ?>href="{$vo.href}"<?PHP } ?>><img src="{:SITE_PATH}{$vo.image}" style="width:250px;height:180px" /></a>
+            </li>
+          </volist>
+        </ul>
+      </li>
     </ul>
   </div>
   <!--------首頁主體部分-第三部分-------->
@@ -77,11 +82,7 @@
       <p id="news-desc-p"></p>
       <p class="floatright"><a href="{:SITE_PATH}{$news.pdf}">{$text_yueduquanwen}</a></p>
     </div>
-    <if condition="isset ($ads_2[0])">
-    <div class="wIndex03_03 fl"><a <?PHP if (!empty($ads_2[0]['href'])) { ?>href="{$ads_2[0]['href']}"<?PHP } ?>><img src="{:SITE_PATH}{$ads_2[0]['image']}" style="width:250px;height:210px" /></a></div>
-    <else/>
     <div class="wIndex03_03 fl"><a><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_03_01img.jpg" /></a></div>
-    </if>
   </div>
   <!--------首頁主體部分-第四部分-------->
   <div class="wIndex04 b_aeaeae pr">
@@ -118,7 +119,40 @@
   </div>
 </div>
 <script>
+function slide(obj,dir){
+  var linum=obj.find("li").length;
+  var width=parseInt(obj.attr("uw"));
+  var w=width*linum;
+  var ml=parseInt(obj.css("left"));
+  ml-=ml%width;
+  if(0===dir){
+    if(0===ml){
+      obj.find("li").last().insertBefore(obj.find("li").first());
+      obj.css("left",(ml-width)+"px");
+      obj.animate({left:ml+"px"},"slow");
+    }
+    else{
+      obj.animate({left:(ml+width)+"px"},"slow");
+    }
+  }
+  else{
+    if(width-w==ml){
+      obj.find("li").first().insertAfter(obj.find("li").last());
+      obj.css("left",(ml+width)+"px");
+      obj.animate({left:ml+"px"},"slow");
+    }
+    else{
+      obj.animate({left:(ml-width)+"px"},"slow");
+    }
+  }
+}
+function autoplay(){
+  $(".slide-right").each(function(){slide($(this),0)});$(".slide-left").each(function(){slide($(this),1)});
+  setTimeout(autoplay,5E3);
+}
 $(function(){
+  $(".slide-right").each(function(){var linum=$(this).find("li").length;var width=parseInt($(this).attr("uw"));var w=width*linum;$(this).css("width",w+"px").css("left",(width-w)+"px");});$(".slide-left").each(function(){var linum=$(this).find("li").length;var width=parseInt($(this).attr("uw"));var w=width*linum;$(this).css("width",w+"px").css("left","0px");});setTimeout(autoplay,5E3);
+
   var news_desc="{$news.description|str_replace=PHP_EOL,'',###}";
   if(news_desc.length<=160){
     $('#news-desc-p').text(news_desc);

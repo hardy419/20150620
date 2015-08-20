@@ -5,7 +5,7 @@ class PageController extends BaseController {
 
     protected function common(){
         // For search box
-        $dblist = M('category_'.$this->lang)->select();
+        $dblist = M('category_'.$this->lang)->order('`position` ASC, `id` DESC')->select();
         $catelist = array();
         foreach ($dblist as $item) {
             $catelist[$item['id']] = $item['name'];
@@ -20,10 +20,8 @@ class PageController extends BaseController {
         }
         $this->assign('hot', $hot);
         // For ads
-        $ads_1 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>1))->select();
-        $ads_2 = M('ads_'.$this->lang)->where(array('status'=>1,'type'=>2))->select();
-        $this->assign('ads_1', $ads_1);
-        $this->assign('ads_2', $ads_2);
+        $adlist = M('ads_'.$this->lang)->select();
+        $this->assign('adlist', $adlist);
 
         parent::language();
 

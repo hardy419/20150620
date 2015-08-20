@@ -120,7 +120,7 @@ class ListController extends BaseController{
             $order = 'position';
             
             // Retrieve the category list for selection
-            $dblist = M('category_'.$this->lang)->select();
+            $dblist = M('category_'.$this->lang)->order('`position` ASC, `id` DESC')->select();
             $catelist = array();
             foreach ($dblist as $item) {
                 $catelist[$item['id']] = $item['name'];

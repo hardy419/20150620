@@ -13,7 +13,7 @@ class NewsController extends BaseController {
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
         // For hot recomm projects
-        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);

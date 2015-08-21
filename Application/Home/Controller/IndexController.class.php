@@ -15,7 +15,7 @@ class IndexController extends BaseController {
         $bannerlist = M('banner_'.$this->lang)->where(array('status'=>1))->select();
         $this->assign('banners', $bannerlist);
         // For hot recomm projects
-        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
@@ -43,7 +43,7 @@ class IndexController extends BaseController {
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
         // For hot recomm projects
-        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
@@ -53,7 +53,7 @@ class IndexController extends BaseController {
         $adlist = M('ads_'.$this->lang)->select();
         $this->assign('adlist', $adlist);
         // All project info
-        $projects = M('project_'.$this->lang)->select();
+        $projects = M('project')->select();
         $this->assign('projects', $projects);
 
         parent::language();
@@ -112,7 +112,7 @@ class IndexController extends BaseController {
         $this->msg = $this->postMail ($body, $subject, I('post.email'), '2757144278@qq.com');
 
         $id = I('post.project_id');
-        $project = M('project_'.$this->lang)->where(array('id'=>$id))->select();
+        $project = M('project')->where(array('id'=>$id))->select();
         $project[0]['price'] = number_format ($project[0]['price'], 0);
         $project[0]['turnover'] = number_format ($project[0]['turnover'], 0);
         $project[0]['profit'] = number_format ($project[0]['profit'], 0);
@@ -131,7 +131,7 @@ class IndexController extends BaseController {
         }
         $this->assign('catelist', $catelist);
         // For hot recomm projects
-        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
@@ -166,7 +166,7 @@ class IndexController extends BaseController {
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
         // For hot recomm projects
-        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
@@ -206,7 +206,7 @@ class IndexController extends BaseController {
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
         // For hot recomm projects
-        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
@@ -275,7 +275,7 @@ class IndexController extends BaseController {
         }
         $this->assign('catelist', $catelist);
         // For hot recomm projects
-        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
@@ -322,7 +322,7 @@ class IndexController extends BaseController {
         }
         $this->assign('catelist', $catelist);
         // For hot recomm projects
-        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);
@@ -371,12 +371,15 @@ class IndexController extends BaseController {
             $catelist_t[$item['id']] = $item['t'];
         }
 
-        $model=D($type.'_'.$this->lang);
+        $model=D($type);
 
         $map = array();
 
         if (null === $order || '' == $order) {
             $order = 'position';
+        }
+        if ('title' == $order || 'codename' == $order || 'business_focus' == $order || 'reason' == $order || 'store' == $order) {
+            $order .= '_'.$this->lang;
         }
         if (null === $sort || '' == $sort) {
             $sort = 'DESC';

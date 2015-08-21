@@ -42,10 +42,10 @@
 	              <tbody id="project-table">
 	               <volist name="list" id="vo">
 	                <tr <if condition="$current eq $vo['id']">class="warning"</if>>
-	                    <td>{$vo.title}</td>
+	                    <td><?PHP if('en'==$lang) {echo $vo['title_en'];} else if('cn'==$lang) {echo $vo['title_cn'];} else {echo $vo['title_zh'];} ?></td>
 	                    <td><?PHP echo $catelist[$vo['c_field']]; ?></td>
-	                    <td>{$vo.codename}</td>
-	                    <td><if condition="$vo['profit_option'] eq '1'">${$vo.profit}<else/>{$vo.profit_text}</if></td>
+	                    <td><?PHP if('en'==$lang) {echo $vo['codename_en'];} else if('cn'==$lang) {echo $vo['codename_cn'];} else {echo $vo['codename_zh'];} ?></td>
+	                    <td><if condition="$vo['profit_option'] eq '1'">${$vo.profit}<else/><?PHP if('en'==$lang) {echo $vo['profit_text_en'];} else if('cn'==$lang) {echo $vo['profit_text_cn'];} else {echo $vo['profit_text_zh'];} ?></if></td>
 	                    <td>${$vo.price}</td>
 	                    <td style="text-align:center">{$vo.recovery_period}月</td>
 	                    <td style="text-align:center">{$vo.status}</td>

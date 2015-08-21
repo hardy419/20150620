@@ -23,7 +23,7 @@ class ProjectController extends BaseController {
         if (empty($id) || null == $id) {
             $this->error('');
         }
-        $project = M('project_'.$this->lang)->where(array('id'=>$id))->select();
+        $project = M('project')->where(array('id'=>$id))->select();
         $project[0]['price'] = number_format ($project[0]['price'], 0);
         $project[0]['turnover'] = number_format ($project[0]['turnover'], 0);
         $project[0]['profit'] = number_format ($project[0]['profit'], 0);
@@ -44,7 +44,7 @@ class ProjectController extends BaseController {
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
         // For hot recomm projects
-        $hot = M('project_'.$this->lang)->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
+        $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {
             $proj['price'] = number_format ($proj['price'], 0);
             $proj['profit'] = number_format ($proj['profit'], 0);

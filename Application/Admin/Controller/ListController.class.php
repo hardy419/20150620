@@ -42,7 +42,7 @@ class ListController extends BaseController{
         $pid=I('get.pid', null);
         $id=I('get.id', null);
         if(!in_array($type,array('user', 'banner','page','category','project','ads','news'))) $this->error('',U('Index/index'));
-        if ('user' == $type) {
+        if ('user' == $type || 'project' == $type) {
             $tname=$type;
         }
         else {
@@ -221,7 +221,7 @@ class ListController extends BaseController{
         $type=I('get.type');
         if(!in_array($type,array('project')) || (empty($id) && !in_array($type,array('project'))))$this->error('',U('Index/index'));
         $this->assign('type',$type);
-        $tname=$type.'_'.$this->lang;
+        $tname=$type;
 
         if('project' == $type) {
             // Retrieve the category list for selection
@@ -279,7 +279,7 @@ class ListController extends BaseController{
         if(''==I('post.id','') || 0==I('post.id','')) unset($_POST['id']);
         $type=I('post.type');
         if(!in_array($type,array('user', 'banner','page','category','project','ads','news')))$this->error('非法操作類型',U('Index/index'));
-        if ('user' == $type) {
+        if ('user' == $type || 'project' == $type) {
             $tname=$type;
         }
         else {
@@ -364,6 +364,46 @@ class ListController extends BaseController{
             if(!empty($id)){
                 $query=$db->save();
             }else{
+                // Sync between languages
+                if ('project' == $type) {
+                    if (empty ($db->title_cn)) {
+                        $db->title_cn = $db->title_zh;
+                    }
+                    if (empty ($db->title_en)) {
+                        $db->title_en = $db->title_zh;
+                    }
+                    if (empty ($db->codename_cn)) {
+                        $db->codename_cn = $db->codename_zh;
+                    }
+                    if (empty ($db->codename_en)) {
+                        $db->codename_en = $db->codename_zh;
+                    }
+                    if (empty ($db->business_focus_cn)) {
+                        $db->business_focus_cn = $db->business_focus_zh;
+                    }
+                    if (empty ($db->business_focus_en)) {
+                        $db->business_focus_en = $db->business_focus_zh;
+                    }
+                    if (empty ($db->reason_cn)) {
+                        $db->reason_cn = $db->reason_zh;
+                    }
+                    if (empty ($db->reason_en)) {
+                        $db->reason_en = $db->reason_zh;
+                    }
+                    if (empty ($db->store_cn)) {
+                        $db->store_cn = $db->store_zh;
+                    }
+                    if (empty ($db->store_en)) {
+                        $db->store_en = $db->store_zh;
+                    }
+                    if (empty ($db->profit_text_cn)) {
+                        $db->profit_text_cn = $db->profit_text_zh;
+                    }
+                    if (empty ($db->profit_text_en)) {
+                        $db->profit_text_en = $db->profit_text_zh;
+                    }
+                }
+
                 $query=$db->add();
                 $id = $query;
             }
@@ -614,7 +654,7 @@ class ListController extends BaseController{
     public function del(){
         $type=I('get.type');
         if(!in_array($type,array('user', 'banner','page','category','project','ads','news')))$this->error('',U('Index/index'));
-        if ('user' == $type) {
+        if ('user' == $type || 'project' == $type) {
             $tname=$type;
         }
         else {

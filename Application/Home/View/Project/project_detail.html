@@ -59,7 +59,7 @@ function js_op_close_2(reload){
 }
 function tb_show_2()
 {
-  $('#share-form input[name="subject"]').val('創富易 - {$project.title}');
+  $('#share-form input[name="subject"]').val('創富易 - <?PHP if('en'==$lang) {echo $project['title_en'];} else if('cn'==$lang) {echo $project['title_cn'];} else {echo $project['title_zh'];} ?>');
 	$("#TB_mask_2").css("display",'block');
 	$("#TB_window_2").css("display",'block');
 }
@@ -71,10 +71,10 @@ function tb_show_2()
   <div class="aboutwrap">
     <div class="aboutwrap_l b_aeaeae fl mr10">
       <div class="productsTop">
-        <h1>{$project.title}</h1>
+        <h1><?PHP if('en'==$lang) {echo $project['title_en'];} else if('cn'==$lang) {echo $project['title_cn'];} else {echo $project['title_zh'];} ?></h1>
         <ul>
           <li><a href="javascript:tb_show_2();"><img src="{:SITE_PATH}Public/{$lang}/images/product_share.jpg" /></a></li>
-          <li><a href="javascript:(function(){document.cookie='id-<?PHP echo $project['id']; ?>=<?PHP echo $project['title']; ?>';update_query();alert('添加成功');})();"><img src="{:SITE_PATH}Public/{$lang}/images/product_list.jpg" /></a></li>
+          <li><a href="javascript:(function(){document.cookie='id-<?PHP echo $project['id']; ?>=<?PHP if('en'==$lang) {echo $project['title_en'];} else if('cn'==$lang) {echo $project['title_cn'];} else {echo $project['title_zh'];} ?>';update_query();alert('添加成功');})();"><img src="{:SITE_PATH}Public/{$lang}/images/product_list.jpg" /></a></li>
           <li><a href="{:U('Index/query', array('lang'=>$lang))}"><img src="{:SITE_PATH}Public/{$lang}/images/product_search.jpg" /></a></li>
           <li><a href="javascript:window.print();"><img src="{:SITE_PATH}Public/{$lang}/images/product_print.jpg" /></a></li>
         </ul>
@@ -87,23 +87,23 @@ function tb_show_2()
         </style>
         <dl>
           <dt class="bg">代號名稱：</dt>
-          <dd class="bg">{$project.codename}&nbsp;</dd>
+          <dd class="bg"><?PHP if('en'==$lang) {echo $project['codename_en'];} else if('cn'==$lang) {echo $project['codename_cn'];} else {echo $project['codename_zh'];} ?>&nbsp;</dd>
           <dt>項目名稱：</dt>
-          <dd>{$project.title}&nbsp;</dd>
+          <dd><?PHP if('en'==$lang) {echo $project['title_en'];} else if('cn'==$lang) {echo $project['title_cn'];} else {echo $project['title_zh'];} ?>&nbsp;</dd>
           <dt class="bg">業務重點：</dt>
-          <dd class="bg">{$project.business_focus|html_entity_decode=###}&nbsp;</dd>
+          <dd class="bg"><?PHP if('en'==$lang) { ?>{$project.business_focus_en|html_entity_decode=###}<?PHP } else if('cn'==$lang) { ?>{$project.business_focus_cn|html_entity_decode=###}<?PHP } else { ?>{$project.business_focus_zh|html_entity_decode=###}<?PHP } ?>&nbsp;</dd>
           <dt>牌照：</dt>
           <dd><volist name="certificates" id="vo">{$catelist[$vo]}&nbsp;&nbsp;</volist>&nbsp;</dd>
           <dt class="bg">出讓原因：</dt>
-          <dd class="bg">{$project.reason}&nbsp;</dd>
+          <dd class="bg"><?PHP if('en'==$lang) {echo $project['reason_en'];} else if('cn'==$lang) {echo $project['reason_cn'];} else {echo $project['reason_zh'];} ?>&nbsp;</dd>
           <dt>定價：</dt>
           <dd>${$project.price}&nbsp;</dd>
           <dt class="bg">包括存貨/其他：</dt>
-          <dd class="bg">{$project.store}&nbsp;</dd>
+          <dd class="bg"><?PHP if('en'==$lang) {echo $project['store_en'];} else if('cn'==$lang) {echo $project['store_cn'];} else {echo $project['store_zh'];} ?>&nbsp;</dd>
           <dt>營業額(每月)</dt>
           <dd>${$project.turnover}&nbsp;</dd>
           <dt class="bg">參考利潤(每月)：</dt>
-          <dd class="bg"><if condition="$project['profit_option'] eq 1">${$project.profit}<else/>{$project.profit_text}</if>&nbsp;</dd>
+          <dd class="bg"><if condition="$project['profit_option'] eq 1">${$project.profit}<else/><?PHP if('en'==$lang) {echo $project['profit_text_en'];} else if('cn'==$lang) {echo $project['profit_text_cn'];} else {echo $project['profit_text_zh'];} ?></if>&nbsp;</dd>
           <dt>回本期(月)：</dt>
           <dd>{$project.recovery_period}&nbsp;</dd>
           <dt class="bg">面積(平方呎)：</dt>

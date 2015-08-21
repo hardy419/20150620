@@ -390,14 +390,14 @@ $('#project-table').html('');
 var i;
 for(i=0;i<data['data'].length;++i){
   var html='<tr>';
-  html+='<td>'+data['data'][i]['title']+'</td>';
+  html+='<td>'+data['data'][i]['title_<?PHP echo $lang; ?>']+'</td>';
   html+='<td>'+data['data'][i]['field']+'</td>';
-  html+='<td>'+data['data'][i]['codename']+'</td>';
+  html+='<td>'+data['data'][i]['codename_<?PHP echo $lang; ?>']+'</td>';
   if(1==data['data'][i]['profit_option']){
     html+='<td>$'+data['data'][i]['profit']+'</td>';
   }
   else{
-    html+='<td>'+data['data'][i]['profit_text']+'</td>';
+    html+='<td>'+data['data'][i]['profit_text_<?PHP echo $lang; ?>']+'</td>';
   }
   html+='<td>$'+data['data'][i]['price']+'</td>';
   html+='<td style="text-align:center">'+data['data'][i]['recovery_period']+'月</td>';

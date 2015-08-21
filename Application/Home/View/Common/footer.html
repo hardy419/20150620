@@ -75,12 +75,12 @@ function update_query(){
   return c;
 }
 function query_click(i,id,title,all){
-  if(5==update_query()){
-    alert('{$text_ticknomorethan}5');
-    return;
-  }
   var img=$('#query-img-'+i);
   if(!img.hasClass('query-selected')){
+    if(5==update_query()){
+      alert('{$text_ticknomorethan}5');
+      return;
+    }
     if(!all){
       img.attr('src','Public/{$lang}/images/selectok.png').addClass('query-selected');
       document.cookie='id-'+id+'='+escape(title)+'';
@@ -121,7 +121,7 @@ var i;
 for(i=0;i<ths.length;++i){
   th_html+='<th scope="col">'+ths[i]+'<a href="javascript:ajax_submit_home(null,'+"'"+thfs[i]+"','img-"+thfs[i]+"')"+'"><img src="Public/{$lang}/images/arrow_bottom.png" id="img-'+thfs[i]+'" /></a></th>';
 }
-th_html+='<th scope="col"><a id="query-click-all-a" href="'+"javascript:(function(){var img=$('.query-img');if(!$('#query-img-all').hasClass('query-selected')){img.attr('src','Public/<?PHP echo $lang; ?>/images/selectok.png').addClass('query-selected');}else{img.attr('src','Public/<?PHP echo $lang; ?>/images/select.png').removeClass('query-selected');}update_query();})();"+'"><img class="query-img" id="query-img-all" src="Public/<?PHP echo $lang; ?>/images/select.png" width="24" height="24" /></a></th></tr>';
+th_html+='<th scope="col"><!--a id="query-click-all-a" href="'+"javascript:(function(){var img=$('.query-img');if(!$('#query-img-all').hasClass('query-selected')){img.attr('src','Public/<?PHP echo $lang; ?>/images/selectok.png').addClass('query-selected');}else{img.attr('src','Public/<?PHP echo $lang; ?>/images/select.png').removeClass('query-selected');}update_query();})();"+'"><img class="query-img" id="query-img-all" src="Public/<?PHP echo $lang; ?>/images/select.png" width="24" height="24" /></a--></th></tr>';
 $('#project-table').append(th_html);
 
 for(i=0;i<data['data'].length;++i){
@@ -134,19 +134,19 @@ for(i=0;i<data['data'].length;++i){
     var tdclass='';
   }
   if('on'==data['data'][i]['estate_recomm']){
-    html+='<td '+onclick_html+' '+tdclass+'><div style="position:relative;top:3px;display:inline-block">'+data['data'][i]['codename']+'</div><img src="Public/{$lang}/images/estate_recomm.png" class="floatright" /></td>';
+    html+='<td '+onclick_html+' '+tdclass+'><div style="position:relative;top:3px;display:inline-block">'+data['data'][i]['codename_<?PHP echo $lang; ?>']+'</div><img src="Public/{$lang}/images/estate_recomm.png" class="floatright" /></td>';
   }
   else{
-    html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['codename']+'</td>';
+    html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['codename_<?PHP echo $lang; ?>']+'</td>';
   }
-  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['title']+'</td>';
+  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['title_<?PHP echo $lang; ?>']+'</td>';
   if(1==data['data'][i]['profit_option']){
     html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['profit']+'</td>';
   }
   else{
-    html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['profit_text']+'</td>';
+    html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['profit_text_<?PHP echo $lang; ?>']+'</td>';
   }
-  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['store']+'</td>';
+  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['store_<?PHP echo $lang; ?>']+'</td>';
   html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['recovery_period']+'{$text_month}</td>';
   html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['price']+'</td>';
   html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['allowance']+'</td>';
@@ -154,8 +154,8 @@ for(i=0;i<data['data'].length;++i){
   html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['rent']+'</td>';
   html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['participation']+'</td>';
   html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['situation']+'</td>';
-  html+='<td '+tdclass+'><a href="'+"javascript:query_click("+i+","+data['data'][i]['id']+",'"+data['data'][i]['title']+"',false);"+'"><img class="query-img" id="query-img-'+i+'" src="Public/{$lang}/images/select.png" width="24" height="24" /></a></td>';
-  $('#query-click-all-a').attr('href', $('#query-click-all-a').attr('href')+"query_click("+i+","+data['data'][i]['id']+",'"+data['data'][i]['title']+"',true);");
+  html+='<td '+tdclass+'><a href="'+"javascript:query_click("+i+","+data['data'][i]['id']+",'"+data['data'][i]['title_<?PHP echo $lang; ?>']+"',false);"+'"><img class="query-img" id="query-img-'+i+'" src="Public/{$lang}/images/select.png" width="24" height="24" /></a></td>';
+  $('#query-click-all-a').attr('href', $('#query-click-all-a').attr('href')+"query_click("+i+","+data['data'][i]['id']+",'"+data['data'][i]['title_<?PHP echo $lang; ?>']+"',true);");
   html+='</tr>';
   $('#project-table').append(html);
 }

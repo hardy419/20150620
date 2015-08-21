@@ -2,7 +2,7 @@
             
             <ul class="nav nav-list">
             <div class="admin-name-div"><p>Admin：<?php echo $_SESSION['loginUserName'];?></p></div><div class="logout-div"><a href="javascript:void(0);" id="logoutBtn">登出</a></div><div></div>
-            <div class="change-password-div"><a href="{:U('Common/password')}">更改密碼</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a <if condition="$lang eq 'zh'">class="active"</if> onclick="document.cookie='lang=zh';" href="javascript:location.reload();">繁</a>&nbsp;&nbsp;<a <if condition="$lang eq 'cn'">class="active"</if> onclick="document.cookie='lang=cn';" href="javascript:location.reload();">简</a>&nbsp;&nbsp;<a <if condition="$lang eq 'en'">class="active"</if> onclick="document.cookie='lang=en';" href="javascript:location.reload();">en</a></div>
+            <div class="change-password-div"><a href="{:U('Common/password')}">更改密碼</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="zh-a" <if condition="$lang eq 'zh'">class="active"</if> onclick="document.cookie='lang=zh';" href="javascript:location.reload();">繁</a>&nbsp;&nbsp;<a id="cn-a" <if condition="$lang eq 'cn'">class="active"</if> onclick="document.cookie='lang=cn';" href="javascript:location.reload();">简</a>&nbsp;&nbsp;<a id="en-a" <if condition="$lang eq 'en'">class="active"</if> onclick="document.cookie='lang=en';" href="javascript:location.reload();">en</a></div>
               <!-- <li class="nav-header">最新消息</li>
               <li <if condition="$type eq 'news'">class="active"</if>><a href="{:U('List/index',array('type'=>'news'))}">最新消息</a></li>
               <li class="nav-header">對外合作</li>

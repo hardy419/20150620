@@ -399,13 +399,25 @@ class IndexController extends BaseController {
             $map['first_choice'] = 'on';
         }
         if (null !== $map_participate) {
-            $map['c_participation'] = array('in', $map_participate);
+            $map['c_participation'] = array ();
+            foreach ($map_participate as $unit) {
+                $map['c_participation'][] = array('like', "%{$unit}%");
+            }
+            $map['c_participation'][] = 'or';
         }
         if (null !== $map_location) {
-            $map['c_location'] = array('in', $map_location);
+            $map['c_location'] = array ();
+            foreach ($map_location as $unit) {
+                $map['c_location'][] = array('like', "%{$unit}%");
+            }
+            $map['c_location'][] = 'or';
         }
         if (null !== $map_metro) {
-            $map['c_metro'] = array('in', $map_metro);
+            $map['c_metro'] = array ();
+            foreach ($map_metro as $unit) {
+                $map['c_metro'][] = array('like', "%{$unit}%");
+            }
+            $map['c_metro'][] = 'or';
         }
 
         if (null !== $map_invest) {
@@ -565,13 +577,25 @@ class IndexController extends BaseController {
                 }
             }
             if (count($c_field1) > 0) {
-                $map['c_field1'] = array ('in', $c_field1);
+                $map['c_field1'] = array ();
+                foreach ($c_field1 as $unit) {
+                    $map['c_field1'][] = array('like', "%{$unit}%");
+                }
+                $map['c_field1'][] = 'or';
             }
             if (count($c_field2) > 0) {
-                $map['c_field2'] = array ('in', $c_field2);
+                $map['c_field2'] = array ();
+                foreach ($c_field2 as $unit) {
+                    $map['c_field2'][] = array('like', "%{$unit}%");
+                }
+                $map['c_field2'][] = 'or';
             }
             if (count($c_area1) > 0) {
-                $map['c_area1'] = array ('in', $c_area1);
+                $map['c_area1'] = array ();
+                foreach ($c_area1 as $unit) {
+                    $map['c_area1'][] = array('like', "%{$unit}%");
+                }
+                $map['c_area1'][] = 'or';
             }
         }
 

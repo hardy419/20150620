@@ -16,6 +16,9 @@
 				    </ul>
 
 				<h3>新增項目</h3>	
+
+<div style="display:none"><include file="./Application/Home/View/Common/search.html" /></div>
+
                   <div class="frame-box-div">
                     <form class="form-horizontal form-project" id="myForm" method="post" action="{:U('save')}" onsubmit="return check_form();myForm.submit();" enctype="multipart/form-data">
 				    <div class="control-group">
@@ -55,16 +58,21 @@
 				    <input type="checkbox" id="first_choice" name="first_choice" value="on" <if condition="$list['first_choice'] eq 'on'">checked</if>>
 				    </div>
 				    </div>
-				    <div class="control-group">
-				    <label class="control-label">行業：</label>
-				    <div class="controls">
-				    <select id="c_field" name="c_field"><volist name="catelist" id="vo"><if condition="$vo['t'] eq '行業'">
-				      <option value='{$vo.id}' <if condition="$list['c_field'] eq $vo['id']">selected</if>>{$vo.name}</option>
-				    </if></volist></select>
-				    <select id="c_field1" name="c_field1" val="{$list.c_field1}"></select>
-				    <select id="c_field2" name="c_field2" val="{$list.c_field2}"></select>
-				    </div>
-				    </div>
+                    <div class="control-group input-append">
+				      <label class="control-label">行業：</label>
+				      <div class="controls">
+				        <input class="input-medium" type="text" name="c_field" placeholder="行業">
+                        <div class="btn-group">
+                          <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="$('#selectbox-field').toggle('_default');">
+                            <span class="caret"></span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="top_submenus search_all" id="selectbox-field" style="position:absolute;display: none;">
+                    </div>
+                    <br/><br/>
 
 				    <div class="control-group control-zh">
 				    <label class="control-label">項目名稱：</label>
@@ -104,15 +112,31 @@
 				    </div>
 				    </div>
 
-				    <div class="control-group">
+                    <div class="control-group input-append">
+				      <label class="control-label">地區 ：</label>
+				      <div class="controls">
+				        <input class="input-medium" type="text" name="c_area" placeholder="地區">
+                        <div class="btn-group">
+                          <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="$('#selectbox-area').toggle('_default');">
+                            <span class="caret"></span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="top_submenus Area" id="selectbox-area" style="position:absolute;display: none;">
+                    </div>
+                    <br/><br/>
+
+				    <!--div class="control-group">
 				    <label class="control-label">地區 ：</label>
 				    <div class="controls">
-				    <select id="c_area" name="c_area"><volist name="catelist" id="vo"><if condition="$vo['t'] eq '地區'">
+				    <select id="c_area" name="c_area"><volist name="categories" id="vo"><if condition="$vo['t'] eq '地區'">
 				      <option value='{$vo.id}' <if condition="$list['c_area'] eq $vo['id']">selected</if>>{$vo.name}</option>
 				    </if></volist></select>
 				    <select id="c_area1" name="c_area1" val="{$list.c_area1}"></select>
 				    </div>
-				    </div>
+				    </div-->
 
 				    <div class="control-group control-zh">
 				    <label class="control-label" style="position:relative; top:80px;">業務重點 ：</label>
@@ -136,7 +160,7 @@
 				    <div class="control-group">
 				    <label class="control-label">牌照 ：</label>
 				    <div class="controls">
-				    <select id="c_certificate" name="c_certificate[]" multiple><volist name="catelist" id="vo"><if condition="$vo['t'] eq '牌照'">
+				    <select id="c_certificate" name="c_certificate[]" multiple><volist name="categories" id="vo"><if condition="$vo['t'] eq '牌照'">
 				      <option value='{$vo.id}' <if condition="in_array ($vo['id'], $list['c_certificate'])">selected</if>>{$vo.name}</option>
 				    </if></volist></select>
 				    </div>
@@ -222,32 +246,32 @@
 				    <div class="control-group">
 				    <label class="control-label">東主參與程度 ：</label>
 				    <div class="controls">
-				    <select id="c_participation" name="c_participation"><volist name="catelist" id="vo"><if condition="$vo['t'] eq '東主參與程度'">
-				      <option value='{$vo.id}' <if condition="$list['c_participation'] eq $vo['id']">selected</if>>{$vo.name}</option>
+				    <select id="c_participation" name="c_participation[]" multiple><volist name="categories" id="vo"><if condition="$vo['t'] eq '東主參與程度'">
+				      <option value='{$vo.id}' <if condition="in_array ($vo['id'], $list['c_participation'])">selected</if>>{$vo.name}</option>
 				    </if></volist></select>
 				    </div>
 				    </div>
 				    <div class="control-group">
 				    <label class="control-label">經營場所類別 ：</label>
 				    <div class="controls">
-				    <select id="c_location" name="c_location"><volist name="catelist" id="vo"><if condition="$vo['t'] eq '經營場所類別'">
-				      <option value='{$vo.id}' <if condition="$list['c_location'] eq $vo['id']">selected</if>>{$vo.name}</option>
+				    <select id="c_location" name="c_location[]" multiple><volist name="categories" id="vo"><if condition="$vo['t'] eq '經營場所類別'">
+				      <option value='{$vo.id}' <if condition="in_array ($vo['id'], $list['c_location'])">selected</if>>{$vo.name}</option>
 				    </if></volist></select>
 				    </div>
 				    </div>
 				    <div class="control-group">
 				    <label class="control-label">轉讓形式 ：</label>
 				    <div class="controls">
-				    <select id="c_transfer" name="c_transfer"><volist name="catelist" id="vo"><if condition="$vo['t'] eq '轉讓形式'">
-				      <option value='{$vo.id}' <if condition="$list['c_transfer'] eq $vo['id']">selected</if>>{$vo.name}</option>
+				    <select id="c_transfer" name="c_transfer[]" multiple><volist name="categories" id="vo"><if condition="$vo['t'] eq '轉讓形式'">
+				      <option value='{$vo.id}' <if condition="in_array ($vo['id'], $list['c_transfer'])">selected</if>>{$vo.name}</option>
 				    </if></volist></select>
 				    </div>
 				    </div>
 				    <div class="control-group">
 				    <label class="control-label">地鐵沿線 ：</label>
 				    <div class="controls">
-				    <select id="c_metro" name="c_metro"><volist name="catelist" id="vo"><if condition="$vo['t'] eq '地鐵沿線'">
-				      <option value='{$vo.id}' <if condition="$list['c_metro'] eq $vo['id']">selected</if>>{$vo.name}</option>
+				    <select id="c_metro" name="c_metro[]" multiple><volist name="categories" id="vo"><if condition="$vo['t'] eq '地鐵沿線'">
+				      <option value='{$vo.id}' <if condition="in_array ($vo['id'], $list['c_metro'])">selected</if>>{$vo.name}</option>
 				    </if></volist></select>
 				    </div>
 				    </div>
@@ -273,7 +297,7 @@
 				    <div class="control-group">
 				    <label class="control-label">項目現況 ：</label>
 				    <div class="controls">
-				    <select id="c_situation" name="c_situation"><volist name="catelist" id="vo"><if condition="$vo['t'] eq '項目現況'">
+				    <select id="c_situation" name="c_situation"><volist name="categories" id="vo"><if condition="$vo['t'] eq '項目現況'">
 				      <option value='{$vo.id}' <if condition="$list['c_situation'] eq $vo['id']">selected</if>>{$vo.name}</option>
 				    </if></volist></select>
 				    </div>
@@ -385,7 +409,7 @@ function check_form(){
 var cate_id=[];
 var cate_name=[];
 var cate_t=[];
-<volist name="catelist" id="vo">
+<volist name="categories" id="vo">
 cate_id.push({$vo.id});
 cate_name.push('{$vo.name}');
 cate_t.push('{$vo.t}');
@@ -424,6 +448,30 @@ $(function(){
   $('#c_field,#c_area').change(function(){
     retrieve_options();
   });
+
+  // Select boxes
+  // Select box - Field
+  $('#TB_window').insertBefore($('#selectbox-field'));
+  $('#TB_mask').insertBefore($('#selectbox-field'));
+  $('#selectbox-field').html($('#searchbox-field').html());
+  $('#searchbox-field').remove();
+  $('#selectbox-field .search_header').remove();
+  $('#selectbox-field>ul+ul').remove();
+  // Select box - Area
+  $('#selectbox-area').html($('#searchbox-area').html());
+  $('#searchbox-area').remove();
+  $('#selectbox-area>ul>li:first-child+div+li').remove();
+  $('#selectbox-area>ul>li:first-child').remove();
+  // Data
+  <?PHP foreach ($list['c_field1'] as $val) { ?>
+  $('input[value="<?PHP echo $val; ?>"]').attr('checked','checked');
+  <?PHP } ?>
+  <?PHP foreach ($list['c_field2'] as $val) { ?>
+  $('input[value="<?PHP echo $val; ?>"]').attr('checked','checked');
+  <?PHP } ?>
+  <?PHP foreach ($list['c_area1'] as $val) { ?>
+  $('input[value="<?PHP echo $val; ?>"]').attr('checked','checked');
+  <?PHP } ?>
 });
 </script>
 
@@ -432,6 +480,10 @@ $(function(){
 <script>
 $(function(){
   $('#c_certificate').multiselect();
+  $('#c_participation').multiselect();
+  $('#c_location').multiselect();
+  $('#c_transfer').multiselect();
+  $('#c_metro').multiselect();
 
   // Language zh by default
   document.cookie='lang=zh';

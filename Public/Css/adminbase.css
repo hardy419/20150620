@@ -90,6 +90,11 @@ h3 {
 .change-password-div a:first-child~a.active {
   color: #ff0000;
 }
+#zh-a,#cn-a,#en-a {
+  position: relative;
+  left: 258px;
+  top: 29px;
+}
 
 li+.nav-header {
   margin-top: 30px !important;

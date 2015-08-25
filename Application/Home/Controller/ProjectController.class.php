@@ -12,6 +12,12 @@ class ProjectController extends BaseController {
         }
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
+        $dblist_zh = M('category_zh')->select();    // For column 't' comparison only
+        $catelist_zh = array();
+        foreach ($dblist_zh as $item) {
+            $catelist_zh[$item['id']] = $item['name'];
+        }
+        $this->assign('catelist_zh', $catelist_zh);
 
         parent::language();
 
@@ -43,6 +49,12 @@ class ProjectController extends BaseController {
         }
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
+        $dblist_zh = M('category_zh')->select();    // For column 't' comparison only
+        $catelist_zh = array();
+        foreach ($dblist_zh as $item) {
+            $catelist_zh[$item['id']] = $item['name'];
+        }
+        $this->assign('catelist_zh', $catelist_zh);
         // For hot recomm projects
         $hot = M('project')->where(array('hot_recomm'=>'on', 'visible'=>'on'))->select();
         foreach ($hot as &$proj) {

@@ -127,6 +127,12 @@ class ListController extends BaseController{
             }
             $this->assign('catelist', $catelist);
             $this->assign('categories', $dblist);
+            $dblist_zh = M('category_zh')->select();    // For column 't' comparison only
+            $catelist_zh = array();
+            foreach ($dblist_zh as $item) {
+                $catelist_zh[$item['id']] = $item['name'];
+            }
+            $this->assign('catelist_zh', $catelist_zh);
 
             $this->assign ('text_touzishouxuan', '投資首選');
             $this->assign ('text_chaozhituijie', '筍盤推介');
@@ -267,6 +273,16 @@ class ListController extends BaseController{
     protected  function _edit($tname,$id){
         $list=M($tname)->where(array('id'=>$id))->find();
 
+        // Special type
+        $type=I('request.type');
+        if (in_array ($type, array ('category'))) {
+            $zh = M($type.'_zh')->where(array('id'=>$id))->find();
+            $cn = M($type.'_cn')->where(array('id'=>$id))->find();
+            $en = M($type.'_en')->where(array('id'=>$id))->find();
+            $list['name_zh'] = $zh['name'];
+            $list['name_cn'] = $cn['name'];
+            $list['name_en'] = $en['name'];
+        }
         // Special columns
         if (isset ($list['c_certificate'])) {
             $list['c_certificate'] = explode (',', $list['c_certificate']);
@@ -278,14 +294,64 @@ class ListController extends BaseController{
     public function save(){
         if(''==I('post.id','') || 0==I('post.id','')) unset($_POST['id']);
         $type=I('post.type');
+        $jump=cookie("__CURRENTURL__");
         if(!in_array($type,array('user', 'banner','page','category','project','ads','news')))$this->error('非法操作類型',U('Index/index'));
+
+        if ('category' == $type) {
+            $db_zh = D($type.'_zh');
+            $db_cn = D($type.'_cn');
+            $db_en = D($type.'_en');
+            if (!$db_zh->create()) {
+                $this->error($db_zh->getError(),$jump);
+            }
+            else if (!$db_cn->create()) {
+                $this->error($db_cn->getError(),$jump);
+            }
+            else if (!$db_en->create()) {
+                $this->error($db_en->getError(),$jump);
+            }
+            else {
+                $id = I('post.id','');
+                $name_zh = I('post.name_zh','');
+                $name_cn = I('post.name_cn','');
+                $name_en = I('post.name_en','');
+                $db_zh->name = $name_zh;
+                $db_cn->name = $name_cn;
+                $db_en->name = $name_en;
+
+                // Add or Edit
+                if(!empty($id)){
+                    $query_zh = $db_zh->save();
+                    $query_cn = $db_cn->save();
+                    $query_en = $db_en->save();
+                }else{
+                    // Sync between languages
+                    if (empty ($name_cn)) {
+                        $db_cn->name = $name_zh;
+                    }
+                    if (empty ($name_en)) {
+                        $db_en->name = $name_zh;
+                    }
+
+                    $query_zh = $db_zh->add();
+                    $query_cn = $db_cn->add();
+                    $query_en = $db_en->add();
+                    $id = $query_zh;
+                }
+
+                cookie('current',$id);
+                if ($query_zh || $query_cn || $query_en) $this->success('操作成功',$jump);
+                else $this->error('操作失敗/未作任何更改',$jump);
+            }
+            return;
+        }
+
         if ('user' == $type || 'project' == $type) {
             $tname=$type;
         }
         else {
             $tname=$type.'_'.$this->lang;
         }
-        $jump=cookie("__CURRENTURL__");
         $db=D($tname);
         unset($_POST['pic']);
         if(!$db->create()){
@@ -653,16 +719,26 @@ class ListController extends BaseController{
     }
     public function del(){
         $type=I('get.type');
+        $id=I('get.id','');
+        $jump=cookie('__CURRENTURL__');
+        if(empty($id))$this->error('Delete Failure',$jump);
         if(!in_array($type,array('user', 'banner','page','category','project','ads','news')))$this->error('',U('Index/index'));
+
+        if ('category' == $type) {
+            $query_zh = M($type.'_zh')->where(array('id'=>$id))->delete();
+            $query_cn = M($type.'_cn')->where(array('id'=>$id))->delete();
+            $query_en = M($type.'_en')->where(array('id'=>$id))->delete();
+            if ($query_zh && $query_cn && $query_en) $this->success('Delete Success',$jump);
+            else $this->error('Delete Failure',$jump);
+            return;
+        }
+
         if ('user' == $type || 'project' == $type) {
             $tname=$type;
         }
         else {
             $tname=$type.'_'.$this->lang;
         }
-        $id=I('get.id','');
-        $jump=cookie('__CURRENTURL__');
-        if(empty($id))$this->error('Delete Failure',$jump);
 
         // Special cases
         if ('ads' == $type) {

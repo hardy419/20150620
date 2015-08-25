@@ -165,26 +165,26 @@ function checkall(selector,refbox){
 .top_submenus .fields-u li.left:first-child+li+li+li+li+li~li{width:140px}
 </style>
   <ul class="elementBox fields-u" style="border-bottom:1px dotted #99979c; padding-bottom: 5px; padding-top: 5px">    
-<?PHP foreach ($categories as $cate) if($catelist[$field_id] == $cate['t']) { ?>
+<?PHP foreach ($categories as $cate) if($catelist_zh[$field_id] == $cate['t']) { ?>
     <li class="left">
       <h3 class="element-tit">{$cate.name}</h3>
       <ul class="checkbox-block-{$cate.id}">
         <li><input type="checkbox" name="checkbox_block_{$cate.id}_all" value="1" class="checkedall_{$cate.id}" onclick="checkall('ul.checkbox-block-{$cate.id} input',$(this));"><span class="element-name" style="font-weight:bold">{$text_suoyouleibie}</span></li>
         <?PHP if ($catelist[$yinshiye_id] == $cate['name']) { ?>
-          <?PHP $count=0;foreach ($categories as $cate2) if($catelist[$caishi_id] == $cate2['t'] || $catelist[$shidian_id] == $cate2['t']) { ++$count; ?>
-            <li class="li-<?PHP echo ($catelist[$caishi_id] == $cate2['t'])?1:2; ?> <?PHP echo ($count>5)?'displaynone':''; ?>"><input type="checkbox" name="checkbox[{$cate.id}][<?PHP echo ($catelist[$caishi_id] == $cate2['t'])?1:2; ?>][]" value="{$cate2.id}" class="element_{$cate.id}"><span class="element-name">{$cate2.name}</span></li>
+          <?PHP $count=0;foreach ($categories as $cate2) if($catelist_zh[$caishi_id] == $cate2['t'] || $catelist_zh[$shidian_id] == $cate2['t']) { ++$count; ?>
+            <li class="li-<?PHP echo ($catelist_zh[$caishi_id] == $cate2['t'])?1:2; ?> <?PHP echo ($count>5)?'displaynone':''; ?>"><input type="checkbox" name="checkbox[{$cate.id}][<?PHP echo ($catelist_zh[$caishi_id] == $cate2['t'])?1:2; ?>][]" value="{$cate2.id}" class="element_{$cate.id}"><span class="element-name">{$cate2.name}</span></li>
           <?PHP } ?>
         <?PHP } else if ($catelist[$jiaoyuye_id] == $cate['name']) { ?>
           <li>
             <ul class="elementBox" style="border-bottom:1px dotted #99979c;">
-              <?PHP foreach ($categories as $cate2) if($catelist[$chipaizhuangkuang_id] == $cate2['t']) { ?>
+              <?PHP foreach ($categories as $cate2) if($catelist_zh[$chipaizhuangkuang_id] == $cate2['t']) { ?>
               <li class="li-1 floatleft"><input type="checkbox" name="checkbox[{$cate.id}][1][]" value="{$cate2.id}" class="element_{$cate.id}"><span class="element-name">{$cate2.name}</span></li>
               <?PHP } ?>
               <div class="clearboth"></div>
             </ul>
           </li>
           <li style="height:5px"></li>
-          <?PHP $count=0;foreach ($categories as $cate2) if($catelist[$leibie_id] == $cate2['t']) { ++$count; ?>
+          <?PHP $count=0;foreach ($categories as $cate2) if($catelist_zh[$leibie_id] == $cate2['t']) { ++$count; ?>
             <li class="li-2 <?PHP echo ($count>4)?'displaynone':''; ?>"><input type="checkbox" name="checkbox[{$cate.id}][2][]" value="{$cate2.id}" class="element_{$cate.id}"><span class="element-name">{$cate2.name}</span></li>
           <?PHP } ?>
         <?PHP } else { ?>
@@ -232,7 +232,7 @@ function checkall(selector,refbox){
       <h3 class="element-tit">參與程度</h3>
       <ul class="Participate">
             <li><input type="checkbox" name="checkall_participate" value="checkall_participate" class="element_4" onclick="checkall('ul.Participate input',$(this))"><span class="element-name">參與程度不限</span></li>
-          <?PHP foreach ($categories as $cate) if($catelist[$participation_id] == $cate['t']) { ?>
+          <?PHP foreach ($categories as $cate) if($catelist_zh[$participation_id] == $cate['t']) { ?>
             <li><input type="checkbox" name="checkbox_participate[]" value="{$cate.id}" class="element_{$cate.id}"><span class="element-name">{$cate.name}</span></li>
           <?PHP } ?>
             </ul>
@@ -295,7 +295,7 @@ function checkall(selector,refbox){
           <h2 class="element-tit_2">{$catelist[$location_id]|html_entity_decode=###}</h2>
           <ul>
           	<li><input type="checkbox" name="extra_fields_20_all" value="-1" class="checkedall_20"><span class="element-tit">{$text_renhe}{$catelist[$location_id]|html_entity_decode=###}</span></li><li style="height:8px"></li>
-              <?PHP foreach ($categories as $cate) if($catelist[$location_id] == $cate['t']) { ?>
+              <?PHP foreach ($categories as $cate) if($catelist_zh[$location_id] == $cate['t']) { ?>
               <li style="margin-left: 18px;"><input type="checkbox" name="checkbox_location[]" value="{$cate.id}" class="element_20"><span class="element-name">{$cate.name}</span></li>
               <?PHP } ?>
           </ul>
@@ -305,7 +305,7 @@ function checkall(selector,refbox){
          <h2 class="element-tit_2">&nbsp;&nbsp;&nbsp;&nbsp;{$catelist[$area_id]|html_entity_decode=###}</h2>
          <div class="closed_icon floatright">X</div>
         <li>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="extra_fields_17_all" value="" class="checkedall_17"><span class="element-tit">&nbsp;&nbsp;覆盖全港</span></li>
-<?PHP foreach ($categories as $cate) if($catelist[$area_id] == $cate['t'] && $catelist[$hkjingwai_id] != $cate['name']) { ?>
+<?PHP foreach ($categories as $cate) if($catelist_zh[$area_id] == $cate['t'] && $catelist[$hkjingwai_id] != $cate['name']) { ?>
     <li class="left">
       <h2 class="element-tit_2">{$cate.name}{$text_qu}</h2>
       <ul class="hkd">
@@ -328,7 +328,7 @@ function checkall(selector,refbox){
         <li><input type="checkbox" name="sub_extra_17_4" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">{$text_renhe}{$catelist[$metro_id]|html_entity_decode=###}</span></li>
         <li class="add-left2">
         <ul class="clearfix">
-          <?PHP foreach ($categories as $cate) if($catelist[$metro_id] == $cate['t']) { ?>
+          <?PHP foreach ($categories as $cate) if($catelist_zh[$metro_id] == $cate['t']) { ?>
           <li><input type="checkbox" name="checkbox_metro[]" value="{$cate.id}" class="element_17"><span class="element-name">{$cate.name}</span></li>
           <?PHP } ?>
         </ul>
@@ -341,7 +341,7 @@ function checkall(selector,refbox){
         <li><input type="checkbox" name="sub_extra_17_5" value="1" class="element_17 sub_checkall"><span class="element-name element-tit_2">{$text_suoyou}{$catelist[$area_id]|html_entity_decode=###}</span></li>
         <li class="add-left2">
          <ul class="clearfix">
-           <?PHP foreach ($categories as $cate2) if($catelist[$hkjingwai_id] == $cate2['t']) { ?>
+           <?PHP foreach ($categories as $cate2) if($catelist_zh[$hkjingwai_id] == $cate2['t']) { ?>
            <li><input type="checkbox" name="checkbox[{$oversea_id}][]" value="{$cate2.id}" class="element_17"><span class="element-name">{$cate2.name}</span></li>
            <?PHP } ?>
 		</ul>

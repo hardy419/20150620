@@ -28,6 +28,7 @@
               <div class="tab-content">
                 <div class="tab-pane <if condition='$ti eq 1 OR $ti eq 2'>active</if>" id="tab1">
                   <div class="frame-box-div2">
+				    <br/><br/>
                     <form class="form-horizontal" id="myForm1" method="post" action="{:U('save')}">
 					<if condition="isset($pname)">
 					<input type="hidden" name="t" value="{$pname}" />
@@ -44,10 +45,22 @@
 						</div>
 					</div>
 					</if>
-				    <div class="control-group">
+				    <div class="control-group control-zh">
 				    <label class="control-label">名稱：</label>
 				    <div class="controls">
-				    <input type="text" id="name1" name="name" check="Require" warning="請輸入名稱" value="{$list.name}" >
+				    <input type="text" id="name1_zh" name="name_zh" check="Require" warning="請輸入名稱" value="{$list.name_zh}" >
+				    </div>
+				    </div>
+				    <div class="control-group control-cn">
+				    <label class="control-label">名稱：</label>
+				    <div class="controls">
+				    <input type="text" id="name1_cn" name="name_cn" check="Require" warning="請輸入名稱" value="{$list.name_cn}" >
+				    </div>
+				    </div>
+				    <div class="control-group control-en">
+				    <label class="control-label">名稱：</label>
+				    <div class="controls">
+				    <input type="text" id="name1_en" name="name_en" check="Require" warning="請輸入名稱" value="{$list.name_en}" >
 				    </div>
 				    </div>
 				    <div class="control-group">
@@ -71,12 +84,25 @@
                 </div><!--/tab1-->
                 <div class="tab-pane <if condition='$ti neq 1 AND $ti neq 2'>active</if>" id="tab2">
                   <div class="frame-box-div2">
+				    <br/><br/>
                     <form class="form-horizontal" id="myForm2" method="post" action="{:U('save')}">
 				    <input type="hidden" name="t" value="{$cur_t}" />
-                    <div class="control-group">
+				    <div class="control-group control-zh">
 				    <label class="control-label">{$cur_t}名稱：</label>
 				    <div class="controls">
-				    <input type="text" id="name2" name="name" check="Require" warning="請輸入名稱" value="{$list.name}" >
+				    <input type="text" id="name2_zh" name="name_zh" check="Require" warning="請輸入名稱" value="{$list.name_zh}" >
+				    </div>
+				    </div>
+				    <div class="control-group control-cn">
+				    <label class="control-label">{$cur_t}名稱：</label>
+				    <div class="controls">
+				    <input type="text" id="name2_cn" name="name_cn" check="Require" warning="請輸入名稱" value="{$list.name_cn}" >
+				    </div>
+				    </div>
+				    <div class="control-group control-en">
+				    <label class="control-label">{$cur_t}名稱：</label>
+				    <div class="controls">
+				    <input type="text" id="name2_en" name="name_en" check="Require" warning="請輸入名稱" value="{$list.name_en}" >
 				    </div>
 				    </div>
 				    <div class="control-group">
@@ -256,6 +282,43 @@
 		  return true;
 	  }
   }
+
+function language_norefresh(){
+  $('#zh-a,#cn-a,#en-a').attr('href','javascript:(function(){language_switch();})();');
+}
+function language_switch(){
+  var strCookie=document.cookie; 
+  var arrCookie=strCookie.split("; "); 
+  var lang='zh';
+  for(var i=0;i<arrCookie.length;i++){ 
+    var arr=arrCookie[i].split("="); 
+    if("lang"==arr[0]){ 
+      lang=arr[1]; 
+      break; 
+    } 
+  }
+  $('.control-zh,.control-cn,.control-en').css('display','none');
+  $('.control-'+lang).each(function(){
+    if($(this).hasClass('control-inline')){
+      $(this).css('display','inline-block');
+    }
+    else{
+      $(this).css('display','block');
+    }
+  });
+  language_norefresh();
+  $('#zh-a,#cn-a,#en-a').removeClass('active');
+  $('#'+lang+'-a').addClass('active');
+
+  $('#zh-a,#cn-a,#en-a').css('position','relative').css('left','117px').css('top','71px');
+}
+
+$(function(){
+  // Language zh by default
+  document.cookie='lang=zh';
+
+  language_switch();
+});
 </script>
 </body>
 </html>

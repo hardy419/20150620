@@ -46,6 +46,12 @@ class ListController extends BaseController{
         }
         $this->assign('catelist', $catelist);
         $this->assign('categories', $dblist);
+        $dblist_zh = M('category_zh')->select();    // For column 't' comparison only
+        $catelist_zh = array();
+        foreach ($dblist_zh as $item) {
+            $catelist_zh[$item['id']] = $item['name'];
+        }
+        $this->assign('catelist_zh', $catelist_zh);
 
         $this->assign ('text_touzishouxuan', '投資首選');
         $this->assign ('text_chaozhituijie', '筍盤推介');
@@ -440,6 +446,7 @@ class ListController extends BaseController{
                     $db->small_business = 'off';
                 }
             }
+
             $certs = I('post.c_certificate', null);
             if (null !== $certs && in_array('c_certificate',$fields)) {
                 // Post var is an array (eg. checkbox)

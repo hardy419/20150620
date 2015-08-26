@@ -37,6 +37,41 @@ class ListController extends BaseController{
         }
     }
 
+    protected function searchbox_assigns() {
+        // Retrieve the category list for selection
+        $dblist = M('category_'.$this->lang)->order('`position` ASC, `id` DESC')->select();
+        $catelist = array();
+        foreach ($dblist as $item) {
+            $catelist[$item['id']] = $item['name'];
+        }
+        $this->assign('catelist', $catelist);
+        $this->assign('categories', $dblist);
+
+        $this->assign ('text_touzishouxuan', '投資首選');
+        $this->assign ('text_chaozhituijie', '筍盤推介');
+        $this->assign ('text_xiaobenchuangye', '小本創業');
+        $this->assign ('text_xuanzequanbu', '選擇全部');
+        $this->assign ('text_renhehangye', '任何行業');
+        $this->assign ('text_suoyouleibie', '所有類別');
+        $this->assign ('text_suoyou', '所有');
+        $this->assign ('text_renhe', '任何');
+        $this->assign ('text_quan', '全');
+        $this->assign ('text_qu', '區');
+
+        $this->assign ('area_id', 1);
+        $this->assign ('field_id', 2);
+        $this->assign ('participation_id', 4);
+        $this->assign ('location_id', 5);
+        $this->assign ('metro_id', 7);
+        $this->assign ('yinshiye_id', 9);
+        $this->assign ('jiaoyuye_id', 17);
+        $this->assign ('caishi_id', 10);
+        $this->assign ('shidian_id', 11);
+        $this->assign ('chipaizhuangkuang_id', 23);
+        $this->assign ('leibie_id', 24);
+        $this->assign ('hkjingwai_id', 126);
+    }
+
     public function admin() {
         $type=I('get.type', 'user');
         $pid=I('get.pid', null);
@@ -119,44 +154,8 @@ class ListController extends BaseController{
             // Default order
             $order = 'position';
             
-            // Retrieve the category list for selection
-            $dblist = M('category_'.$this->lang)->order('`position` ASC, `id` DESC')->select();
-            $catelist = array();
-            foreach ($dblist as $item) {
-                $catelist[$item['id']] = $item['name'];
-            }
-            $this->assign('catelist', $catelist);
-            $this->assign('categories', $dblist);
-            $dblist_zh = M('category_zh')->select();    // For column 't' comparison only
-            $catelist_zh = array();
-            foreach ($dblist_zh as $item) {
-                $catelist_zh[$item['id']] = $item['name'];
-            }
-            $this->assign('catelist_zh', $catelist_zh);
-
-            $this->assign ('text_touzishouxuan', '投資首選');
-            $this->assign ('text_chaozhituijie', '筍盤推介');
-            $this->assign ('text_xiaobenchuangye', '小本創業');
-            $this->assign ('text_xuanzequanbu', '選擇全部');
-            $this->assign ('text_renhehangye', '任何行業');
-            $this->assign ('text_suoyouleibie', '所有類別');
-            $this->assign ('text_suoyou', '所有');
-            $this->assign ('text_renhe', '任何');
-            $this->assign ('text_quan', '全');
-            $this->assign ('text_qu', '區');
-
-            $this->assign ('area_id', 1);
-            $this->assign ('field_id', 2);
-            $this->assign ('participation_id', 4);
-            $this->assign ('location_id', 5);
-            $this->assign ('metro_id', 7);
-            $this->assign ('yinshiye_id', 9);
-            $this->assign ('jiaoyuye_id', 17);
-            $this->assign ('caishi_id', 10);
-            $this->assign ('shidian_id', 11);
-            $this->assign ('chipaizhuangkuang_id', 23);
-            $this->assign ('leibie_id', 24);
-            $this->assign ('hkjingwai_id', 126);
+            // For search box
+            $this->searchbox_assigns ();
         }
         else if('ads' == $type) {
             $ads_1 = M('ads_'.$this->lang)->where(array('type'=>1))->select();
@@ -230,9 +229,8 @@ class ListController extends BaseController{
         $tname=$type;
 
         if('project' == $type) {
-            // Retrieve the category list for selection
-            $catelist = M('category_'.$this->lang)->select();
-            $this->assign('catelist', $catelist);
+            // For search box
+            $this->searchbox_assigns ();
         }
 
         cookie('current',$id);
@@ -286,6 +284,33 @@ class ListController extends BaseController{
         // Special columns
         if (isset ($list['c_certificate'])) {
             $list['c_certificate'] = explode (',', $list['c_certificate']);
+        }
+        if (isset ($list['c_participation'])) {
+            $list['c_participation'] = explode (',', $list['c_participation']);
+        }
+        if (isset ($list['c_location'])) {
+            $list['c_location'] = explode (',', $list['c_location']);
+        }
+        if (isset ($list['c_transfer'])) {
+            $list['c_transfer'] = explode (',', $list['c_transfer']);
+        }
+        if (isset ($list['c_metro'])) {
+            $list['c_metro'] = explode (',', $list['c_metro']);
+        }
+        if (isset ($list['c_field'])) {
+            $list['c_field'] = explode (',', $list['c_field']);
+        }
+        if (isset ($list['c_field1'])) {
+            $list['c_field1'] = explode (',', $list['c_field1']);
+        }
+        if (isset ($list['c_field2'])) {
+            $list['c_field2'] = explode (',', $list['c_field2']);
+        }
+        if (isset ($list['c_area'])) {
+            $list['c_area'] = explode (',', $list['c_area']);
+        }
+        if (isset ($list['c_area1'])) {
+            $list['c_area1'] = explode (',', $list['c_area1']);
         }
 
         $this->assign('list',$list);
@@ -420,6 +445,86 @@ class ListController extends BaseController{
                 // Post var is an array (eg. checkbox)
                 $db->c_certificate = implode (',', $certs);
             }
+            else {
+                $db->c_certificate = '';
+            }
+            $certs = I('post.c_participation', null);
+            if (null !== $certs && in_array('c_participation',$fields)) {
+                // Post var is an array (eg. checkbox)
+                $db->c_participation = implode (',', $certs);
+            }
+            else {
+                $db->c_participation = '';
+            }
+            $certs = I('post.c_location', null);
+            if (null !== $certs && in_array('c_location',$fields)) {
+                // Post var is an array (eg. checkbox)
+                $db->c_location = implode (',', $certs);
+            }
+            else {
+                $db->c_location = '';
+            }
+            $certs = I('post.c_transfer', null);
+            if (null !== $certs && in_array('c_transfer',$fields)) {
+                // Post var is an array (eg. checkbox)
+                $db->c_transfer = implode (',', $certs);
+            }
+            else {
+                $db->c_transfer = '';
+            }
+            $certs = I('post.c_metro', null);
+            if (null !== $certs && in_array('c_metro',$fields)) {
+                // Post var is an array (eg. checkbox)
+                $db->c_metro = implode (',', $certs);
+            }
+            else {
+                $db->c_metro = '';
+            }
+            
+            $checkbox = I('post.checkbox', null);
+            $c_field = array ();
+            $c_field1 = array ();
+            $c_field2 = array ();
+            $c_area = array ();
+            $c_area1 = array ();
+            if (null !== $checkbox) {
+                foreach ($checkbox as $c1=>$sub) {
+                    foreach ($sub as $c2=>$val) {
+                        if (is_array ($val)) {
+                            if (!in_array ($c1, $c_field)) {
+                                $c_field[] = $c1;
+                            }
+                            if (1 == $c2) {
+                                foreach ($val as $v) {
+                                    if (!in_array ($v, $c_field1)) {
+                                        $c_field1[] = $v;
+                                    }
+                                }
+                            }
+                            else if (2 == $c2) {
+                                foreach ($val as $v) {
+                                    if (!in_array ($v, $c_field2)) {
+                                        $c_field2[] = $v;
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            if (!in_array ($c1, $c_area)) {
+                                $c_area[] = $c1;
+                            }
+                            if (!in_array ($val, $c_area1)) {
+                                $c_area1[] = $val;
+                            }
+                        }
+                    }
+                }
+            }
+            $db->c_field = implode (',', $c_field);
+            $db->c_field1 = implode (',', $c_field1);
+            $db->c_field2 = implode (',', $c_field2);
+            $db->c_area = implode (',', $c_area);
+            $db->c_area1 = implode (',', $c_area1);
 
             // Special cases for this project
             if ('ads' == $type) {

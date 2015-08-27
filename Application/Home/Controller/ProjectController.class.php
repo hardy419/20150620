@@ -63,7 +63,7 @@ class ProjectController extends BaseController {
         }
         $this->assign('hot', $hot);
         // For ads
-        $adlist = M('ads_'.$this->lang)->select();
+        $adlist = M('ads_'.$this->lang)->where(array('status'=>1))->select();
         $this->assign('adlist', $adlist);
 
         parent::language();

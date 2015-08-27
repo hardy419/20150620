@@ -4,9 +4,9 @@
     <div class="u-div">
       <ul>
         <volist name="hot" id="vo">
-        <li class="bb_acacac mb10"><a href="{:U('Project/project_detail',array('id'=>$vo['id'], 'lang'=>$lang))}">{$vo.codename} {$vo.title}</a>
+        <li class="bb_acacac mb10"><a href="{:U('Project/project_detail',array('id'=>$vo['id'], 'lang'=>$lang))}"><?PHP if ('cn'==$lang) { echo $vo['codename_cn'].' '.$vo['title_cn']; } else if ('en'==$lang) { echo $vo['codename_en'].' '.$vo['title_en']; } else { echo $vo['codename_zh'].' '.$vo['title_zh']; } ?></a>
           <p class="mt10 mb10">{$text_dingjia}：${$vo.price}</p>
-            <if condition="$vo['profit_option'] eq 1"><p class="mb8">{$text_cankaolirun}：${$vo.profit}</p><else/><?PHP if (!empty($vo['profit_text'])) { ?><p class="mb8">{$vo.profit_text}</p><?PHP } ?></if>
+            <if condition="$vo['profit_option'] eq 1"><p class="mb8">{$text_cankaolirun}：${$vo.profit}</p><else/><?PHP if ('cn'==$lang) { if (!empty($vo['profit_text_cn'])) { ?><p class="mb8">{$vo.profit_text_cn}</p><?PHP } } else if ('en'==$lang) { if (!empty($vo['profit_text_en'])) { ?><p class="mb8">{$vo.profit_text_en}</p><?PHP } } else { if (!empty($vo['profit_text_zh'])) { ?><p class="mb8">{$vo.profit_text_zh}</p><?PHP } } ?></if>
         </li>
         </volist>
       </ul>
@@ -56,7 +56,7 @@ function slide(obj,dir){
   }
 }
 function autoplay(){
-  $(".slide-right").each(function(){slide($(this),0)});$(".slide-left").each(function(){slide($(this),1)});
+  $(".slide-right").each(function(){if($(this).find('li').length>1){slide($(this),0)}});$(".slide-left").each(function(){if($(this).find('li').length>1){slide($(this),1)}});
   setTimeout(autoplay,5E3);
 }
 $(function(){

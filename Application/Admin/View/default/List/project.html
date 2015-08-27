@@ -48,7 +48,7 @@
 	                    <td><if condition="$vo['profit_option'] eq '1'">${$vo.profit}<else/><?PHP if('en'==$lang) {echo $vo['profit_text_en'];} else if('cn'==$lang) {echo $vo['profit_text_cn'];} else {echo $vo['profit_text_zh'];} ?></if></td>
 	                    <td>${$vo.price}</td>
 	                    <td style="text-align:center">{$vo.recovery_period}月</td>
-	                    <td style="text-align:center">{$vo.status}</td>
+	                    <td style="text-align:center"><?PHP echo $catelist[$vo['c_situation']]; ?></td>
 	                    <td>位置：{$vo.position}</td>
 	                    <td><input style="position:relative;left:4px" type="checkbox" class="status-checkbox" name="status_group[]" <if condition="$vo['visible'] eq 'on'">checked</if>></td>
 	                    <td>

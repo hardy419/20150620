@@ -85,5 +85,9 @@ jQuery(function(){
 	        } else alert(info);
 	  });
    });
+
+  $('#zh-a,#cn-a,#en-a').insertAfter('.container>.row:first-child+.row>.span9>h3');
+  $('.container>.row:first-child+.row>.span9>h3').css('float', 'left');
+  $('<div style="clear:both"></div>').insertAfter('#en-a');
 });
 </script>

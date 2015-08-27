@@ -83,17 +83,18 @@ h3 {
 .change-password-div {
   margin-bottom: 30px;
 }
-.change-password-div a:first-child~a, .change-password-div a:first-child~a:hover {
+#zh-a,#cn-a,#en-a {
+  padding-right: 8px;
+  position: relative;
+  left: 30px;
+  top: 22px;
+}
+#zh-a,#cn-a,#en-a, #zh-a:hover, #cn-a:hover, #en-a:hover {
   text-decoration: none;
   color: #c0c0c0;
 }
-.change-password-div a:first-child~a.active {
+#zh-a.active, #cn-a.active, #en-a.active {
   color: #ff0000;
-}
-#zh-a,#cn-a,#en-a {
-  position: relative;
-  left: 258px;
-  top: 29px;
 }
 
 li+.nav-header {

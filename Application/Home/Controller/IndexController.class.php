@@ -28,7 +28,7 @@ class IndexController extends BaseController {
         }
         $this->assign('hot', $hot);
         // For ads
-        $adlist = M('ads_'.$this->lang)->select();
+        $adlist = M('ads_'.$this->lang)->where(array('status'=>1))->select();
         $this->assign('adlist', $adlist);
         // News
         $news = M('news_'.$this->lang)->where(array('status'=>1))->order('`date` DESC')->limit('1')->select();
@@ -62,7 +62,7 @@ class IndexController extends BaseController {
         }
         $this->assign('hot', $hot);
         // For ads
-        $adlist = M('ads_'.$this->lang)->select();
+        $adlist = M('ads_'.$this->lang)->where(array('status'=>1))->select();
         $this->assign('adlist', $adlist);
         // All project info
         $projects = M('project')->select();
@@ -150,7 +150,7 @@ class IndexController extends BaseController {
         }
         $this->assign('hot', $hot);
         // For ads
-        $adlist = M('ads_'.$this->lang)->select();
+        $adlist = M('ads_'.$this->lang)->where(array('status'=>1))->select();
         $this->assign('adlist', $adlist);
 
         parent::language();
@@ -191,7 +191,7 @@ class IndexController extends BaseController {
         }
         $this->assign('hot', $hot);
         // For ads
-        $adlist = M('ads_'.$this->lang)->select();
+        $adlist = M('ads_'.$this->lang)->where(array('status'=>1))->select();
         $this->assign('adlist', $adlist);
 
         parent::language();
@@ -237,7 +237,7 @@ class IndexController extends BaseController {
         }
         $this->assign('hot', $hot);
         // For ads
-        $adlist = M('ads_'.$this->lang)->select();
+        $adlist = M('ads_'.$this->lang)->where(array('status'=>1))->select();
         $this->assign('adlist', $adlist);
 
         parent::language();
@@ -312,7 +312,7 @@ class IndexController extends BaseController {
         }
         $this->assign('hot', $hot);
         // For ads
-        $adlist = M('ads_'.$this->lang)->select();
+        $adlist = M('ads_'.$this->lang)->where(array('status'=>1))->select();
         $this->assign('adlist', $adlist);
         // Retrieve page contents
         $page = M('page_'.$this->lang)->where(array('title'=>'加入創富會'))->select();
@@ -359,7 +359,7 @@ class IndexController extends BaseController {
         }
         $this->assign('hot', $hot);
         // For ads
-        $adlist = M('ads_'.$this->lang)->select();
+        $adlist = M('ads_'.$this->lang)->where(array('status'=>1))->select();
         $this->assign('adlist', $adlist);
         // Retrieve page contents
         $page = M('page_'.$this->lang)->where(array('title'=>'為您配對合適好生意'))->select();

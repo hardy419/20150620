@@ -164,10 +164,8 @@ class ListController extends BaseController{
             $this->searchbox_assigns ();
         }
         else if('ads' == $type) {
-            $ads_1 = M('ads_'.$this->lang)->where(array('type'=>1))->select();
-            $ads_2 = M('ads_'.$this->lang)->where(array('type'=>2))->select();
-            $this->assign('ads_1', $ads_1);
-            $this->assign('ads_2', $ads_2);
+            $ads = M('ads_'.$this->lang)->order('id ASC')->select();
+            $this->assign('ads', $ads);
         }
         else {
             $map = array ();
@@ -580,6 +578,15 @@ class ListController extends BaseController{
                     if (empty ($db->profit_text_en)) {
                         $db->profit_text_en = $db->profit_text_zh;
                     }
+                    if (null == $db->profit_text_zh) {
+                        $db->profit_text_zh = '';
+                    }
+                    if (null == $db->profit_text_cn) {
+                        $db->profit_text_cn = '';
+                    }
+                    if (null == $db->profit_text_en) {
+                        $db->profit_text_en = '';
+                    }
                 }
 
                 $query=$db->add();
@@ -591,6 +598,35 @@ class ListController extends BaseController{
             else $this->error('操作失敗/未作任何更改',$jump);
         }
     }
+
+    public function saveMany(){
+        if('' == I('post.id','') || 0 == I('post.id','')) unset($_POST['id']);
+        $type = I('post.type');
+        $tname = $type.'_'.$this->lang;
+        $jump = cookie("__CURRENTURL__");
+        if (!in_array ($type,array('ads'))) $this->error('非法操作類型',U('Index/index'));
+
+        $db = D($tname);
+        $fields = $db->getDbFields();
+        $post_id = I('post.id');
+        foreach ($post_id as $idx=>$id) {
+            $data = array ();
+            foreach ($_POST as $key=>$val) if(in_array ($key, $fields) && 'id' != $key) {
+                $post_data = I("post.{$key}");
+                if (!isset($post_data[$idx]) || null===$post_data[$idx]) {
+                    $post_data[$idx] = 0;
+                }
+                $data[$key] = $post_data[$idx];
+            }
+            $q_ret = $db->where(array ('id'=>$id))->save ($data);
+            if (false === $q_ret) {
+                $this->error('操作出現錯誤（上一個SQL命令：'.$db->getLastSql().'）',$jump);
+                return;
+            }
+        }
+        $this->success('操作成功',$jump);
+    }
+
     public function savePhotos(){
         $type=I('post.type');
         $tname=$type;

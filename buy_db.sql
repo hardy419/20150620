@@ -503,14 +503,17 @@ CREATE TABLE IF NOT EXISTS `buy_settings` (
   `key` varchar(255) NOT NULL,
   `value` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `buy_settings`
 --
 
 INSERT INTO `buy_settings` (`id`, `key`, `value`) VALUES
-(1, '最多允許tick數目', '5');
+(1, '最多允許tick數目', '5'),
+(2, '首期比率', '100'),
+(3, '利率（月平息）', '9.5'),
+(4, '供款期數', '12');
 
 -- --------------------------------------------------------
 

@@ -82,7 +82,7 @@ class ListController extends BaseController{
         $type=I('get.type', 'user');
         $pid=I('get.pid', null);
         $id=I('get.id', null);
-        if(!in_array($type,array('user', 'banner','page','category','project','ads','news','settings'))) $this->error('',U('Index/index'));
+        if(!in_array($type,array('user', 'banner','page','category','project','ads','news','settings','interest'))) $this->error('',U('Index/index'));
         if ('user' == $type || 'project' == $type) {
             $tname=$type;
         }
@@ -167,7 +167,7 @@ class ListController extends BaseController{
             $ads = M('ads_'.$this->lang)->order('id ASC')->select();
             $this->assign('ads', $ads);
         }
-        else if('settings' == $type) {
+        else if('settings' == $type || 'interest' == $type) {
             $settings = M('settings')->order('id ASC')->select();
             $this->assign('settings', $settings);
         }
@@ -240,6 +240,10 @@ class ListController extends BaseController{
             // For search box
             $this->searchbox_assigns ();
         }
+
+        // Settings
+        $settings = M('settings')->order('id ASC')->select();
+        $this->assign('settings', $settings);
 
         cookie('current',$id);
         if(!empty($id)){
@@ -455,7 +459,7 @@ class ListController extends BaseController{
                 $db->c_certificate = implode (',', $certs);
             }
             else {
-                $db->c_certificate = '';
+                if (in_array('c_certificate',$fields)) $db->c_certificate = '';
             }
             $certs = I('post.c_participation', null);
             if (null !== $certs && in_array('c_participation',$fields)) {
@@ -463,7 +467,7 @@ class ListController extends BaseController{
                 $db->c_participation = implode (',', $certs);
             }
             else {
-                $db->c_participation = '';
+                if (in_array('c_participation',$fields)) $db->c_participation = '';
             }
             $certs = I('post.c_location', null);
             if (null !== $certs && in_array('c_location',$fields)) {
@@ -471,7 +475,7 @@ class ListController extends BaseController{
                 $db->c_location = implode (',', $certs);
             }
             else {
-                $db->c_location = '';
+                if (in_array('c_location',$fields)) $db->c_location = '';
             }
             $certs = I('post.c_transfer', null);
             if (null !== $certs && in_array('c_transfer',$fields)) {
@@ -479,7 +483,7 @@ class ListController extends BaseController{
                 $db->c_transfer = implode (',', $certs);
             }
             else {
-                $db->c_transfer = '';
+                if (in_array('c_transfer',$fields)) $db->c_transfer = '';
             }
             $certs = I('post.c_metro', null);
             if (null !== $certs && in_array('c_metro',$fields)) {
@@ -487,53 +491,55 @@ class ListController extends BaseController{
                 $db->c_metro = implode (',', $certs);
             }
             else {
-                $db->c_metro = '';
+                if (in_array('c_metro',$fields)) $db->c_metro = '';
             }
             
-            $checkbox = I('post.checkbox', null);
-            $c_field = array ();
-            $c_field1 = array ();
-            $c_field2 = array ();
-            $c_area = array ();
-            $c_area1 = array ();
-            if (null !== $checkbox) {
-                foreach ($checkbox as $c1=>$sub) {
-                    foreach ($sub as $c2=>$val) {
-                        if (is_array ($val)) {
-                            if (!in_array ($c1, $c_field)) {
-                                $c_field[] = $c1;
-                            }
-                            if (1 == $c2) {
-                                foreach ($val as $v) {
-                                    if (!in_array ($v, $c_field1)) {
-                                        $c_field1[] = $v;
+            if ('project' == $type) {
+                $checkbox = I('post.checkbox', null);
+                $c_field = array ();
+                $c_field1 = array ();
+                $c_field2 = array ();
+                $c_area = array ();
+                $c_area1 = array ();
+                if (null !== $checkbox) {
+                    foreach ($checkbox as $c1=>$sub) {
+                        foreach ($sub as $c2=>$val) {
+                            if (is_array ($val)) {
+                                if (!in_array ($c1, $c_field)) {
+                                    $c_field[] = $c1;
+                                }
+                                if (1 == $c2) {
+                                    foreach ($val as $v) {
+                                        if (!in_array ($v, $c_field1)) {
+                                            $c_field1[] = $v;
+                                        }
+                                    }
+                                }
+                                else if (2 == $c2) {
+                                    foreach ($val as $v) {
+                                        if (!in_array ($v, $c_field2)) {
+                                            $c_field2[] = $v;
+                                        }
                                     }
                                 }
                             }
-                            else if (2 == $c2) {
-                                foreach ($val as $v) {
-                                    if (!in_array ($v, $c_field2)) {
-                                        $c_field2[] = $v;
-                                    }
+                            else {
+                                if (!in_array ($c1, $c_area)) {
+                                    $c_area[] = $c1;
                                 }
-                            }
-                        }
-                        else {
-                            if (!in_array ($c1, $c_area)) {
-                                $c_area[] = $c1;
-                            }
-                            if (!in_array ($val, $c_area1)) {
-                                $c_area1[] = $val;
+                                if (!in_array ($val, $c_area1)) {
+                                    $c_area1[] = $val;
+                                }
                             }
                         }
                     }
                 }
+                $db->c_field = implode (',', $c_field);
+                $db->c_field1 = implode (',', $c_field1);
+                $db->c_field2 = implode (',', $c_field2);
+                $db->c_area = implode (',', $c_area);
+                $db->c_area1 = implode (',', $c_area1);
             }
-            $db->c_field = implode (',', $c_field);
-            $db->c_field1 = implode (',', $c_field1);
-            $db->c_field2 = implode (',', $c_field2);
-            $db->c_area = implode (',', $c_area);
-            $db->c_area1 = implode (',', $c_area1);
 
             // Special cases for this project
             if ('ads' == $type) {

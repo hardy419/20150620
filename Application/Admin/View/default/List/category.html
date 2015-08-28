@@ -28,7 +28,7 @@
               <div class="tab-content">
                 <div class="tab-pane <if condition='$ti eq 1 OR $ti eq 2'>active</if>" id="tab1">
                   <div class="frame-box-div2">
-				    <br/><br/>
+				    <h3 id="h3-title"></h3><br/>
                     <form class="form-horizontal" id="myForm1" method="post" action="{:U('save')}">
 					<if condition="isset($pname)">
 					<input type="hidden" name="t" value="{$pname}" />
@@ -310,7 +310,7 @@ function language_switch(){
   $('#zh-a,#cn-a,#en-a').removeClass('active');
   $('#'+lang+'-a').addClass('active');
 
-  $('#zh-a,#cn-a,#en-a').css('position','relative').css('left','-67px').css('top','-262px');
+  $('#zh-a,#cn-a,#en-a').css('position','relative').css('left','0px').css('top','0px');
 }
 
 $(function(){

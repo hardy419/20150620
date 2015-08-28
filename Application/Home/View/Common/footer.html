@@ -77,8 +77,8 @@ function update_query(){
 function query_click(i,id,title,all){
   var img=$('#query-img-'+i);
   if(!img.hasClass('query-selected')){
-    if(5==update_query()){
-      alert('{$text_ticknomorethan}5');
+    if(<?PHP echo $max_tick; ?><=update_query()){
+      alert('{$text_ticknomorethan}<?PHP echo $max_tick; ?>');
       return;
     }
     if(!all){

@@ -495,6 +495,26 @@ INSERT INTO `buy_projectphoto` (`id`, `title`, `pic`, `sid`, `status`, `pid`) VA
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `buy_settings`
+--
+
+CREATE TABLE IF NOT EXISTS `buy_settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(255) NOT NULL,
+  `value` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `buy_settings`
+--
+
+INSERT INTO `buy_settings` (`id`, `key`, `value`) VALUES
+(1, '最多允許tick數目', '5');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `buy_user`
 --
 

@@ -14,7 +14,7 @@
 				    <li><a href="#">主頁管理</a> <span class="divider">/</span></li>
 				    <li class="active">最新消息</li>
 				    </ul>
-				<h3><if condition="$list['id'] neq ''">編輯消息<else/>新增消息</if></h3>	
+				<h3 id="h3-title"><if condition="$list['id'] neq ''">編輯消息<else/>新增消息</if></h3>	
                   <div class="frame-box-div">
                     <form class="form-horizontal" id="myForm" method="post" action="{:U('save')}" enctype="multipart/form-data">
 				    <div class="control-group">

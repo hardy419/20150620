@@ -14,7 +14,7 @@
 				    <li><a href="#">主頁管理</a> <span class="divider">/</span></li>
 				    <li class="active">主頁Banner</li>
 				    </ul>
-				<h3><if condition="$list['id'] eq ''">新增Banner<else/>編輯Banner</if></h3>	
+				<h3 id="h3-title"><if condition="$list['id'] eq ''">新增Banner<else/>編輯Banner</if></h3>	
                   <div class="frame-box-div">
                     <form class="form-horizontal" id="myForm" method="post" action="{:U('save')}" onsubmit="myForm.submit();">
 				    <div class="control-group">

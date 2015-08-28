@@ -13,6 +13,7 @@ function update_query(){
     }
   }
   $('#Float').find('h5').text(c);
+  return c;
 }
 function share_submit(){
   if($('#subject').val()==''||$('#email').val()==''){
@@ -74,7 +75,7 @@ function tb_show_2()
         <h1><?PHP if('en'==$lang) {echo $project['title_en'];} else if('cn'==$lang) {echo $project['title_cn'];} else {echo $project['title_zh'];} ?></h1>
         <ul>
           <li><a href="javascript:tb_show_2();"><img src="{:SITE_PATH}Public/{$lang}/images/product_share.jpg" /></a></li>
-          <li><a href="javascript:(function(){document.cookie='id-<?PHP echo $project['id']; ?>=<?PHP if('en'==$lang) {echo $project['title_en'];} else if('cn'==$lang) {echo $project['title_cn'];} else {echo $project['title_zh'];} ?>';update_query();alert('添加成功');})();"><img src="{:SITE_PATH}Public/{$lang}/images/product_list.jpg" /></a></li>
+          <li><a href="javascript:(function(){if(<?PHP echo $max_tick; ?>>update_query()){document.cookie='id-<?PHP echo $project['id']; ?>=<?PHP if('en'==$lang) {echo $project['title_en'];} else if('cn'==$lang) {echo $project['title_cn'];} else {echo $project['title_zh'];} ?>';update_query();alert('添加成功');}else{alert('<?PHP echo $text_ticknomorethan.$max_tick; ?>');}})();"><img src="{:SITE_PATH}Public/{$lang}/images/product_list.jpg" /></a></li>
           <li><a href="{:U('Index/query', array('lang'=>$lang))}"><img src="{:SITE_PATH}Public/{$lang}/images/product_search.jpg" /></a></li>
           <li><a href="javascript:window.print();"><img src="{:SITE_PATH}Public/{$lang}/images/product_print.jpg" /></a></li>
         </ul>

@@ -1,0 +1,57 @@
+<include file="Common:header" />
+<body>
+<div class="container" style="width:1480px;">
+      <div class="row">
+        <img class="logo-img" src="{:SITE_PATH}Public/Img/Buy/logo.png" />
+      </div>
+      <div class="row">
+        <div class="span3">
+         <include file="Common:menu" />
+        </div><!--/span-->
+        <div class="span9">
+                     <ul class="breadcrumb">
+				    <li><a href="#">主頁</a> <span class="divider">/</span></li>
+				    <li><a href="#">主頁管理</a> <span class="divider">/</span></li>
+				    <li class="active">主頁設置</li>
+				    </ul>
+				<h3>主頁設置</h3>	
+                <form class="form-horizontal" id="myForm" method="post" action="{:U('saveMany')}" onsubmit="editor.sync();myForm.submit();" enctype="multipart/form-data">
+                  <div class="frame-box-div">
+
+				    <div class="control-group">
+				    <label class="control-label">{$settings[0]['key']}</label>
+				    <div class="controls">
+				     <input type="text" id="max_tick" name="value[]" value="{$settings[0]['value']}"/>
+				    </div>
+				    </div>
+				    <input type="hidden" id="id" name="id[]" value="1" />
+				  </div><!--/frame-box-div-->
+				  <br/>
+				<input type="hidden" id="type" name="type" value="{$type}" />
+				<div class="control-group">
+				<div class="controls">
+				<button type="submit" class="btn">提交</button>
+				</div>
+				</div>
+				</form>
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+    </div>
+<script src="__JS__/jquery-1.8.2.min.js"></script>
+<script src="__JS__/kindeditor/kindeditor.js"></script>
+<script src="__JS__/jquery.form.js"></script>
+<script src="__JS__/CheckForm.js"></script>
+<script src="__JS__/bootstrap-datepicker.js"></script>
+<script src="__JS__/jquery-ui.min.js"></script>
+<script src="__JS__/jquery.fileupload.js"></script>
+<script src="__JS__/common.js"></script>
+<script>
+jQuery(function(){
+  $('#zh-a,#en-a,#cn-a').css('display','none');
+});
+</script>
+</body>
+</html>

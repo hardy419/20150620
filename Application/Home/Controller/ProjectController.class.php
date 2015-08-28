@@ -18,6 +18,9 @@ class ProjectController extends BaseController {
             $catelist_zh[$item['id']] = $item['name'];
         }
         $this->assign('catelist_zh', $catelist_zh);
+        // Settings (Max Tick)
+        $max_tick = M('settings')->where(array('id'=>1))->getField('value');
+        $this->assign('max_tick', $max_tick);
 
         parent::language();
 
@@ -65,6 +68,9 @@ class ProjectController extends BaseController {
         // For ads
         $adlist = M('ads_'.$this->lang)->where(array('status'=>1))->select();
         $this->assign('adlist', $adlist);
+        // Settings (Max Tick)
+        $max_tick = M('settings')->where(array('id'=>1))->getField('value');
+        $this->assign('max_tick', $max_tick);
 
         parent::language();
 

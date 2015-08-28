@@ -33,6 +33,9 @@ class IndexController extends BaseController {
         // News
         $news = M('news_'.$this->lang)->where(array('status'=>1))->order('`date` DESC')->limit('1')->select();
         $this->assign('news', $news[0]);
+        // Settings (Max Tick)
+        $max_tick = M('settings')->where(array('id'=>1))->getField('value');
+        $this->assign('max_tick', $max_tick);
 
         parent::language();
 

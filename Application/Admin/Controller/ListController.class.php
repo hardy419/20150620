@@ -82,7 +82,7 @@ class ListController extends BaseController{
         $type=I('get.type', 'user');
         $pid=I('get.pid', null);
         $id=I('get.id', null);
-        if(!in_array($type,array('user', 'banner','page','category','project','ads','news'))) $this->error('',U('Index/index'));
+        if(!in_array($type,array('user', 'banner','page','category','project','ads','news','settings'))) $this->error('',U('Index/index'));
         if ('user' == $type || 'project' == $type) {
             $tname=$type;
         }
@@ -166,6 +166,10 @@ class ListController extends BaseController{
         else if('ads' == $type) {
             $ads = M('ads_'.$this->lang)->order('id ASC')->select();
             $this->assign('ads', $ads);
+        }
+        else if('settings' == $type) {
+            $settings = M('settings')->order('id ASC')->select();
+            $this->assign('settings', $settings);
         }
         else {
             $map = array ();
@@ -602,13 +606,19 @@ class ListController extends BaseController{
     public function saveMany(){
         if('' == I('post.id','') || 0 == I('post.id','')) unset($_POST['id']);
         $type = I('post.type');
-        $tname = $type.'_'.$this->lang;
+        if ('ads' == $type) {
+            $tname = $type.'_'.$this->lang;
+        }
+        else {
+            $tname = $type;
+        }
         $jump = cookie("__CURRENTURL__");
-        if (!in_array ($type,array('ads'))) $this->error('非法操作類型',U('Index/index'));
+        if (!in_array ($type,array('ads', 'settings'))) $this->error('非法操作類型',U('Index/index'));
 
         $db = D($tname);
         $fields = $db->getDbFields();
         $post_id = I('post.id');
+        //$dbg = '';
         foreach ($post_id as $idx=>$id) {
             $data = array ();
             foreach ($_POST as $key=>$val) if(in_array ($key, $fields) && 'id' != $key) {
@@ -619,6 +629,7 @@ class ListController extends BaseController{
                 $data[$key] = $post_data[$idx];
             }
             $q_ret = $db->where(array ('id'=>$id))->save ($data);
+            //$dbg .= '|'.$db->getLastSql();
             if (false === $q_ret) {
                 $this->error('操作出現錯誤（上一個SQL命令：'.$db->getLastSql().'）',$jump);
                 return;

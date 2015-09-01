@@ -489,9 +489,9 @@ $(function(){
   language_switch();
 
   $('#price').change(function(){
-    $('#downpay').val(<?PHP echo (float)$settings[1]['value'] / (float)100.0; ?> * $('#price').val());
+    $('#downpay').val( Math.round(<?PHP echo (float)$settings[1]['value'] / (float)100.0; ?> * $('#price').val()) );
     $('#allowance_period').val(<?PHP echo $settings[3]['value']; ?>);
-    $('#allowance').val( $('#price').val() * (1-<?PHP echo (float)$settings[1]['value'] / (float)100.0; ?>) * (1/<?PHP echo $settings[3]['value']; ?>+<?PHP echo (float)$settings[2]['value'] / (float)100.0; ?>) );
+    $('#allowance').val( Math.round($('#price').val() * (1-<?PHP echo (float)$settings[1]['value'] / (float)100.0; ?>) * (1/<?PHP echo $settings[3]['value']; ?>+<?PHP echo (float)$settings[2]['value'] / (float)100.0; ?>)) );
   });
 });
 </script>

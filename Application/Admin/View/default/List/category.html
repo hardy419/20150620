@@ -28,7 +28,7 @@
               <div class="tab-content">
                 <div class="tab-pane <if condition='$ti eq 1 OR $ti eq 2'>active</if>" id="tab1">
                   <div class="frame-box-div2">
-				    <h3 id="h3-title"></h3><br/>
+				    <if condition='$ti eq 1 OR $ti eq 2'><h3 id="h3-title"></h3><br/><else/><br/><br/></if>
                     <form class="form-horizontal" id="myForm1" method="post" action="{:U('save')}">
 					<if condition="isset($pname)">
 					<input type="hidden" name="t" value="{$pname}" />
@@ -84,7 +84,7 @@
                 </div><!--/tab1-->
                 <div class="tab-pane <if condition='$ti neq 1 AND $ti neq 2'>active</if>" id="tab2">
                   <div class="frame-box-div2">
-				    <br/><br/>
+				    <if condition='$ti neq 1 AND $ti neq 2'><h3 id="h3-title"></h3><br/><else/><br/><br/></if>
                     <form class="form-horizontal" id="myForm2" method="post" action="{:U('save')}">
 				    <input type="hidden" name="t" value="{$cur_t}" />
 				    <div class="control-group control-zh">

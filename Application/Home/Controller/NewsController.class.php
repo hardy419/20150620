@@ -36,6 +36,9 @@ class NewsController extends BaseController {
         $this->assign('news', $news);
         $this->assign('page', $page);
         $this->assign('total_pages', $total_pages);
+        // Settings (Max Tick)
+        $max_tick = M('settings')->where(array('id'=>1))->getField('value');
+        $this->assign('max_tick', $max_tick);
 
         parent::language();
 

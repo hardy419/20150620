@@ -334,10 +334,12 @@ class ListController extends BaseController{
         $jump=cookie("__CURRENTURL__");
         if(!in_array($type,array('user', 'banner','page','category','project','ads','news')))$this->error('非法操作類型',U('Index/index'));
 
-        if ('category' == $type) {
+        $id = I('post.id','');
+        if ('category' == $type || ('news' == $type && empty($id))) {
             $db_zh = D($type.'_zh');
             $db_cn = D($type.'_cn');
             $db_en = D($type.'_en');
+            $fields = $db_zh->getDbFields();
             if (!$db_zh->create()) {
                 $this->error($db_zh->getError(),$jump);
             }
@@ -348,13 +350,14 @@ class ListController extends BaseController{
                 $this->error($db_en->getError(),$jump);
             }
             else {
-                $id = I('post.id','');
-                $name_zh = I('post.name_zh','');
-                $name_cn = I('post.name_cn','');
-                $name_en = I('post.name_en','');
-                $db_zh->name = $name_zh;
-                $db_cn->name = $name_cn;
-                $db_en->name = $name_en;
+                if (in_array ('name', $fields)) {
+                    $name_zh = I('post.name_zh','');
+                    $name_cn = I('post.name_cn','');
+                    $name_en = I('post.name_en','');
+                    $db_zh->name = $name_zh;
+                    $db_cn->name = $name_cn;
+                    $db_en->name = $name_en;
+                }
 
                 // Add or Edit
                 if(!empty($id)){
@@ -363,11 +366,13 @@ class ListController extends BaseController{
                     $query_en = $db_en->save();
                 }else{
                     // Sync between languages
-                    if (empty ($name_cn)) {
-                        $db_cn->name = $name_zh;
-                    }
-                    if (empty ($name_en)) {
-                        $db_en->name = $name_zh;
+                    if (in_array ('name', $fields)) {
+                        if (empty ($name_cn)) {
+                            $db_cn->name = $name_zh;
+                        }
+                        if (empty ($name_en)) {
+                            $db_en->name = $name_zh;
+                        }
                     }
 
                     $query_zh = $db_zh->add();
@@ -641,6 +646,18 @@ class ListController extends BaseController{
                 return;
             }
         }
+        // Interest calculations
+        if (in_array (2, $post_id)) {
+            $values = I('post.value');
+            $paydown = $values[0];
+            $interest = $values[1];
+            $terms = $values[2];
+            $db_project = M('project');
+            $sql = "UPDATE buy_project SET downpay=ROUND(price*{$paydown}/100.0),allowance_period={$terms},";
+            $sql.= "allowance=ROUND(price * (1-{$paydown}/100.0) * (1/{$terms}+{$interest}/100.0))";
+            $db_project->query ($sql);
+        }
+
         $this->success('操作成功',$jump);
     }
 
@@ -889,7 +906,7 @@ class ListController extends BaseController{
         if(empty($id))$this->error('Delete Failure',$jump);
         if(!in_array($type,array('user', 'banner','page','category','project','ads','news')))$this->error('',U('Index/index'));
 
-        if ('category' == $type) {
+        if ('category' == $type || 'news' == $type) {
             $query_zh = M($type.'_zh')->where(array('id'=>$id))->delete();
             $query_cn = M($type.'_cn')->where(array('id'=>$id))->delete();
             $query_en = M($type.'_en')->where(array('id'=>$id))->delete();

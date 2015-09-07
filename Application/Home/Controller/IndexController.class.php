@@ -31,7 +31,7 @@ class IndexController extends BaseController {
         $adlist = M('ads_'.$this->lang)->where(array('status'=>1))->select();
         $this->assign('adlist', $adlist);
         // News
-        $news = M('news_'.$this->lang)->where(array('status'=>1))->order('`date` DESC')->limit('1')->select();
+        $news = M('news_'.$this->lang)->where(array('status'=>1))->order("`order` DESC, `date` DESC, `id` DESC")->limit('1')->select();
         $this->assign('news', $news[0]);
         // Settings (Max Tick)
         $max_tick = M('settings')->where(array('id'=>1))->getField('value');
@@ -651,7 +651,7 @@ class IndexController extends BaseController {
         }
 
         if (null !== $keyword && !empty($keyword)) {
-            $map['title'] = array ('like', "%{$keyword}%");
+            $map['title_'.$this->lang] = array ('like', "%{$keyword}%");
         }
 
         if (null !== $visible) {

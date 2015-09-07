@@ -163,6 +163,10 @@ class ListController extends BaseController{
             // For search box
             $this->searchbox_assigns ();
         }
+        else if('news' == $type) {
+            $order = array ('order', 'date', 'id');
+            $sort = array ('DESC', 'DESC', 'DESC');
+        }
         else if('ads' == $type) {
             $ads = M('ads_'.$this->lang)->order('id ASC')->select();
             $this->assign('ads', $ads);
@@ -775,7 +779,21 @@ class ListController extends BaseController{
             $p->setConfig('first', 'the first Page');
             $p->setConfig('theme','%upPage% %first%  %prePage% %linkPage%  %downPage%  %nextPage% %end%');
             if (null === $query) {
-                $list=$model->where($map)->order("`" . $order . "` " . $sort)->limit($p->firstRow.",".$p->listRows)->select();
+                if (is_array ($order)) {
+                    $order_str = '';
+                    foreach ($order as $idx=>$o) {
+                        if (0 === $idx) {
+                            $order_str = "`{$o}` ".$sort[$idx];
+                        }
+                        else {
+                            $order_str .= ",`{$o}` ".$sort[$idx];
+                        }
+                    }
+                    $list=$model->where($map)->order($order_str)->limit($p->firstRow.",".$p->listRows)->select();
+                }
+                else {
+                    $list=$model->where($map)->order("`" . $order . "` " . $sort)->limit($p->firstRow.",".$p->listRows)->select();
+                }
             }
             else {
                 $query .= " ORDER BY `{$order}` {$sort} LIMIT {$p->firstRow},{$p->listRows}";

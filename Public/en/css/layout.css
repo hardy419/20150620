@@ -323,7 +323,7 @@ li.mt12 {margin-top: 20px}
 }
 /*------搜索的标题------*/
 #header .hTop .searchTitle {
-	width: 85px;
+	width: 135px;
 	height: 25px;
 	background: url(../images/searchTitle.jpg) no-repeat;
 }

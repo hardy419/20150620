@@ -33,7 +33,8 @@ function share_submit(){
 
 <div id="TB_window_2" class="top_submenus" style="position:fixed; top:25%; left:50%; width: 480px;height: 350px; margin-left:-240px;padding:0;background-color:white; display: none;z-index:2147483647">
   <div>
-    <img src="{:SITE_PATH}Public/{$lang}/images/share_header.png" />
+    <img src="{:SITE_PATH}Public/{$lang}/images/share_header.png" usemap="#map" />
+    <map name="map" id="map"><area shape="rect" coords="442,0,480,32" href="javascript:(function(){js_op_close_2(false);})();" /></map>
   </div>
   <form id="share-form" action="{:U('Index/shareFormSubmit')}" method="post">
     <table>
@@ -76,7 +77,7 @@ function tb_show_2()
         <ul>
           <li><a href="javascript:tb_show_2();"><img src="{:SITE_PATH}Public/{$lang}/images/product_share.jpg" /></a></li>
           <li><a href="javascript:(function(){if(<?PHP echo $max_tick; ?>>update_query()){document.cookie='id-<?PHP echo $project['id']; ?>=<?PHP if('en'==$lang) {echo $project['title_en'];} else if('cn'==$lang) {echo $project['title_cn'];} else {echo $project['title_zh'];} ?>';update_query();alert('添加成功');}else{alert('<?PHP echo $text_ticknomorethan.$max_tick; ?>');}})();"><img src="{:SITE_PATH}Public/{$lang}/images/product_list.jpg" /></a></li>
-          <li><a href="{:U('Index/query', array('lang'=>$lang))}"><img src="{:SITE_PATH}Public/{$lang}/images/product_search.jpg" /></a></li>
+          <li><a href="{:U('Index/query', array('lang'=>$lang))}" onclick="if(<?PHP echo $max_tick; ?>>update_query()){document.cookie='id-<?PHP echo $project['id']; ?>=<?PHP if('en'==$lang) {echo $project['title_en'];} else if('cn'==$lang) {echo $project['title_cn'];} else {echo $project['title_zh'];} ?>';update_query();return true;}else{alert('<?PHP echo $text_ticknomorethan.$max_tick; ?>');return false;}"><img src="{:SITE_PATH}Public/{$lang}/images/product_search.jpg" /></a></li>
           <li><a href="javascript:window.print();"><img src="{:SITE_PATH}Public/{$lang}/images/product_print.jpg" /></a></li>
         </ul>
         <div class="clearboth"></div>

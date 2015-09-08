@@ -2,7 +2,8 @@
 <!------------------------首頁主體部分------------------------>
 <div id="wrapIndex" class="mb10">
   <div class="productTitle">
-    <h1>{$text_xianzhengchurangyewu}</h1>
+    <p id="h1-p">{$text_ruxuanzeduoyuyigexiangmu}</p><h1>{$text_xianzhengchurangyewu}</h1>
+    <div class="clearboth"></div>
   </div>
   <!--------首頁主體部分-第四部分-------->
   <div class="wIndex04 b_aeaeae pr">
@@ -38,4 +39,28 @@
     <div class="clearboth"></div>
   </div>
 </div>
+<script>
+function h1p_resize(){
+  if(1080<$(window).width()){
+    $('#h1-p').css('left',(<if condition="$lang eq 'en'">445<else/>145</if>-$(window).width()/2)+'px');
+  }
+  else{
+    $('#h1-p').css('left',(<if condition="$lang eq 'en'">987<else/>687</if>-$(window).width())+'px');
+  }
+}
+$(function(){
+  // $text_ruxuanzeduoyuyigexiangmu responsive
+  $('#h1-p').css('float','right');
+  $('#h1-p').css('position','relative');
+  $('#h1-p').css('top','20px');
+<if condition="$lang eq 'en'">
+  $('#h1-p').css('font-size','14px');
+  $('#h1-p').css('top','22px');
+</if>
+  h1p_resize();
+  $(window).resize(function(){
+    h1p_resize();
+  });
+});
+</script>
 <include file="Common:footer" />

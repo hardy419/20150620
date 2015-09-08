@@ -107,8 +107,39 @@ function ajax_search_op_home(data,init){
 data=eval('('+data+')');
 
 if(true!==init){
-  var mhtml='<div class="productTitle"><h1>{$text_xianzhengchurangyewu}</h1></div>';
+  var mhtml='<div class="productTitle"><p id="h1-p">{$text_ruxuanzeduoyuyigexiangmu}</p><h1>{$text_xianzhengchurangyewu}</h1><div class="clearboth"></div></div>';
   mhtml+='<div class="wIndex04 b_aeaeae pr"><h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex04_title.png" /></h1><h2 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h2><h3 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h3><div class="page"><ul class="page-u"></ul></div><table width="95%" border="0" cellspacing="0" cellpadding="0" id="project-table"></table><div class="page"><ul class="page-u"></ul></div><div class="clearboth"></div></div>';
+  mhtml+='<script>';
+  mhtml+='function h1p_resize(){';
+  mhtml+='  if(1080<$(window).width()){';
+<if condition="$lang eq 'en'">
+  mhtml+="    $('#h1-p').css('left',(445-$(window).width()/2)+'px');";
+<else/>
+  mhtml+="    $('#h1-p').css('left',(145-$(window).width()/2)+'px');";
+</if>
+  mhtml+="  }";
+  mhtml+="  else{";
+<if condition="$lang eq 'en'">
+  mhtml+="    $('#h1-p').css('left',(987-$(window).width())+'px');";
+<else/>
+  mhtml+="    $('#h1-p').css('left',(687-$(window).width())+'px');";
+</if>
+  mhtml+="  }";
+  mhtml+="}";
+  mhtml+="$(function(){";
+  mhtml+="  $('#h1-p').css('float','right');";
+  mhtml+="  $('#h1-p').css('position','relative');";
+  mhtml+="  $('#h1-p').css('top','20px');";
+<if condition="$lang eq 'en'">
+  mhtml+="  $('#h1-p').css('font-size','14px');";
+  mhtml+="  $('#h1-p').css('top','22px');";
+</if>
+  mhtml+="  h1p_resize();";
+  mhtml+="  $(window).resize(function(){";
+  mhtml+="    h1p_resize();";
+  mhtml+="  });";
+  mhtml+="});";
+  mhtml+='<'+'/script>';
   $('#wrapIndex').html(mhtml);
 }
 
@@ -128,7 +159,7 @@ for(i=0;i<data['data'].length;++i){
   var onclick_html='onclick="window.location.href='+"'{:U('Project/project_detail',array('lang'=>$lang))}&id="+data['data'][i]['id']+"'"+'"';
   var html='<tr style="cursor:pointer">';
   if(i%2==1){
-    var tdclass='class="bg_f3f3f3"';
+    var tdclass='class="bg_ebebeb"';
   }
   else{
     var tdclass='';

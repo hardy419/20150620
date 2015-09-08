@@ -117,6 +117,7 @@ class BaseController extends Controller {
             $this->assign ('text_zujin', '租金(月)');
             $this->assign ('text_canyuchengdu', '參與程度');
             $this->assign ('text_xiangmuqingkuang', '項目情況');
+            $this->assign ('text_ruxuanzeduoyuyigexiangmu', '如選擇多於一個項目，請按 “加入清單”後再按“即時查詢”');
 
             $this->assign ('text_dingjia', '定價');
             $this->assign ('text_cankaolirun', '參考利潤(每月)');
@@ -227,6 +228,7 @@ class BaseController extends Controller {
             $this->assign ('text_zujin', '租金(月)');
             $this->assign ('text_canyuchengdu', '参与程度');
             $this->assign ('text_xiangmuqingkuang', '项目情况');
+            $this->assign ('text_ruxuanzeduoyuyigexiangmu', '如选择多于一个项目，请按“加入清单”后再按“即时查询”');
 
             $this->assign ('text_dingjia', '定价');
             $this->assign ('text_cankaolirun', '参考利润(每月)');
@@ -337,6 +339,7 @@ class BaseController extends Controller {
             $this->assign ('text_zujin', 'Monthly Rent');
             $this->assign ('text_canyuchengdu', "Proprietor's participation");
             $this->assign ('text_xiangmuqingkuang', 'Status');
+            $this->assign ('text_ruxuanzeduoyuyigexiangmu', 'If you want to select more than one item, please press “Add To Enquiry” and then press “Enquiry”');
 
             $this->assign ('text_dingjia', 'Selling Price');
             $this->assign ('text_cankaolirun', 'Indicative Profit');

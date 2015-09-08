@@ -29,6 +29,19 @@ function reset_form(){
   $('#other').val('');
 }
 
+function del_cookie(){
+  var date=new Date(); 
+  date.setTime(date.getTime()-10000); 
+  var strCookie=document.cookie; 
+  var arrCookie=strCookie.split("; "); 
+  for(var i=0;i<arrCookie.length;i++){ 
+    var arr=arrCookie[i].split("="); 
+    if(arr[0].substr(0,3)=='id-'){
+      document.cookie=arr[0]+"=0; expires="+date.toGMTString(); 
+    }
+  } 
+}
+
 	jQuery(window).on('load',  function() {
 		var arr=document.cookie.split('; ');
 		var i,j=0;
@@ -75,7 +88,7 @@ function reset_form(){
 
 
 		</div>
-	 <form action="{:U('formSubmit')}" name="Enquiry_Email" id="chronoform_Enquiry_Email" method="post" class="Chronoform hasValidation"><div class="jshop_cat_con">
+	 <form action="{:U('formSubmit')}" name="Enquiry_Email" id="chronoform_Enquiry_Email" method="post" class="Chronoform hasValidation" onsubmit="del_cookie();"><div class="jshop_cat_con">
 <table width="100%" align="center" cellpadding="0" cellspacing="0" class="enquiry_form">
   <tbody>
     <tr>

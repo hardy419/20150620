@@ -87,7 +87,7 @@ class IndexController extends BaseController {
         $jshopv = I('post.jshop_value');
         $subject = '[Message From: Buy Business]';
         $body = $jshopv.'<br/><br/>'.$message.'<br/><br/>Name: '.$name.'<br/>Email: '.$email.'<br/>Phone: '.$phone;
-        $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
+        $this->msg = $this->postMail ($body, $subject, '540115739@qq.com', '2757144278@qq.com');
 
         $this->assign('sent', '1');
         $this->query();
@@ -176,7 +176,7 @@ class IndexController extends BaseController {
         $accept = I('post.input_radio_19'); // 'Yes'
         $subject = '[Message From: Buy Business, 來自買家查詢]';
         $body = '姓名: '.$name.'<br/>電郵: '.$email.'<br/>電話號碼: '.$tel.'<br/>意見: '.$suggest.'<br/>最方便之聯絡時間: '.$contact_date.'<br/>接收最新資訊: '.$accept;
-        $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
+        $this->msg = $this->postMail ($body, $subject, '540115739@qq.com', '2757144278@qq.com');
 
         // For search box
         $dblist = M('category_'.$this->lang)->order('`position` ASC, `id` DESC')->select();
@@ -225,7 +225,7 @@ class IndexController extends BaseController {
         $accept = I('post.input_radio_19'); // 'Yes'
         $subject = '[Message From: Buy Business, 來自賣家查詢]';
         $body = '姓名: '.$name.'<br/>電郵: '.$email.'<br/>電話號碼: '.$tel.'<br/>意見: '.$suggest.'<br/>最方便之聯絡時間: '.$contact_date.'<br/>接收最新資訊: '.$accept;
-        $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
+        $this->msg = $this->postMail ($body, $subject, '540115739@qq.com', '2757144278@qq.com');
 
         // For search box
         $dblist = M('category_'.$this->lang)->order('`position` ASC, `id` DESC')->select();
@@ -272,7 +272,7 @@ class IndexController extends BaseController {
         $other = I('post.other');
         $subject = '[Message From: Buy Business, 來自聯絡我們]';
         $body = '姓名: '.$name.'<br/>電郵: '.$email.'<br/>電話號碼: '.$tel.'<br/><br/>其它意見: '.$other;
-        $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
+        $this->msg = $this->postMail ($body, $subject, '540115739@qq.com', '2757144278@qq.com');
 
         // For search box
         $dblist = M('category_'.$this->lang)->order('`position` ASC, `id` DESC')->select();
@@ -311,7 +311,7 @@ class IndexController extends BaseController {
         $interest = I('post.interest');
         $subject = '[Message From: Buy Business, 加入創富會]';
         $body = '姓名: '.$name.'<br/>電郵: '.$email.'<br/>電話號碼: '.$tel.'<br/>地址: '.$addr.'<br/>性別: '.$gender.'<br/>年齡: '.(1==$age?'男':'女').'<br/>出生日期: '.$birth.'<br/>職業: '.$occu.'<br/>感興趣之行業: '.$interest;
-        $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
+        $this->msg = $this->postMail ($body, $subject, '540115739@qq.com', '2757144278@qq.com');
 
         $dblist = M('category_'.$this->lang)->select();
         $catelist = array();
@@ -361,7 +361,7 @@ class IndexController extends BaseController {
         $body.= '<br/>有否創業經驗？: '.I('post.input_exam').'      ('.I('post.input_exam_other').')';
         $body.= '<br/><br/>其他意見(請註明): '.I('post.input_comment');
         $body.= '<br/>最方便之聯絡時間: '.I('post.input_time');
-        $this->msg = $this->postMail ($body, $subject, 'josontse@tcglobalwork.com', '2757144278@qq.com');
+        $this->msg = $this->postMail ($body, $subject, '540115739@qq.com', '2757144278@qq.com');
 
         $dblist = M('category_'.$this->lang)->select();
         $catelist = array();

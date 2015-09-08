@@ -321,8 +321,10 @@
 }
 /*------搜索的标题------*/
 #header .hTop .searchTitle {
-	width: 85px;
+	width: 135px;
 	height: 25px;
+	position: relative;
+	left: -15px;
 	background: url(../images/searchTitle.jpg) no-repeat;
 }
 /*------搜索的下拉多选表单------*/

@@ -1277,6 +1277,7 @@ CREATE TABLE IF NOT EXISTS `buy_project` (
   `profit_text_en` varchar(64) NOT NULL,
   `recovery_period` float NOT NULL,
   `square` int(11) NOT NULL,
+  `square_text` varchar(255) NOT NULL,
   `rent` int(11) NOT NULL,
   `c_participation` varchar(255) NOT NULL,
   `c_location` varchar(255) NOT NULL,

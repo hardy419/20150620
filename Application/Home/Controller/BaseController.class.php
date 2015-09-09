@@ -109,7 +109,7 @@ class BaseController extends Controller {
             $this->assign ('text_daihaomingcheng', '代號名稱');
             $this->assign ('text_churangxiangmu', '出讓項目');
             $this->assign ('text_cankaolirun', '參考利潤');
-            $this->assign ('text_baokuocunhuo', '包括存貨其他');
+            $this->assign ('text_baokuocunhuo', '包括存貨/其他');
             $this->assign ('text_huibenqi', '回本期(月)');
             $this->assign ('text_dingjia', '定價(HKD)');
             $this->assign ('text_gongkuan', '供款(月)');
@@ -172,7 +172,7 @@ class BaseController extends Controller {
             $this->assign ('text_quan', '全');
             $this->assign ('text_qu', '區');
 
-            $this->assign ('text_month', '月');
+            $this->assign ('text_month', '個月');
 
             $this->assign ('text_ticknomorethan', '查詢項目數不能超過');
 
@@ -220,7 +220,7 @@ class BaseController extends Controller {
             $this->assign ('text_daihaomingcheng', '代号名称');
             $this->assign ('text_churangxiangmu', '出让项目');
             $this->assign ('text_cankaolirun', '参考利润');
-            $this->assign ('text_baokuocunhuo', '包括存货其他');
+            $this->assign ('text_baokuocunhuo', '包括存货/其他');
             $this->assign ('text_huibenqi', '回本期(月)');
             $this->assign ('text_dingjia', '定价(HKD)');
             $this->assign ('text_gongkuan', '供款(月)');
@@ -283,7 +283,7 @@ class BaseController extends Controller {
             $this->assign ('text_quan', '全');
             $this->assign ('text_qu', '区');
 
-            $this->assign ('text_month', '月');
+            $this->assign ('text_month', '个月');
 
             $this->assign ('text_ticknomorethan', '查询项目数不能超过');
 

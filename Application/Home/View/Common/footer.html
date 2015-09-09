@@ -178,7 +178,12 @@ for(i=0;i<data['data'].length;++i){
     html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['profit_text_<?PHP echo $lang; ?>']+'</td>';
   }
   html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['store_<?PHP echo $lang; ?>']+'</td>';
-  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['recovery_period']+'{$text_month}</td>';
+  if(0==data['data'][i]['recovery_period']){
+    html+='<td '+onclick_html+' '+tdclass+'>-</td>';
+  }
+  else{
+    html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['recovery_period']+'{$text_month}</td>';
+  }
   html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['price']+'</td>';
   html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['allowance']+'</td>';
   html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['square']+'</td>';

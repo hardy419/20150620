@@ -145,7 +145,12 @@ function del_cookie(){
   <div class="clear"></div>
   <div id="error-message-"></div>
 </div>
-<if condition="$sent eq 1"><div class="enquiry_fm_t"><span class="required">{$text_fasongchenggong}</span></div></if>
+<if condition="$sent eq 1"><!--div class="enquiry_fm_t"><span class="required">{$text_fasongchenggong}</span></div-->
+<script>
+$(function(){
+  alert('{$text_fasongchenggong}');
+});
+</script></if>
 <div class="ccms_form_element cfdiv_empty" id="empty_container_div" style="">
   <div class="clear"></div>
   <div id="error-message-empty"></div>

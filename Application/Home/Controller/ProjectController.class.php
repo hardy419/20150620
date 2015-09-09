@@ -34,12 +34,17 @@ class ProjectController extends BaseController {
         }
         $project = M('project')->where(array('id'=>$id))->select();
         $project[0]['price'] = number_format ($project[0]['price'], 0);
-        $project[0]['turnover'] = number_format ($project[0]['turnover'], 0);
+        $project[0]['turnover'] = (0 == $project[0]['turnover']) ? '-' : number_format ($project[0]['turnover'], 0);
         $project[0]['profit'] = number_format ($project[0]['profit'], 0);
-        $project[0]['recovery_period'] = str_replace ('.0', '', number_format ($project[0]['recovery_period'], 1));
+        $project[0]['recovery_period'] = (0 == $project[0]['recovery_period']) ? '-' : number_format ($project[0]['recovery_period'], 1);
         $project[0]['rent'] = number_format ($project[0]['rent'], 0);
         $project[0]['downpay'] = number_format ($project[0]['downpay'], 0);
         $project[0]['allowance'] = number_format ($project[0]['allowance'], 0);
+        $project[0]['square'] = number_format ($project[0]['square'], 0);
+        $project[0]['c_participation'] = explode (',', $project[0]['c_participation']);
+        $project[0]['c_location'] = explode (',', $project[0]['c_location']);
+        $project[0]['c_transfer'] = explode (',', $project[0]['c_transfer']);
+        $project[0]['c_metro'] = explode (',', $project[0]['c_metro']);
         $this->assign ('project', $project[0]);
         $certificates = explode (',', $project[0]['c_certificate']);
         $this->assign ('certificates', $certificates);

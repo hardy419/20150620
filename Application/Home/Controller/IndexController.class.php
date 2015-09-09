@@ -545,10 +545,10 @@ class IndexController extends BaseController {
             $map['profit'][] = 'or';
         }
 
-        if (null !== $map_recovery) {
+        if (null !== $map_recovery && 1 != I('post.extra_fields_16_all')) {
             $map['recovery_period'] = array ();
             if (in_array ('0-6', $map_recovery)) {
-                $map['recovery_period'][] = array ('between','0,6');
+                $map['recovery_period'][] = array ('between','0.1,6');
             }
             if (in_array ('6.1-12', $map_recovery)) {
                 $map['recovery_period'][] = array ('between','6.1,12');
@@ -685,7 +685,7 @@ class IndexController extends BaseController {
                 $data['participation'] = $catelist[$data['c_participation']];
                 $data['situation'] = $catelist[$data['c_situation']];
                 $data['profit'] = number_format ($data['profit'], 0);
-                $data['recovery_period'] = str_replace ('.0', '', number_format ($data['recovery_period'], 1));
+                $data['recovery_period'] = number_format ($data['recovery_period'], 1);
                 $data['price'] = number_format ($data['price'], 0);
                 $data['allowance'] = number_format ($data['allowance'], 0);
                 $data['rent'] = number_format ($data['rent'], 0);

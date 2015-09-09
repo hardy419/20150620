@@ -103,23 +103,23 @@ function tb_show_2()
           <dt class="bg">包括存貨/其他：</dt>
           <dd class="bg"><?PHP if('en'==$lang) {echo $project['store_en'];} else if('cn'==$lang) {echo $project['store_cn'];} else {echo $project['store_zh'];} ?>&nbsp;</dd>
           <dt>營業額(每月)</dt>
-          <dd>${$project.turnover}&nbsp;</dd>
+          <dd><if condition="$project['turnover'] neq '-'">$</if>{$project.turnover}&nbsp;</dd>
           <dt class="bg">參考利潤(每月)：</dt>
           <dd class="bg"><if condition="$project['profit_option'] eq 1">${$project.profit}<else/><?PHP if('en'==$lang) {echo $project['profit_text_en'];} else if('cn'==$lang) {echo $project['profit_text_cn'];} else {echo $project['profit_text_zh'];} ?></if>&nbsp;</dd>
           <dt>回本期(月)：</dt>
           <dd>{$project.recovery_period}&nbsp;</dd>
           <dt class="bg">面積(平方呎)：</dt>
-          <dd class="bg">{$project.square}&nbsp;</dd>
+          <dd class="bg">{$project.square}&nbsp;&nbsp;&nbsp;&nbsp;{$project.square_text}&nbsp;</dd>
           <dt>租金：</dt>
           <dd>${$project.rent}&nbsp;</dd>
           <dt class="bg">東主參與程度：</dt>
-          <dd class="bg">{$catelist[$project['c_participation']]}&nbsp;</dd>
+          <dd class="bg"><volist name="project['c_participation']" id="vo">{$catelist[$vo]}&nbsp;&nbsp;</volist>&nbsp;</dd>
           <dt>經營場所類別：</dt>
-          <dd>{$catelist[$project['c_location']]}&nbsp;</dd>
+          <dd><volist name="project['c_location']" id="vo">{$catelist[$vo]}&nbsp;&nbsp;</volist>&nbsp;</dd>
           <dt class="bg">轉讓形式：</dt>
-          <dd class="bg">{$catelist[$project['c_transfer']]}&nbsp;</dd>
+          <dd class="bg"><volist name="project['c_transfer']" id="vo">{$catelist[$vo]}&nbsp;&nbsp;</volist>&nbsp;</dd>
           <dt>地鐵沿線：</dt>
-          <dd>{$catelist[$project['c_metro']]}&nbsp;</dd>
+          <dd><volist name="project['c_metro']" id="vo">{$catelist[$vo]}&nbsp;&nbsp;</volist>&nbsp;</dd>
           <dt class="bg">首期：</dt>
           <dd class="bg">${$project.downpay}&nbsp;</dd>
           <dt>每月供款：</dt>

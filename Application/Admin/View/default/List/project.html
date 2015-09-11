@@ -96,6 +96,9 @@
 $(function(){
   $('#search-submit').click(function(){
     ajax_submit(null,null);
+    $('#keyword').val('');
+    $('input[type="checkbox"]').removeAttr('checked');
+    update_search_textboxes();
   });
 });
 </script>

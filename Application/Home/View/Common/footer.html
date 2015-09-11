@@ -319,6 +319,9 @@ $(function(){
   ajax_submit_home(null,null,null,true);
   $('#search-submit').click(function(){
     ajax_submit_home(null,null,null);
+    $('#keyword').val('');
+    $('input[type="checkbox"]').removeAttr('checked');
+    update_search_textboxes();
   });
 
   $('#Float').css('cursor', 'pointer').click(function(){

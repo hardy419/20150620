@@ -61,7 +61,7 @@
                     <div class="control-group input-append">
 				      <label class="control-label">行業：</label>
 				      <div class="controls">
-				        <input class="input-medium" type="text" name="c_field" placeholder="行業">
+				        <input class="input-medium input-field" type="text" name="c_field" placeholder="行業">
                         <div class="btn-group">
                           <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="$('#selectbox-field').toggle('_default');">
                             <span class="caret"></span>
@@ -115,7 +115,7 @@
                     <div class="control-group input-append">
 				      <label class="control-label">地區 ：</label>
 				      <div class="controls">
-				        <input class="input-medium" type="text" name="c_area" placeholder="地區">
+				        <input class="input-medium input-area" type="text" name="c_area" placeholder="地區">
                         <div class="btn-group">
                           <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="$('#selectbox-area').toggle('_default');">
                             <span class="caret"></span>
@@ -494,6 +494,8 @@ $(function(){
     $('#allowance_period').val(<?PHP echo $settings[3]['value']; ?>);
     $('#allowance').val( Math.round($('#price').val() * (1-<?PHP echo (float)$settings[1]['value'] / (float)100.0; ?>) * (1/<?PHP echo $settings[3]['value']; ?>+<?PHP echo (float)$settings[2]['value'] / (float)100.0; ?>)) );
   });
+
+  update_search_textboxes();
 });
 </script>
 </body>

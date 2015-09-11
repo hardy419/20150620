@@ -6,7 +6,7 @@
 
 <!-- Input Select all START -->
                     <div class="input-append">
-				      <input class="input-medium" type="text" name="fip" placeholder="{$text_fip}">
+				      <input class="input-medium input-field" type="text" name="fip" placeholder="{$text_fip}">
                       <div class="btn-group">
                         <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="popup_box($('.search_all'), $(this))">
                           <span class="caret"></span>
@@ -281,7 +281,7 @@ function checkall(selector,refbox){
 
 <!-- Input Area START -->
                     <div class="input-append">
-				      <input class="input-small" type="text" name="area" placeholder="{$text_diqu}">
+				      <input class="input-small input-area" type="text" name="area" placeholder="{$text_diqu}">
                       <div class="btn-group">
                         <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="popup_box($('.Area'), $(this))">
                           <span class="caret"></span>
@@ -519,6 +519,7 @@ function ajax_submit(p,o,spanid){
 		jQuery('.search_all').hide('_default');
 		$('.caretv').addClass('caret');
 		$('.caretv').removeClass('caretv');
+		update_search_textboxes();
 	}
 
 	var top_menu_cancel = function(){
@@ -747,6 +748,35 @@ function ajax_submit(p,o,spanid){
 		return true;
 	}
 
+function update_search_textboxes(){
+	var idx=0;
+	var str='';
+	$('.search_all input[type="checkbox"]').each(function(){
+		if('checked'!=$(this).attr('checked'))return;
+		if(0==idx){
+			str=$(this).next('*').text();
+		}
+		else{
+			str+=', '+$(this).next('*').text();
+		}
+		idx++;
+	});
+	$('.input-field').val(str);
+
+	idx=0;
+	str='';
+	$('.Area input[type="checkbox"]').each(function(){
+		if('checked'!=$(this).attr('checked'))return;
+		if(0==idx){
+			str=$(this).next('*').text();
+		}
+		else{
+			str+=', '+$(this).next('*').text();
+		}
+		idx++;
+	});
+	$('.input-area').val(str);
+}
 
 	jQuery(window).on('load',  function() {
 		jQuery('.top_icon').click(function(){
@@ -766,6 +796,10 @@ function ajax_submit(p,o,spanid){
 			//alert(jQuery(this).attr('searchfield')+jQuery(this).attr('searchdata'));
 			window.location = 'index.php?option=com_jshopping&controller=search&task=result&search_type_2=top_menu&searchfield='+jQuery(this).attr('searchfield')+'&searchdata='+jQuery(this).attr('searchdata');
 			return false;	
+		});
+
+		$('input[type="checkbox"]').click(function(){
+			update_search_textboxes();
 		});
 	});
 </script>

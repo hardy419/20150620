@@ -69,7 +69,7 @@ function tb_show_2()
 
 <!------------------------現正出讓業務主體部分------------------------>
 <div id="wrapIndex" class="about mb10">
-  <div class="aboutTitle">{$text_xianzhengchurangyewu}</div>
+  <p id="h1-p">{$text_ruxuanzeduoyuyigexiangmu}</p><div class="aboutTitle">{$text_xianzhengchurangyewu}</div>
   <div class="aboutwrap">
     <div class="aboutwrap_l b_aeaeae fl mr10">
       <div class="productsTop">
@@ -120,14 +120,18 @@ function tb_show_2()
           <dd class="bg"><volist name="project['c_transfer']" id="vo">{$catelist[$vo]}&nbsp;&nbsp;</volist>&nbsp;</dd>
           <dt>地鐵沿線：</dt>
           <dd><volist name="project['c_metro']" id="vo">{$catelist[$vo]}&nbsp;&nbsp;</volist>&nbsp;</dd>
-          <dt class="bg">首期：</dt>
+          <dt class="bg"><span class="unindent"><span class="product-detail-required">*</span>首期：</span></dt>
           <dd class="bg">${$project.downpay}&nbsp;</dd>
-          <dt>每月供款：</dt>
+          <dt><span class="unindent"><span class="product-detail-required">*</span>每月供款：</span></dt>
           <dd>${$project.allowance}&nbsp;</dd>
-          <dt class="bg">供款期數：</dt>
+          <dt class="bg"><span class="unindent"><span class="product-detail-required">*</span>供款期數：</span></dt>
           <dd class="bg">{$project.allowance_period}&nbsp;</dd>
           <dt>項目現況：</dt>
           <dd>{$catelist[$project['c_situation']]}&nbsp;</dd>
+          <dt>&nbsp;</dt>
+          <dd>&nbsp;</dd>
+          <dt class="product-detail-gloss"><span class="unindent"><span class="product-detail-required">*</span>須受貸款機構條款及細則約束，貸款機構保留貸款批核之最終決定權。</span></dt>
+          <dd>&nbsp;</dd>
         </dl>
       </div>
     </div>
@@ -136,4 +140,32 @@ function tb_show_2()
 </div>
 </div>
 <div class="clear"></div>
+<script>
+function h1p_resize(){
+  if(1080<$(window).width()){
+    $('#h1-p').css('left',(<if condition="$lang eq 'en'">445<else/>145</if>-$(window).width()/2)+'px');
+  }
+  else{
+    $('#h1-p').css('left',(<if condition="$lang eq 'en'">987<else/>687</if>-$(window).width())+'px');
+  }
+}
+$(function(){
+  $('dt.bg').each(function(){
+    $(this).css('height',$(this).next().css('height'));
+  });
+
+  // $text_ruxuanzeduoyuyigexiangmu responsive
+  $('#h1-p').css('float','right');
+  $('#h1-p').css('position','relative');
+  $('#h1-p').css('top','20px');
+<if condition="$lang eq 'en'">
+  $('#h1-p').css('font-size','14px');
+  $('#h1-p').css('top','22px');
+</if>
+  h1p_resize();
+  $(window).resize(function(){
+    h1p_resize();
+  });
+});
+</script>
 <include file="Common:footer" />

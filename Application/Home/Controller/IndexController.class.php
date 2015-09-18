@@ -693,6 +693,7 @@ class IndexController extends BaseController {
                 $data['price'] = number_format ($data['price'], 0);
                 $data['allowance'] = number_format ($data['allowance'], 0);
                 $data['rent'] = number_format ($data['rent'], 0);
+                $data['square'] = number_format ($data['square'], 0);
             }
 
             $results['numpages'] = (int)(($count-1)/$listRows)+1;

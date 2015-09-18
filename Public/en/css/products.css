@@ -44,3 +44,15 @@
 .productsCon dl .bg {
 	background:#ebebeb;
 }
+
+.product-detail-required {
+  color: red;
+}
+.unindent {
+  position: relative;
+  left: -7px;
+}
+.product-detail-gloss {
+  white-space: nowrap;
+  font-weight: bold;
+}

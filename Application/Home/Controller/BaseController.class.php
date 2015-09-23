@@ -99,7 +99,7 @@ class BaseController extends Controller {
             $this->assign ('text_maijiachaxun2', '賣家查詢');
             $this->assign ('text_kaiyeziliaoku', '開業資料庫');
             $this->assign ('text_yingyeziliaoku', '營業資料庫');
-            $this->assign ('text_copyright', '&copy; 2005 - 2015創富易業務轉讓有限公司 天域國際投資投資成員');
+            $this->assign ('text_copyright', '&copy; 2005 - 2015創富易業務轉讓有限公司 <span class="fr">天域國際投資投資成員<span>');
             $this->assign ('text_banquansuoyou', '版權所有 不得轉載');
             $this->assign ('text_banquanshengming', '版權聲明');
             $this->assign ('text_mianzetiaokuan', '免責條款');
@@ -210,7 +210,7 @@ class BaseController extends Controller {
             $this->assign ('text_maijiachaxun2', '卖家查询');
             $this->assign ('text_kaiyeziliaoku', '开业资料库');
             $this->assign ('text_yingyeziliaoku', '营业资料库');
-            $this->assign ('text_copyright', '&copy; 2005 - 2015创富易业务转让有限公司 天域国际投资投资成员');
+            $this->assign ('text_copyright', '&copy; 2005 - 2015创富易业务转让有限公司 <span class="fr">天域国际投资投资成员</span>');
             $this->assign ('text_banquansuoyou', '版权所有 不得转载');
             $this->assign ('text_banquanshengming', '版权声明');
             $this->assign ('text_mianzetiaokuan', '免责条款');
@@ -321,7 +321,7 @@ class BaseController extends Controller {
             $this->assign ('text_maijiachaxun2', 'Seller Enquiry');
             $this->assign ('text_kaiyeziliaoku', 'Startup Reference');
             $this->assign ('text_yingyeziliaoku', 'Reference');
-            $this->assign ('text_copyright', '&copy; 2005－2015 Buy Business Ltd. Sky Vision International Investments Ltd.');
+            $this->assign ('text_copyright', '&copy; 2005－2015 Buy Business Ltd. <span class="fr">Sky Vision International Investments Ltd.</span>');
             $this->assign ('text_banquansuoyou', 'All Rights Reserved');
             $this->assign ('text_banquanshengming', 'Copyright Notice');
             $this->assign ('text_mianzetiaokuan', 'Disclaimer');

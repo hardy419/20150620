@@ -82,7 +82,10 @@
       <p id="news-desc-p"></p>
       <p class="floatright"><a target="_blank" href="{:SITE_PATH}{$news.pdf}">{$text_yueduquanwen}</a></p>
     </div>
-    <div class="wIndex03_03 fl"><a><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_03_01img.jpg" /></a></div>
+    <div class="wIndex03_03 fl">
+      <!--a><img src="{:SITE_PATH}Public/{$lang}/images/wIndex03_03_01img.jpg" /></a-->
+      <include file="Common:googlead" />
+    </div>
   </div>
   <!--------首頁主體部分-第四部分-------->
   <div class="wIndex04 b_aeaeae pr">
@@ -162,4 +165,5 @@ $(function(){
   }
 });
 </script>
+<include file="Common:counter" />
 <include file="Common:footer" />

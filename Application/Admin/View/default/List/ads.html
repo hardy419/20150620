@@ -79,7 +79,7 @@ function change_image(url,idx){
 	jQuery("#uploaded-img-"+idx).css("width",w+"px");
 	jQuery("#uploaded-img-"+idx).css("height",h+"px");
 	if(jQuery('#remove-a-'+idx).length==0) {
-		jQuery('<a id="remove-a-'+idx+'" href="{:U("del",array("type"=>"ads"))}&id='+idx+'">移除</a><br/>').insertAfter("#fileinput-image-"+idx);
+		jQuery('<a id="remove-a-'+idx+'" href="{:U("del",array("type"=>"ads"))}&id='+(idx+1)+'">移除</a><br/>').insertAfter("#fileinput-image-"+idx);
 	}
 }
 

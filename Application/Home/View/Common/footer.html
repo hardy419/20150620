@@ -107,7 +107,7 @@ function ajax_search_op_home(data,init){
 data=eval('('+data+')');
 
 if(true!==init){
-  var mhtml='<div class="productTitle"><p id="h1-p">{$text_ruxuanzeduoyuyigexiangmu}</p><h1>{$text_xianzhengchurangyewu}</h1><div class="clearboth"></div></div>';
+  var mhtml='<div class="productTitle"><h1>{$text_xianzhengchurangyewu}</h1><div class="clearboth"></div></div>';
   mhtml+='<div class="wIndex04 b_aeaeae pr"><h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex04_title.png" /></h1><h2 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h2><h3 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h3><div class="page"><ul class="page-u"></ul></div><table width="95%" border="0" cellspacing="0" cellpadding="0" id="project-table"></table><div class="page"><ul class="page-u"></ul></div><div class="clearboth"></div></div>';
   mhtml+='<script>';
   mhtml+='function h1p_resize(){';
@@ -210,10 +210,12 @@ $('.page-u').append('<li><a href="javascript:void(0)" class="arrow-right-a"><img
 
 $('.page-index').each(function(){
   var page=parseInt($(this).text());
+  var urlstr="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page+"&lang={$lang}";
+  urlstr+=data['get_str'];
   if(!$(this).hasClass('currentPage')){
     $(this).click(function(){
       $('#search-form').ajaxSubmit({
-        url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page+"&lang={$lang}",
+        url:urlstr,
         success:function(data){
           ajax_search_op_home(data,false);
         },
@@ -227,8 +229,10 @@ $('.page-index').each(function(){
 if(data['p']<data['numpages']){
   $('.arrow-right-a').click(function(){
     var page=parseInt(data['p'])+1;
+    var urlstr="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page+"&lang={$lang}";
+    urlstr+=data['get_str'];
     $('#search-form').ajaxSubmit({
-      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page+"&lang={$lang}",
+      url:urlstr,
       success:function(data){
         ajax_search_op_home(data,false);
       },
@@ -320,8 +324,10 @@ $(function(){
   $('#search-submit').click(function(){
     ajax_submit_home(null,null,null);
     $('#keyword').val('');
-    $('input[type="checkbox"]').removeAttr('checked');
-    update_search_textboxes();
+    //$('input[type="checkbox"]').removeAttr('checked');
+    //update_search_textboxes();
+    $('.input-field').val('');
+    $('.input-area').val('');
   });
 
   $('#Float').css('cursor', 'pointer').click(function(){

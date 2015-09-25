@@ -705,6 +705,23 @@ class IndexController extends BaseController {
 
         $results['p'] = $page;
 
+        $results['get_str'] = '';
+        if (null !== $cate) {
+            $results['get_str'] .= '&cate='.$cate;
+        }
+        if (null !== $hot) {
+            $results['get_str'] .= '&hot='.$hot;
+        }
+        if (null !== $map_recomm) {
+            $results['get_str'] .= '&recomm='.$map_recomm;
+        }
+        if (null !== $map_smallbusiness) {
+            $results['get_str'] .= '&small_business='.$map_smallbusiness;
+        }
+        if (null !== $map_1stchoice) {
+            $results['get_str'] .= '&first_choice='.$map_1stchoice;
+        }
+
         $results['sql'] = $model->getLastSql();
 
         echo json_encode($results);

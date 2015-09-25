@@ -8,7 +8,7 @@
                     <div class="input-append">
 				      <input class="input-medium input-field" type="text" name="fip" placeholder="{$text_fip}">
                       <div class="btn-group">
-                        <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="popup_box($('.search_all'), $(this))">
+                        <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="(function(){$('.search_all input').removeAttr('checked');$('.Area input').removeAttr('checked');popup_box($('.search_all'), $(this))})();">
                           <span class="caret"></span>
                         </button>
                       </div>
@@ -283,7 +283,7 @@ function checkall(selector,refbox){
                     <div class="input-append">
 				      <input class="input-small input-area" type="text" name="area" placeholder="{$text_diqu}">
                       <div class="btn-group">
-                        <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="popup_box($('.Area'), $(this))">
+                        <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="(function(){$('.search_all input').removeAttr('checked');$('.Area input').removeAttr('checked');popup_box($('.Area'), $(this))})();">
                           <span class="caret"></span>
                         </button>
                       </div>

@@ -8,7 +8,7 @@
                     <div class="input-append">
 				      <input class="input-medium input-field" type="text" name="fip" placeholder="{$text_fip}">
                       <div class="btn-group">
-                        <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="(function(){$('.search_all input').removeAttr('checked');$('.Area input').removeAttr('checked');popup_box($('.search_all'), $(this))})();">
+                        <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="(function(){popup_box($('.search_all'), $(this))})();">
                           <span class="caret"></span>
                         </button>
                       </div>
@@ -152,6 +152,8 @@ function checkall(selector,refbox){
         </div>
         <div class="all_fields" style="border-bottom:1px dotted #99979c; padding-bottom: 5px; padding-top: 5px">
           <h1 class="element-tit" style="display:block;"><input type="checkbox" value="1" class="selectall" name="all_extra_18" onclick="checkall('.fields-u input',$(this))">{$text_renhehangye}</h1>
+          <div class="submit-buttons" style="float:right; margin:-10px; position: relative; left: -26px; top: -20px"><a href="javascript:(function(){$('.search_all input').removeAttr('checked');close_div();})();"><img src="{:SITE_PATH}Public/{$lang}/images/cancel.png" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_div();"><img src="{:SITE_PATH}Public/{$lang}/images/yes.png" /></a></a></div>
+          <div style="clear:both"></div>
         </div>
     </div>
 
@@ -283,7 +285,7 @@ function checkall(selector,refbox){
                     <div class="input-append">
 				      <input class="input-small input-area" type="text" name="area" placeholder="{$text_diqu}">
                       <div class="btn-group">
-                        <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="(function(){$('.search_all input').removeAttr('checked');$('.Area input').removeAttr('checked');popup_box($('.Area'), $(this))})();">
+                        <button class="btn dropdown-toggle" data-toggle="dropdown" onclick="(function(){popup_box($('.Area'), $(this))})();">
                           <span class="caret"></span>
                         </button>
                       </div>
@@ -348,6 +350,7 @@ function checkall(selector,refbox){
         </li>
       </ul>
     </li>
+        <div class="submit-buttons" style="position:absolute;left:806px;top:-2px;text-align:right; margin:10px;padding-top:5px"><a href="javascript:(function(){$('.Area input').removeAttr('checked');close_div();})();"><img src="{:SITE_PATH}Public/{$lang}/images/cancel.png" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_div();"><img src="{:SITE_PATH}Public/{$lang}/images/yes.png" /></a></a></div>
       </ul>
   <div class="clearboth"></div>
   <div class="submit-buttons" style="text-align:right; margin:10px; border-top:1px dotted #99979c;padding-top:5px"><a href="javascript:(function(){$('.Area input').removeAttr('checked');close_div();})();"><img src="{:SITE_PATH}Public/{$lang}/images/cancel.png" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_div();"><img src="{:SITE_PATH}Public/{$lang}/images/yes.png" /></a></a></div>

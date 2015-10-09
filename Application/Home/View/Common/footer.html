@@ -59,8 +59,48 @@
     </div>
   </div>
 </div>
+<style>
+#banner_popup{display:none;border:1px solid #99979c;position:fixed;z-index:9999;top:50%;left:50%;margin-left:-250px;margin-top:-180px;width:500px;}
+#banner_popup .popup_wraper{position:relative;}
+#banner_popup .close{
+    background: #8d8d8d none repeat scroll 0 0;
+    color: #fcfcfc;
+    cursor: pointer;
+    font-family: "微軟正黑體","Trebuchet MS",Arial,Helvetica,sans-serif,Verdana,"新細明體";
+    font-size: 12px;
+    height: 18px;
+    line-height: 18px;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    width: 18px;
+	position:absolute;
+	z-index:9;
+	right:5px;
+	top:5px;
+}
+.slide-right li{cursor:pointer;}
+</style>
+<div id="banner_popup">
+    <div class="popup_wraper">
+	    <a href="javascript:void(0);" class="close">X</a>
+		<div class="img"></div>
+	</div>
+</div>
 <script type="text/javascript" src="{:SITE_PATH}Public/{$lang}/js/scrolltopcontrol.js"></script>
 <script>
+jQuery(function(){
+  jQuery(".slide-right li").each(function(){
+     jQuery(this).click(function(){
+	    var pic=jQuery(this).find('img').attr('src');
+		jQuery("#banner_popup .img").html('<img width="100%" src='+pic+' />');
+		jQuery("#banner_popup").show();
+	 });
+  });
+  jQuery("#banner_popup .close").click(function(){
+    jQuery("#banner_popup").fadeOut();
+  });
+});
 function update_query(){
   var arr=document.cookie.split('; ');
   var c=0;
@@ -104,148 +144,157 @@ function query_click(i,id,title,all){
 }
 
 function ajax_search_op_home(data,init){
-data=eval('('+data+')');
+			data=eval('('+data+')');
 
-if(true!==init){
-  var mhtml='<div class="productTitle"><h1>{$text_xianzhengchurangyewu}</h1><div class="clearboth"></div></div>';
-  mhtml+='<div class="wIndex04 b_aeaeae pr"><h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex04_title.png" /></h1><h2 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h2><h3 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h3><div class="page"><ul class="page-u"></ul></div><table width="95%" border="0" cellspacing="0" cellpadding="0" id="project-table"></table><div class="page"><ul class="page-u"></ul></div><div class="clearboth"></div></div>';
-  mhtml+='<script>';
-  mhtml+='function h1p_resize(){';
-  mhtml+='  if(1080<$(window).width()){';
-<if condition="$lang eq 'en'">
-  mhtml+="    $('#h1-p').css('left',(445-$(window).width()/2)+'px');";
-<else/>
-  mhtml+="    $('#h1-p').css('left',(145-$(window).width()/2)+'px');";
-</if>
-  mhtml+="  }";
-  mhtml+="  else{";
-<if condition="$lang eq 'en'">
-  mhtml+="    $('#h1-p').css('left',(987-$(window).width())+'px');";
-<else/>
-  mhtml+="    $('#h1-p').css('left',(687-$(window).width())+'px');";
-</if>
-  mhtml+="  }";
-  mhtml+="}";
-  mhtml+="$(function(){";
-  mhtml+="  $('#h1-p').css('float','right');";
-  mhtml+="  $('#h1-p').css('position','relative');";
-  mhtml+="  $('#h1-p').css('top','20px');";
-<if condition="$lang eq 'en'">
-  mhtml+="  $('#h1-p').css('font-size','14px');";
-  mhtml+="  $('#h1-p').css('top','22px');";
-</if>
-  mhtml+="  h1p_resize();";
-  mhtml+="  $(window).resize(function(){";
-  mhtml+="    h1p_resize();";
-  mhtml+="  });";
-  mhtml+="});";
-  mhtml+='<'+'/script>';
-  $('#wrapIndex').html(mhtml);
+			if(true!==init){
+			  var mhtml='<div class="productTitle"><h1>{$text_xianzhengchurangyewu}</h1><div class="clearboth"></div></div>';
+			  mhtml+='<div class="wIndex04 b_aeaeae pr"><h1 class="pr"><img src="{:SITE_PATH}Public/{$lang}/images/wIndex04_title.png" /></h1><h2 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h2><h3 class="pa"><a href="index.php?c=Index&a=query&lang=<?PHP echo $lang; ?>"><img src="{:SITE_PATH}Public/{$lang}/images/searchicon.png" /></a></h3><div class="page"><ul class="page-u"></ul></div><table width="95%" border="0" cellspacing="0" cellpadding="0" id="project-table"></table><div class="page"><ul class="page-u"></ul></div><div class="clearboth"></div></div>';
+			  mhtml+='<script>';
+			  mhtml+='function h1p_resize(){';
+			  mhtml+='  if(1080<$(window).width()){';
+			<if condition="$lang eq 'en'">
+			  mhtml+="    $('#h1-p').css('left',(445-$(window).width()/2)+'px');";
+			<else/>
+			  mhtml+="    $('#h1-p').css('left',(145-$(window).width()/2)+'px');";
+			</if>
+			  mhtml+="  }";
+			  mhtml+="  else{";
+			<if condition="$lang eq 'en'">
+			  mhtml+="    $('#h1-p').css('left',(987-$(window).width())+'px');";
+			<else/>
+			  mhtml+="    $('#h1-p').css('left',(687-$(window).width())+'px');";
+			</if>
+			  mhtml+="  }";
+			  mhtml+="}";
+			  mhtml+="$(function(){";
+			  mhtml+="  $('#h1-p').css('float','right');";
+			  mhtml+="  $('#h1-p').css('position','relative');";
+			  mhtml+="  $('#h1-p').css('top','20px');";
+			<if condition="$lang eq 'en'">
+			  mhtml+="  $('#h1-p').css('font-size','14px');";
+			  mhtml+="  $('#h1-p').css('top','22px');";
+			</if>
+			  mhtml+="  h1p_resize();";
+			  mhtml+="  $(window).resize(function(){";
+			  mhtml+="    h1p_resize();";
+			  mhtml+="  });";
+			  mhtml+="});";
+			  mhtml+='<'+'/script>';
+			  $('#wrapIndex').html(mhtml);
+			}
+
+			$('#project-table').html('');
+
+			var ths=["{$text_daihaomingcheng}","{$text_churangxiangmu}","{$text_cankaolirun}","{$text_baokuocunhuo}","{$text_huibenqi}","{$text_dingjia}","{$text_gongkuan}","{$text_mianji}","{$text_zujin}","{$text_canyuchengdu}","{$text_xiangmuqingkuang}"];
+			var thfs=['codename','title','profit','store','recovery_period','price','allowance','square','rent','c_participation','c_situation'];
+			var th_html='<tr>';
+			var i;
+			for(i=0;i<ths.length;++i){
+			  th_html+='<th scope="col">'+ths[i]+'<a href="javascript:ajax_submit_home(null,'+"'"+thfs[i]+"','img-"+thfs[i]+"',null,null,null,null,'"+data['get_str']+"')"+'"><img src="Public/{$lang}/images/arrow_bottom.png" id="img-'+thfs[i]+'" /></a></th>';
+			}
+			th_html+='<th scope="col"><!--a id="query-click-all-a" href="'+"javascript:(function(){var img=$('.query-img');if(!$('#query-img-all').hasClass('query-selected')){img.attr('src','Public/<?PHP echo $lang; ?>/images/selectok.png').addClass('query-selected');}else{img.attr('src','Public/<?PHP echo $lang; ?>/images/select.png').removeClass('query-selected');}update_query();})();"+'"><img class="query-img" id="query-img-all" src="Public/<?PHP echo $lang; ?>/images/select.png" width="24" height="24" /></a--></th></tr>';
+			$('#project-table').append(th_html);
+
+			for(i=0;i<data['data'].length;++i){
+			  var onclick_html='onclick="window.location.href='+"'{:U('Project/project_detail',array('lang'=>$lang))}&id="+data['data'][i]['id']+"'"+'"';
+			  var html='<tr style="cursor:pointer">';
+			  if(i%2==1){
+				var tdclass='class="bg_ebebeb"';
+			  }
+			  else{
+				var tdclass='';
+			  }
+			  if('on'==data['data'][i]['estate_recomm']){
+				html+='<td '+onclick_html+' '+tdclass+'><div style="position:relative;top:3px;display:inline-block">'+data['data'][i]['codename_<?PHP echo $lang; ?>']+'</div><img src="Public/{$lang}/images/estate_recomm.png" class="floatright" /></td>';
+			  }
+			  else{
+				html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['codename_<?PHP echo $lang; ?>']+'</td>';
+			  }
+			  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['title_<?PHP echo $lang; ?>']+'</td>';
+			  if(1==data['data'][i]['profit_option']){
+				html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['profit']+'</td>';
+			  }
+			  else{
+				html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['profit_text_<?PHP echo $lang; ?>']+'</td>';
+			  }
+			  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['store_<?PHP echo $lang; ?>']+'</td>';
+			  if(0==data['data'][i]['recovery_period']){
+				html+='<td '+onclick_html+' '+tdclass+'>-</td>';
+			  }
+			  else{
+				html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['recovery_period']+'{$text_month}</td>';
+			  }
+			  html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['price']+'</td>';
+			  html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['allowance']+'</td>';
+			  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['square']+'</td>';
+			  html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['rent']+'</td>';
+			  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['participation']+'</td>';
+			  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['situation']+'</td>';
+			  html+='<td '+tdclass+'><a href="'+"javascript:query_click("+i+","+data['data'][i]['id']+",'"+data['data'][i]['title_<?PHP echo $lang; ?>']+"',false);"+'"><img class="query-img" id="query-img-'+i+'" src="Public/{$lang}/images/select.png" width="24" height="24" /></a></td>';
+			  $('#query-click-all-a').attr('href', $('#query-click-all-a').attr('href')+"query_click("+i+","+data['data'][i]['id']+",'"+data['data'][i]['title_<?PHP echo $lang; ?>']+"',true);");
+			  html+='</tr>';
+			  $('#project-table').append(html);
+			}
+
+			$('.page-u').html('');
+			for(i=0;i<data['numpages'];++i){
+			  var pagei=i+1;
+			  if(pagei==data['p']){
+				$('.page-u').append('<li><a href="javascript:void(0)" class="page-index currentPage">'+pagei+'</a></li>');
+			  }
+			  else{
+				$('.page-u').append('<li><a href="javascript:void(0)" class="page-index">'+pagei+'</a></li>');
+			  }
+			}
+			$('.page-u').append('<li><a href="javascript:void(0)" class="arrow-right-a"><img src="Public/{$lang}/images/arrow_right.png" /></a></li>');
+
+			$('.page-index').each(function(){
+			  var page=parseInt($(this).text());
+			  var urlstr="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page+"&lang={$lang}";
+			  urlstr+=data['get_str'];
+			  if(!$(this).hasClass('currentPage')){
+				$(this).click(function(){
+				  $('#search-form').ajaxSubmit({
+					url:urlstr,
+					success:function(data){
+					  ajax_search_op_home(data,false);
+					},
+					error:function(xhr){
+					  alert('{$text_chaxunshibai}');
+					}
+				  });
+				});
+			  }
+			});
+			if(data['p']<data['numpages']){
+			  $('.arrow-right-a').click(function(){
+				var page=parseInt(data['p'])+1;
+				var urlstr="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page+"&lang={$lang}";
+				urlstr+=data['get_str'];
+				$('#search-form').ajaxSubmit({
+				  url:urlstr,
+				  success:function(data){
+					ajax_search_op_home(data,false);
+				  },
+				  error:function(xhr){
+					alert('{$text_chaxunshibai}');
+				  }
+				});
+			  });
+			}
+			
+	$('.input-field').val('');
+    $('.input-area').val('');
+    $('.search_all input[type="checkbox"]').removeAttr("checked");
+    $('.Area input[type="checkbox"]').removeAttr("checked");
+    
 }
 
-$('#project-table').html('');
-
-var ths=["{$text_daihaomingcheng}","{$text_churangxiangmu}","{$text_cankaolirun}","{$text_baokuocunhuo}","{$text_huibenqi}","{$text_dingjia}","{$text_gongkuan}","{$text_mianji}","{$text_zujin}","{$text_canyuchengdu}","{$text_xiangmuqingkuang}"];
-var thfs=['codename','title','profit','store','recovery_period','price','allowance','square','rent','c_participation','c_situation'];
-var th_html='<tr>';
-var i;
-for(i=0;i<ths.length;++i){
-  th_html+='<th scope="col">'+ths[i]+'<a href="javascript:ajax_submit_home(null,'+"'"+thfs[i]+"','img-"+thfs[i]+"')"+'"><img src="Public/{$lang}/images/arrow_bottom.png" id="img-'+thfs[i]+'" /></a></th>';
-}
-th_html+='<th scope="col"><!--a id="query-click-all-a" href="'+"javascript:(function(){var img=$('.query-img');if(!$('#query-img-all').hasClass('query-selected')){img.attr('src','Public/<?PHP echo $lang; ?>/images/selectok.png').addClass('query-selected');}else{img.attr('src','Public/<?PHP echo $lang; ?>/images/select.png').removeClass('query-selected');}update_query();})();"+'"><img class="query-img" id="query-img-all" src="Public/<?PHP echo $lang; ?>/images/select.png" width="24" height="24" /></a--></th></tr>';
-$('#project-table').append(th_html);
-
-for(i=0;i<data['data'].length;++i){
-  var onclick_html='onclick="window.location.href='+"'{:U('Project/project_detail',array('lang'=>$lang))}&id="+data['data'][i]['id']+"'"+'"';
-  var html='<tr style="cursor:pointer">';
-  if(i%2==1){
-    var tdclass='class="bg_ebebeb"';
-  }
-  else{
-    var tdclass='';
-  }
-  if('on'==data['data'][i]['estate_recomm']){
-    html+='<td '+onclick_html+' '+tdclass+'><div style="position:relative;top:3px;display:inline-block">'+data['data'][i]['codename_<?PHP echo $lang; ?>']+'</div><img src="Public/{$lang}/images/estate_recomm.png" class="floatright" /></td>';
-  }
-  else{
-    html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['codename_<?PHP echo $lang; ?>']+'</td>';
-  }
-  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['title_<?PHP echo $lang; ?>']+'</td>';
-  if(1==data['data'][i]['profit_option']){
-    html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['profit']+'</td>';
-  }
-  else{
-    html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['profit_text_<?PHP echo $lang; ?>']+'</td>';
-  }
-  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['store_<?PHP echo $lang; ?>']+'</td>';
-  if(0==data['data'][i]['recovery_period']){
-    html+='<td '+onclick_html+' '+tdclass+'>-</td>';
-  }
-  else{
-    html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['recovery_period']+'{$text_month}</td>';
-  }
-  html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['price']+'</td>';
-  html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['allowance']+'</td>';
-  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['square']+'</td>';
-  html+='<td '+onclick_html+' '+tdclass+'>$'+data['data'][i]['rent']+'</td>';
-  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['participation']+'</td>';
-  html+='<td '+onclick_html+' '+tdclass+'>'+data['data'][i]['situation']+'</td>';
-  html+='<td '+tdclass+'><a href="'+"javascript:query_click("+i+","+data['data'][i]['id']+",'"+data['data'][i]['title_<?PHP echo $lang; ?>']+"',false);"+'"><img class="query-img" id="query-img-'+i+'" src="Public/{$lang}/images/select.png" width="24" height="24" /></a></td>';
-  $('#query-click-all-a').attr('href', $('#query-click-all-a').attr('href')+"query_click("+i+","+data['data'][i]['id']+",'"+data['data'][i]['title_<?PHP echo $lang; ?>']+"',true);");
-  html+='</tr>';
-  $('#project-table').append(html);
-}
-
-$('.page-u').html('');
-for(i=0;i<data['numpages'];++i){
-  var pagei=i+1;
-  if(pagei==data['p']){
-    $('.page-u').append('<li><a href="javascript:void(0)" class="page-index currentPage">'+pagei+'</a></li>');
-  }
-  else{
-    $('.page-u').append('<li><a href="javascript:void(0)" class="page-index">'+pagei+'</a></li>');
-  }
-}
-$('.page-u').append('<li><a href="javascript:void(0)" class="arrow-right-a"><img src="Public/{$lang}/images/arrow_right.png" /></a></li>');
-
-$('.page-index').each(function(){
-  var page=parseInt($(this).text());
-  var urlstr="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page+"&lang={$lang}";
-  urlstr+=data['get_str'];
-  if(!$(this).hasClass('currentPage')){
-    $(this).click(function(){
-      $('#search-form').ajaxSubmit({
-        url:urlstr,
-        success:function(data){
-          ajax_search_op_home(data,false);
-        },
-        error:function(xhr){
-          alert('{$text_chaxunshibai}');
-        }
-      });
-    });
-  }
-});
-if(data['p']<data['numpages']){
-  $('.arrow-right-a').click(function(){
-    var page=parseInt(data['p'])+1;
-    var urlstr="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&p="+page+"&lang={$lang}";
-    urlstr+=data['get_str'];
-    $('#search-form').ajaxSubmit({
-      url:urlstr,
-      success:function(data){
-        ajax_search_op_home(data,false);
-      },
-      error:function(xhr){
-        alert('{$text_chaxunshibai}');
-      }
-    });
-  });
-}
-}
-
-function ajax_submit_home(p,o,spanid,init,cate,hot,opt){
+function ajax_submit_home(p,o,spanid,init,cate,hot,opt,para){
   var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project&nr=18&visible=1&cate="+cate+"&hot="+hot+"&lang={$lang}";
+  if(null!=para){
+    _url+=para;
+  }
   if(1==opt){
     _url+='&recomm=1';
   }

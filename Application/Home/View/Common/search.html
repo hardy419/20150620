@@ -152,7 +152,7 @@ function checkall(selector,refbox){
         </div>
         <div class="all_fields" style="border-bottom:1px dotted #99979c; padding-bottom: 5px; padding-top: 5px">
           <h1 class="element-tit" style="display:block;"><input type="checkbox" value="1" class="selectall" name="all_extra_18" onclick="checkall('.fields-u input',$(this))">{$text_renhehangye}</h1>
-          <div class="submit-buttons" style="float:right; margin:-10px; position: relative; left: -26px; top: -20px"><a href="javascript:(function(){$('.search_all input').removeAttr('checked');close_div();})();"><img src="{:SITE_PATH}Public/{$lang}/images/cancel.png" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_div();"><img src="{:SITE_PATH}Public/{$lang}/images/yes.png" /></a></a></div>
+          <div class="submit-buttons" style="float:right; margin:0px 10px"><a href="javascript:(function(){$('.search_all input').removeAttr('checked');close_div();})();"><img src="{:SITE_PATH}Public/{$lang}/images/cancel.png" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_div();"><img src="{:SITE_PATH}Public/{$lang}/images/yes.png" /></a></a></div>
           <div style="clear:both"></div>
         </div>
     </div>
@@ -350,7 +350,7 @@ function checkall(selector,refbox){
         </li>
       </ul>
     </li>
-        <div class="submit-buttons" style="position:absolute;left:806px;top:-2px;text-align:right; margin:10px;padding-top:5px"><a href="javascript:(function(){$('.Area input').removeAttr('checked');close_div();})();"><img src="{:SITE_PATH}Public/{$lang}/images/cancel.png" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_div();"><img src="{:SITE_PATH}Public/{$lang}/images/yes.png" /></a></a></div>
+        <div class="submit-buttons" style="position:absolute;left:780px;top:0px;text-align:right; margin:1px 10px;"><a href="javascript:(function(){$('.Area input').removeAttr('checked');close_div();})();"><img src="{:SITE_PATH}Public/{$lang}/images/cancel.png" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_div();"><img src="{:SITE_PATH}Public/{$lang}/images/yes.png" /></a></a></div>
       </ul>
   <div class="clearboth"></div>
   <div class="submit-buttons" style="text-align:right; margin:10px; border-top:1px dotted #99979c;padding-top:5px"><a href="javascript:(function(){$('.Area input').removeAttr('checked');close_div();})();"><img src="{:SITE_PATH}Public/{$lang}/images/cancel.png" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:close_div();"><img src="{:SITE_PATH}Public/{$lang}/images/yes.png" /></a></a></div>
@@ -388,101 +388,99 @@ function popup_box(popdiv,btn){
 }
 
 function ajax_search_op(data){
-data=eval('('+data+')');
-$('#project-table').html('');
-var i;
-for(i=0;i<data['data'].length;++i){
-  var html='<tr>';
-  html+='<td>'+data['data'][i]['title_<?PHP echo $lang; ?>']+'</td>';
-  html+='<td>'+data['data'][i]['field']+'</td>';
-  html+='<td>'+data['data'][i]['codename_<?PHP echo $lang; ?>']+'</td>';
-  if(1==data['data'][i]['profit_option']){
-    html+='<td>$'+data['data'][i]['profit']+'</td>';
-  }
-  else{
-    html+='<td>'+data['data'][i]['profit_text_<?PHP echo $lang; ?>']+'</td>';
-  }
-  html+='<td>$'+data['data'][i]['price']+'</td>';
-  html+='<td style="text-align:center">'+data['data'][i]['recovery_period']+'月</td>';
-  html+='<td style="text-align:center">'+data['data'][i]['situation']+'</td>';
-  html+='<td>位置：'+data['data'][i]['position']+'</td>';
-  html+='<td><input style="position:relative;left:4px" type="checkbox" class="status-checkbox" name="status_group[]"';
-  if('on'==data['data'][i]['visible']){
-    html+=' checked></td>';
-  }
-  else{
-    html+='></td>';
-  }
-  html+='<td><a href="admin.php?m=Admin&c=List&a=edit&id='+data['data'][i]['id']+'&type=project">編輯</a>&nbsp;｜&nbsp;<a href="javascript:void(0);" onclick="del('+"'admin.php?m=Admin&c=List&a=del&id="+data['data'][i]['id']+"&type=project');"+'">刪除</a></td>';
-  $('#project-table').append(html);
-}
-if(data['p']>1){
-  $('.pagination>ul>ul').html('<li class="prev-li"><a href="#">«</a></li>');
-}
-else{
-  $('.pagination>ul>ul').html('<li class="disabled prev-li"><a href="#">«</a></li>');
-}
-for(i=1;i<=data['numpages'];++i){
-  if(data['p']==i){
-    $('.pagination>ul>ul').append('<li class="active page-li"><a href="#">'+i+'</a></li>');
-  }
-  else{
-    $('.pagination>ul>ul').append('<li class="page-li"><a href="#">'+i+'</a></li>');
-  }
-}
-if(data['p']<data['numpages']){
-  $('.pagination>ul>ul').append('<li class="next-li"><a href="#">»</a></li>');
-}
-else{
-  $('.pagination>ul>ul').append('<li class="disabled next-li"><a href="#">»</a></li>');
-}
-$('.page-li').each(function(index){
-  index++;
-  if(data['p']!=index){
-    $(this).click(function(){
-      $('#search-form').ajaxSubmit({
-        url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+index+"&lang={$lang}",
-        success:function(data){
-          ajax_search_op(data);
-        },
-        error:function(xhr){
-          alert('查詢失敗，請重試');
-        }
-      });
-    });
-  }
-});
-if(data['p']>1){
-  $('.prev-li').click(function(){
-    var page=parseInt(data['p'])-1;
-    $('#search-form').ajaxSubmit({
-      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+page+"&lang={$lang}",
-      success:function(data){
-        ajax_search_op(data);
-      },
-      error:function(xhr){
-        alert('查詢失敗，請重試');
-      }
-    });
-  });
-}
-if(data['p']<data['numpages']){
-  $('.next-li').click(function(){
-    var page=parseInt(data['p'])+1;
-    $('#search-form').ajaxSubmit({
-      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+page+"&lang={$lang}",
-      success:function(data){
-        ajax_search_op(data);
-      },
-      error:function(xhr){
-        alert('查詢失敗，請重試');
-      }
-    });
-  });
-}
+	
+	data=eval('('+data+')');
+	$('#project-table').html('');
+	var i;
+	for(i=0;i<data['data'].length;++i){
+		  var html='<tr>';
+		  html+='<td>'+data['data'][i]['title_<?PHP echo $lang; ?>']+'</td>';
+		  html+='<td>'+data['data'][i]['field']+'</td>';
+		  html+='<td>'+data['data'][i]['codename_<?PHP echo $lang; ?>']+'</td>';
+		  if(1==data['data'][i]['profit_option']){
+		    html+='<td>$'+data['data'][i]['profit']+'</td>';
+		  }else{
+		    html+='<td>'+data['data'][i]['profit_text_<?PHP echo $lang; ?>']+'</td>';
+		  }
+		  html+='<td>$'+data['data'][i]['price']+'</td>';
+		  html+='<td style="text-align:center">'+data['data'][i]['recovery_period']+'月</td>';
+		  html+='<td style="text-align:center">'+data['data'][i]['situation']+'</td>';
+		  html+='<td>位置：'+data['data'][i]['position']+'</td>';
+		  html+='<td><input style="position:relative;left:4px" type="checkbox" class="status-checkbox" name="status_group[]"';
+		  if('on'==data['data'][i]['visible']){
+		    html+=' checked></td>';
+		  }else{
+		    html+='></td>';
+		  }
+		  html+='<td><a href="admin.php?m=Admin&c=List&a=edit&id='+data['data'][i]['id']+'&type=project">編輯</a>&nbsp;｜&nbsp;<a href="javascript:void(0);" onclick="del('+"'admin.php?m=Admin&c=List&a=del&id="+data['data'][i]['id']+"&type=project');"+'">刪除</a></td>';
+		  $('#project-table').append(html);
+	}
+	if(data['p']>1){
+	  $('.pagination>ul>ul').html('<li class="prev-li"><a href="#">«</a></li>');
+	}else{
+	  $('.pagination>ul>ul').html('<li class="disabled prev-li"><a href="#">«</a></li>');
+	}
+	for(i=1;i<=data['numpages'];++i){
+	  if(data['p']==i){
+	    $('.pagination>ul>ul').append('<li class="active page-li"><a href="#">'+i+'</a></li>');
+	  }else{
+	    $('.pagination>ul>ul').append('<li class="page-li"><a href="#">'+i+'</a></li>');
+	  }
+	}
+	if(data['p']<data['numpages']){
+	  $('.pagination>ul>ul').append('<li class="next-li"><a href="#">»</a></li>');
+	}else{
+	  $('.pagination>ul>ul').append('<li class="disabled next-li"><a href="#">»</a></li>');
+	}
+	$('.page-li').each(function(index){
+	  index++;
+	  if(data['p']!=index){
+	    $(this).click(function(){
+	      $('#search-form').ajaxSubmit({
+	        url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+index+"&lang={$lang}",
+	        success:function(data){
+	          ajax_search_op(data);
+	        },
+	        error:function(xhr){
+	          alert('查詢失敗，請重試');
+	        }
+	      });
+	    });
+	  }
+	});
+		if(data['p']>1){
+		  $('.prev-li').click(function(){
+		    var page=parseInt(data['p'])-1;
+		    $('#search-form').ajaxSubmit({
+		      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+page+"&lang={$lang}",
+		      success:function(data){
+		        ajax_search_op(data);
+		      },
+		      error:function(xhr){
+		        alert('查詢失敗，請重試');
+		      }
+		    });
+		  });
+		}
+		if(data['p']<data['numpages']){
+		  $('.next-li').click(function(){
+		    var page=parseInt(data['p'])+1;
+		    $('#search-form').ajaxSubmit({
+		      url:"index.php?m=Home&c=Index&a=AjaxSearch&type=project&p="+page+"&lang={$lang}",
+		      success:function(data){
+		        ajax_search_op(data);
+		      },
+		      error:function(xhr){
+		        alert('查詢失敗，請重試');
+		      }
+		    });
+		  });
+		}
+		
 }
 
 function ajax_submit(p,o,spanid){
+  
   var _url="index.php?m=Home&c=Index&a=AjaxSearch&type=project&lang={$lang}";
   if(null!==p){
     $('#curpage').val(p);
